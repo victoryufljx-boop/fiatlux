@@ -34,6 +34,8 @@ class Candidate:
 class HostProps:
     gap_pbe_eV: Optional[float] = None
     gap_gllbsc_eV: Optional[float] = None
+    gap_eV: Optional[float] = None              # from the primary method (default GLLB-SC)
+    gap_method: Optional[str] = None
     uv_edge_nm: Optional[float] = None
     eps_inf: Optional[float] = None
     n_inf: Optional[float] = None

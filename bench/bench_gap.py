@@ -15,11 +15,13 @@ def struct(m):
 
 KP = {"LiF": (6,6,6), "MgO": (6,6,6), "CaF2": (6,6,6), "Al2O3": (4,4,4), "SiO2-alpha-quartz": (4,4,4)}
 ECUT = float(os.environ.get("ECUT", 400))
+if os.environ.get("KMESH"): KP = {k: tuple(int(x) for x in os.environ["KMESH"].split(",")) for k in KP}
 mat, meth = sys.argv[1], sys.argv[2]
 atoms = struct(mat)
 kp = {"size": KP[mat], "gamma": True}
 out = dict(mat=mat, method=meth, ecut=ECUT, kpts=KP[mat], natoms=len(atoms))
-txt = f"/home/claude/work/gap/bench/{mat}_{meth}.txt"
+tag = "" if not (os.environ.get("ECUT") or os.environ.get("KMESH")) else f"_e{int(ECUT)}_k{KP[mat][0]}"
+txt = f"{os.path.dirname(os.path.abspath(__file__))}/{mat}_{meth}{tag}.txt"
 t0 = time.time()
 if meth in ("PBE", "HSE06"):
     calc = GPAW(mode=PW(ECUT), xc="PBE", kpts=kp, occupations=FermiDirac(0.01),
@@ -52,12 +54,14 @@ elif meth == "GLLBSC":
     out.update(gap_ks=float(ks_gap), dxc=float(dxc), gap_gllbsc=float(ks_gap + dxc))
 elif meth == "TB09":
     calc = GPAW(mode=PW(ECUT), xc={"name": "TB09", "stencil": 1}, kpts=kp,
-                occupations=FermiDirac(0.01), mixer=Mixer(0.5, 5, 50.0), nbands=-8,
+                occupations=FermiDirac(0.01), mixer=Mixer(float(os.environ.get("MIXBETA", 0.5)), 5, 50.0), nbands=-8,
                 convergence={"bands": "occupied"}, txt=txt)
     atoms.calc = calc; atoms.get_potential_energy()
     h, l = calc.get_homo_lumo(); out["gap_tb09"] = float(l - h)
     try: out["c_tb09"] = float(calc.hamiltonian.xc.c)
     except Exception: pass
 out["t_total"] = time.time() - t0
-print(json.dumps(out))
-with open("/home/claude/work/gap/bench/results.jsonl", "a") as f: f.write(json.dumps(out) + "\n")
+from gpaw.mpi import world
+if world.rank == 0:
+  print(json.dumps(out))
+  with open(f"{os.path.dirname(os.path.abspath(__file__))}/results.jsonl", "a") as f: f.write(json.dumps(out) + "\n")

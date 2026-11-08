@@ -1,4 +1,4 @@
-"""Electronic band gap (PBE, GLLB-SC) and optical dielectric constant (RPA).
+"""Electronic band gap (GLLB-SC default; PBE, TB09, HSE06 selectable) and optical dielectric constant (RPA).
 
 API checked against the installed GPAW 26.7.0 source and the GPAW tutorial
 "Calculating band gap using the GLLB-sc functional"
@@ -44,23 +44,43 @@ def _kmesh(atoms, kdens):
     return tuple(k)
 
 
+GAP_METHODS = ("gllbsc", "pbe", "tb09", "hse06")
+DEFAULT_GAP_METHOD = "gllbsc"
+
+
 def compute_gap(atoms, ecut: float = 450.0, kpts=None, kdens: float = 3.0,
-                do_pbe: bool = True, do_gllbsc: bool = True,
+                method: str | tuple | list = DEFAULT_GAP_METHOD,
+                do_pbe: bool | None = None, do_gllbsc: bool | None = None,
                 band_edges: str = "mesh", txt: str | None = None,
                 parallel: dict | None = None, nbands_extra: int = 8) -> dict:
-    """PBE and GLLB-SC band gaps with GPAW plane waves.
+    """Band gap with GPAW plane waves.
 
-    Parameters
-    ----------
-    atoms      : ase.Atoms (primitive cell)
-    ecut       : plane-wave cutoff, eV
-    kpts       : tuple mesh (Gamma-centred) or None -> from kdens
-    band_edges : "mesh" (gap on the SCF mesh, cheap) or "path" (non-SCF band
-                 structure along the high-symmetry path, more accurate)
-    Returns dict with gap_pbe_eV, gap_gllbsc_eV, gap_gllbsc_KS_eV, dxc_eV, ...
+    method : "gllbsc" (default; best accuracy per cost for wide-gap fluorides
+             and oxides, see BAKEOFF_GAPS.md), "pbe", "tb09" (TB-mBJ, ~5-10x
+             the cost, underestimates by 1-2 eV with GPAW PAW setups),
+             "hse06" (non-self-consistent HSE06@PBE at the band-edge k-points;
+             underestimates wide gaps by 1-3 eV).  A list runs several.
+             PBE is always run alongside (it is cheap and gives the scissor for
+             eps_inf) unless do_pbe=False.
+    do_pbe / do_gllbsc : legacy switches (override `method` if given).
+    band_edges : "mesh" (gap on the SCF mesh) or "path" (non-SCF band
+                 structure along the high-symmetry path; PBE and GLLB-SC only).
+    Returns dict with gap_eV (from the primary method), gap_method,
+    gap_pbe_eV, gap_gllbsc_eV, gap_gllbsc_KS_eV, dxc_eV, gap_tb09_eV,
+    gap_hse06_eV, timings ...
     """
     from gpaw import GPAW, PW, FermiDirac
-    out = dict(ecut=ecut, band_edges=band_edges)
+    methods = [method] if isinstance(method, str) else list(method)
+    methods = [m.lower().replace("-", "").replace("_", "") for m in methods]
+    if do_gllbsc is not None:
+        methods = [m for m in methods if m != "gllbsc"] + (["gllbsc"] if do_gllbsc else [])
+    for m_ in methods:
+        if m_ not in GAP_METHODS:
+            raise ValueError(f"unknown gap method {m_!r}; choose from {GAP_METHODS}")
+    if do_pbe is None:
+        do_pbe = True
+    primary = methods[0] if methods else "pbe"
+    out = dict(ecut=ecut, band_edges=band_edges, gap_method=primary)
     if kpts is None:
         kpts = _kmesh(atoms, kdens)
     out["kpts"] = list(kpts)
@@ -70,19 +90,21 @@ def compute_gap(atoms, ecut: float = 450.0, kpts=None, kdens: float = 3.0,
     if parallel:
         common["parallel"] = parallel
 
-    if do_pbe:
+    pbe_calc = None
+    if do_pbe or "pbe" in methods or "hse06" in methods:
         t0 = time.time()
         a = atoms.copy()
         calc = GPAW(xc="PBE", **common)
         a.calc = calc
         a.get_potential_energy()
+        pbe_calc = calc
         if band_edges == "path":
             calc = _path_calc(calc, a)
         homo, lumo = calc.get_homo_lumo()
         out["gap_pbe_eV"] = float(lumo - homo)
         out["t_pbe_s"] = round(time.time() - t0, 1)
 
-    if do_gllbsc:
+    if "gllbsc" in methods:
         t0 = time.time()
         a = atoms.copy()
         calc = GPAW(xc="GLLBSC", **common)
@@ -102,7 +124,43 @@ def compute_gap(atoms, ecut: float = 450.0, kpts=None, kdens: float = 3.0,
         out["dxc_eV"] = float(dxc)
         out["gap_gllbsc_eV"] = float(ks + dxc)
         out["t_gllbsc_s"] = round(time.time() - t0, 1)
+
+    if "tb09" in methods:
+        from gpaw import Mixer
+        t0 = time.time()
+        a = atoms.copy()
+        c2 = dict(common)
+        calc = GPAW(xc={"name": "TB09", "stencil": 1}, mixer=Mixer(0.5, 5, 50.0),
+                    nbands=-nbands_extra, **c2)
+        a.calc = calc
+        a.get_potential_energy()
+        homo, lumo = calc.get_homo_lumo()
+        out["gap_tb09_eV"] = float(lumo - homo)
+        try:
+            out["tb09_c"] = float(calc.hamiltonian.xc.c)
+        except Exception:
+            pass
+        out["t_tb09_s"] = round(time.time() - t0, 1)
+
+    if "hse06" in methods:
+        t0 = time.time()
+        out["gap_hse06_eV"] = _hse06_nsc_gap(pbe_calc)
+        out["t_hse06_s"] = round(time.time() - t0, 1)
+
+    out["gap_eV"] = out.get(f"gap_{primary}_eV")
     return out
+
+
+def _hse06_nsc_gap(calc) -> float:
+    """Non-self-consistent HSE06@PBE gap at the PBE VBM/CBM k-points (+Gamma)."""
+    from gpaw.hybrids.eigenvalues import non_self_consistent_eigenvalues as nsc
+    nk = len(calc.get_ibz_k_points())
+    nv = int(round(calc.get_number_of_electrons())) // 2
+    e = np.array([calc.get_eigenvalues(kpt=k) for k in range(nk)])
+    ks = sorted({int(np.argmax(e[:, nv - 1])), int(np.argmin(e[:, nv])), 0})
+    edft, vdft, vhyb = nsc(calc, "HSE06", n1=nv - 1, n2=nv + 1, kpt_indices=ks)
+    eh = edft - vdft + vhyb
+    return float(eh[0, :, 1].min() - eh[0, :, 0].max())
 
 
 def _path_calc(calc, atoms, npoints: int = 60):

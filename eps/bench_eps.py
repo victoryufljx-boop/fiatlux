@@ -1,11 +1,12 @@
 """RPA eps_inf (LFE) with/without scissor. Usage: python bench_eps.py MAT KMESH NBFACTOR ECUTRESP SCISSOR1 [SCISSOR2 ...]"""
 import os, sys, time, json, warnings
 warnings.filterwarnings("ignore")
-sys.path.insert(0, "/home/claude/fiatlux")
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 import numpy as np
 from ase.build import bulk
 from gpaw import GPAW, PW, FermiDirac
 from gpaw.response.df import DielectricFunction
+from gpaw.mpi import world
 
 def struct(m):
     if m == "LiF": return bulk("LiF", "rocksalt", a=4.0263)
@@ -16,7 +17,7 @@ def struct(m):
 mat = sys.argv[1]; k = int(sys.argv[2]); nbf = float(sys.argv[3]); ecr = float(sys.argv[4])
 sciss = [float(x) for x in sys.argv[5:]]
 kmesh = (k, k, k) if mat not in ("Al2O3", "SiO2-alpha-quartz") else (k, k, k)
-d = "/home/claude/work/gap/eps"
+d = os.path.dirname(os.path.abspath(__file__))
 atoms = struct(mat)
 t0 = time.time()
 calc = GPAW(mode=PW(400), xc="PBE", kpts={"size": kmesh, "gamma": True},
@@ -26,6 +27,7 @@ nocc = int(round(calc.get_number_of_electrons())) // 2
 nb = int(nbf * nocc)
 calc = calc.fixed_density(nbands=nb + 8, convergence={"bands": nb}, txt=f"{d}/{mat}_nscf.txt")
 gpw = f"{d}/{mat}_k{k}.gpw"; calc.write(gpw, mode="all")
+world.barrier()
 tgs = time.time() - t0
 out = dict(mat=mat, kpts=list(kmesh), nbands=nb, nocc=nocc, ecut_resp=ecr, t_gs=tgs)
 dirs = ["x"] if mat in ("LiF", "MgO", "CaF2") else ["x", "z"]
@@ -38,7 +40,9 @@ for s in [0.0] + sciss:
         out[f"eps_nlf_s{s:.2f}_{dr}"] = float(np.real(e_nlf))
         out[f"eps_lf_s{s:.2f}_{dr}"] = float(np.real(e_lf))
         out[f"t_df_s{s:.2f}_{dr}"] = time.time() - t1
-        print(mat, s, dr, e_nlf, e_lf, flush=True)
+        if world.rank == 0: print(mat, s, dr, e_nlf, e_lf, flush=True)
 out["t_total"] = time.time() - t0
-print(json.dumps(out))
-with open(f"{d}/results_eps.jsonl", "a") as f: f.write(json.dumps(out) + "\n")
+from gpaw.mpi import world
+if world.rank == 0:
+  print(json.dumps(out))
+  with open(f"{d}/results_eps.jsonl", "a") as f: f.write(json.dumps(out) + "\n")
