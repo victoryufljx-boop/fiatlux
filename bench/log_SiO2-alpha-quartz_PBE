@@ -1,0 +1,1 @@
+{"mat": "SiO2-alpha-quartz", "method": "PBE", "ecut": 400.0, "kpts": [4, 4, 4], "natoms": 9, "gap_pbe": 5.865804665866678, "t_scf": 44.59316945075989, "t_total": 44.59317135810852}

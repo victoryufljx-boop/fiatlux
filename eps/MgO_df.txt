@@ -1,0 +1,163 @@
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+
+Sun Nov  8 15:02:26 2026
+Calculating chi0 body with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 512
+    Number of irreducible kpoints: 29
+    Number of completely occupied states: 8
+    Number of partially occupied states: 8
+    Occupied states memory: 0.3349609375 M / cpu
+
+    Linear response parametrization:
+    q_c: [0.0, 0.0, 0.0]
+    Number of frequency points: 1
+    Planewave cutoff: 60.0
+    Number of bands: 48
+    Number of planewaves: 15
+    Broadening (eta): 0.0001
+    comm.size: 1
+    kncomm.size: 1
+    blockcomm.size: 1
+
+    Memory estimate of potentially large arrays:
+        chi0_wGG: 0.0034332275390625 M / cpu
+        Memory usage before allocation: 227.77734375 M / cpu
+Integrating chi0 body.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 48
+    Indirect symmetries (TUq -> q): 0
+In total 48 allowed symmetries.
+
+  ( 1  0  0)  ( 1  0  0)  ( 1  0  0)  ( 1  0  0)  ( 1  0 -1)  ( 1  0 -1)
+  ( 1  0 -1)  ( 1 -1  0)  ( 0  1  0)  ( 0  0  1)  ( 1  0  0)  ( 1 -1  0)
+  ( 1 -1  0)  ( 1  0 -1)  ( 0  0  1)  ( 0  1  0)  ( 1 -1  0)  ( 1  0  0)
+
+  ( 1  0 -1)  ( 1  0 -1)  ( 1 -1  0)  ( 1 -1  0)  ( 1 -1  0)  ( 1 -1  0)
+  ( 0  1 -1)  ( 0  0 -1)  ( 1  0  0)  ( 1  0 -1)  ( 0 -1  1)  ( 0 -1  0)
+  ( 0  0 -1)  ( 0  1 -1)  ( 1  0 -1)  ( 1  0  0)  ( 0 -1  0)  ( 0 -1  1)
+
+  ( 0  1  0)  ( 0  1  0)  ( 0  1  0)  ( 0  1  0)  ( 0  1 -1)  ( 0  1 -1)
+  ( 1  0  0)  ( 0  1 -1)  ( 0  0  1)  (-1  1  0)  ( 1  0 -1)  ( 0  1  0)
+  ( 0  0  1)  (-1  1  0)  ( 1  0  0)  ( 0  1 -1)  ( 0  0 -1)  (-1  1  0)
+
+  ( 0  1 -1)  ( 0  1 -1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)
+  ( 0  0 -1)  (-1  1  0)  ( 1  0  0)  ( 0  1  0)  ( 0 -1  1)  (-1  0  1)
+  ( 1  0 -1)  ( 0  1  0)  ( 0  1  0)  ( 1  0  0)  (-1  0  1)  ( 0 -1  1)
+
+  ( 0  0 -1)  ( 0  0 -1)  ( 0  0 -1)  ( 0  0 -1)  ( 0 -1  1)  ( 0 -1  1)
+  ( 1  0 -1)  ( 0  1 -1)  ( 0 -1  0)  (-1  0  0)  ( 1 -1  0)  ( 0  0  1)
+  ( 0  1 -1)  ( 1  0 -1)  (-1  0  0)  ( 0 -1  0)  ( 0 -1  0)  (-1  0  1)
+
+  ( 0 -1  1)  ( 0 -1  1)  ( 0 -1  0)  ( 0 -1  0)  ( 0 -1  0)  ( 0 -1  0)
+  ( 0 -1  0)  (-1  0  1)  ( 1 -1  0)  ( 0  0 -1)  ( 0 -1  1)  (-1  0  0)
+  ( 1 -1  0)  ( 0  0  1)  ( 0 -1  1)  (-1  0  0)  ( 1 -1  0)  ( 0  0 -1)
+
+  (-1  1  0)  (-1  1  0)  (-1  1  0)  (-1  1  0)  (-1  0  1)  (-1  0  1)
+  ( 0  1  0)  ( 0  1 -1)  (-1  0  1)  (-1  0  0)  ( 0  0  1)  ( 0 -1  1)
+  ( 0  1 -1)  ( 0  1  0)  (-1  0  0)  (-1  0  1)  ( 0 -1  1)  ( 0  0  1)
+
+  (-1  0  1)  (-1  0  1)  (-1  0  0)  (-1  0  0)  (-1  0  0)  (-1  0  0)
+  (-1  1  0)  (-1  0  0)  ( 0  0 -1)  ( 0 -1  0)  (-1  1  0)  (-1  0  1)
+  (-1  0  0)  (-1  1  0)  ( 0 -1  0)  ( 0  0 -1)  (-1  0  1)  (-1  1  0)
+
+29 groups of equivalent kpoints. 94.3359375% reduction.
+
+Integral kind: response function
+0.7011075019836426s |----------------------------------------| Time: 0.787s
+
+Sun Nov  8 15:02:28 2026
+Calculating chi0 optical extensions with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 512
+    Number of irreducible kpoints: 29
+    Number of completely occupied states: 8
+    Number of partially occupied states: 8
+    Occupied states memory: 0.3349609375 M / cpu
+
+    Linear response parametrization:
+    Number of frequency points: 1
+    Planewave cutoff: 60.0
+    Number of bands: 48
+    Number of planewaves: 15
+    Broadening (eta): 0.0001
+Integrating chi0 head and wings.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 48
+    Indirect symmetries (TUq -> q): 0
+In total 48 allowed symmetries.
+
+  ( 1  0  0)  ( 1  0  0)  ( 1  0  0)  ( 1  0  0)  ( 1  0 -1)  ( 1  0 -1)
+  ( 1  0 -1)  ( 1 -1  0)  ( 0  1  0)  ( 0  0  1)  ( 1  0  0)  ( 1 -1  0)
+  ( 1 -1  0)  ( 1  0 -1)  ( 0  0  1)  ( 0  1  0)  ( 1 -1  0)  ( 1  0  0)
+
+  ( 1  0 -1)  ( 1  0 -1)  ( 1 -1  0)  ( 1 -1  0)  ( 1 -1  0)  ( 1 -1  0)
+  ( 0  1 -1)  ( 0  0 -1)  ( 1  0  0)  ( 1  0 -1)  ( 0 -1  1)  ( 0 -1  0)
+  ( 0  0 -1)  ( 0  1 -1)  ( 1  0 -1)  ( 1  0  0)  ( 0 -1  0)  ( 0 -1  1)
+
+  ( 0  1  0)  ( 0  1  0)  ( 0  1  0)  ( 0  1  0)  ( 0  1 -1)  ( 0  1 -1)
+  ( 1  0  0)  ( 0  1 -1)  ( 0  0  1)  (-1  1  0)  ( 1  0 -1)  ( 0  1  0)
+  ( 0  0  1)  (-1  1  0)  ( 1  0  0)  ( 0  1 -1)  ( 0  0 -1)  (-1  1  0)
+
+  ( 0  1 -1)  ( 0  1 -1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)  ( 0  0  1)
+  ( 0  0 -1)  (-1  1  0)  ( 1  0  0)  ( 0  1  0)  ( 0 -1  1)  (-1  0  1)
+  ( 1  0 -1)  ( 0  1  0)  ( 0  1  0)  ( 1  0  0)  (-1  0  1)  ( 0 -1  1)
+
+  ( 0  0 -1)  ( 0  0 -1)  ( 0  0 -1)  ( 0  0 -1)  ( 0 -1  1)  ( 0 -1  1)
+  ( 1  0 -1)  ( 0  1 -1)  ( 0 -1  0)  (-1  0  0)  ( 1 -1  0)  ( 0  0  1)
+  ( 0  1 -1)  ( 1  0 -1)  (-1  0  0)  ( 0 -1  0)  ( 0 -1  0)  (-1  0  1)
+
+  ( 0 -1  1)  ( 0 -1  1)  ( 0 -1  0)  ( 0 -1  0)  ( 0 -1  0)  ( 0 -1  0)
+  ( 0 -1  0)  (-1  0  1)  ( 1 -1  0)  ( 0  0 -1)  ( 0 -1  1)  (-1  0  0)
+  ( 1 -1  0)  ( 0  0  1)  ( 0 -1  1)  (-1  0  0)  ( 1 -1  0)  ( 0  0 -1)
+
+  (-1  1  0)  (-1  1  0)  (-1  1  0)  (-1  1  0)  (-1  0  1)  (-1  0  1)
+  ( 0  1  0)  ( 0  1 -1)  (-1  0  1)  (-1  0  0)  ( 0  0  1)  ( 0 -1  1)
+  ( 0  1 -1)  ( 0  1  0)  (-1  0  0)  (-1  0  1)  ( 0 -1  1)  ( 0  0  1)
+
+  (-1  0  1)  (-1  0  1)  (-1  0  0)  (-1  0  0)  (-1  0  0)  (-1  0  0)
+  (-1  1  0)  (-1  0  0)  ( 0  0 -1)  ( 0 -1  0)  (-1  1  0)  (-1  0  1)
+  (-1  0  0)  (-1  1  0)  ( 0 -1  0)  ( 0  0 -1)  (-1  0  1)  (-1  1  0)
+
+29 groups of equivalent kpoints. 94.3359375% reduction.
+
+Integral kind: response function wings
+2.0919971466064453s |----------------------------------------| Time: 1.107s
+
+Finished calculating chi0
+
+Timing:                             incl.     excl.
+----------------------------------------------------------
+Get eigenvalues:                    0.018     0.018   0.6% |
+Get kpoints:                        0.004     0.004   0.1% |
+Get matrix element:                 1.863     0.056   1.8% ||
+ Get kpoint pair:                   0.706     0.003   0.1% |
+  fft indices:                      0.002     0.002   0.1% |
+  get k-points:                     0.701     0.000   0.0% |
+   Get a k-point:                   0.701     0.010   0.3% |
+    Load projections:               0.051     0.051   1.7% ||
+    load wfs:                       0.640     0.640  20.9% |-------|
+ get_optical_pair_density_head:     0.392     0.014   0.5% |
+  Optical limit:                    0.378     0.189   6.1% |-|
+   Derivatives:                     0.189     0.189   6.2% |-|
+ get_pair_density:                  0.708     0.010   0.3% |
+  conj:                             0.008     0.008   0.3% |
+  paw:                              0.690     0.037   1.2% |
+   Calculate pair-densities:        0.653     0.137   4.5% |-|
+    fft:                            0.510     0.510  16.6% |------|
+    gemm:                           0.006     0.006   0.2% |
+symmetrize_wGG:                     0.014     0.014   0.5% |
+Other:                              1.169     1.169  38.1% |--------------|
+----------------------------------------------------------
+Total:                                        3.067 100.0%
+
+Sun Nov  8 15:02:29 2026

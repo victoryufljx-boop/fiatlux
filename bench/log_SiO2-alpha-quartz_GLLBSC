@@ -1,0 +1,1 @@
+{"mat": "SiO2-alpha-quartz", "method": "GLLBSC", "ecut": 400.0, "kpts": [4, 4, 4], "natoms": 9, "gap_ks": 7.048566621474282, "dxc": 2.7629992516463076, "gap_gllbsc": 9.811565873120589, "t_total": 41.328222036361694}

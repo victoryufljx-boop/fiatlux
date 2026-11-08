@@ -1,0 +1,77 @@
+
+Diagonalizing LCAO Hamiltonian
+Converting LCAO to pw mode
+convergence criteria:
+- Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+maximum number of iterations: 333
+
+SCF iterations
+|iter     |     time |      energy | eigst |  dens |
+|---------|----------|-------------|-------|-------|
+|iter:   1| 15:02:10 |             | +3.82 |       |
+|iter:   2| 15:02:12 |             | +2.56 |       |
+|iter:   3| 15:02:13 |             | +1.07 |       |
+|iter:   4| 15:02:15 |             | -0.47 |       |
+|iter:   5| 15:02:16 |             | -1.77 |       |
+|iter:   6| 15:02:18 |             | -3.12 |       |
+|iter:   7| 15:02:19 |             | -4.40 |       |
+|iter:   8| 15:02:21 |             | -5.80 |       |
+|iter:   9| 15:02:22 |             | -6.90 |       |
+|iter:  10| 15:02:23 |             | -7.59c|       |
+SCF steps: 10
+  __  _  _
+ | _ |_)|_||  |
+ |__||  | ||/\| - 26.7.0
+
+User:   ???@vm
+Date:   Sun Nov  8 15:02:23 2026
+Arch:   x86_64
+Pid:    4586
+CWD:    /home/claude/work/gap/eps
+units:  Angstrom and eV
+cores:  1
+OpenMP: False
+
+Versions:
+  Python: 3.13.18
+  ASE:    3.29.0
+  Numpy:  2.5.3
+  Scipy:  1.18.1
+  Libxc:  5.2.3
+
+Paths:
+  gpaw:  /usr/local/lib/python3.13/site-packages/gpaw
+  _gpaw: /usr/local/lib/python3.13/dist-packages/
+        _gpaw.cpython-313-x86_64-linux-gnu.so
+  ase:   /usr/local/lib/python3.13/site-packages/ase
+  numpy: /usr/local/lib/python3.13/site-packages/numpy
+  scipy: /usr/local/lib/python3.13/site-packages/scipy
+
+Git-hashes:
+
+OMP_NUM_THREADS: 1
+
+
+Environment variables:
+  GPAW_CPUPY:          False
+  GPAW_DEBUG:          False
+  GPAW_MPI_BACKEND:    serial
+  GPAW_MPI_OPTIONS:    None
+  GPAW_NO_C_EXTENSION: False
+  GPAW_NO_GPU_MPI:     False
+  GPAW_TRACE:          False
+  GPAW_USE_GPUS:       False
+
+Input parameters:
+  mode=PW(ecut=400.0),
+  convergence={'bands': 48},
+  gpts=array([14, 14, 14]),
+  kpts=MonkhorstPack(size=(8, 8, 8), gamma=True),
+  nbands=56,
+  occupations=Occupations(name='fermi-dirac', width=0.01, fixmagmom=False),
+  xc=XC(name='PBE')
+# Writing to /home/claude/work/gap/eps/MgO_k8.gpw (mode='all')
+
+
+timing:  # [seconds]
+  Total: 6.245  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
