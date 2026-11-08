@@ -3,12 +3,12 @@
  |__||  | ||/\| - 26.7.0
 
 User:   ???@vm
-Date:   Sun Nov  8 15:01:46 2026
+Date:   Sun Nov  8 23:30:04 2026
 Arch:   x86_64
-Pid:    4357
-CWD:    /home/claude/work/gap/eps
+Pid:    2255
+CWD:    /home/claude/fiatlux/eps
 units:  Angstrom and eV
-cores:  1
+cores:  2
 OpenMP: False
 
 Versions:
@@ -34,7 +34,7 @@ OMP_NUM_THREADS: 1
 Environment variables:
   GPAW_CPUPY:          False
   GPAW_DEBUG:          False
-  GPAW_MPI_BACKEND:    serial
+  GPAW_MPI_BACKEND:    cgpaw
   GPAW_MPI_OPTIONS:    None
   GPAW_NO_C_EXTENSION: False
   GPAW_NO_GPU_MPI:     False
@@ -160,11 +160,11 @@ Datatype:        complex128
 
 Memory:
   Storage: CPU
-  Wave functions: 1_139_584 bytes (1_139_584 per core)
-  Projectors: 2_706_512 bytes (2_706_512 per core)
+  Wave functions: 1_139_584 bytes (569_792 per core)
+  Projectors: 2_706_512 bytes (1_353_256 per core)
 
 Parallelization:
-  kpt:    1
+  kpt:    2
   domain: 1
   band:   1
 
@@ -258,7 +258,7 @@ poisson solver:
 xc functional:
   name: PBE with 2 nearest neighbor stencil
 
-Initialization done in: 1.561 s
+Initialization done in: 0.536 s
 
 convergence criteria:
 - Maximum [total energy] change in last 3 cyles: 0.0005 eV / valence electron
@@ -269,17 +269,17 @@ maximum number of iterations: 333
 SCF iterations
 |iter     |     time |      energy | eigst |  dens |
 |---------|----------|-------------|-------|-------|
-|iter:   1| 15:01:47 |   -8.553689 | -0.65 |       |
-|iter:   2| 15:01:48 |   -8.522091 | -3.26 | -1.12 |
-|iter:   3| 15:01:48 |   -8.436244 | -2.05 | -1.16 |
-|iter:   4| 15:01:48 |   -8.443629 | -3.76 | -1.57 |
-|iter:   5| 15:01:49 |   -8.445418 | -3.81 | -2.00 |
-|iter:   6| 15:01:49 |   -8.445458c| -6.24 | -3.00 |
-|iter:   7| 15:01:50 |   -8.445464c| -6.52 | -3.35 |
-|iter:   8| 15:01:50 |   -8.445464c| -7.96c| -4.95c|
+|iter:   1| 23:30:05 |   -8.553689 | -0.65 |       |
+|iter:   2| 23:30:05 |   -8.522091 | -3.26 | -1.12 |
+|iter:   3| 23:30:05 |   -8.436244 | -2.05 | -1.16 |
+|iter:   4| 23:30:05 |   -8.443629 | -3.76 | -1.57 |
+|iter:   5| 23:30:05 |   -8.445418 | -3.81 | -2.00 |
+|iter:   6| 23:30:05 |   -8.445458c| -6.24 | -3.00 |
+|iter:   7| 23:30:06 |   -8.445464c| -6.52 | -3.35 |
+|iter:   8| 23:30:06 |   -8.445464c| -7.96c| -4.95c|
 
 Converged in 8 steps
-SCF loop duration: 2.574 s (0.322 s/step)
+SCF loop duration: 0.611 s (0.076 s/step)
 Energy contributions relative to reference atoms: (reference = -2916.868605)
 
 Energy contributions:
@@ -319,6 +319,6 @@ Direct gap: 9.102 eV
 Transition at: (s=0, k=0, n=3, [0.00, 0.00, 0.00])
 
 timing:  # [seconds]
-  Total: 13.822  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Init:   1.560  # ━━━━━━╸
-  SCF:    2.574  # ━━━━━━━━━━━
+  Total: 5.171  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Init:  0.535  # ━━━━━━
+  SCF:   0.611  # ━━━━━━━

@@ -172,52 +172,75 @@ def _path_calc(calc, atoms, npoints: int = 60):
 
 # ---------------------------------------------------------------- eps_inf
 def compute_eps_inf(atoms, ecut: float = 450.0, kpts=None, kdens: float = 4.0,
-                    ecut_resp: float = 50.0, nbands_factor: int = 4,
-                    scissor_eV: float | None = None, direction: str = "x",
+                    ecut_resp: float = 50.0, nbands_factor: int = 6,
+                    scissor_eV: float | None = None, directions=None,
+                    direction: str | None = None,
                     workdir: str = ".", txt: str | None = None) -> dict:
     """RPA macroscopic dielectric constant (with local fields) via gpaw.response.
 
-    Approach: PBE ground state -> fixed-density diagonalisation with many empty
-    bands -> DielectricFunction(..., eshift=scissor_eV).get_macroscopic_dielectric_constant().
-    `eshift` (GPAW: "energy shift of the conduction bands in eV") implements a
-    scissor; pass scissor_eV = gap_gllbsc - gap_pbe.  Note a pure scissor in
-    the response function lowers eps_inf too much (it should be accompanied
-    by a rescaling of the momentum matrix elements); the unshifted PBE-RPA
-    value overestimates eps_inf by ~10-20 %, and the scissored value
-    underestimates it.  We return both if scissor_eV is given; the reported
-    `eps_inf` is the unshifted RPA+LFE value unless `prefer_scissor` is set by the caller.
+    PBE ground state -> fixed-density diagonalisation with nbands_factor x nocc
+    bands -> DielectricFunction(...).get_macroscopic_dielectric_constant().
 
-    STATUS: code path written against the GPAW 26.7 API but NOT exercised in the
-    smoke tests (too expensive on 2 CPU cores).  Converge ecut_resp, nbands
-    and kpts before trusting the numbers.
+    Bake-off result (BAKEOFF_GAPS.md): the *unshifted* PBE RPA+LFE value is the
+    best estimate of eps_inf for wide-gap fluorides/oxides (within +0-7 % of
+    experiment for LiF, CaF2, Al2O3, quartz; +6 % for MgO).  Adding a scissor
+    (`eshift`, conduction bands shifted up by scissor_eV, e.g. gap_gllbsc -
+    gap_pbe) without renormalising the momentum matrix elements lowers eps_inf
+    by 10-15 % and makes it worse, so `eps_inf` is always the unshifted value;
+    the scissored one is returned as `eps_inf_rpa_scissor` for reference.
+    GPAW has no DFPT or periodic finite-field (Berry-phase field) eps_inf.
+
+    directions : e.g. ["x"] (cubic) or ["x", "z"] (uniaxial: x = ordinary,
+                 z = extraordinary for hexagonal cells with c || z).  Default:
+                 ["x"] for cubic cells, ["x", "y", "z"] otherwise.
+                 eps_inf is the trace average; per-direction values are kept.
+    Convergence (LiF): nbands 6->8 x nocc changes eps_inf by < 0.2 %.
     """
     import os
     from gpaw import GPAW, PW, FermiDirac
+    from gpaw.mpi import world
     from gpaw.response.df import DielectricFunction
     if kpts is None:
         kpts = _kmesh(atoms, kdens)
+    if direction is not None:
+        directions = [direction]
+    if directions is None:
+        cp = atoms.cell.cellpar()
+        cubic = np.allclose(cp[:3], cp[0], rtol=1e-3) and np.allclose(cp[3:], cp[3], atol=0.1)
+        directions = ["x"] if cubic else ["x", "y", "z"]
     a = atoms.copy()
     calc = GPAW(mode=PW(ecut), xc="PBE", kpts={"size": tuple(kpts), "gamma": True},
                 occupations=FermiDirac(0.01), txt=txt)
     a.calc = calc
     a.get_potential_energy()
     nocc = int(round(calc.get_number_of_electrons())) // 2
-    nb = nbands_factor * nocc
+    nb = int(nbands_factor * nocc)
     calc = calc.fixed_density(nbands=nb + 8, convergence={"bands": nb}, txt=txt)
     gpw = os.path.join(workdir, "eps_gs.gpw")
     calc.write(gpw, mode="all")
-    out = dict(kpts=list(kpts), ecut_resp=ecut_resp, nbands=nb)
-    df = DielectricFunction(gpw, frequencies=[0.0], ecut=ecut_resp, nbands=nb,
-                            intraband=False, hilbert=False, eta=1e-4, txt=txt)
-    e0_nlf, e0_lf = df.get_macroscopic_dielectric_constant(direction=direction)
-    out.update(eps_inf_rpa_nlfe=float(np.real(e0_nlf)),
-               eps_inf_rpa=float(np.real(e0_lf)))
+    world.barrier()
+    out = dict(kpts=list(kpts), ecut_resp=ecut_resp, nbands=nb, directions=list(directions))
+
+    def _eps(shift):
+        res = {}
+        for d in directions:
+            df = DielectricFunction(gpw, frequencies=[0.0], ecut=ecut_resp, nbands=nb,
+                                    intraband=False, hilbert=False, eta=1e-4,
+                                    eshift=shift, txt=txt)
+            e_nlf, e_lf = df.get_macroscopic_dielectric_constant(direction=d)
+            res[d] = (float(np.real(e_nlf)), float(np.real(e_lf)))
+        return res
+
+    r0 = _eps(None)
+    out["eps_inf_rpa_dir"] = {d: v[1] for d, v in r0.items()}
+    out["eps_inf_rpa_nlfe"] = float(np.mean([v[0] for v in r0.values()]))
+    out["eps_inf_rpa"] = float(np.mean([v[1] for v in r0.values()]))
     if scissor_eV:
-        df = DielectricFunction(gpw, frequencies=[0.0], ecut=ecut_resp, nbands=nb,
-                                intraband=False, hilbert=False, eta=1e-4,
-                                eshift=scissor_eV, txt=txt)
-        e1_nlf, e1_lf = df.get_macroscopic_dielectric_constant(direction=direction)
-        out.update(eps_inf_rpa_scissor=float(np.real(e1_lf)), scissor_eV=scissor_eV)
+        r1 = _eps(scissor_eV)
+        out["eps_inf_rpa_scissor_dir"] = {d: v[1] for d, v in r1.items()}
+        out["eps_inf_rpa_scissor"] = float(np.mean([v[1] for v in r1.values()]))
+        out["scissor_eV"] = scissor_eV
     out["eps_inf"] = out["eps_inf_rpa"]
     out["n_inf"] = float(np.sqrt(out["eps_inf"]))
+    out["n_inf_dir"] = {d: float(np.sqrt(v)) for d, v in out["eps_inf_rpa_dir"].items()}
     return out

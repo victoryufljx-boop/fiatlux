@@ -1,0 +1,107 @@
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+
+Sun Nov  8 23:32:28 2026
+Calculating chi0 body with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 64
+    Number of irreducible kpoints: 24
+    Number of completely occupied states: 24
+    Number of partially occupied states: 24
+    Occupied states memory: 5.2734375 M / cpu
+
+    Linear response parametrization:
+    q_c: [0.0, 0.0, 0.0]
+    Number of frequency points: 1
+    Planewave cutoff: 50.0
+    Number of bands: 96
+    Number of planewaves: 85
+    Broadening (eta): 0.0001
+    comm.size: 2
+    kncomm.size: 2
+    blockcomm.size: 1
+
+    Memory estimate of potentially large arrays:
+        chi0_wGG: 0.1102447509765625 M / cpu
+        Memory usage before allocation: 400.421875 M / cpu
+Integrating chi0 body.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 2
+    Indirect symmetries (TUq -> q): 2
+In total 4 allowed symmetries.
+
+  ( 1  0  0)  ( 0  1  0)  (-1  0  0)  ( 0 -1  0)
+  ( 0  1  0)  ( 1  0  0)  ( 0 -1  0)  (-1  0  0)
+  ( 0  0  1)  ( 0  0 -1)  ( 0  0 -1)  ( 0  0  1)
+
+24 groups of equivalent kpoints. 62.5% reduction.
+
+Integral kind: response function
+2.65004825592041s |----------------------------------------| Time: 2.829s
+
+Sun Nov  8 23:32:31 2026
+Calculating chi0 optical extensions with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 64
+    Number of irreducible kpoints: 24
+    Number of completely occupied states: 24
+    Number of partially occupied states: 24
+    Occupied states memory: 5.2734375 M / cpu
+
+    Linear response parametrization:
+    Number of frequency points: 1
+    Planewave cutoff: 50.0
+    Number of bands: 96
+    Number of planewaves: 85
+    Broadening (eta): 0.0001
+Integrating chi0 head and wings.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 2
+    Indirect symmetries (TUq -> q): 2
+In total 4 allowed symmetries.
+
+  ( 1  0  0)  ( 0  1  0)  (-1  0  0)  ( 0 -1  0)
+  ( 0  1  0)  ( 1  0  0)  ( 0 -1  0)  (-1  0  0)
+  ( 0  0  1)  ( 0  0 -1)  ( 0  0 -1)  ( 0  0  1)
+
+24 groups of equivalent kpoints. 62.5% reduction.
+
+Integral kind: response function wings
+3.7199535369873047s |----------------------------------------| Time: 4.076s
+
+Finished calculating chi0
+
+Timing:                             incl.     excl.
+----------------------------------------------------------
+Get eigenvalues:                    0.005     0.005   0.1% |
+Get kpoints:                        0.001     0.001   0.0% |
+Get matrix element:                 6.842     0.037   0.5% |
+ Get kpoint pair:                   0.706     0.001   0.0% |
+  fft indices:                      0.001     0.001   0.0% |
+  get k-points:                     0.704     0.000   0.0% |
+   Get a k-point:                   0.704     0.003   0.0% |
+    Load projections:               0.023     0.023   0.3% |
+    load wfs:                       0.677     0.677   8.4% |--|
+ get_optical_pair_density_head:     1.302     0.016   0.2% |
+  Optical limit:                    1.287     0.945  11.7% |----|
+   Derivatives:                     0.341     0.341   4.2% |-|
+ get_pair_density:                  4.797     0.005   0.1% |
+  conj:                             0.022     0.022   0.3% |
+  paw:                              4.771     0.171   2.1% ||
+   Calculate pair-densities:        4.600     1.107  13.7% |----|
+    fft:                            3.404     3.404  42.2% |----------------|
+    gemm:                           0.089     0.089   1.1% |
+symmetrize_wGG:                     0.001     0.001   0.0% |
+Other:                              1.224     1.224  15.2% |-----|
+----------------------------------------------------------
+Total:                                        8.074 100.0%
+
+Sun Nov  8 23:32:36 2026

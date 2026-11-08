@@ -129,3 +129,18 @@ def test_glass_smoke():
                     log=lambda *a: None)
     print("SiO2 glass smoke:", r["n_atoms"], r["phonon_eff_cm1"], r["phonon_max_cm1"])
     assert r["phonon_eff_cm1"] > 0
+
+
+@pytest.mark.skipif(not HAVE_GPAW, reason="gpaw not installed")
+def test_lif_eps_inf_smoke(tmp_path):
+    """Unshifted PBE RPA+LFE is the reported eps_inf; the scissor lowers it."""
+    from ase.build import bulk
+    from gainmat.host.gap import compute_eps_inf
+    r = compute_eps_inf(bulk("LiF", "rocksalt", a=4.0263), ecut=300, kpts=(4, 4, 4),
+                        ecut_resp=30, nbands_factor=4, scissor_eV=5.0,
+                        workdir=str(tmp_path))
+    print("LiF eps smoke:", r)
+    assert r["directions"] == ["x"]
+    assert r["eps_inf"] == r["eps_inf_rpa"]
+    assert 1.6 < r["eps_inf"] < 2.3            # exp 1.92-1.93
+    assert r["eps_inf_rpa_scissor"] < r["eps_inf"]

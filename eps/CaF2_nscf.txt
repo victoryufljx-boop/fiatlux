@@ -1,0 +1,82 @@
+
+Diagonalizing LCAO Hamiltonian
+Converting LCAO to pw mode
+convergence criteria:
+- Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+maximum number of iterations: 333
+
+SCF iterations
+|iter     |     time |      energy | eigst |  dens |
+|---------|----------|-------------|-------|-------|
+|iter:   1| 23:29:53 |             | +3.85 |       |
+|iter:   2| 23:29:53 |             | +2.64 |       |
+|iter:   3| 23:29:54 |             | +1.56 |       |
+|iter:   4| 23:29:54 |             | +0.64 |       |
+|iter:   5| 23:29:55 |             | -0.12 |       |
+|iter:   6| 23:29:56 |             | -0.96 |       |
+|iter:   7| 23:29:56 |             | -1.81 |       |
+|iter:   8| 23:29:57 |             | -2.63 |       |
+|iter:   9| 23:29:57 |             | -3.49 |       |
+|iter:  10| 23:29:58 |             | -4.31 |       |
+|iter:  11| 23:29:59 |             | -5.16 |       |
+|iter:  12| 23:29:59 |             | -5.98 |       |
+|iter:  13| 23:30:00 |             | -6.76 |       |
+|iter:  14| 23:30:00 |             | -7.32 |       |
+|iter:  15| 23:30:00 |             | -7.70c|       |
+SCF steps: 15
+  __  _  _
+ | _ |_)|_||  |
+ |__||  | ||/\| - 26.7.0
+
+User:   ???@vm
+Date:   Sun Nov  8 23:30:00 2026
+Arch:   x86_64
+Pid:    2243
+CWD:    /home/claude/fiatlux/eps
+units:  Angstrom and eV
+cores:  2
+OpenMP: False
+
+Versions:
+  Python: 3.13.18
+  ASE:    3.29.0
+  Numpy:  2.5.3
+  Scipy:  1.18.1
+  Libxc:  5.2.3
+
+Paths:
+  gpaw:  /usr/local/lib/python3.13/site-packages/gpaw
+  _gpaw: /usr/local/lib/python3.13/dist-packages/
+        _gpaw.cpython-313-x86_64-linux-gnu.so
+  ase:   /usr/local/lib/python3.13/site-packages/ase
+  numpy: /usr/local/lib/python3.13/site-packages/numpy
+  scipy: /usr/local/lib/python3.13/site-packages/scipy
+
+Git-hashes:
+
+OMP_NUM_THREADS: 1
+
+
+Environment variables:
+  GPAW_CPUPY:          False
+  GPAW_DEBUG:          False
+  GPAW_MPI_BACKEND:    cgpaw
+  GPAW_MPI_OPTIONS:    None
+  GPAW_NO_C_EXTENSION: False
+  GPAW_NO_GPU_MPI:     False
+  GPAW_TRACE:          False
+  GPAW_USE_GPUS:       False
+
+Input parameters:
+  mode=PW(ecut=400.0),
+  convergence={'bands': 72},
+  gpts=array([18, 18, 18]),
+  kpts=MonkhorstPack(size=(6, 6, 6), gamma=True),
+  nbands=80,
+  occupations=Occupations(name='fermi-dirac', width=0.01, fixmagmom=False),
+  xc=XC(name='PBE')
+# Writing to /home/claude/fiatlux/eps/CaF2_k6.gpw (mode='all')
+
+
+timing:  # [seconds]
+  Total: 3.372  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

@@ -5,7 +5,7 @@ Using integrator: PointIntegrator
 FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
 Nonperiodic BCs:  [False False False]
 
-Sun Nov  8 15:01:58 2026
+Sun Nov  8 23:30:09 2026
 Calculating chi0 body with:
     Ground state adapter containing:
     Number of spins: 1
@@ -19,16 +19,16 @@ Calculating chi0 body with:
     q_c: [0.0, 0.0, 0.0]
     Number of frequency points: 1
     Planewave cutoff: 60.0
-    Number of bands: 24
+    Number of bands: 32
     Number of planewaves: 15
     Broadening (eta): 0.0001
-    comm.size: 1
-    kncomm.size: 1
+    comm.size: 2
+    kncomm.size: 2
     blockcomm.size: 1
 
     Memory estimate of potentially large arrays:
         chi0_wGG: 0.0034332275390625 M / cpu
-        Memory usage before allocation: 188.9609375 M / cpu
+        Memory usage before allocation: 192.859375 M / cpu
 Integrating chi0 body.
 
 Symmetries of q_c:
@@ -71,9 +71,9 @@ In total 48 allowed symmetries.
 29 groups of equivalent kpoints. 94.3359375% reduction.
 
 Integral kind: response function
-0.2624192237854004s |----------------------------------------| Time: 0.329s
+0.08337736129760742s |----------------------------------------| Time: 0.082s
 
-Sun Nov  8 15:01:59 2026
+Sun Nov  8 23:30:09 2026
 Calculating chi0 optical extensions with:
     Ground state adapter containing:
     Number of spins: 1
@@ -86,7 +86,7 @@ Calculating chi0 optical extensions with:
     Linear response parametrization:
     Number of frequency points: 1
     Planewave cutoff: 60.0
-    Number of bands: 24
+    Number of bands: 32
     Number of planewaves: 15
     Broadening (eta): 0.0001
 Integrating chi0 head and wings.
@@ -131,33 +131,33 @@ In total 48 allowed symmetries.
 29 groups of equivalent kpoints. 94.3359375% reduction.
 
 Integral kind: response function wings
-1.209794521331787s |----------------------------------------| Time: 0.523s
+0.25678396224975586s |----------------------------------------| Time: 0.133s
 
 Finished calculating chi0
 
 Timing:                             incl.     excl.
 ----------------------------------------------------------
-Get eigenvalues:                    0.027     0.027   1.5% ||
-Get kpoints:                        0.011     0.011   0.6% |
-Get matrix element:                 0.815     0.069   3.8% |-|
- Get kpoint pair:                   0.362     0.004   0.2% |
-  fft indices:                      0.002     0.002   0.1% |
-  get k-points:                     0.356     0.000   0.0% |
-   Get a k-point:                   0.356     0.009   0.5% |
-    Load projections:               0.048     0.048   2.7% ||
-    load wfs:                       0.299     0.299  16.7% |------|
- get_optical_pair_density_head:     0.188     0.016   0.9% |
-  Optical limit:                    0.172     0.065   3.6% ||
-   Derivatives:                     0.106     0.106   5.9% |-|
- get_pair_density:                  0.196     0.009   0.5% |
-  conj:                             0.002     0.002   0.1% |
-  paw:                              0.186     0.016   0.9% |
-   Calculate pair-densities:        0.170     0.038   2.1% ||
-    fft:                            0.122     0.122   6.8% |--|
-    gemm:                           0.010     0.010   0.6% |
-symmetrize_wGG:                     0.008     0.008   0.5% |
-Other:                              0.929     0.929  51.9% |--------------------|
+Get eigenvalues:                    0.004     0.004   0.6% |
+Get kpoints:                        0.003     0.003   0.4% |
+Get matrix element:                 0.207     0.016   2.2% ||
+ Get kpoint pair:                   0.096     0.001   0.2% |
+  fft indices:                      0.001     0.001   0.1% |
+  get k-points:                     0.094     0.000   0.0% |
+   Get a k-point:                   0.094     0.003   0.4% |
+    Load projections:               0.010     0.010   1.4% ||
+    load wfs:                       0.081     0.081  11.4% |----|
+ get_optical_pair_density_head:     0.044     0.003   0.5% |
+  Optical limit:                    0.041     0.019   2.6% ||
+   Derivatives:                     0.022     0.022   3.1% ||
+ get_pair_density:                  0.052     0.000   0.1% |
+  conj:                             0.001     0.001   0.1% |
+  paw:                              0.051     0.002   0.3% |
+   Calculate pair-densities:        0.049     0.013   1.9% ||
+    fft:                            0.034     0.034   4.8% |-|
+    gemm:                           0.001     0.001   0.2% |
+symmetrize_wGG:                     0.004     0.004   0.5% |
+Other:                              0.495     0.495  69.4% |---------------------------|
 ----------------------------------------------------------
-Total:                                        1.791 100.0%
+Total:                                        0.713 100.0%
 
-Sun Nov  8 15:01:59 2026
+Sun Nov  8 23:30:10 2026
