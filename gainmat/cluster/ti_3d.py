@@ -1,0 +1,52 @@
+"""Ti3+:Al2O3 -- embedded [TiO6]9- cluster, SA-CASSCF(1,5)/NEVPT2 on Ti 3d.
+
+Vertical absorption: ground 2T2g-derived root (lowest, C3 splits t2g into a1+e)
+to the two 2Eg-derived roots (the e_g pair; in C3 they are degenerate at the
+crystal geometry -- the observed 490/560 nm doublet comes from the dynamic
+Jahn-Teller effect in the excited state, which a vertical calculation at the
+undistorted site cannot produce).  We therefore report the mean 2Eg energy as
+the 490-nm band and do NOT predict the shoulder.  Spin-orbit (zeta_3d ~154
+cm-1) is added through the ligand-field matrix for completeness; it barely
+matters.  Emission/Stokes shift need the JT-relaxed 2Eg minimum (not done).
+"""
+from __future__ import annotations
+
+import time
+import numpy as np
+
+from . import embedding as emb
+from .casci_lf import run_scf, sa_casscf_nevpt2, lf_matrix, add_spin_orbit, HARTREE_CM1
+from ..refs.cluster_refs import TI_ZETA
+
+LEVELS = {
+    "fast": dict(basis={"Ti": "def2-svp", "O": "def2-svp"}, r_pc=12.0, x2c=False),
+    "full": dict(basis={"Ti": "def2-tzvp", "O": "def2-tzvp"}, r_pc=20.0, x2c=True),
+}
+
+
+def run(level="fast", verbose=0, log=print, do_nevpt2=True):
+    p = LEVELS[level]
+    t0 = time.time()
+    cl = emb.make_cluster("Al2O3", "Al", "Ti", 3, r_qm=2.2, r_cap=3.6, r_pc=p["r_pc"])
+    log(f"[Ti] cluster: {cl.summary()}")
+    mol, mf = run_scf(cl, p["basis"], {}, x2c=p["x2c"], verbose=verbose)
+    log(f"[Ti] nao={mol.nao} ROHF E={mf.e_tot:.6f} conv={mf.converged} ({time.time()-t0:.1f}s)")
+    res = sa_casscf_nevpt2(mol, mf, ["Ti 3d"], nroots=5, do_nevpt2=do_nevpt2, verbose=verbose)
+    out = {}
+    for key in ("e_cas", "e_pt2"):
+        e = res[key]
+        out[key + "_cm1"] = ((e - e.min()) * HARTREE_CM1).tolist()
+        h, blocks, chars, smin = lf_matrix(mol, res, ["Ti 3d"], e)
+        w, _ = add_spin_orbit(h, blocks, [TI_ZETA["zeta_3d_cm1"]])
+        w = w[::2] - w[0]                                    # Kramers doublets
+        out[key + "_so_cm1"] = w.tolist()
+        out[key + "_d_char"] = chars[:, 0].tolist()
+    e = np.array(out["e_pt2_cm1"] if do_nevpt2 else out["e_cas_cm1"])
+    # t2g-like = 3 lowest, eg-like = 2 highest
+    eg = e[3:5]
+    out.update(abs_eg_mean_cm1=float(eg.mean()), abs_eg_cm1=eg.tolist(),
+               t2g_split_cm1=float(e[2] - e[0]), timings=dict(total_s=time.time() - t0,
+               casscf_s=res["t_casscf"], nevpt2_s=res["t_nevpt2"]),
+               nao=mol.nao, cluster=cl.summary(), casscf_converged=res["converged"],
+               basis=p["basis"], x2c=p["x2c"])
+    return out
