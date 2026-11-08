@@ -52,6 +52,109 @@ def get_mace_calc(model: str = "medium", device: str | None = None,
     return _CALC_CACHE[key]
 
 
+# --------------------------------------------------------------------------
+# Universal-MLIP registry (see BAKEOFF_PHONONS.md).  Names are bake-off keys;
+# legacy MACE names ("medium", "medium-mpa-0", ...) are still accepted.
+# --------------------------------------------------------------------------
+MLIP_MODELS = {
+    "mace-mp-0-medium": ("mace", "medium"),
+    "mace-mpa-0-medium": ("mace", "medium-mpa-0"),
+    "mace-omat-0-medium": ("mace", "medium-omat-0"),
+    "7net-mf-ompa": ("sevenn", ("7net-mf-ompa", "mpa")),
+    "7net-0": ("sevenn", ("7net-0", None)),
+    "orb-v3-con-omat": ("orb", "orb_v3_conservative_inf_omat"),
+    "mattersim-v1-1m": ("mattersim", "MatterSim-v1.0.0-1M.pth"),
+    "mattersim-v1-5m": ("mattersim", "MatterSim-v1.0.0-5M.pth"),
+}
+LEGACY_MACE = {"medium": "mace-mp-0-medium", "medium-mpa-0": "mace-mpa-0-medium",
+               "medium-omat-0": "mace-omat-0-medium"}
+DEFAULT_MODEL = "mace-mp-0-medium"
+LEGACY_MODEL = "mace-mp-0-medium"   # pre-bake-off default (MACE-MP-0 medium)
+
+
+def get_calculator(name: str = DEFAULT_MODEL, device: str | None = None):
+    """ASE calculator for a bake-off model key (cached)."""
+    name = LEGACY_MACE.get(name, name)
+    device = get_device(device)
+    key = (name, device)
+    if key in _CALC_CACHE:
+        return _CALC_CACHE[key]
+    fam, arg = MLIP_MODELS[name]
+    if fam == "mace":
+        calc = get_mace_calc(arg, device=device)
+    elif fam == "sevenn":
+        from sevenn.calculator import SevenNetCalculator
+        mdl, modal = arg
+        kw = dict(modal=modal) if modal else {}
+        calc = SevenNetCalculator(mdl, device=device, **kw)
+    elif fam == "orb":
+        from orb_models.forcefield import pretrained
+        from orb_models.forcefield.calculator import ORBCalculator
+        orbff = getattr(pretrained, arg)(device=device, precision="float32-highest")
+        calc = ORBCalculator(orbff, device=device)
+    elif fam == "mattersim":
+        from mattersim.forcefield import MatterSimCalculator
+        calc = MatterSimCalculator(load_path=arg, device=device)
+    else:
+        raise KeyError(name)
+    _CALC_CACHE[key] = calc
+    return calc
+
+
+def gamma_irreps(ph, tol: float = 1e-3):
+    """Gamma-point modes labelled by irrep: list of dict(freq_cm1, irrep, deg).
+    Acoustic modes (|f| < 5 cm-1, lowest 3) are dropped."""
+    ph.set_irreps([0, 0, 0], degeneracy_tolerance=tol)
+    ir = ph.irreps
+    out = []
+    for i, ds in enumerate(ir._degenerate_sets):
+        lab = ir._ir_labels[i] if ir._ir_labels is not None else None
+        f = float(ir._freqs[ds[0]]) * THZ_TO_CM1
+        out.append(dict(freq_cm1=round(f, 1), irrep=lab, deg=len(ds)))
+    # drop the acoustic triplet
+    nac, keep = 0, []
+    for m in sorted(out, key=lambda m: abs(m["freq_cm1"])):
+        if nac < 3 and abs(m["freq_cm1"]) < 5:
+            nac += m["deg"]
+            continue
+        keep.append(m)
+    return sorted(keep, key=lambda m: m["freq_cm1"])
+
+
+def nac_params_for(atoms, born_ref: dict, eps_inf):
+    """phonopy nac_params from per-element Born charges (scalar or 3x3) and
+    eps_inf (scalar, (perp, par) pair, or 3x3).  Charges are made neutral
+    (acoustic sum rule) by phonopy's symmetrisation.  Units: eV/A forces ->
+    phonopy default NAC factor (Hartree*Bohr = 14.40 eV*A)."""
+    born = []
+    for s in atoms.get_chemical_symbols():
+        z = np.asarray(born_ref[s], dtype=float)
+        born.append(np.eye(3) * z if z.ndim == 0 else z)
+    born = np.array(born)
+    born -= born.mean(axis=0)[None]           # enforce charge neutrality
+    e = np.asarray(eps_inf, dtype=float)
+    if e.ndim == 0:
+        eps = np.eye(3) * e
+    elif e.shape == (2,):                      # uniaxial (perp, par); c || z
+        eps = np.diag([e[0], e[0], e[1]])
+    else:
+        eps = e
+    return dict(born=born, dielectric=eps, factor=14.399645)
+
+
+def lo_frequencies(ph, directions=((0, 0, 1), (1, 0, 0))) -> dict:
+    """Gamma frequencies (cm-1) with NAC for q -> 0 along Cartesian directions.
+    Directions are converted to reduced reciprocal coordinates."""
+    cell = np.asarray(ph.primitive.cell)
+    res = {}
+    for d in directions:
+        qred = cell @ np.asarray(d, float)    # q_cart . a_i (reduced coords)
+        ph.run_qpoints([[0, 0, 0]], nac_q_direction=qred)
+        f = np.sort(ph.get_qpoints_dict()["frequencies"][0]) * THZ_TO_CM1
+        res["".join(map(str, d))] = np.round(f, 1).tolist()
+    return res
+
+
 def relax(atoms, calc, fmax: float = 1e-3, steps: int = 300, cell: bool = True):
     """Relax positions (and cell, keeping symmetry) with FIRE/BFGS."""
     from ase.optimize import BFGS

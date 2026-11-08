@@ -19,14 +19,15 @@ import time
 
 import numpy as np
 
-from gainmat.host.phonons import (THZ_TO_CM1, relax, gamma_irreps,
-                                  get_calculator)
+from gainmat.host.phonons import (relax, gamma_irreps, get_calculator,
+                                  nac_params_for, lo_frequencies)
+from gainmat.refs.phonon_refs import PHONON_REFS
 from gainmat.structures import get_structure
 
 HOSTS = ["CaF2", "Al2O3", "SiO2-alpha-quartz", "LiYF4"]
 
 
-def gamma_run(atoms, calc, relax_cell, fmax=1e-3, sc_min_len=0.0):
+def gamma_run(atoms, calc, relax_cell, fmax=1e-3, sc_min_len=0.0, host=None):
     from phonopy import Phonopy
     from phonopy.structure.atoms import PhonopyAtoms
     from ase import Atoms
@@ -50,11 +51,15 @@ def gamma_run(atoms, calc, relax_cell, fmax=1e-3, sc_min_len=0.0):
     ph.produce_force_constants()
     ph.symmetrize_force_constants()
     modes = gamma_irreps(ph)
-    return dict(vol_pct=vol_pct, relax_steps=nsteps,
-                cellpar=[round(x, 4) for x in a.cell.cellpar()],
-                n_disp=len(forces), modes=modes, t_s=round(time.time() - t0, 1),
-                max_res_force=float(np.abs(a.get_forces() if a.calc else 0).max())
-                if False else None)
+    out = dict(vol_pct=vol_pct, relax_steps=nsteps,
+               cellpar=[round(x, 4) for x in a.cell.cellpar()],
+               n_disp=len(forces), modes=modes)
+    ref = PHONON_REFS.get(host, {})
+    if ref.get("born") and ref.get("eps_inf"):
+        ph.nac_params = nac_params_for(a, ref["born"], ref["eps_inf"])
+        out["nac_gamma"] = lo_frequencies(ph)
+    out["t_s"] = round(time.time() - t0, 1)
+    return out
 
 
 def main():
@@ -75,7 +80,8 @@ def main():
             if os.path.exists(fn):
                 continue
             try:
-                r = gamma_run(get_structure(host), calc, relax_cell=(prot == "relaxed"))
+                r = gamma_run(get_structure(host), calc,
+                              relax_cell=(prot == "relaxed"), host=host)
             except Exception as e:  # keep going
                 r = dict(error=repr(e))
             r.update(model=a.model, host=host, protocol=prot, t_load=t_load)
