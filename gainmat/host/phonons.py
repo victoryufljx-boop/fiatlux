@@ -1,6 +1,8 @@
 """Phonons from a MACE foundation model + phonopy.
 
-Model: MACE-MP-0 "medium" (Batatia et al., arXiv:2401.00096), loaded through
+DEFAULT (since the Nov 2026 bake-off, BAKEOFF_PHONONS.md): MACE-OMAT-0 medium,
+experimental cell (positions relaxed), LO-TO NAC where Born charges are known.
+Legacy: MACE-MP-0 "medium" (Batatia et al., arXiv:2401.00096), loaded through
 `mace.calculators.mace_mp(model="medium")`.  It is downloaded automatically
 from the ACEsuite GitHub release on first use (~20 MB) and is the most
 widely-validated MACE foundation model for phonons (e.g. Loew et al.,
@@ -10,10 +12,9 @@ Newer models ("medium-mpa-0", "medium-omat-0") are typically better for phonons;
 pass model="medium-mpa-0" to use one (it downloads the same way).
 
 Outputs
-  phonon_max_cm1 : highest frequency on the band path + DOS mesh (the top
-                   optical mode at the TO frequency: phonopy without NAC gives TO frequencies).
-                   NOTE: without Born charges (non-analytic correction) the
-                   LO-TO splitting at Gamma is missing, so this is a TO-like max.
+  phonon_max_cm1 : highest frequency on the band path + Gamma-centred DOS mesh,
+                   INCLUDING the highest LO mode when NAC is on (out["nac"]).
+                   phonon_max_TO_cm1 is the same without the Gamma LO values.
   phonon_eff_cm1 : DOS-based effective cutoff = frequency below which
                    `eff_fraction` (default 0.99) of the integrated phonon DOS lies.
                    This is a robust "cutoff phonon" for the energy-gap law that
@@ -68,7 +69,7 @@ MLIP_MODELS = {
 }
 LEGACY_MACE = {"medium": "mace-mp-0-medium", "medium-mpa-0": "mace-mpa-0-medium",
                "medium-omat-0": "mace-omat-0-medium"}
-DEFAULT_MODEL = "mace-mp-0-medium"
+DEFAULT_MODEL = "mace-omat-0-medium"   # bake-off winner (BAKEOFF_PHONONS.md)
 LEGACY_MODEL = "mace-mp-0-medium"   # pre-bake-off default (MACE-MP-0 medium)
 
 
@@ -182,26 +183,33 @@ def _supercell_matrix(atoms, min_len: float):
     return np.diag([max(1, int(np.ceil(min_len / L))) for L in lens])
 
 
-def compute_phonons(atoms, calc=None, model: str = "medium", device=None,
+def compute_phonons(atoms, calc=None, model: str = DEFAULT_MODEL, device=None,
                     supercell_min_len: float = 10.0, displacement: float = 0.01,
-                    mesh=(20, 20, 20), relax_cell: bool = True,
+                    mesh=(20, 20, 20), relax_cell: bool = False,
                     eff_fraction: float = 0.99, fmax: float = 1e-3,
-                    band_npoints: int = 51, return_objects: bool = False) -> dict:
-    """Relax + finite-displacement phonons (phonopy) with a MACE calculator."""
+                    band_npoints: int = 51, nac: bool | dict = True,
+                    return_objects: bool = False) -> dict:
+    """Finite-displacement phonons (phonopy) with a universal-MLIP calculator.
+
+    Defaults = bake-off winner: MACE-OMAT-0 medium, cell fixed at the input
+    (experimental) lattice with positions relaxed (relax_cell=False), LO-TO
+    non-analytic correction from gainmat.refs.phonon_refs when Born charges +
+    eps_inf are known for atoms.info['structure_key'] (or pass nac=dict(born=
+    {el: Z}, eps_inf=...)).  Old behaviour: model="mace-mp-0-medium",
+    relax_cell=True, nac=False.  Use relax_cell=True for hypothetical hosts
+    without an experimental lattice (expect +2..7 % volume and softer modes).
+    """
     from phonopy import Phonopy
     from phonopy.structure.atoms import PhonopyAtoms
     t0 = time.time()
     user_calc = calc is not None
     if calc is None:
-        calc = get_mace_calc(model=model, device=device)
+        calc = get_calculator(model, device=device)
     a0 = atoms.copy()
-    if relax_cell:
-        a, nsteps = relax(a0, calc, fmax=fmax)
-    else:
-        a, nsteps = a0, 0
-    label = f"mace_mp:{model}" if not user_calc else type(calc).__name__
-    out = dict(model=label, device=get_device(device),
-               relax_steps=nsteps,
+    a, nsteps = relax(a0, calc, fmax=fmax, cell=relax_cell)
+    label = LEGACY_MACE.get(model, model) if not user_calc else type(calc).__name__
+    out = dict(model=label, device=get_device(device), relax_steps=nsteps,
+               cell_protocol="relaxed" if relax_cell else "expcell",
                vol_change_pct=100 * (a.get_volume() / a0.get_volume() - 1))
 
     unit = PhonopyAtoms(symbols=a.get_chemical_symbols(), cell=a.cell[:],
@@ -214,15 +222,36 @@ def compute_phonons(atoms, calc=None, model: str = "medium", device=None,
     for s in ph.supercells_with_displacements:
         sa = Atoms(s.symbols, cell=s.cell, scaled_positions=s.scaled_positions, pbc=True)
         sa.calc = calc
-        forces.append(sa.get_forces().copy())
+        f = sa.get_forces().copy()
+        forces.append(f - f.mean(axis=0))
     ph.forces = np.array(forces)
     ph.produce_force_constants()
     ph.symmetrize_force_constants()
+    # Gamma TO modes with irreps (before NAC)
+    try:
+        out["gamma_modes"] = gamma_irreps(ph)
+    except Exception as e:
+        out["irreps_error"] = repr(e)
+    # LO-TO non-analytic correction
+    nacp = None
+    if isinstance(nac, dict):
+        nacp = nac_params_for(a, nac["born"], nac["eps_inf"])
+        out["nac_source"] = "user"
+    elif nac:
+        from gainmat.refs.phonon_refs import PHONON_REFS
+        ref = PHONON_REFS.get(atoms.info.get("structure_key", ""), {})
+        if ref.get("born") and ref.get("eps_inf"):
+            nacp = nac_params_for(a, ref["born"], ref["eps_inf"])
+            out["nac_source"] = "gainmat.refs.phonon_refs"
+    out["nac"] = nacp is not None
+    if nacp is not None:
+        ph.nac_params = nacp
+        out["gamma_nac_cm1"] = lo_frequencies(ph)
     out["supercell"] = np.diag(sc).tolist()
     out["n_displacements"] = len(forces)
 
     # DOS on a mesh
-    ph.run_mesh(list(mesh), with_eigenvectors=False)
+    ph.run_mesh(list(mesh), with_eigenvectors=False, is_gamma_center=True)
     freqs_mesh = ph.get_mesh_dict()["frequencies"] * THZ_TO_CM1
     weights = ph.get_mesh_dict()["weights"]
     ph.run_total_dos(sigma=None, freq_pitch=0.05)
@@ -247,7 +276,10 @@ def compute_phonons(atoms, calc=None, model: str = "medium", device=None,
     out["gamma_cm1"] = np.round(np.sort(fg), 1).tolist()
 
     fm = float(freqs_mesh.max())
-    out["phonon_max_cm1"] = max(fm, fmax_path or 0.0, float(fg.max()))
+    lo = max((max(v) for v in out.get("gamma_nac_cm1", {}).values()), default=0.0)
+    out["phonon_max_TO_cm1"] = max(fm, fmax_path or 0.0, float(fg.max()))
+    # includes LO when NAC is on (LO is the true top of the spectrum)
+    out["phonon_max_cm1"] = max(out["phonon_max_TO_cm1"], lo)
     out["phonon_eff_cm1"] = dos_cutoff(freqs_mesh, weights, eff_fraction)
     out["min_freq_cm1"] = float(freqs_mesh.min())   # < -10 => instability
     out["dos"] = dict(freq_cm1=f_dos.tolist(), dos=g_dos.tolist())
