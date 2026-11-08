@@ -105,7 +105,7 @@ def run_gpaw_mpi(key_or_atoms, level: str = "full", nproc: int | None = None,
                  eps_kwargs: dict | None = None, workdir: str | None = None,
                  timeout: float | None = None, verbose: bool = True) -> dict:
     """Run gap (and optionally eps_inf) for one host under mpiexec; return the JSON dict."""
-    from .run_host import LEVELS, KPTS_OVERRIDE
+    from .run_host import LEVELS, KPTS_OVERRIDE, BAND_EDGES_OVERRIDE
     if isinstance(key_or_atoms, str):
         from ..structures import get_structure
         key, atoms = key_or_atoms, get_structure(key_or_atoms)
@@ -117,6 +117,8 @@ def run_gpaw_mpi(key_or_atoms, level: str = "full", nproc: int | None = None,
         gk = dict(cfg["gap"])
         if key in KPTS_OVERRIDE:
             gk["kpts"] = KPTS_OVERRIDE[key][level]
+        if key in BAND_EDGES_OVERRIDE:
+            gk["band_edges"] = BAND_EDGES_OVERRIDE[key]
         gk.update(gap_kwargs or {})
         if "kpts" in gk and gk["kpts"] is not None:
             gk["kpts"] = tuple(gk["kpts"])

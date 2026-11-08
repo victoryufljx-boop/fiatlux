@@ -33,6 +33,9 @@ LEVELS = {
 
 # YAG primitive cell (80 atoms, 12 A) is expensive in DFT: cap its k-mesh.
 KPTS_OVERRIDE = {"Y3Al5O12": {"smoke": (1, 1, 1), "fast": (2, 2, 2), "full": (2, 2, 2)}}
+# YAG's gap is direct at Gamma (on every Gamma-centred mesh): skip the 60-point
+# non-SCF band path, which is ~3/4 of the YAG cost (BAKEOFF_GAPS.md, section 5).
+BAND_EDGES_OVERRIDE = {"Y3Al5O12": "mesh"}
 
 
 def _err(method, step, e):
@@ -92,6 +95,8 @@ def run_host(key: str, level: str = "fast", do_gap: bool = True,
     gk = dict(cfg["gap"])
     if key in KPTS_OVERRIDE:
         gk["kpts"] = KPTS_OVERRIDE[key][level]
+    if key in BAND_EDGES_OVERRIDE:
+        gk["band_edges"] = BAND_EDGES_OVERRIDE[key]
     if gap_method:
         gk["method"] = gap_method
     gk.update(gap_kwargs or {})

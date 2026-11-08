@@ -57,7 +57,7 @@ for k in STRUCTURES: print(verify_structure(k))
 !cd /content/gainmat && python -m pytest -q tests/test_host.py -x 2>&1 | tail -5"""))
 
 cells.append(md("""## 3. Settings
-`LEVEL="full"` uses path band edges, ecut 500 eV, and 10 Å phonon supercells. GPAW runs under `mpiexec -n GPAW_NPROC`, all vCPUs by default. The 80-atom YAG primitive cell (PBE + GLLB-SC, Γ-centred 2×2×2, ecut 500) is the long pole: about **YAG_EST** on a 12-vCPU Colab runtime, compared with several hours serially in the kernel (see `BAKEOFF_GAPS.md`). Set `SKIP_GAP` to leave it out."""))
+`LEVEL="full"` uses path band edges, ecut 500 eV, and 10 Å phonon supercells. GPAW runs under `mpiexec -n GPAW_NPROC`, all vCPUs by default. The 80-atom YAG primitive cell (PBE + GLLB-SC, Γ-centred 2×2×2, ecut 500) is the long pole: estimated at **~10–20 min** on a 12-vCPU Colab runtime with mesh band edges (the default for YAG, whose gap is direct at Γ). With the 60-point band path it would be ~40–60 min, and serially in the kernel 1–5 h (see `BAKEOFF_GAPS.md`). Set `SKIP_GAP` to leave it out."""))
 cells.append(code("""LEVEL = 'full'
 CRYSTALS = ['CaF2', 'LiYF4', 'Al2O3', 'SiO2-alpha-quartz', 'Y3Al5O12']
 GLASSES = ['SiO2-glass', 'ZBLAN']
