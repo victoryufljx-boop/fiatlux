@@ -130,18 +130,22 @@ class Cluster:
     madelung_cluster_V: float = 0.0  # same from the finite cluster (all ions as formal/fitted charges)
     fit_rms_V: float = 0.0
     notes: list = field(default_factory=list)
+    aimp_symbols: list = field(default_factory=list)     # frozen-ion (AIMP-like) caps, no basis
+    aimp_coords: np.ndarray = field(default_factory=lambda: np.zeros((0, 3)))
+    aimp_formal: np.ndarray = field(default_factory=lambda: np.zeros(0))
 
     @property
     def qm_charge(self):
         return int(round(self.qm_formal.sum()))
 
     def total_charge(self):
-        return self.qm_formal.sum() + self.cap_formal.sum() + self._pc_formal_sum
+        return (self.qm_formal.sum() + self.cap_formal.sum() + self._pc_formal_sum
+                + float(np.sum(self.aimp_formal)))
 
     def summary(self):
         d = np.linalg.norm(self.qm_coords[1:], axis=1)
         return dict(name=self.name, n_qm=len(self.qm_symbols), n_cap=len(self.cap_symbols),
-                    n_pc=len(self.pc_charges), qm_charge=self.qm_charge,
+                    n_pc=len(self.pc_charges), n_aimp=len(self.aimp_symbols), qm_charge=self.qm_charge,
                     dopant_ligand_A=sorted(np.round(d, 4).tolist()),
                     total_charge=float(self.total_charge()),
                     madelung_ewald_V=self.madelung_ewald_V,
@@ -150,8 +154,12 @@ class Cluster:
 
 
 def make_cluster(key, site, dopant, dopant_charge, r_qm=2.6, r_cap=4.0, r_pc=12.0,
-                 shell=2.5, n_fit=400, partial_cap=False, seed=0):
-    """Build an embedded cluster for ``dopant`` substituting a ``site`` cation of host ``key``."""
+                 shell=2.5, n_fit=400, partial_cap=False, seed=0, cap_mode=None):
+    """cap_mode for cations without a full-core ECP: 'pc' (bare point charge, default),
+    'partial' (small-core ECP + co-located correcting charge, = partial_cap=True) or
+    'aimp' (frozen-ion model potential, see aimp_hcore).
+
+    Build an embedded cluster for ``dopant`` substituting a ``site`` cation of host ``key``."""
     cell, sy, frac, q = build_crystal(key)
     i0 = [i for i, s in enumerate(sy) if s == site][0]
     v_site = site_potential(cell, frac, q, i0)
@@ -207,10 +215,15 @@ def make_cluster(key, site, dopant, dopant_charge, r_qm=2.6, r_cap=4.0, r_pc=12.
     v_clu = float(EV_ANG * (chg[1:] / r[1:]).sum())
 
     notes = []
+    if cap_mode is None:
+        cap_mode = "partial" if partial_cap else "pc"
+    partial_cap = cap_mode == "partial"
     cap_ecp, pc_extra_pos, pc_extra_q = [], [], []
     for s in sym[is_cap]:
         if s in FULL_CAP_ECP:
             cap_ecp.append(FULL_CAP_ECP[s])
+        elif cap_mode == "aimp" and s in AIMP_IONS:
+            cap_ecp.append("aimp")
         elif partial_cap and s in PARTIAL_CAP_ECP:
             cap_ecp.append(PARTIAL_CAP_ECP[s])
         else:
@@ -221,15 +234,22 @@ def make_cluster(key, site, dopant, dopant_charge, r_qm=2.6, r_cap=4.0, r_pc=12.
                      "(no full-core ECP available): electron-leakage risk")
     qm_sym = list(sym[is_qm]); qm_sym[0] = dopant
     qm_formal = chg[is_qm].copy(); qm_formal[0] = dopant_charge
+    capmask_aimp = np.array([e == "aimp" for e in cap_ecp], bool)
+    if capmask_aimp.any():
+        notes.append(f"{int(capmask_aimp.sum())} cations treated as frozen-ion AIMP caps "
+                     f"({sorted(set(sym[is_cap][capmask_aimp]))})")
     capmask_pc = np.array([e is None for e in cap_ecp], bool)
     pc_pos = np.vstack([pos[(~is_qm) & (~is_cap)], pos[is_cap][capmask_pc]])
     pc_q = np.concatenate([chg[(~is_qm) & (~is_cap)], chg[is_cap][capmask_pc]])
     cl = Cluster(name=f"{dopant}{dopant_charge}+:{key}", dopant=dopant,
                  dopant_charge=dopant_charge, qm_symbols=qm_sym, qm_coords=pos[is_qm],
                  qm_formal=qm_formal,
-                 cap_symbols=[s for s, e in zip(sym[is_cap], cap_ecp) if e is not None],
-                 cap_coords=pos[is_cap][~capmask_pc], cap_formal=chg[is_cap][~capmask_pc],
-                 cap_ecp=[e for e in cap_ecp if e is not None],
+                 cap_symbols=[s for s, e in zip(sym[is_cap], cap_ecp) if e not in (None, "aimp")],
+                 cap_coords=pos[is_cap][~capmask_pc & ~capmask_aimp],
+                 cap_formal=chg[is_cap][~capmask_pc & ~capmask_aimp],
+                 cap_ecp=[e for e in cap_ecp if e not in (None, "aimp")],
+                 aimp_symbols=list(sym[is_cap][capmask_aimp]),
+                 aimp_coords=pos[is_cap][capmask_aimp], aimp_formal=chg[is_cap][capmask_aimp],
                  pc_coords=pc_pos, pc_charges=pc_q,
                  madelung_ewald_V=float(v_site), madelung_cluster_V=v_clu,
                  fit_rms_V=fit_rms, notes=notes)
@@ -311,3 +331,117 @@ def qm_only_guess(mol, n_qm, spin):
     out = np.zeros((2, mol.nao, mol.nao))
     out[:, :nq, :nq] = dm
     return out
+
+
+# ---------------------------------------------------------------- AIMP-like frozen-ion caps
+# Seijo & Barandiaran-style ab initio model potential for cations of the next shell
+# that have no full-core ECP (Y3+ in LiYF4).  Each such ion is a frozen Y3+ (free-ion
+# RHF density, 28-e Stuttgart/def2 ECP + def2-SVP) that contributes to the cluster
+# one-electron Hamiltonian, *without* any basis functions on the ion:
+#   V = -Zeff/|r-R| + V_ECP + 2 J[rho_ion] - K[rho_ion] + sum_c (-2 eps_c) |c><c|
+# Coulomb and exchange are evaluated exactly (4-centre integrals between cluster AO
+# pairs and ion AO pairs); the last term is the Huzinaga/AIMP core-projection
+# (level-shift) operator that keeps cluster orbitals out of the ion's occupied 4s4p
+# shells, i.e. it supplies the Pauli repulsion that a bare point charge lacks.
+AIMP_IONS = {"Y": dict(basis="def2-svp", ecp="def2-svp", charge=3)}
+_AIMP_CACHE = {}
+
+
+def _free_ion(symbol):
+    if symbol in _AIMP_CACHE:
+        return _AIMP_CACHE[symbol]
+    from pyscf import gto, scf
+    p = AIMP_IONS[symbol]
+    m = gto.M(atom=[[symbol, (0, 0, 0)]], basis={symbol: p["basis"]},
+              ecp={symbol: p["ecp"]}, charge=p["charge"], spin=0, verbose=0)
+    mf = scf.RHF(m)
+    mf.conv_tol = 1e-10
+    mf.kernel()
+    occ = mf.mo_occ > 0
+    out = dict(mol=m, dm=mf.make_rdm1(), C=mf.mo_coeff[:, occ], eps=mf.mo_energy[occ],
+               zeff=float(m.atom_charges()[0]), e=mf.e_tot)
+    _AIMP_CACHE[symbol] = out
+    return out
+
+
+def aimp_hcore(mol, symbols, coords_A, shift_scale=1.0):
+    """One-electron embedding matrix (Hartree, mol AO basis) for frozen ions at
+    ``coords_A`` (Angstrom).  Returns (h_emb, info)."""
+    from pyscf import gto
+    from pyscf.scf import jk as _jk
+    BOHR = 0.52917721092
+    h = np.zeros((mol.nao, mol.nao))
+    has_ecp = bool(mol._ecpbas.size) if hasattr(mol, "_ecpbas") else False
+    ecp0 = mol.intor("ECPscalar") if has_ecp else 0.0
+    for s, x in zip(symbols, coords_A):
+        ion = _free_ion(s)
+        m0 = ion["mol"]
+        my = gto.M(atom=[[s, tuple(x)]], basis={s: AIMP_IONS[s]["basis"]},
+                   ecp={s: AIMP_IONS[s]["ecp"]}, charge=AIMP_IONS[s]["charge"], spin=0,
+                   unit="Angstrom", verbose=0)
+        # nuclear (ECP core-screened) attraction
+        with mol.with_rinv_origin(np.asarray(x) / BOHR):
+            h -= ion["zeff"] * mol.intor("int1e_rinv")
+        # semilocal ECP of the ion acting on cluster AOs
+        cm = gto.conc_mol(mol, my)
+        h += cm.intor("ECPscalar")[:mol.nao, :mol.nao] - ecp0
+        # Coulomb and exchange of the frozen ion density
+        D = ion["dm"]
+        vj = _jk.get_jk((mol, mol, my, my), D, scripts="ijkl,lk->ij", intor="int2e")
+        vk = _jk.get_jk((mol, my, my, mol), D, scripts="ijkl,jk->il", intor="int2e")
+        h += vj - 0.5 * vk
+        # core projection (level shift -2 eps_c)
+        Sx = gto.intor_cross("int1e_ovlp", mol, my)
+        SC = Sx @ ion["C"]
+        h += shift_scale * (SC * (-2.0 * ion["eps"])) @ SC.T
+    return 0.5 * (h + h.T), dict(n_ions=len(symbols))
+
+
+def attach_aimp(mf, mol, cl):
+    """Add the AIMP embedding of ``cl.aimp_symbols`` to ``mf`` (hcore + nuclear energy)."""
+    if not len(getattr(cl, "aimp_symbols", [])):
+        return mf
+    BOHR = 0.52917721092
+    h_emb, _ = aimp_hcore(mol, cl.aimp_symbols, cl.aimp_coords)
+    h0 = mf.get_hcore
+    e0 = mf.energy_nuc
+    # nuclear repulsion of QM nuclei/caps with the ions (net charge q_ion at long range)
+    Z = mol.atom_charges()
+    R = mol.atom_coords()
+    enuc = 0.0
+    for x, qf in zip(cl.aimp_coords, cl.aimp_formal):
+        d = np.linalg.norm(R - np.asarray(x) / BOHR, axis=1)
+        enuc += float((Z * qf / d).sum())
+    mf.get_hcore = lambda *a, **k: h0(*a, **k) + h_emb
+    mf.energy_nuc = lambda *a, **k: e0(*a, **k) + enuc
+    mf._aimp_h = h_emb
+    return mf
+
+
+# ---------------------------------------------------------------- bundled basis files
+def load_bundled(fn, symbol):
+    """(basis, ecp) for ``symbol`` from an NWChem-format file in cluster/basis_data
+    (downloaded once from basis_set_exchange so Colab needs no network)."""
+    import os
+    from pyscf import gto
+    txt = open(os.path.join(os.path.dirname(__file__), "basis_data", fn)).read()
+    b_part = txt.split("BASIS", 1)[1].split("END", 1)[0]
+    b_part = "\n".join(b_part.splitlines()[1:])
+    bas = gto.basis.parse(b_part, symb=symbol)
+    ecp = None
+    if "\nECP" in txt:
+        e_part = txt.split("\nECP", 1)[1].split("END", 1)[0]
+        ecp = gto.basis.parse_ecp(e_part, symb=symbol)
+    return bas, ecp
+
+
+def resolve_basis(basis: dict, ecp: dict):
+    """Expand 'bundled:<file>' entries into explicit basis/ECP data."""
+    basis, ecp = dict(basis), dict(ecp or {})
+    for el, b in list(basis.items()):
+        if isinstance(b, str) and b.startswith("bundled:"):
+            bb, ee = load_bundled(b.split(":", 1)[1], el)
+            basis[el] = bb
+            if ee is not None:
+                ecp[el] = ee
+    return basis, ecp

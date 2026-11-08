@@ -96,3 +96,50 @@ def test_ti_fast_casscf():
     assert len(e) == 5
     assert e[2] - e[0] < 2000                        # t2g-like triplet
     assert 12000 < e[3] < 35000                      # 10Dq in the visible
+
+
+# ---------------------------------------------------------------- improvements (AIMP, basis, relax)
+def test_aimp_cluster_layout():
+    cl = emb.make_cluster("LiYF4", "Y", "Ce", 3, r_qm=2.6, r_cap=5.3, r_pc=12.0, cap_mode="aimp")
+    assert cl.aimp_symbols == ["Y"] * 8                  # all 8 nearest Y3+ are AIMP ions
+    assert abs(cl.total_charge()) < 1e-8
+    assert not any(s == "Y" for s in cl.cap_symbols)
+
+
+def test_aimp_is_repulsive_near_ion():
+    """Frozen Y3+ potential: net +3 attraction far away, Pauli repulsion close in."""
+    from pyscf import gto
+    x = np.array([0.0, 0.0, 0.0])
+    m = gto.M(atom=[["H", (1.0, 0, 0)]], basis={"H": [[0, [1.0, 1.0]]]}, spin=1, verbose=0)
+    h, _ = emb.aimp_hcore(m, ["Y"], [x])
+    with m.with_rinv_origin(x / 0.52917721092):
+        v_pc = -3 * m.intor("int1e_rinv")
+    assert h[0, 0] > v_pc[0, 0] + 0.05
+    m2 = gto.M(atom=[["H", (8.0, 0, 0)]], basis={"H": [[0, [1.0, 1.0]]]}, spin=1, verbose=0)
+    h2, _ = emb.aimp_hcore(m2, ["Y"], [x])
+    with m2.with_rinv_origin(x):
+        assert abs(h2[0, 0] + 3 * m2.intor("int1e_rinv")[0, 0]) < 1e-3
+
+
+def test_bundled_ce_basis():
+    bas, ecp = emb.load_bundled("ce_def2-svp.nw", "Ce")
+    assert ecp[0] == 28 and len(bas) > 10
+
+
+def test_relax_modes():
+    from gainmat.cluster import relax
+    ti = emb.make_cluster("Al2O3", "Al", "Ti", 3, r_qm=2.2, r_cap=3.6, r_pc=12.0)
+    m = relax.eg_theta_mode(ti)
+    assert np.isclose(np.linalg.norm(m), 1.0) and abs(m[0]).sum() == 0
+    ce = emb.make_cluster("LiYF4", "Y", "Ce", 3, r_qm=2.6, r_cap=4.0, r_pc=12.0)
+    assert len(relax.breathing_modes(ce, split_sets=True)) == 2
+    q, e, _ = relax._quad_fit(np.array([[-1.], [0.], [1.], [2.]]), [1.0, 0.0, 1.0, 4.0])
+    assert abs(q[0]) < 1e-8 and abs(e) < 1e-8
+
+
+@pytest.mark.slow
+def test_ti_jt_relax():
+    from gainmat.cluster import ti_3d
+    o = ti_3d.run("fast+", log=lambda *a: None)
+    assert 0 < o["stokes_cm1"] < 15000
+    assert o["em_cm1"] < o["abs_eg_mean_cm1"]

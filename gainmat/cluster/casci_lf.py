@@ -61,12 +61,14 @@ def _lowdin(S):
 # ------------------------------------------------------------- SCF / CAS
 def run_scf(cl, basis, ecp, x2c=False, spin=1, verbose=0, max_memory=4000, conv_tol=1e-8):
     from pyscf import scf, qmmm
+    basis, ecp = emb.resolve_basis(basis, ecp)
     mol, mmx, mmq = emb.build_mol(cl, basis, ecp, spin=spin, verbose=verbose,
                                   max_memory=max_memory)
     mf = scf.ROHF(mol)
     if x2c:
         mf = mf.sfx2c1e()
     mf = qmmm.mm_charge(mf, mmx, mmq, unit="Angstrom")
+    mf = emb.attach_aimp(mf, mol, cl)
     mf.conv_tol = conv_tol
     mf.max_cycle = 200
     mf.level_shift = 0.2
@@ -199,9 +201,56 @@ def sa_casscf_nevpt2(mol, mf, shells, nroots, do_nevpt2=True, verbose=0, frozen=
     t_pt = time.time() - t1
     _, ncore2, _, _ = ncore, ci.ncore, ncas, None
     C_act = mo_sa[:, ci.ncore:ci.ncore + ncas]
-    return dict(e_cas=e_cas, e_pt2=e_cas + e_pt2, civecs=np.array(civecs), C_act=C_act,
+    out_extra = {}
+    return dict(e_cas=e_cas, e_pt2=e_cas + e_pt2, mo_sa=mo_sa, civecs=np.array(civecs), C_act=C_act,
                 ncore=ci.ncore, ncas=ncas, proj_weights=w, t_casscf=t_cas, t_nevpt2=t_pt,
                 converged=bool(mc.converged))
+
+
+def nevpt2_frozen(mf, mo, ncore, ncas, nroots, frozen_idx, verbose=0):
+    """SC-NEVPT2 with the orbitals ``frozen_idx`` (indices into the core block of
+    ``mo``) left uncorrelated.  PySCF's NEVPT2 has no frozen-core option, so the frozen
+    orbitals are folded into an effective one-electron Hamiltonian (h + 2J - K of the
+    frozen density, plus their energy as a constant) and removed from the MO set."""
+    from pyscf import mcscf, mrpt, scf
+    mol = mf.mol
+    fz = np.asarray(frozen_idx, int)
+    keep = np.setdiff1d(np.arange(mo.shape[1]), fz)
+    Cf = mo[:, fz]
+    Df = 2 * Cf @ Cf.T
+    h0 = mf.get_hcore()
+    vj, vk = scf.hf.get_jk(mol, Df)
+    veff = vj - 0.5 * vk
+    e_fz = float(np.einsum("ij,ji", Df, h0 + 0.5 * veff))
+    heff = h0 + veff
+    import copy
+    mol2 = copy.copy(mol)
+    mol2.nelectron = mol.nelectron - 2 * len(fz)
+    mf2 = scf.ROHF(mol2)
+    mf2.get_hcore = lambda *a, **k: heff
+    e_nuc = mf.energy_nuc()
+    mf2.energy_nuc = lambda *a, **k: e_nuc + e_fz
+    mf2.mo_coeff = mo[:, keep]; mf2.mo_occ = mf.mo_occ[keep] if len(mf.mo_occ) == mo.shape[1] else None
+    mf2.mo_energy = np.zeros(len(keep))
+    mf2.converged = True
+    ci = mcscf.CASCI(mf2, ncas, (1, 0))
+    ci.verbose = verbose
+    ci.fcisolver.nroots = nroots
+    ci.kernel(mo[:, keep])
+    e = np.array(ci.e_tot)
+    pt = np.array([mrpt.NEVPT(ci, root=i).kernel() for i in range(nroots)])
+    return e, e + pt
+
+
+def semicore_indices(mol, mo, ncore, labels=("Ce 5s", "Ce 5p"), thresh=0.5):
+    """Core-orbital indices whose Mulliken weight on AO labels ``labels`` exceeds thresh."""
+    S = mol.intor("int1e_ovlp")
+    aol = mol.ao_labels()
+    sel = [i for i, l in enumerate(aol) if any(x.replace(" ", "") in l.replace(" ", "")
+                                                for x in labels)]
+    C = mo[:, :ncore]
+    w = np.einsum("ik,ij,jk->k", C[sel], S[sel], C)
+    return [int(i) for i in np.where(w > thresh)[0]]
 
 
 def lf_matrix(mol, res, shells, energies):
