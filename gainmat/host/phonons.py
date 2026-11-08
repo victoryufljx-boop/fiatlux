@@ -14,7 +14,8 @@ pass model="medium-mpa-0" to use one (it downloads the same way).
 Outputs
   phonon_max_cm1 : highest frequency on the band path + Gamma-centred DOS mesh,
                    INCLUDING the highest LO mode when NAC is on (out["nac"]).
-                   phonon_max_TO_cm1 is the same without the Gamma LO values.
+                   phonon_max_TO_cm1 = max over mesh/path/Gamma(no direction); with NAC
+                   the mesh already contains near-Gamma LO branches.
   phonon_eff_cm1 : DOS-based effective cutoff = frequency below which
                    `eff_fraction` (default 0.99) of the integrated phonon DOS lies.
                    This is a robust "cutoff phonon" for the energy-gap law that
