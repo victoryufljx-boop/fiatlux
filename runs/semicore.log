@@ -1,0 +1,2 @@
+[Ce] cluster: {'name': 'Ce3+:LiYF4', 'n_qm': 9, 'n_cap': 8, 'n_pc': 588, 'n_aimp': 8, 'qm_charge': -5, 'dopant_ligand_A': [2.2459, 2.2459, 2.2459, 2.2459, 2.2933, 2.2933, 2.2933, 2.2933], 'total_charge': -1.4210854715202004e-14, 'madelung_ewald_V': -27.378793816489633, 'madelung_cluster_V': -27.377613389834146, 'fit_rms_V': 0.02022533367622735, 'notes': ["8 cations treated as frozen-ion AIMP caps ([np.str_('Y')])"]}
+[Ce] nao=160 ROHF E=-837.108081 conv=True (43.6s)

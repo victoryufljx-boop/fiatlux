@@ -1,0 +1,1 @@
+[Ti] cluster: {'name': 'Ti3+:Al2O3', 'n_qm': 7, 'n_cap': 13, 'n_pc': 833, 'n_aimp': 0, 'qm_charge': -9, 'dopant_ligand_A': [1.8551, 1.8551, 1.8551, 1.9716, 1.9716, 1.9716], 'total_charge': 0.0, 'madelung_ewald_V': -36.58169160003308, 'madelung_cluster_V': -36.579685799202856, 'fit_rms_V': 0.0304788531071368, 'notes': []}

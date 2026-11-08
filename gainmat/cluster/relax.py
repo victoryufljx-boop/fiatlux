@@ -122,17 +122,25 @@ def scf_energies(cl, basis, ecp, spin=1, excited=True, verbose=0, conv_tol=1e-7,
     mf2 = emb.attach_aimp(mf2, mol, cl)
     mf2 = scf.addons.mom_occ(mf2, mf.mo_coeff, (occa2, occb))
     mf2.conv_tol = conv_tol
-    mf2.max_cycle = 150
+    mf2.max_cycle = 80
     mf2.kernel(dm0=mf2.make_rdm1(mf.mo_coeff, (occa2, occb)))
+    dE = (mf2.e_tot - e_gs) * HARTREE_CM1
+    if not (mf2.converged and 2000 < dE < 80000):
+        # MOM collapsed / ran away: retry with damping and no DIIS from the same guess
+        mf2.diis = None; mf2.damp = 0.5; mf2.max_cycle = 60
+        mf2.kernel(dm0=mf2.make_rdm1(mf.mo_coeff, (occa2, occb)))
+        dE = (mf2.e_tot - e_gs) * HARTREE_CM1
+    ok = bool(mf2.converged and 2000 < dE < 80000)
     Ca2 = mf2.mo_coeff[0]
     wocc = _dopant_d_weight(mol, Ca2[:, mf2.mo_occ[0] > 0])
-    return e_gs, mf2.e_tot, dict(d_weight_ex=float(wocc.max()), conv_ex=bool(mf2.converged),
+    return e_gs, (mf2.e_tot if ok else np.nan), dict(d_weight_ex=float(wocc.max()), conv_ex=ok,
                                  dE_vert_cm1=float((mf2.e_tot - e_gs) * HARTREE_CM1))
 
 
 def _quad_fit(Q, E):
     """Least-squares quadratic in len(Q[0]) variables -> (Qmin, Emin, coeffs)."""
-    Q = np.atleast_2d(Q); E = np.asarray(E)
+    Q = np.atleast_2d(Q); E = np.asarray(E, float)
+    good = np.isfinite(E); Q, E = Q[good], E[good]
     n = Q.shape[1]
     cols = [np.ones(len(Q))] + [Q[:, i] for i in range(n)] + \
            [Q[:, i] * Q[:, j] for i in range(n) for j in range(i, n)]

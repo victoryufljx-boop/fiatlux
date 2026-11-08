@@ -1,0 +1,7 @@
+[Ti] cluster: {'name': 'Ti3+:Al2O3', 'n_qm': 7, 'n_cap': 13, 'n_pc': 833, 'qm_charge': -9, 'dopant_ligand_A': [1.8551, 1.8551, 1.8551, 1.9716, 1.9716, 1.9716], 'total_charge': 0.0, 'madelung_ewald_V': -36.58169160003308, 'madelung_cluster_V': -36.579685799202856, 'fit_rms_V': 0.0304788531071368, 'notes': []}
+[Ti] nao=128 ROHF E=-1388.900527 conv=True (8.9s)
+TI 24258.453455537892 {'total_s': 49.2819390296936, 'casscf_s': 17.55439782142639, 'nevpt2_s': 20.70868968963623}
+[Ce] cluster: {'name': 'Ce3+:LiYF4', 'n_qm': 9, 'n_cap': 8, 'n_pc': 596, 'qm_charge': -5, 'dopant_ligand_A': [2.2459, 2.2459, 2.2459, 2.2459, 2.2933, 2.2933, 2.2933, 2.2933], 'total_charge': -3.552713678800501e-15, 'madelung_ewald_V': -27.378793816489633, 'madelung_cluster_V': -27.377613389834146, 'fit_rms_V': 0.02022533367622735, 'notes': ["cations [np.str_('Y')] within r_cap=4.0 A are bare point charges (no full-core ECP available): electron-leakage risk"]}
+[Ce] nao=160 ROHF E=-837.833999 conv=True (6.0s)
+[Ce] SA-CASSCF 25.4s  NEVPT2 216.4s  active-orbital metal weights [0.998, 0.997, 0.997, 0.997, 0.996, 0.996, 0.993, 0.921, 0.868, 0.822, 0.822, 0.807]
+CE [36405.645008204694, 46527.152949104515, 57629.796358011896, 58474.427149391515, 63720.931759143554] 36405.645008204694 {'total_s': 250.17778372764587, 'casscf_s': 25.420295238494873, 'nevpt2_s': 216.43664360046387}

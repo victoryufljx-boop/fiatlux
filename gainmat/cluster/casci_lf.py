@@ -242,15 +242,19 @@ def nevpt2_frozen(mf, mo, ncore, ncas, nroots, frozen_idx, verbose=0):
     return e, e + pt
 
 
-def semicore_indices(mol, mo, ncore, labels=("Ce 5s", "Ce 5p"), thresh=0.5):
-    """Core-orbital indices whose Mulliken weight on AO labels ``labels`` exceeds thresh."""
+def semicore_indices(mol, mo, ncore, n_s=1, n_p=3, thresh=0.5):
+    """Indices of the outermost dopant (atom 0) s and p core orbitals (Ce 5s, 5p): core
+    orbitals with > thresh Mulliken weight on atom-0 s (p) AOs, the last n_s (n_p) of each
+    in orbital order (core orbitals are energy ordered)."""
     S = mol.intor("int1e_ovlp")
-    aol = mol.ao_labels()
-    sel = [i for i, l in enumerate(aol) if any(x.replace(" ", "") in l.replace(" ", "")
-                                                for x in labels)]
+    labs = mol.ao_labels(fmt=False)
     C = mo[:, :ncore]
-    w = np.einsum("ik,ij,jk->k", C[sel], S[sel], C)
-    return [int(i) for i in np.where(w > thresh)[0]]
+    out = []
+    for lch, n in (("s", n_s), ("p", n_p)):
+        sel = [i for i, (ia, sy, sh, c) in enumerate(labs) if ia == 0 and sh.endswith(lch)]
+        w = np.einsum("ik,ij,jk->k", C[sel], S[sel], C)
+        out += [int(i) for i in np.where(w > thresh)[0]][-n:]
+    return sorted(out)
 
 
 def lf_matrix(mol, res, shells, energies):
