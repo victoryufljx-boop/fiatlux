@@ -23,17 +23,20 @@ After = `fast+` (same basis, all 8 Y as AIMP ions, breathing-relaxed F shell, SC
 
 ### Ce3+:LiYF4
 
-| quantity | before | after (`fast+`) | experiment |
-|---|---|---|---|
-| 4f→5d1 | 36,406 | 36,052 | 33,433 |
-| 4f→5d2 | 46,527 | 47,401 | 41,101 |
-| 4f→5d3 | 57,630 | 59,708 | 48,564 |
-| 4f→5d4 | 58,474 | 60,572 | 50,499 |
-| 4f→5d5 | 63,721 | 66,217 | 52,790 |
-| 5d spread (5d5−5d1) | 27,315 | 30,165 | 19,357 |
-| emission 5d1→2F5/2 | 36,406 (vertical) | 35,580 (relaxed) | 32,680 (306 nm) |
-| emission 5d1→2F7/2 | 34,206 (vertical) | 33,379 (relaxed) | 30,770 (325 nm) |
-| Stokes shift | – | 473 | ~750 (derived) |
+| quantity | before | AIMP only (host geometry) | after: AIMP + relaxed (`fast+`) | experiment |
+|---|---|---|---|---|
+| 4f→5d1 | 36,406 | 36,886 | 36,052 | 33,433 |
+| 4f→5d2 | 46,527 | 47,534 | 47,401 | 41,101 |
+| 4f→5d3 | 57,630 | 58,902 | 59,708 | 48,564 |
+| 4f→5d4 | 58,474 | 59,751 | 60,572 | 50,499 |
+| 4f→5d5 | 63,721 | 65,110 | 66,217 | 52,790 |
+| 5d spread (5d5−5d1) | 27,315 | 28,224 | 30,165 | 19,357 |
+| emission 5d1→2F5/2 | 36,406 (vertical) | – | 35,580 (relaxed) | 32,680 (306 nm) |
+| emission 5d1→2F7/2 | 34,206 (vertical) | – | 33,379 (relaxed) | 30,770 (325 nm) |
+| Stokes shift | – | – | 473 | ~750 (derived) |
+
+The "before" Ce row is the given baseline (Ti baseline re-run here: 24,258 cm-1, matching).
+The baseline Ce rerun was stopped to free cores.
 
 Relaxation (UHF / MOM ΔSCF, 1-coordinate breathing): the ground-state minimum is at
 ΔR = −0.034 Å relative to the host Y–F distances, and the lowest 5d minimum at −0.054 Å.
@@ -43,13 +46,18 @@ experiment and EXAFS show an expansion of ~+0.03–0.05 Å. It points to the sma
 UHF level and to the AIMP Y3+ potential being too soft or too repulsive. The 5d minimum also
 lies just outside the scanned grid (0, 0.05, 0.10 Å), so it is extrapolated.
 
-Semicore (c): SEMICORE_RESULT
+Semicore (c) (AIMP, host geometry; 4 orbitals = Ce 5s + 5p frozen vs correlated in NEVPT2).
+5d levels with 5s5p frozen: 35,923 / 46,968 / 58,700 / 59,558 / 65,198. Correlated minus frozen:
+**+963 / +566 / +202 / +193 / −89 cm-1**. Correlating 5s5p raises 5d1 by ~1,000 cm-1 and
+compresses the 5d spread by ~1,050 cm-1. The effect is at the level of the target accuracy, so it
+must stay correlated (the default; the baseline already did this). It does not explain the
+~8,000 cm-1 over-splitting.
 
 ### Ti3+:Al2O3
 
 | quantity | before | after | experiment |
 |---|---|---|---|
-| 2T2g→2Eg (mean) | 24,258 | TI_AFTER | ~20,400 (490 nm) |
+| 2T2g→2Eg (mean) | 24,258 | 23,938 (O def2-SVPD, vertical) | ~20,400 (490 nm) |
 | emission | – | not obtained | ~12,800 (780 nm) |
 | Stokes shift | – | not obtained | ~7,600 (derived) |
 
