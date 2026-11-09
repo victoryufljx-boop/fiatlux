@@ -257,3 +257,43 @@ Findings:
     - Ho:silica 2.1 µm band coverage at P ≥ 0.5 rises from 0.84 to 0.95.
     - Yb:aluminosilicate stays at 0.64: the model's windows stop near 1095 nm against a measured
       band to 1200 nm, the missing Yb long-wavelength emission above.
+
+### Round 2, late additions: Simpson thesis (Tm in silica) and Malouf 2016 (Er:ZBLAN model parameters)
+
+Numbers are in `gainmat/refs/simpson_malouf_refs.py`; none of them were used in any fit.
+
+- **The L3 concentration law failed an independent test and was corrected.** Simpson measured
+  nine Tm aluminosilicate fibres at N = 7e17–1.3e19 cm⁻³; their ³F₄ lifetimes are 384–573 µs
+  with no concentration trend.
+    - The fitted N^0.43 rule predicted 1.0–2.2 ms (rms log error 1.32).
+    - An N-independent rate from the same original points gives 0.18.
+    - So the extra ³F₄ decay in silica is a host property, not concentration quenching; Al₂O₃
+      lengthens it (384 µs at 1.9 % → 573 µs at 9 %).
+    - The exponent is now fixed at 0 (`quench.P_FIXED`). Cost: the Ho ⁵I₇ prediction from Tm
+      data moves from 0.66 to 0.50 ms (measured 0.70).
+    - Details: `ml_results/l3/simpson_test.json`.
+- **Tm absorption bands vs Simpson's tables (aluminosilicate).**
+    - ³H₄: peak 789 nm (787.5); FWHM 13 vs 18.7 nm, too narrow by the familiar ~1.4x.
+    - ³H₅: peak 1206 nm (1209).
+    - ³F₄: FWHM 170 nm (181), peak 1710 nm against 1632–1660.
+- **The measured ³F₄ peak moves strongly with composition.** It sits at 1577–1580 nm in Ge-silica
+  and 1632 → 1641 → 1660 nm for Al₂O₃ 3.4 → 4.8 → 9 mol %. The model puts it at 1710–1726 nm in
+  both. Raising the model's field moves the peak bluer, whereas more Al moves the measured peak
+  redder. So the ³F₄ position is not set by field strength in the way the superposition model
+  has it. This composition series is the test any future Tm crystal-field model must pass.
+- **The ML-layer Er:ZBLAN cross sections agree with Malouf et al.** Malouf et al. modelled the
+  same Henderson-Sapir laser (independent fit, H2014 column).
+    - The 985 nm 4I11/2 → 4F7/2 ESA: explicit model 9.7e-24 cm² (20x low); with the ML layer
+      2.6e-22 against Malouf's 2.0e-22. The 26x increase that made the dual-pump laser saturate
+      is correct.
+    - 1973 nm ESA: 3.8e-21 (3.0e-21); 3.47 µm emission: 1.0e-21 (1.2e-21); 985 nm GSA: 7.8e-22
+      (9.3e-22).
+- **The dual-pump laser output stays off with or without the ML layer.** I used Malouf's
+  device inputs (1.7 mol %, not the 1 mol % used before, and R_OC 0.87). Both versions lase from
+  P2 ≈ 0.3 W, against a measured threshold near 1.4 W:
+    - explicit: slope 0.36;
+    - ML: slope 0.17;
+    - measured: 0.254.
+
+  The remaining gap is in the energy-transfer and loss terms (Malouf's model needs a large
+  W5362 cross-relaxation), not in cross sections.
