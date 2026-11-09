@@ -1,0 +1,344 @@
+{
+ "family": "ZBLAN",
+ "holdout": "Nd3+",
+ "theta_default": {
+  "cf_scale": 1.0,
+  "disorder": 1.0,
+  "neph_std": 0.0027,
+  "gamma_h": 49.0
+ },
+ "theta_fit": {
+  "cf_scale": 1.2949461113762692,
+  "disorder": 0.21512126591816716,
+  "neph_std": 0.012,
+  "gamma_h": 87.88724318477367
+ },
+ "loss_train_default": 192.2214151165885,
+ "loss_train_fit": 71.6178446086922,
+ "n_train": 17,
+ "n_test": 3,
+ "evals": 120,
+ "seconds": 1933.5405855178833,
+ "detail_train": [
+  {
+   "ion": "Dy3+",
+   "kind": "curve",
+   "pair": [
+    "6H13/2",
+    "6H15/2"
+   ],
+   "resid": [
+    1.6391877622055133,
+    0.24429772059828184,
+    0.0
+   ],
+   "shape_rms": 0.08195938811027567,
+   "width_model": 305.27968302326684,
+   "width_meas": 294.29530201342277,
+   "peak_shift_nm": 0.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    -0.2002692069233858
+   ],
+   "model": 79.57332043278295,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4I11/2",
+    "4I13/2"
+   ],
+   "resid": [
+    1.8974421816988678
+   ],
+   "model": 163.49798770178853,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4I11/2",
+    "4I15/2"
+   ],
+   "resid": [
+    0.06611088327344374
+   ],
+   "model": 38.37870667865215,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4S3/2",
+    "4I13/2"
+   ],
+   "resid": [
+    -2.446597425800607
+   ],
+   "model": 21.477322061474776,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I11/2",
+    "4I13/2"
+   ],
+   "resid": [
+    2.796559682868334,
+    0.13007291617341826,
+    1.3333333333333333
+   ],
+   "shape_rms": 0.1398279841434167,
+   "width_model": 160.82580917089584,
+   "width_meas": 157.71836007130122,
+   "peak_shift_nm": 20.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "resid": [
+    -0.0835482466653645
+   ],
+   "model": 143.19416484694239,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5I6",
+    "5I7"
+   ],
+   "resid": [
+    3.696129867059977
+   ],
+   "model": 153.20184411484408,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5I6",
+    "5I8"
+   ],
+   "resid": [
+    1.016312661276635
+   ],
+   "model": 55.90466951857238,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5F5",
+    "5I8"
+   ],
+   "resid": [
+    -3.337879708128
+   ],
+   "model": 20.60798389433947,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5S2,5F4",
+    "5I5"
+   ],
+   "resid": [
+    0.885509430438981
+   ],
+   "model": 47.966172978238625,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5S2,5F4",
+    "5I6"
+   ],
+   "resid": [
+    0.9720248188071205
+   ],
+   "model": 33.55210329495596,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5S2,5F4",
+    "5I7"
+   ],
+   "resid": [
+    -0.6872183553220275
+   ],
+   "model": 18.943098774344183,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "5S2,5F4",
+    "5I8"
+   ],
+   "resid": [
+    -3.067535770666042
+   ],
+   "model": 15.14883247679827,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "curve",
+   "pair": [
+    "5I6",
+    "5I7"
+   ],
+   "resid": [
+    1.4101233855422284,
+    -0.2208465949204488,
+    -1.3333333333333333
+   ],
+   "shape_rms": 0.07050616927711142,
+   "width_model": 155.08475197253728,
+   "width_meas": 160.30828516377647,
+   "peak_shift_nm": -20.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    -2.174555028008114
+   ],
+   "model": 127.73610785204815,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "resid": [
+    -1.9046780659493505
+   ],
+   "model": 27.05352276885468,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  }
+ ],
+ "loss_test_default": 40.8993123761055,
+ "loss_test_fit": 6.071961449117159,
+ "detail_test_default": [
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I13/2"
+   ],
+   "resid": [
+    -3.0744504933042798
+   ],
+   "model": 35.31063229474135,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I11/2"
+   ],
+   "resid": [
+    -3.058333089804931
+   ],
+   "model": 20.226344529564365,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I9/2"
+   ],
+   "resid": [
+    -4.7003899042665385
+   ],
+   "model": 21.73950578118028,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  }
+ ],
+ "detail_test_fit": [
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I13/2"
+   ],
+   "resid": [
+    -0.7823900306184834
+   ],
+   "model": 49.79891447699722,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I11/2"
+   ],
+   "resid": [
+    0.007907043446935172
+   ],
+   "model": 32.037976325127374,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  },
+  {
+   "ion": "Nd3+",
+   "kind": "eff_width_nm",
+   "pair": [
+    "4F3/2",
+    "4I9/2"
+   ],
+   "resid": [
+    -2.336613953516904
+   ],
+   "model": 30.991021728974864,
+   "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Table 2"
+  }
+ ]
+}

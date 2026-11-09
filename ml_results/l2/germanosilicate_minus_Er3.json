@@ -1,0 +1,262 @@
+{
+ "family": "germanosilicate",
+ "holdout": "Er3+",
+ "theta_default": {
+  "cf_scale": 1.0,
+  "disorder": 1.0,
+  "neph_std": 0.0027,
+  "gamma_h": 49.0
+ },
+ "theta_fit": {
+  "cf_scale": 1.2542180538901604,
+  "disorder": 1.4992150668954807,
+  "neph_std": 0.0019531770708063915,
+  "gamma_h": 24.381622905261306
+ },
+ "loss_train_default": 99.68779394430274,
+ "loss_train_fit": 45.38383581968998,
+ "n_train": 4,
+ "n_test": 6,
+ "evals": 120,
+ "seconds": 2.18054461479187,
+ "detail_train": [
+  {
+   "ion": "Yb3+",
+   "kind": "curve",
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "resid": [
+    4.335735418094708,
+    -0.015535967665620317,
+    -0.26666666666666666
+   ],
+   "shape_rms": 0.21678677090473542,
+   "width_model": 30.43202285663028,
+   "width_meas": 30.503024193548388,
+   "peak_shift_nm": -4.0,
+   "src": "Pask et al., JSTQE 1, 2 (1995) Fig. 1(b)"
+  },
+  {
+   "ion": "Yb3+",
+   "kind": "curve",
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "resid": [
+    3.6663519225551178,
+    0.02639513039766094,
+    -0.26666666666666666
+   ],
+   "shape_rms": 0.1833175961277559,
+   "width_model": 33.18354219671321,
+   "width_meas": 33.05241935483871,
+   "peak_shift_nm": -4.0,
+   "src": "Pask et al., JSTQE 1, 2 (1995) Fig. 1(b)"
+  },
+  {
+   "ion": "Yb3+",
+   "kind": "split_cm1",
+   "pair": "2F7/2",
+   "resid": [
+    -2.334585276345218
+   ],
+   "model": 1139.8122085482173,
+   "src": "Pask et al. 1995 Fig. 1(a) ('approximate')"
+  },
+  {
+   "ion": "Yb3+",
+   "kind": "split_cm1",
+   "pair": "2F5/2",
+   "resid": [
+    -2.7476624756318535
+   ],
+   "model": 957.850628655222,
+   "src": "Pask et al. 1995 Fig. 1(a) ('approximate')"
+  }
+ ],
+ "loss_test_default": 38.07266176545336,
+ "loss_test_fit": 47.70679194242552,
+ "detail_test_default": [
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.381992806436474,
+    -0.9470600291686666,
+    -0.2
+   ],
+   "shape_rms": 0.1190996403218237,
+   "width_model": 38.58375892013417,
+   "width_meas": 42.4165,
+   "peak_shift_nm": -3.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.1999589908317043,
+    -0.616313627687422,
+    -0.13333333333333333
+   ],
+   "shape_rms": 0.15999794954158522,
+   "width_model": 33.66717055209355,
+   "width_meas": 35.80739934711644,
+   "peak_shift_nm": -2.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.949502173664531
+   ],
+   "model": -0.251071880495586,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    1.7445110797782841
+   ],
+   "model": 0.05013521588962487,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.42348495711476
+   ],
+   "model": 0.19970291003616636,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    1.7911812334186366
+   ],
+   "model": 0.311825201499044,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  }
+ ],
+ "detail_test_fit": [
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.543890383079647,
+    -0.4085085813741375,
+    -0.4
+   ],
+   "shape_rms": 0.12719451915398236,
+   "width_model": 40.71866469508934,
+   "width_meas": 42.4165,
+   "peak_shift_nm": -6.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.078203505269881,
+    0.31370874985807085,
+    0.06666666666666667
+   ],
+   "shape_rms": 0.15391017526349404,
+   "width_model": 36.948514097280054,
+   "width_meas": 35.80739934711644,
+   "peak_shift_nm": 1.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.594906432819689
+   ],
+   "model": -0.2188016675378281,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    1.887555677134266
+   ],
+   "model": 0.05728744575742397,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.908134320748701
+   ],
+   "model": 0.22393537821786338,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.5272269454245024
+   ],
+   "model": 0.34862748709933733,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  }
+ ]
+}
