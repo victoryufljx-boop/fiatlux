@@ -5,7 +5,7 @@ Branch `forward/md-sites`. Driver: `md_sites/run_md_sites.py`. Outputs:
 
 ## What was run (scheduled run, 2026-11-09, 55-min hard budget)
 
-Hardware for this run: **2 CPU cores, 7 GB RAM, no GPU**. ~15 of the 55 min
+Hardware for this run: **2 CPU cores, 7 GB RAM, no GPU**. ~17 of the 55 min
 went to installing torch (the CPU-only PyTorch index was blocked by the proxy,
 so the full CUDA wheel set from PyPI had to be installed). The two glasses ran
 in parallel, one core each.
@@ -15,8 +15,8 @@ in parallel, one core each.
 | composition | 64 SiO₂ + 2 Er₂O₃ (202 atoms, 4 Er) | 27 ZrF₄ + 10 BaF₂ + 2 ErF₃ + 2 AlF₃ + 10 NaF (201 atoms, 2 Er; Er replaces La of 53-20-4-3-20 ZBLAN) |
 | density (fixed, NVT) | 2.30 g/cm³ | 4.33 g/cm³ |
 | model | MACE-OMAT-0 medium (float32, contains Er/Yb/Tm/Pr) | same |
-| protocol | __SIO2_PROTO__ | __ZBLAN_PROTO__ |
-| step time (1 core) | __SIO2_STEP__ | __ZBLAN_STEP__ |
+| protocol | 4000 K melt 0.104 ps → linear quench to 300 K over 0.288 ps (~1.3×10¹⁶ K/s) → 0.132 ps production, dt 1 fs; wall 1656 s | 1800 K melt 0.077 ps → quench over 0.213 ps (~7×10¹⁵ K/s) → 0.099 ps production, dt 1 fs; wall 1542 s |
+| step time (1 core) | 2.74 s/step | 3.61 s/step |
 
 Protocol: random packing at the experimental density (min. distance 1.7 Å),
 40 FIRE steps, NVT Langevin (friction 0.02 fs⁻¹) melt, linear quench to 300 K
@@ -34,7 +34,37 @@ Er–ligand pair distribution, searched between peak+0.2 Å and 3.6 Å.
 
 ## Results
 
-__RESULTS__
+| | Er-silica (4 Er × 20 frames) | Er-ZBLAN (2 Er × 20 frames) | EXAFS (lit.) |
+|---|---|---|---|
+| ligand | O | F | |
+| Er–L RDF first peak | **2.13 Å** | **2.28 Å** | Er–O 2.2–2.3 Å (silica); Er–F 2.2–2.3 Å (ZBLAN) |
+| first-min cutoff r_c | 3.38 Å | 3.28 Å | |
+| CN (r < r_c) mean | 6.56 | 8.75 | ~6 (silica); ~8 (ZBLAN) |
+| CN histogram | 6:47, 7:22, 8:10, 9:1 | 8:10, 9:30 | |
+| R_mean ± R_std (all ligands < r_c) | 2.49 ± 0.40 Å | 2.41 ± 0.31 Å | |
+| **actual T of production** | **~1700 K** (final frame) | **~1230 K** (final frame) | 300 K |
+| Er–Er nearest | 4.9 Å | 5.9 Å | |
+| VDOS 99 % cutoff / top peak (by-product, unreliable) | 1516 / 1011 cm⁻¹ | 1361 / 1021 cm⁻¹ | |
+
+Reading: the **RDF first-peak positions** (2.13 Å Er–O, 2.28 Å Er–F) and the
+**CNs** (≈6–7 in silica, ≈8–9 in ZBLAN) land in or near the EXAFS ranges —
+encouraging for the model's Er chemistry. The mean distance R_mean and
+R_std are inflated because the first-minimum cutoff (~3.3 Å) is wide in hot,
+poorly-ordered structures and catches a long tail of second-shell-ish
+ligands; for SPM input, the ligands at r < ~2.8 Å (the core shell) are the
+physically meaningful set and can be re-cut from the JSON coordinates.
+Er-silica peak at 2.13 Å is slightly short of 2.2–2.3 Å (possibly Er–NBO
+bonding in a very under-relaxed network, and MLIP error).
+
+**Big problem found in this run:** the target thermostat temperature was
+300 K, but the systems were *not* at 300 K in production — the final frame
+temperatures are ~1700 K (silica) and ~1230 K (ZBLAN). Relaxation of the
+random packing released potential energy faster than the Langevin
+thermostat (0.02 fs⁻¹ during quench, 0.002 fs⁻¹ in production) could remove
+it within a few hundred fs. So the "glass" is really a hot, partially formed
+network and the site geometries are thermally broadened accordingly. Fix:
+much longer melt/quench (≥10 ps), stronger friction during quench, and a
+check of ⟨T⟩ before production.
 
 Literature EXAFS for comparison:
 
