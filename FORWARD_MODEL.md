@@ -61,3 +61,18 @@ wavelength ranges where small-signal gain minus background loss exceeds a thresh
 - Window thresholds are absolute dB/m at a fixed typical doping per ion.
 - The energy-gap law is a family-level fit; specific transitions (e.g. Pr 1G4 in ZBLAN) can be
   off by an order of magnitude in W_nr.
+
+## Results (first full run, Nov 2026)
+
+See `forward_results/SUMMARY.md` (validation and grid tables), `forward_results/coverage.png`,
+`forward_results/phonon_sweep.png`, and `forward_results/md_vs_stochastic.json`.
+
+- Band positions of known fibre gain media reproduced (Er C+L, Tm 2 um and S band, Pr O band,
+  Ho 2.1/2.9 um, Er 2.8 um, Dy 3 um, Yb 1 um); cross sections within ~25% where measured.
+- Crystal-field strength: one calibration per ligand (O: Er 4I15/2 splitting 370 cm^-1 in silica;
+  F: Carnall Er:LaF3). Independent checks: Ho 5I8 (silica) 332 vs 330 cm^-1, Yb 2F5/2 645 vs 695,
+  Yb 2F7/2 765 vs 1210 (miss -> Yb band ends ~1.10 um instead of ~1.2 um).
+- Largest error: multiphonon-limited lifetimes ~10x too long (Tm 3F4 and Ho 5I7 in silica,
+  Pr 1G4 in ZBLAN; Dy 6H13/2 24x).
+- MLIP-MD (MACE-OMAT-0) Er:ZBLAN sites reproduce the stochastic-site spectra (splitting 291 vs
+  269 cm^-1, 1.5 um FWHM 40 vs 36 nm), though from a very short quench.
