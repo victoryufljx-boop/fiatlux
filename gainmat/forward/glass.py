@@ -197,6 +197,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     sites = fam.get("sites") or random_sites(n_sites, lig, fam["CN"], fam["R"], fam["R_std"],
                                              fam["ang_std"], seed=seed)
     spm = {lig: spm_for(ion, lig)}
+    if fam.get("cf_scale", 1.0) != 1.0:                 # host crystal-field strength multiplier
+        spm[lig] = dict(spm[lig], **{f"B{k}": spm[lig][f"B{k}"] * fam["cf_scale"] for k in (2, 4, 6)})
     emax = fam.get("emax", EMAX[ion])
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
                             emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0),
