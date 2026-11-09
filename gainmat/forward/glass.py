@@ -300,10 +300,13 @@ def apply_measured_absorption(spec, measured, T=295.0, floor=0.02):
         eps = nu[i] + kT * np.log(max(se0[i], 1e-60) / max(sa0[i], 1e-60))
         inside = (nu >= x.min()) & (nu <= x.max())
         meas = np.interp(nu, x, y)
-        use = inside & (meas >= floor * y.max())
         k = np.trapezoid(meas[inside], nu[inside]) / max(np.trapezoid(sa0[inside], nu[inside]), 1e-60)
-        sa = np.where(use, meas, sa0 * k)
-        se = np.where(use, meas * np.exp(np.clip((eps - nu) / kT, -50, 50)), se0 * k)
+        # weight of the measurement: 1 where it is well above the noise floor, blending smoothly to
+        # the (rescaled) model where the measured absorption fades out, where McCumber would
+        # amplify digitisation noise by exp((eps - h nu)/kT)
+        w = np.where(inside, np.clip((meas / y.max() - floor) / (3 * floor), 0.0, 1.0), 0.0)
+        sa = w * meas + (1 - w) * sa0 * k
+        se = w * meas * np.exp(np.clip((eps - nu) / kT, -50, 50)) + (1 - w) * se0 * k
         if em is not None:                               # measured emission replaces McCumber where measured
             le, ye = np.asarray(em[0], float), np.asarray(em[1], float)
             oke = np.isfinite(ye) & (ye >= 0); le, ye = le[oke], ye[oke]

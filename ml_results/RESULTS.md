@@ -191,3 +191,16 @@ Findings:
 - **Independent L3 check (Walsh & Barnes 2004, never used in fitting).** Tm:silica, 1.12e20 cm⁻³:
   ³F₄ lifetime 0.42 ms measured; L3 predicts 0.46 ms (single-ion model 2.9 ms). In Tm:ZBLAN
   (0.36e20) the model gives 8.1 ms against 11.2 ms measured, with no quenching, as expected.
+- **MD-derived glass sites do not fix the silica peaks either.** These are the 80 Er sites from
+  the MACE MLIP melt-quench on branch forward/md-sites, with the field scaled so Er
+  ⁴I₁₅/₂ = 400 cm⁻¹.
+    - Tm ³F₄ absorption 1754 nm (random polyhedra 1731; measured 1633).
+    - Yb ²F₇/₂ splitting 728 cm⁻¹ (measured 874–965).
+    - No Yb emission at 1102 nm.
+
+  The superposition crystal field itself, not the site geometry, is the likely limit for Tm and
+  Yb in silica.
+- **Usable tool.** `scripts/predict_with_absorption.py --ion --family --band --abs file.csv
+  [--em file.csv] [--ml]` writes the calibrated spectra, gain windows and lifetimes, plus a
+  comparison plot. Example, Ho:silica with Le Gouët's absorption and the ML layer on: ⁵I₇
+  lifetime 0.69 ms (measured 0.70), net-gain window 1807–2214 nm.

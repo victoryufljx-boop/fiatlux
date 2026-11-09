@@ -24,34 +24,34 @@
     111.78300700873413
    ]
   ],
-  "seconds": 11.369182109832764
+  "seconds": 12.040100574493408
  },
  {
   "case": "Ho:silica laser (Le Gouet 2020)",
   "variant": "measured absorption",
-  "model_slope": 0.6139120445130748,
+  "model_slope": 0.6069580092687222,
   "measured_slope": 0.49,
-  "model_threshold_W": 1.0119542429763797,
+  "model_threshold_W": 1.0972011366312315,
   "measured_threshold_W": 13,
   "curve": [
    [
     50,
-    30.074310781651135
+    29.681945656205848
    ],
    [
     100,
-    60.7699992920283
+    60.02984558825682
    ],
    [
     150,
-    91.46558593797155
+    90.37774638328756
    ],
    [
     200,
-    122.16112265184923
+    120.72564693598264
    ]
   ],
-  "seconds": 5.371685266494751
+  "seconds": 5.450893402099609
  },
  {
   "case": "Ho:silica laser (Le Gouet 2020)",
@@ -78,7 +78,7 @@
     118.3565544360402
    ]
   ],
-  "seconds": 5.165571928024292
+  "seconds": 5.296285390853882
  },
  {
   "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
@@ -105,7 +105,7 @@
     0.0
    ]
   ],
-  "seconds": 0.23271656036376953
+  "seconds": 0.23349356651306152
  },
  {
   "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
@@ -131,7 +131,7 @@
     0.0
    ]
   ],
-  "seconds": 0.15706396102905273
+  "seconds": 0.15839123725891113
  },
  {
   "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
@@ -158,7 +158,7 @@
     0.0
    ]
   ],
-  "seconds": 0.26106786727905273
+  "seconds": 0.25586795806884766
  },
  {
   "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
@@ -184,7 +184,7 @@
     0.0
    ]
   ],
-  "seconds": 0.16438555717468262
+  "seconds": 0.15564632415771484
  },
  {
   "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
@@ -211,7 +211,7 @@
     0.21067291373014685
    ]
   ],
-  "seconds": 1.1242740154266357
+  "seconds": 1.0574004650115967
  },
  {
   "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
@@ -237,6 +237,6 @@
     0.0
    ]
   ],
-  "seconds": 0.15874409675598145
+  "seconds": 0.17271947860717773
  }
 ]
