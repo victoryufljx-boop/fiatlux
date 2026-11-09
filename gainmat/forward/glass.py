@@ -58,6 +58,21 @@ EMAX = {"Er3+": 21000.0, "Yb3+": 12000.0, "Tm3+": 22000.0, "Ho3+": 19000.0,
         "Pr3+": 23000.0, "Nd3+": 19000.0, "Dy3+": 14000.0}
 
 
+def yb_omega_from_lifetime(tau_s: float, n: float):
+    """Yb3+ has a single 2F5/2 -> 2F7/2 transition, so Judd-Ofelt Omegas are not separately
+    defined.  Use equal Omega_2 = Omega_4 = Omega_6 = x chosen so that the radiative rate
+    (ED + MD) equals 1/tau of the measured 2F5/2 lifetime (Yb has no nonradiative channel in
+    these glasses, so tau ~ tau_rad).  This is an input normalisation, documented as such."""
+    from .ions import get_ion
+    from .gain import multiplet_rates
+    m = get_ion("Yb3+")
+    E = {mm["label"]: mm["energy"] for mm in m.multiplets}
+    a_md = multiplet_rates("Yb3+", (0, 0, 0), n, E)[1, 0]
+    a_1 = multiplet_rates("Yb3+", (1, 1, 1), n, E)[1, 0] - a_md
+    x = max((1.0 / tau_s - a_md) / a_1, 0.0)
+    return (x, x, x)
+
+
 def load_refs():
     """Merge sourced values from refs modules if present (silently keeps defaults otherwise)."""
     loaded = []
@@ -80,7 +95,10 @@ def load_refs():
                 o = tuple(float(d[k]["value"] if isinstance(d[k], dict) else d[k]) for k in ("O2", "O4", "O6"))
                 OMEGA[(ion, fam)] = o
             except Exception:
-                pass
+                tau = d.get("tau_2F52_s")
+                tau = tau.get("value") if isinstance(tau, dict) else tau
+                if ion == "Yb3+" and tau and fam in FAMILIES:
+                    OMEGA[(ion, fam)] = yb_omega_from_lifetime(float(tau), FAMILIES[fam]["n"])
         loaded.append("glass_refs")
     except ImportError:
         pass
