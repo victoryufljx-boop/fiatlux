@@ -263,5 +263,157 @@
    "ratio": 0.11893886547358266,
    "src": "[WB04] Tables 1, 3, 4; text p. 331 (21 us main component)"
   }
+ ],
+ "temperature": [
+  {
+   "glass": "phosphate",
+   "T": 374,
+   "ratio_meas": 1.1654135338345866,
+   "ratio_model": 1.021656811681216
+  },
+  {
+   "glass": "phosphate",
+   "T": 472,
+   "ratio_meas": 1.2857142857142858,
+   "ratio_model": 1.0753916292297747
+  },
+  {
+   "glass": "phosphate",
+   "T": 523,
+   "ratio_meas": 1.3984962406015038,
+   "ratio_model": 1.1149562926016552
+  },
+  {
+   "glass": "phosphate",
+   "T": 573,
+   "ratio_meas": 1.3759398496240602,
+   "ratio_model": 1.1612646814138605
+  },
+  {
+   "glass": "phosphate",
+   "T": 623,
+   "ratio_meas": 1.4511278195488722,
+   "ratio_model": 1.2148209173834732
+  },
+  {
+   "glass": "silicate",
+   "T": 374,
+   "ratio_meas": 1.0983050847457627,
+   "ratio_model": 1.0333834591633442
+  },
+  {
+   "glass": "silicate",
+   "T": 423,
+   "ratio_meas": 1.1084745762711865,
+   "ratio_model": 1.0673804941241027
+  },
+  {
+   "glass": "silicate",
+   "T": 471,
+   "ratio_meas": 1.2,
+   "ratio_model": 1.1100296078995033
+  },
+  {
+   "glass": "silicate",
+   "T": 523,
+   "ratio_meas": 1.2881355932203389,
+   "ratio_model": 1.166541032166807
+  },
+  {
+   "glass": "silicate",
+   "T": 573,
+   "ratio_meas": 1.3423728813559321,
+   "ratio_model": 1.2308138610911783
+  },
+  {
+   "glass": "silicate",
+   "T": 623,
+   "ratio_meas": 1.5186440677966102,
+   "ratio_model": 1.3046878004072642
+  },
+  {
+   "glass": "silicate",
+   "T": 673,
+   "ratio_meas": 1.6542372881355931,
+   "ratio_model": 1.388091365213843
+  },
+  {
+   "glass": "germanate",
+   "T": 373,
+   "ratio_meas": 1.097883597883598,
+   "ratio_model": 1.081280769803525
+  },
+  {
+   "glass": "germanate",
+   "T": 421,
+   "ratio_meas": 1.1441798941798942,
+   "ratio_model": 1.1553494879358637
+  },
+  {
+   "glass": "germanate",
+   "T": 471,
+   "ratio_meas": 1.1388888888888888,
+   "ratio_model": 1.251116178690788
+  },
+  {
+   "glass": "germanate",
+   "T": 523,
+   "ratio_meas": 1.335978835978836,
+   "ratio_model": 1.3712772728950202
+  },
+  {
+   "glass": "germanate",
+   "T": 572,
+   "ratio_meas": 1.4417989417989419,
+   "ratio_model": 1.5043098783378446
+  },
+  {
+   "glass": "germanate",
+   "T": 623,
+   "ratio_meas": 1.6666666666666667,
+   "ratio_model": 1.6640647355455378
+  },
+  {
+   "glass": "germanate",
+   "T": 672,
+   "ratio_meas": 1.9576719576719577,
+   "ratio_model": 1.8390539316421686
+  },
+  {
+   "glass": "germanate",
+   "T": 723,
+   "ratio_meas": 2.1560846560846563,
+   "ratio_model": 2.0448536263104002
+  },
+  {
+   "glass": "tellurite",
+   "T": 373,
+   "ratio_meas": 1.046468401486989,
+   "ratio_model": 1.168537833363446
+  },
+  {
+   "glass": "tellurite",
+   "T": 471,
+   "ratio_meas": 1.0613382899628252,
+   "ratio_model": 1.5822710798890889
+  },
+  {
+   "glass": "tellurite",
+   "T": 522,
+   "ratio_meas": 1.1152416356877324,
+   "ratio_model": 1.8776807718711754
+  },
+  {
+   "glass": "tellurite",
+   "T": 572,
+   "ratio_meas": 1.2509293680297398,
+   "ratio_model": 2.230420827724221
+  },
+  {
+   "glass": "tellurite",
+   "T": 621,
+   "ratio_meas": 1.4052044609665428,
+   "ratio_model": 2.645396407367239
+  }
  ]
 }

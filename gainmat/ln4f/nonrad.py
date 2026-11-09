@@ -44,10 +44,28 @@ def w_phonon_order(dE, hw_max):
     return float(np.exp(lb - a * dE / hw_max))
 
 
-def w_nr(dE, hw_max=None, family=None, model="auto"):
-    """Nonradiative rate (s^-1) for a gap dE (cm^-1)."""
+KB_CM = 0.6950348   # cm^-1 / K
+
+
+def temperature_factor(dE, hw, T, T0=295.0):
+    """W(T)/W(T0) for a p-phonon process, p = dE/hw (Layne, Lowdermilk & Weber 1977, Eq. 11):
+    [(n(T)+1)/(n(T0)+1)]^p with n(T) = 1/(exp(hw/kT) - 1)."""
+    if T is None or abs(T - T0) < 1e-6 or not hw:
+        return 1.0
+    n = lambda t: 1.0 / np.expm1(hw / (KB_CM * t))
+    return float(((n(T) + 1) / (n(T0) + 1)) ** (dE / hw))
+
+
+def w_nr(dE, hw_max=None, family=None, model="auto", T=None):
+    """Nonradiative rate (s^-1) for a gap dE (cm^-1); room-temperature laws scaled to T (K)
+    with the Layne Eq. 11 phonon-occupation factor when T is given."""
     if dE <= 0:
         return 1e13
+    hw = FAMILIES[family]["hw"] if family in FAMILIES else hw_max
+    return _w_nr295(dE, hw_max, family, model) * temperature_factor(dE, hw, T)
+
+
+def _w_nr295(dE, hw_max=None, family=None, model="auto"):
     if model == "family" or (model == "auto" and family in FAMILIES):
         return float(w_family(dE, family))
     if model == "van_dijk":

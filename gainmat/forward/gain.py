@@ -48,7 +48,7 @@ def multiplet_rates(ion, omegas, n_index, energies: dict, emax=27000.0):
 
 
 def nonradiative(ion, energies: dict, hw_max: float, family: str | None = None, emax=27000.0,
-                 edges: dict | None = None, site_edges: list | None = None):
+                 edges: dict | None = None, site_edges: list | None = None, T: float | None = None):
     """W[i] (s^-1): multiphonon decay of each multiplet to the next lower one.  The gap is the
     Stark-edge gap (lowest Stark level of the upper multiplet minus highest of the lower one,
     site-averaged) when `edges` is given, as in the energy-gap-law literature; otherwise the
@@ -67,13 +67,13 @@ def nonradiative(ion, energies: dict, hw_max: float, family: str | None = None, 
         li, lj = m.multiplets[i]["label"], m.multiplets[j]["label"]
         if site_edges and all(li in s and lj in s for s in site_edges):
             W[i] = float(np.mean([w_nr(max(s[li][0] - s[lj][1], 1.0), hw_max=hw_max, family=family,
-                                       model=mode) for s in site_edges]))
+                                       model=mode, T=T) for s in site_edges]))
         else:
             if edges and li in edges and lj in edges:
                 gap = max(edges[li][0] - edges[lj][1], 1.0)
             else:
                 gap = E[i] - E[j]
-            W[i] = w_nr(gap, hw_max=hw_max, family=family, model=mode)
+            W[i] = w_nr(gap, hw_max=hw_max, family=family, model=mode, T=T)
         tgt[i] = j
     return W, tgt
 
@@ -123,7 +123,7 @@ def _pump_terms(spec, labels, pump_nm, I_W_cm2):
 
 def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm3=1e19,
                  pump_nm=980.0, intensities_W_cm2=np.logspace(2, 7, 11), emax=27000.0,
-                 pump2_nm=None, intensities2_W_cm2=None):
+                 pump2_nm=None, intensities2_W_cm2=None, T=None):
     """Gain g(nu) in dB/m for each pump intensity, using ensemble spectra `spec`
     (from spectra.ensemble_spectra with all pairs among multiplets below emax).
     pump2_nm: optional second pump (dual-wavelength pumping); the runs then cover the grid
@@ -134,7 +134,7 @@ def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm
                 for i, k in enumerate(labels)}
     A = multiplet_rates(ion, omegas, n_index, energies, emax)
     W, tgt = nonradiative(ion, energies, hw_max, family, emax, edges=spec.get("edges"),
-                          site_edges=spec.get("site_edges"))
+                          site_edges=spec.get("site_edges"), T=T)
     active = [i for i, k in enumerate(labels) if energies[k] <= emax]
     nu = spec["nu"]; nup = 1e7 / pump_nm
     g0 = labels.index(min(labels, key=lambda k: energies[k]))
