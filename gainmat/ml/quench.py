@@ -9,9 +9,10 @@ Dry fluorides vs OH-containing silica, a resonance window near the OH combinatio
 sub-linear concentration dependence (energy migration to a fixed set of quenching sites) are
 the physical constraints.  The model therefore has the form
     W_q = 0                                    (fluoride hosts)
-    W_q = A (N / 1e20 cm^-3)^p                 (silica family, level energy 4800-6300 cm^-1)
+    W_q = A (N / 1e20 cm^-3)^p, p fixed at 0   (silica family, level energy 4800-6300 cm^-1; see P_FIXED)
     W_q = 0 otherwise (Er 4I13/2 class: tens of s^-1, below the model's own error)
-with A, p fitted.  Tested by predicting each point from the others, and Ho 5I7 from Tm data only.
+with A fitted.  Tested by predicting each point from the others, Ho 5I7 from Tm data only, and an
+independent low-concentration series (Simpson thesis), which is what fixed p at 0.
 """
 from __future__ import annotations
 
@@ -21,13 +22,23 @@ import os
 import numpy as np
 
 WINDOW = (4800.0, 6300.0)
+# Concentration exponent.  The first version fitted p = 0.43 on fibres with N = 5e19 - 3e20.  An
+# independent series (Simpson, PhD thesis, Victoria University: nine Tm aluminosilicate fibres,
+# Tm2O3 100 - 1950 ppm, N = 7e17 - 1.3e19 cm^-3) has 3F4 lifetimes of 384 - 573 us with no
+# concentration trend; the N^0.43 law predicts 1.0 - 2.2 ms there (rms log error 1.32) while an
+# N-independent rate fitted to the same original points gives rms 0.18.  The extra decay is a
+# property of the silica host, not concentration quenching, so p is fixed at 0.
+P_FIXED = 0.0
 FLUORIDE = {"ZBLAN", "fluoroindate"}
 PARAMS = dict(A=None, p=None)
 
 
-def _fit(pts):
+def _fit(pts, p_fixed="default"):
     N = np.array([p["N_cm3"] for p in pts]); W = np.array([p["W_extra_s1"] for p in pts])
     x = np.log(N / 1e20); y = np.log(W)
+    pf = P_FIXED if p_fixed == "default" else p_fixed
+    if pf is not None:
+        return float(np.exp(np.mean(y - pf * x))), float(pf)
     if len(pts) >= 3 and np.ptp(x) > 0.3:
         p, lnA = np.polyfit(x, y, 1)
     else:
@@ -90,7 +101,11 @@ def evaluate(path="ml_results/l3/extrinsic_quenching.json", out="ml_results/l3/q
             cross.append(dict(fit_on="Tm3+ only", predict=f"{q['ion']} {q['level']}", N_cm3=q["N_cm3"],
                               W_meas=q["W_extra_s1"], W_pred=w, tau_obs_ms=q["tau_obs_ms"],
                               tau_pred_ms=1e3 / (w + 1e3 / q["tau_model_ms"]), tau_single_ion_ms=q["tau_model_ms"]))
-    res = dict(A_s1=A, p=p, window_cm1=WINDOW, n_points=len(pts), leave_one_out=loo, cross_ion=cross)
+    A_free, p_free = _fit(pts, p_fixed=None)
+    res = dict(A_s1=A, p=p, window_cm1=WINDOW, n_points=len(pts), leave_one_out=loo, cross_ion=cross,
+               free_exponent_fit=dict(A_s1=A_free, p=p_free),
+               external_test="ml_results/l3/simpson_test.json (Simpson thesis, 9 fibres, N 7e17-1.3e19): "
+                             "rms log error 1.32 with p = 0.43 vs 0.18 with p = 0")
     json.dump(res, open(out, "w"), indent=1, default=float)
     print(f"W_q = {A:.0f} (N/1e20)^{p:.2f} s^-1 for silica-family levels at {WINDOW[0]:.0f}-{WINDOW[1]:.0f} cm^-1")
     for r in loo:
