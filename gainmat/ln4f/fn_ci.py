@@ -12,8 +12,10 @@ Casimir operators are built from the many-electron unit tensors
 U^(k) = sum_i u^(k)(i):   G(R7) = (1/5)*sum_{k=1,3,5}(2k+1) U^k.U^k,
 G(G2) = (1/4)*sum_{k=1,5}(2k+1) U^k.U^k  (normalisation fixed so the eigenvalues
 equal Racah's g(W)=[w1(w1+5)+w2(w2+3)+w3(w3+1)]/10 and g(U)=[u1^2+u1u2+u2^2+5u1+4u2]/12;
-checked in tests). Not included: three-body T^i, Marvin M^k, P^k, and the
-electrostatically-correlated spin-orbit terms (expected effect ~ 50-150 cm^-1).
+checked in tests). Carnall's higher-order operators (three-body T^i, spin-other-orbit +
+spin-spin M^k, electrostatically-correlated spin-orbit P^k) are added via `extra=` (see
+carnall_ops.py).  Labels: unique conventional SLJ names from a per-J assignment of the
+(seniority-resolved) LS terms, see assign_labels().
 """
 from __future__ import annotations
 from functools import lru_cache
@@ -221,6 +223,31 @@ class FnBasis:
         return out
 
 
+    def term_projectors(self):
+        """[(mult, L, tau, nslots, P)]: LS eigenspaces split further by the Casimir labels
+        (W from G(R7), U from G(G2)) -> one entry per (tau S L) class, ordered by seniority
+        within an SL (tau = 1, 2, ...). nslots > 1 if W and U do not separate repeated terms."""
+        if "tp" in self._cache:
+            return self._cache["tp"]
+        GG2, GR7 = self.casimirs()
+        out = []
+        for (mult, L), P in self.ls_projectors().items():
+            M = P.T @ (GR7 + 1e-3 * GG2) @ P
+            w, u = np.linalg.eigh((M + M.T) / 2)
+            Q = P @ u
+            deg = mult * (2 * L + 1)
+            i, tau = 0, 0
+            while i < len(w):
+                j = i
+                while j < len(w) and abs(w[j] - w[i]) < 1e-6:
+                    j += 1
+                tau += 1
+                out.append((mult, L, tau, (j - i) // deg, Q[:, i:j]))
+                i = j
+        self._cache["tp"] = out
+        return out
+
+
 @lru_cache(maxsize=None)
 def get_basis(N):
     return FnBasis(N)
@@ -253,7 +280,13 @@ class FnResult:
         return rows
 
 
-def build_hamiltonian(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None):
+HIGHER = ("T2", "T3", "T4", "T6", "T7", "T8", "M0", "M2", "M4", "P2", "P4", "P6")
+
+
+def build_hamiltonian(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None,
+                      extra=None, spin_spin=True):
+    """extra: optional dict with any of T2..T8, M0, M2, M4, P2, P4, P6 (Carnall operators,
+    see carnall_ops)."""
     b = get_basis(N)
     c = b.coulomb()
     a = b.angular()
@@ -261,6 +294,18 @@ def build_hamiltonian(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=N
     if beta or gamma:
         GG2, GR7 = b.casimirs()
         H = H + beta * GG2 + gamma * GR7
+    if extra:
+        from . import carnall_ops as CO
+        if any(extra.get(k, 0.0) for k in CO.TI):
+            T = CO.three_body_operators(b)
+            for k in CO.TI:
+                if extra.get(k, 0.0):
+                    H = H + extra[k] * T[k]
+        if any(extra.get(k, 0.0) for k in ("M0", "M2", "M4", "P2", "P4", "P6")):
+            MP = CO.magnetic_operators(b, spin_spin=spin_spin)
+            for k in ("M0", "M2", "M4", "P2", "P4", "P6"):
+                if extra.get(k, 0.0):
+                    H = H + extra[k] * MP[k]
     if bkq:
         H = H + b.crystal_field(bkq)
     return H
@@ -292,18 +337,66 @@ def _label(b, Vg):
     return best, w[best], w
 
 
-def solve(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None, shift_ground=True):
+def assign_labels(b, groups):
+    """Conventional, unique SLJ labels.
+
+    For each J, the multiplets of that J and the (tau S L) terms that can couple to J are equal
+    in number. Going up in energy, each multiplet takes the SL term (summed over seniority) with
+    the largest squared component among those not yet used up for this J ("largest LS component, each label
+    used once, in order", as in Carnall's tables). E.g. Nd 17241 -> 2G7/2, 19060 -> 4G7/2
+    instead of two "4G7/2".
+    The name is the bare SLJ (e.g. 2H9/2) for the lowest-energy multiplet carrying that SLJ,
+    and 2H(2)9/2 etc. for the higher-lying multiplet of a repeated SL term. Er3+ 28,000 cm-1
+    (4G 0.42, 2G1+2G2 0.49) is thus 2G7/2, as in Carnall's table."""
+    TP = b.term_projectors()
+    out = [None] * len(groups)
+    byJ = {}
+    for i, (e, J, Vg) in enumerate(groups):
+        byJ.setdefault(J, []).append(i)
+    for J, idx in byJ.items():
+        # SL classes allowed for this J; capacity = number of (tau S L) terms with that SL
+        cls = {}
+        for (mult, L, tau, ns, P) in TP:
+            S = (mult - 1) / 2
+            if abs(S - L) - 1e-9 <= J <= S + L + 1e-9:
+                c = cls.setdefault((mult, L), dict(cap=0, P=[]))
+                c["cap"] += ns
+                c["P"].append(P)
+        keys = list(cls)
+        Wt = np.zeros((len(idx), len(keys)))
+        for a, i in enumerate(idx):
+            Vg = groups[i][2]
+            for c, k in enumerate(keys):
+                Wt[a, c] = sum(float(np.sum(np.abs(P.T @ Vg) ** 2)) for P in cls[k]["P"]) / Vg.shape[1]
+        cap = np.array([cls[k]["cap"] for k in keys])
+        # greedy in energy order: each multiplet takes its largest LS component whose SL still
+        # has unused capacity (repeated SL terms -> second occurrence becomes e.g. 2H(2)9/2)
+        order = sorted(range(len(idx)), key=lambda a: groups[idx[a]][0])
+        for a in order:
+            cc = int(np.argmax(np.where(cap > 0, Wt[a], -1.0)))
+            cap[cc] -= 1
+            mult, L = keys[cc]
+            out[idx[a]] = (mult, L, 0, Wt[a, cc])
+    return out
+
+
+def solve(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None, shift_ground=True,
+          extra=None, spin_spin=True):
     """Diagonalise and label. Returns FnResult with J-multiplets (barycentres when
-    a crystal field is given) and, if bkq is given, Stark levels."""
+    a crystal field is given) and, if bkq is given, Stark levels. extra: Carnall higher-order
+    parameters T2..T8, M0,M2,M4, P2,P4,P6 (see carnall_ops)."""
     b = get_basis(N)
-    H0 = build_hamiltonian(N, F2, F4, F6, zeta, alpha, beta, gamma)
+    H0 = build_hamiltonian(N, F2, F4, F6, zeta, alpha, beta, gamma, extra=extra,
+                           spin_spin=spin_spin)
     E0, V0 = np.linalg.eigh(H0)
     groups = _group_multiplets(b, E0, V0)
+    labs = assign_labels(b, groups)
     mults = []
-    for (e, J, Vg) in groups:
-        (mult, L), pur, _ = _label(b, Vg)
+    for (e, J, Vg), (mult, L, tau, wt) in zip(groups, labs):
+        (m1, L1), pur, comp = _label(b, Vg)
         mults.append(dict(label=term_label(mult, L) + jlabel(J), term=term_label(mult, L),
-                          S=(mult - 1) / 2, L=L, J=J, energy=e, purity=pur, vecs=Vg))
+                          S=(mult - 1) / 2, L=L, J=J, energy=e, purity=wt, tau=tau,
+                          largest=term_label(m1, L1), largest_weight=pur, vecs=Vg))
     stark = None
     if bkq:
         H = H0 + b.crystal_field(bkq)
@@ -313,13 +406,14 @@ def solve(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None, shift_g
                       for n in range(len(E))])
         for n in range(len(E)):
             im = int(np.argmax(W[n]))
-            stark.append(dict(energy=float(E[n]), parent=mults[im]["label"], weight=float(W[n, im])))
+            stark.append(dict(energy=float(E[n]), parent=im, weight=float(W[n, im])))
         # barycentres of each parent multiplet from the Stark levels
         for im, m in enumerate(mults):
             w = W[:, im]
             m["energy_free"] = m["energy"]
             m["energy"] = float(np.sum(w * E) / np.sum(w))
         E0, V0 = E, V
+    mults_by_id = list(mults)
     eg = min(m["energy"] for m in mults)
     if shift_ground:
         for m in mults:
@@ -330,15 +424,28 @@ def solve(N, F2, F4, F6, zeta, alpha=0.0, beta=0.0, gamma=0.0, bkq=None, shift_g
             for s in stark:
                 s["energy"] -= eg
     mults.sort(key=lambda m: m["energy"])
-    # disambiguate repeated labels (e.g. 2H(1)11/2, 2H(2)11/2) by order of appearance
+    # unique names: bare SLJ for the lowest occurrence, 2H(2)9/2 for a higher repeated SL term
+    seen = {}
+    for m in mults:
+        base = m["label"]
+        k = seen.get(base, 0) + 1
+        seen[base] = k
+        if k > 1:
+            m["label"] = f"{m['term']}({k}){jlabel(m['J'])}"
+    if stark:
+        for st in stark:                      # parent index -> final label
+            st["parent"] = mults_by_id[st["parent"]]["label"]
     return FnResult(b, E0, V0, mults, stark)
 
 
-def solve_params(N, p, bkq=None, casimir=True):
-    """p: dict with F2,F4,F6,zeta,alpha[,beta,gamma]."""
+def solve_params(N, p, bkq=None, casimir=True, higher=True, spin_spin=True):
+    """p: dict with F2,F4,F6,zeta,alpha[,beta,gamma][,T2..T8,M0,M2,M4,P2,P4,P6].
+    higher=False drops the Carnall three-body/magnetic operators."""
+    extra = {k: p[k] for k in HIGHER if k in p} if higher else None
     return solve(N, p["F2"], p["F4"], p["F6"], p["zeta"], p.get("alpha", 0.0),
                  p.get("beta", 0.0) if casimir else 0.0,
-                 p.get("gamma", 0.0) if casimir else 0.0, bkq=bkq)
+                 p.get("gamma", 0.0) if casimir else 0.0, bkq=bkq, extra=extra,
+                 spin_spin=spin_spin)
 
 
 def ls_terms(N):

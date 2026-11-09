@@ -10,11 +10,12 @@ from .nonrad import w_nr, quantum_eff, FAMILIES
 _CACHE = {}
 
 
-def free_ion(ion, casimir=True, bkq=None):
-    key = (ion, casimir, None if bkq is None else tuple(sorted(bkq.items())))
+def free_ion(ion, casimir=True, bkq=None, higher=True):
+    """higher=True (default) includes Carnall's T^i, M^k, P^k operators."""
+    key = (ion, casimir, higher, None if bkq is None else tuple(sorted(bkq.items())))
     if key not in _CACHE:
         p = R.FREE_ION[ion]
-        _CACHE[key] = solve_params(p["N"], p, bkq=bkq, casimir=casimir)
+        _CACHE[key] = solve_params(p["N"], p, bkq=bkq, casimir=casimir, higher=higher)
     return _CACHE[key]
 
 
@@ -69,7 +70,7 @@ def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, em
     out.tau_rad_s = {m[i]["label"]: float(tau[i]) for i in tau}
     out.quantum_eff = eta
     out.judd_ofelt = dict(O2=omegas[0], O4=omegas[1], O6=omegas[2])
-    out.method = dict(tier="ln4f", hamiltonian="4f^N determinant CI: F2,F4,F6,zeta,alpha,beta,gamma"
+    out.method = dict(tier="ln4f", hamiltonian="4f^N determinant CI: F2,F4,F6,zeta,alpha,beta,gamma,T2-T8,M0-M4,P2-P6"
                       + (", B^k_q" if bkq else ""), params=R.FREE_ION[ion]["src"],
                       n_index=n_index, phonon_max_cm1=phonon_max_cm1,
                       nr_model=("family:" + family) if family in FAMILIES else "phonon-order",
@@ -77,9 +78,13 @@ def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, em
     return out
 
 
-def level_table(ion, casimir=True, emax=25000.0):
-    res = free_ion(ion, casimir=casimir)
-    exp = R.EXP_LEVELS.get(ion, {})
+def level_table(ion, casimir=True, emax=30000.0, higher=True):
+    """Computed free-ion multiplets vs Carnall 1989 experimental barycentres (both relative to
+    the ground multiplet barycentre). RMS over levels with exp <= emax."""
+    res = free_ion(ion, casimir=casimir, higher=higher)
+    eb = R.EXP_BARYCENTRES_CARNALL1989.get(ion, {})
+    g0 = res.multiplets[0]["label"]
+    exp = {k: v["E"] - eb[g0]["E"] for k, v in eb.items()} if g0 in eb else {}
     rows, seen = [], set()
     for mm in res.multiplets:
         lab = mm["label"]
@@ -87,11 +92,21 @@ def level_table(ion, casimir=True, emax=25000.0):
             continue
         seen.add(lab)
         e = exp.get(lab)
+        e = None if e is None else round(e, 1)
         rows.append(dict(label=lab, calc=round(mm["energy"], 1), exp=e,
                          diff=None if e is None else round(mm["energy"] - e, 1)))
-    d = [r["diff"] for r in rows if r["diff"] is not None and r["exp"] <= emax]
+    d = [r["diff"] for r in rows if r["diff"] is not None and r["exp"] <= emax and r["exp"] > 0]
     rms = float(np.sqrt(np.mean(np.square(d)))) if d else None
     return rows, rms
+
+
+def score(ion, emax=30000.0, higher=True):
+    """dict(rms, max, n, duplicates) vs Carnall 1989 experimental barycentres."""
+    rows, rms = level_table(ion, emax=emax, higher=higher)
+    d = [r["diff"] for r in rows if r["diff"] is not None and 0 < r["exp"] <= emax]
+    labs = [m["label"] for m in free_ion(ion, higher=higher).multiplets]
+    return dict(rms=rms, max=float(np.max(np.abs(d))), n=len(d),
+                duplicates=len(labs) - len(set(labs)), rows=rows)
 
 
 def _tr(p, up, lo):
@@ -106,7 +121,7 @@ def validate(verbose=True):
     # ---- levels
     for ion in ("Er3+", "Nd3+"):
         rows, rms = level_table(ion)
-        rows0, rms0 = level_table(ion, casimir=False)
+        rows0, rms0 = level_table(ion, higher=False)
         out[f"levels_{ion}"] = dict(rows=rows, rms=rms, rms_no_casimir=rms0)
     # ---- Nd:YAG
     nd = run_dopant("Nd3+", "YAG")
@@ -144,7 +159,7 @@ def print_report(out):
         for r in d["rows"]:
             print(f"  {r['label']:8s} {r['calc']:9.0f} {r['exp'] if r['exp'] else '':>7} "
                   f"{'' if r['diff'] is None else round(r['diff']):>6}")
-        print(f"  RMS (<25000 cm-1) = {d['rms']:.0f} cm-1 ; without beta/gamma = {d['rms_no_casimir']:.0f}")
+        print(f"  RMS (<30000 cm-1) = {d['rms']:.0f} cm-1 ; without T/M/P = {d['rms_no_casimir']:.0f}")
     n = out["Nd:YAG"]
     print("\nNd:YAG 4F3/2: branching calc / exp:",
           {k: f"{v:.3f}/{n['branching_exp'][k]}" for k, v in n["branching_4F3_2"].items()})
