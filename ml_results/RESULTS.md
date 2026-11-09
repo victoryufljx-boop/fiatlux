@@ -74,6 +74,22 @@ ML-L3 reproduces the hand-tuned variant without using that device's lifetime. Fo
 doped Tm fibres 3 and 4 it predicts more quenching than the 0.65 ms assumed there. The Tm
 thresholds are dominated by the 805 nm absorption error above.
 
+ZBLAN devices with the learned host theta on (`forward_results_ml/device_validation.json`):
+
+| device | measured | explicit | + ML |
+|---|---|---|---|
+| Pr:ZBLAN amplifier, net gain at 1310 nm | 5.2 dB | 20.4 dB (11.0 observed-lifetime) | 10.4 dB (8.1) |
+| Er:ZBLAN dual-pump 3.5 um laser, single-ion | slope 0.254, 0.26 W at 2.4 W | 0.29, 0.74 W | rolls over at ~0.2 W |
+| same, + Golding 2000 ETU1/ETU2 | slope 0.254, 0.26 W | 0.33, 0.81 W | 0.14, 0.38 W (saturating) |
+
+The dual-pump result is mixed. With the broader ZBLAN bands, the 4I11/2 -> 4F7/2 ESA at
+985 nm (a real Er transition) rises 26x, from 9.7e-24 to 2.6e-22 cm^2. That drains the 4I11/2
+reservoir. Absolute power gets closer to the measurement, but the shape gets worse.
+
+While checking this I fixed the laser solver. Its damped sweeps could stall short of gain
+clamping (round-trip log gain 0.026 left over). It now falls back to bracketing the
+round-trip-gain zero. Results that had already converged are unchanged.
+
 ## Full validation suite: explicit vs explicit + ML
 
 To rerun: `GAINMAT_ML=1` + the validation scripts write into `forward_results_ml/`, then

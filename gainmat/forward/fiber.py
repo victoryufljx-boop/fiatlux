@@ -217,8 +217,60 @@ def laser(lm: LocalModel, L_m, core_um, NA, N_cm3, pumps, laser_nm, R1=0.99, R2=
         if out_prev is not None and abs(out - out_prev) <= tol * max(out, 1e-6) and abs(rt) < 1e-3:
             break
         out_prev = out
+    converged = abs(rt) < 1e-3 or (rt < 0 and out == 0.0)
+    method = "sweeps"
+    if not converged:
+        # Fallback: the damped sweeps can stall (e.g. when the pump field and the laser field
+        # compete through ESA).  Solve the gain-clamping condition directly: for a given
+        # circulating power Pf(0) relax pump + populations with the laser field fixed, return the
+        # log round-trip gain, and bracket its zero (rt falls as the laser saturates the gain).
+        ctx = dict(pops=list(pops), Pp=Pp.copy())
+
+        def rt_at(Pf0, n_inner=25):
+            pops_l, Pp_l = ctx["pops"], ctx["Pp"].copy()
+            Pf_l = np.full(nz + 1, Pf0); Pb_l = np.full(nz + 1, Pf0 * R2)
+            for _ in range(n_inner):
+                gl_l = np.zeros(nz + 1); gp_l = np.zeros((nz + 1, len(pumps)))
+                for k in range(nz + 1):
+                    fields = [(lam, g * Pp_l[k, i] / A_core) for i, ((lam, _), g) in enumerate(zip(pumps, Gp))]
+                    fields.append((laser_nm, Gl * (Pf_l[k] + Pb_l[k]) / A_core))
+                    pops_l[k] = lm.populations(fields, N_cm3, n0=pops_l[k])
+                    gl_l[k] = Gl * lm.gain_cm(laser_nm, pops_l[k], N_cm3) - a_bg
+                    gp_l[k] = [g * lm.gain_cm(lam, pops_l[k], N_cm3) - a_bg for (lam, _), g in zip(pumps, Gp)]
+                newPp = np.empty_like(Pp_l); newPp[0] = [P for _, P in pumps]
+                for k in range(nz):
+                    newPp[k + 1] = newPp[k] * np.exp(0.5 * (gp_l[k] + gp_l[k + 1]) * dz)
+                G_l = np.sum(0.5 * (gl_l[1:] + gl_l[:-1])) * dz
+                cum = np.concatenate([[0.0], np.cumsum(0.5 * (gl_l[1:] + gl_l[:-1]) * dz)])
+                # Pf(0) fixed; Pb(L) = R2 Pf(L)
+                nPf = Pf0 * np.exp(cum); nPb = nPf[-1] * R2 * np.exp(G_l - cum)
+                if np.max(np.abs(newPp - Pp_l)) < 1e-6 * max(1.0, Pp_l.max()) and np.allclose(nPf, Pf_l, rtol=1e-4):
+                    Pp_l, Pf_l, Pb_l = newPp, nPf, nPb
+                    break
+                Pp_l = 0.5 * Pp_l + 0.5 * newPp
+                Pf_l = np.minimum(0.5 * Pf_l + 0.5 * nPf, Pmax); Pb_l = np.minimum(0.5 * Pb_l + 0.5 * nPb, Pmax)
+            ctx["pops"], ctx["Pp"] = pops_l, Pp_l
+            return float(np.log(R1 * R2) + 2 * G_l), Pf_l, Pp_l
+
+        lo, hi = 1e-7, Pmax
+        r_lo = rt_at(lo)[0]
+        if r_lo <= 0:
+            out, rt = 0.0, r_lo
+        else:
+            for _ in range(40):
+                mid = np.sqrt(lo * hi)
+                r_mid, Pf_m, Pp_m = rt_at(mid)
+                if r_mid > 0:
+                    lo = mid
+                else:
+                    hi = mid
+                if hi / lo < 1.01:
+                    break
+            r_mid, Pf_m, Pp_m = rt_at(np.sqrt(lo * hi))
+            out, rt, Pp = (1 - R2) * Pf_m[-1], r_mid, Pp_m
+        method = "bisection"
     return dict(P_out_W=float(out if rt > -1e-2 else 0.0), log_roundtrip=float(rt),
-                P_pump_residual_W=[float(x) for x in Pp[-1]], iterations=it + 1,
+                P_pump_residual_W=[float(x) for x in Pp[-1]], iterations=it + 1, method=method,
                 Gamma_laser=float(Gl), Gamma_pump=[float(g) for g in Gp])
 
 

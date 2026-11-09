@@ -67,20 +67,33 @@ if not only or "pr_amp" in only:
 if not only or "er_dwp" in only:
     t0 = time.time()
     N = 0.01 * 4.33 / 142.4 * 6.022e23               # 1 mol% ErF3 in ZBLAN (~1.8e20 cm^-3)
-    lm = local_model_for("Er3+", "ZBLAN", n_sites=a.sites)
-    out = []
-    for P2 in (0.3, 0.8, 1.4, 2.0, 2.4):
-        r = laser(lm, 0.18, 10.0, 0.15, N, [(985, 0.175), (1973, P2)], 3500, R1=0.99, R2=0.90,
-                  nz=40, pump_overlap=0.8)
-        out.append((P2, r["P_out_W"]))
-    x = np.array([p for p, o in out if o > 1e-4]); y = np.array([o for p, o in out if o > 1e-4])
-    s = float(np.polyfit(x, y, 1)[0]) if len(x) > 1 else None
-    done("Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014)", variant="single-ion",
-         quantity="slope vs launched 1973 nm power; output at 2.4 W", model_slope=s, measured_slope=0.254,
-         model_P_out_W=out[-1][1], measured_P_out_W=0.26, curve=out,
-         note="18 cm, 10 um core, NA 0.15, 1 mol% Er, 985 nm 175 mW launched, R 0.99 / 0.90; "
-              "measured slope is vs INCIDENT P2 (52 % vs absorbed); pump overlap 0.8 assumed (multimode)",
-         seconds=time.time() - t0)
+    from gainmat.refs.er_pr_zblan_refs import ENERGY_TRANSFER as ERET
+
+    def k_at(entry, N):                                # log-log interpolation in Golding's Table I
+        ks = sorted(entry["k_cm3_s"].items())
+        x = np.log([n for n, _ in ks]); y = np.log([k for _, k in ks])
+        return float(np.exp(np.interp(np.log(N), x, y, left=None) if np.log(N) >= x[0]
+                            else y[0] + (np.log(N) - x[0]) * (y[1] - y[0]) / (x[1] - x[0])))
+    e1 = next(e for e in ERET if e["name"].startswith("ETU1")); e2 = next(e for e in ERET if e["name"].startswith("ETU2"))
+    etu = [(e1["donor_from"], e1["donor_to"], e1["acceptor_from"], e1["acceptor_to"], k_at(e1, N)),
+           (e2["donor_from"], e2["donor_to"], e2["acceptor_from"], e2["acceptor_to"], k_at(e2, N))]
+    for var in ("single-ion", "+ETU"):
+        t0 = time.time()
+        lm = local_model_for("Er3+", "ZBLAN", n_sites=a.sites, energy_transfer=etu if var == "+ETU" else None)
+        out = []
+        for P2 in (0.3, 0.8, 1.4, 2.0, 2.4):
+            r = laser(lm, 0.18, 10.0, 0.15, N, [(985, 0.175), (1973, P2)], 3500, R1=0.99, R2=0.90,
+                      nz=40, pump_overlap=0.8)
+            out.append((P2, r["P_out_W"]))
+        x = np.array([p for p, o in out if o > 1e-4]); y = np.array([o for p, o in out if o > 1e-4])
+        s = float(np.polyfit(x, y, 1)[0]) if len(x) > 1 else None
+        done("Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014)", variant=var,
+             quantity="slope vs launched 1973 nm power; output at 2.4 W", model_slope=s, measured_slope=0.254,
+             model_P_out_W=out[-1][1], measured_P_out_W=0.26, curve=out,
+             note="18 cm, 10 um core, NA 0.15, 1 mol% Er, 985 nm 175 mW launched, R 0.99 / 0.90; "
+                  "measured slope is vs INCIDENT P2 (52 % vs absorbed); pump overlap 0.8 assumed (multimode); "
+                  f"+ETU: Golding 2000 ETU1/ETU2 at this N, k = {etu[0][4]:.2g} / {etu[1][4]:.2g} cm3/s",
+             seconds=time.time() - t0)
 
 # --------------------------------------------------------------- 3. Jackson & Mossman 2003 Tm lasers
 if not only or "tm_laser" in only:
