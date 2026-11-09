@@ -234,3 +234,12 @@ Findings:
     - That lowers the 1310 nm peak σe by 32 % (explicit model 9.2 → 6.3e-21; measured 3.5e-21).
     - Not applied by default: it calibrates to one paper's derived rates. It explains about a
       third of the Pr amplifier overestimate.
+- **Where the Er σe/σa error comes from (Giles, +0.13 dex).** The zero-line energy is right:
+  E(⁴I₁₃/₂ lowest) − E(⁴I₁₅/₂ lowest) = 6548 cm⁻¹, against Desurvire's 6540–6548. So the error
+  is in the partition-function ratio, i.e. the spacing of the Stark levels.
+    - The model's lowest ⁴I₁₃/₂ levels sit at 0, 19, 41, 67 cm⁻¹; Desurvire's FLN gives 0, 100,
+      167, 226 (4 of 7 levels identified).
+    - The gap persists with 4x angular disorder and with any tested B2:B4:B6 balance.
+    - Either the superposition model misses the low-symmetry ⁴I₁₃/₂ pattern, or the FLN set skips
+      closely spaced levels. Crystals such as Er:YAG also have first ⁴I₁₃/₂ spacings near 20 cm⁻¹.
+      Unresolved.
