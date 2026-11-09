@@ -31,10 +31,12 @@ def _val(x):
 
 
 def _family(s):
-    s = (s or "").lower()
-    for k, v in FAMILY_ALIASES.items():
+    s = (s or "").lower().strip()
+    if s in FAMILY_ALIASES:
+        return FAMILY_ALIASES[s]
+    for k in sorted(FAMILY_ALIASES, key=len, reverse=True):   # longest match first
         if k in s:
-            return v
+            return FAMILY_ALIASES[k]
     return None
 
 

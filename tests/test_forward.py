@@ -54,3 +54,10 @@ def test_pr_oband_dead_in_silica_alive_in_zblan():
     hit = lambda r: any(w["lo_nm"] < 1310 < w["hi_nm"] for w in r["pumps"][1017.0]["windows"])
     assert not hit(run("Pr3+", "silica", n_sites=12))
     assert hit(run("Pr3+", "ZBLAN", n_sites=12))
+
+
+def test_family_matching_prefers_exact():
+    from gainmat.forward.validate import _family
+    assert _family("aluminosilicate") == "aluminosilicate"
+    assert _family("phosphosilicate") == "phosphosilicate"
+    assert _family("silica") == "silica"

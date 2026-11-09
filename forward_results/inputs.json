@@ -1,0 +1,301 @@
+{
+ "loaded_refs": [
+  "glass_refs",
+  "site_refs"
+ ],
+ "site_refs_used": {
+  "silica": {
+   "CN": 6.0,
+   "R": 2.28,
+   "R_std": 0.09
+  },
+  "aluminosilicate": {
+   "CN": 6.3,
+   "R": 2.23
+  },
+  "phosphate": {
+   "CN": 6.7,
+   "R": 2.26
+  },
+  "gamma_h_cm1": 49.0
+ },
+ "spm_calibration": {
+  "O": {
+   "scale": 1.3252255541679947,
+   "er_split_check": 369.99253964329387
+  },
+  "F": {
+   "scale": 1.079837714785178,
+   "S_ref": 444.65277339615113
+  }
+ },
+ "families": {
+  "silica": {
+   "n": 1.458,
+   "hw_max": 1100.0,
+   "gap_family": "silicate",
+   "ligand": "O",
+   "CN": 6.0,
+   "R": 2.28,
+   "R_std": 0.09,
+   "ang_std": 12,
+   "loss_dB_m": 0.0002,
+   "src": "glass_refs",
+   "site_src": "site_refs (EXAFS)",
+   "gamma_h": 49.0
+  },
+  "aluminosilicate": {
+   "n": 1.46,
+   "hw_max": 1100.0,
+   "gap_family": "silicate",
+   "ligand": "O",
+   "CN": 6.3,
+   "R": 2.23,
+   "R_std": 0.09,
+   "ang_std": 15,
+   "loss_dB_m": 0.018,
+   "src": "glass_refs",
+   "site_src": "site_refs (EXAFS)",
+   "gamma_h": 49.0
+  },
+  "germanosilicate": {
+   "n": 1.46,
+   "hw_max": 1100.0,
+   "gap_family": "silicate",
+   "ligand": "O",
+   "CN": 6.0,
+   "R": 2.26,
+   "R_std": 0.08,
+   "ang_std": 13,
+   "loss_dB_m": 0.0002,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "phosphosilicate": {
+   "n": 1.46,
+   "hw_max": 1300.0,
+   "gap_family": "phosphate",
+   "ligand": "O",
+   "CN": 6.5,
+   "R": 2.27,
+   "R_std": 0.08,
+   "ang_std": 13,
+   "loss_dB_m": 0.01,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "phosphate": {
+   "n": 1.516,
+   "hw_max": 1200.0,
+   "gap_family": "phosphate",
+   "ligand": "O",
+   "CN": 6.7,
+   "R": 2.26,
+   "R_std": 0.08,
+   "ang_std": 12,
+   "loss_dB_m": 0.05,
+   "src": "glass_refs",
+   "site_src": "site_refs (EXAFS)",
+   "gamma_h": 49.0
+  },
+  "germanate": {
+   "n": 1.65,
+   "hw_max": 900.0,
+   "gap_family": "germanate",
+   "ligand": "O",
+   "CN": 7.0,
+   "R": 2.3,
+   "R_std": 0.1,
+   "ang_std": 15,
+   "loss_dB_m": 0.5,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "tellurite": {
+   "n": 2.0,
+   "hw_max": 750.0,
+   "gap_family": "tellurite",
+   "ligand": "O",
+   "CN": 7.0,
+   "R": 2.32,
+   "R_std": 0.12,
+   "ang_std": 18,
+   "loss_dB_m": 0.26,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "ZBLAN": {
+   "n": 1.499,
+   "hw_max": 600.0,
+   "gap_family": "fluoride",
+   "ligand": "F",
+   "CN": 8.0,
+   "R": 2.27,
+   "R_std": 0.08,
+   "ang_std": 12,
+   "loss_dB_m": 0.01,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "fluoroindate": {
+   "n": 1.496,
+   "hw_max": 509.0,
+   "gap_family": null,
+   "ligand": "F",
+   "CN": 8.0,
+   "R": 2.27,
+   "R_std": 0.08,
+   "ang_std": 12,
+   "loss_dB_m": 0.0022,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  },
+  "chalcogenide": {
+   "n": 2.48,
+   "hw_max": 425.0,
+   "gap_family": null,
+   "ligand": "S",
+   "CN": 6.5,
+   "R": 2.8,
+   "R_std": 0.1,
+   "ang_std": 15,
+   "loss_dB_m": 0.5,
+   "src": "glass_refs",
+   "gamma_h": 49.0
+  }
+ },
+ "spm": {
+  "O": {
+   "R0": 2.3,
+   "B2": 530.0902216671979,
+   "B4": 463.82894395879816,
+   "B6": 198.7838331251992,
+   "t2": 5.0,
+   "t4": 6.0,
+   "t6": 6.0,
+   "src": "generic Bbar ratios scaled x1.325 to Er 4I15/2 splitting 370.0 cm-1 in silica"
+  },
+  "F": {
+   "R0": 2.3,
+   "B2": 323.9513144355534,
+   "B4": 323.9513144355534,
+   "B6": 140.37890292207317,
+   "t2": 5.0,
+   "t4": 6.0,
+   "t6": 6.0,
+   "src": "generic Bbar ratios scaled x1.080 so <S>(ZBLAN sites) = S(Carnall Er:LaF3) = 445 cm-1"
+  },
+  "S": {
+   "R0": 2.8,
+   "B2": 463.82894395879816,
+   "B4": 331.3063885419987,
+   "B6": 132.52255541679946,
+   "t2": 5.0,
+   "t4": 6.0,
+   "t6": 6.0,
+   "src": "no data: O scale applied (unconstrained)"
+  }
+ },
+ "omega": {
+  "Er3+:silica": [
+   4.23,
+   1.04,
+   0.61
+  ],
+  "Er3+:ZBLAN": [
+   2.91,
+   1.27,
+   1.11
+  ],
+  "Er3+:aluminosilicate": [
+   5.6,
+   1.6,
+   0.61
+  ],
+  "Er3+:phosphate": [
+   3.89,
+   1.01,
+   0.55
+  ],
+  "Er3+:tellurite": [
+   5.39,
+   1.45,
+   1.22
+  ],
+  "Er3+:germanate": [
+   5.81,
+   0.85,
+   0.28
+  ],
+  "Er3+:chalcogenide": [
+   0.9235,
+   0.6025,
+   0.8165
+  ],
+  "Yb3+:aluminosilicate": [
+   2.3121266108528893,
+   2.3121266108528893,
+   2.3121266108528893
+  ],
+  "Yb3+:phosphosilicate": [
+   1.279233442279524,
+   1.279233442279524,
+   1.279233442279524
+  ],
+  "Tm3+:germanate": [
+   5.55,
+   1.38,
+   0.86
+  ],
+  "Tm3+:tellurite": [
+   5.77,
+   1.6,
+   1.7550000000000001
+  ],
+  "Ho3+:ZBLAN": [
+   0.374,
+   2.77,
+   2.14
+  ],
+  "Ho3+:silica": [
+   3.265,
+   1.9209999999999998,
+   2.2535
+  ],
+  "Pr3+:chalcogenide": [
+   3.957,
+   4.504,
+   2.319
+  ],
+  "Pr3+:fluoroindate": [
+   0.7,
+   5.3,
+   5.0
+  ],
+  "Nd3+:phosphate": [
+   3.51,
+   5.0,
+   5.55
+  ],
+  "Nd3+:ZBLAN": [
+   2.66,
+   3.05,
+   4.08
+  ],
+  "Dy3+:ZBLAN": [
+   3.03,
+   1.32,
+   2.3
+  ],
+  "Dy3+:chalcogenide": [
+   10.53,
+   3.17,
+   1.6
+  ],
+  "Dy3+:tellurite": [
+   4.28,
+   1.32,
+   2.53
+  ]
+ }
+}
