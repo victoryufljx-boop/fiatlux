@@ -101,11 +101,19 @@ BRANCHING = {
 }
 
 # Energy-gap law W = B exp(-alpha dE): B in s^-1, alpha in cm, hw_max in cm^-1.
+# The gap dE is the Stark-EDGE gap (lowest Stark level of the upper multiplet minus the highest
+# Stark level of the lower one), as in Layne et al.; using barycentre gaps under-predicts W by
+# up to ~100x (e.g. Tm 3F4 in silica).  See gainmat/refs/multiphonon_refs.py for the extraction.
 GAP_LAW = {
-    "silicate":  dict(B=1.4e12, alpha=4.7e-3, hw=1100, src="Layne, Lowdermilk, Weber, PRB 16, 10 (1977)"),
-    "phosphate": dict(B=5.4e12, alpha=4.7e-3, hw=1200, src="Layne, Lowdermilk, Weber, PRB 16, 10 (1977)"),
-    "germanate": dict(B=3.4e10, alpha=4.9e-3, hw=900,  src="Layne, Lowdermilk, Weber, PRB 16, 10 (1977)"),
-    "tellurite": dict(B=6.3e10, alpha=4.7e-3, hw=700,  src="Reisfeld & Jorgensen (1987) compilation"),
+    "silicate":  dict(B=1.4e12, alpha=4.7e-3, hw=1100, src="Layne & Weber, PRB 16, 3259 (1977), as tabulated "
+                      "in van Dijk & Schuurmans, J. Chem. Phys. 78, 5317 (1983) Table I; Layne, Lowdermilk & "
+                      "Weber PRB 16, 10 (1977) Fig. 6 gives 1.9e12 / 4.86e-3 (digitised), same W at 3000 cm-1"),
+    "phosphate": dict(B=5.4e12, alpha=4.7e-3, hw=1200, src="Layne, Lowdermilk, Weber, PRB 16, 10 (1977); Fig. 6 "
+                      "digitised 3.5e12 / 4.56e-3, hw 1100"),
+    "germanate": dict(B=2.6e11, alpha=4.80e-3, hw=900, src="Layne, Lowdermilk, Weber, PRB 16, 10 (1977) Fig. 6, "
+                      "digitised (was 3.4e10 / 4.9e-3, ~10x too slow); van Dijk Table I 1.2e11 / 4.6e-3"),
+    "tellurite": dict(B=6.3e10, alpha=4.7e-3, hw=700,  src="matches Layne, Lowdermilk, Weber (1977) Fig. 6 "
+                      "(digitised 4.9e10 / 4.60e-3, hw 800)"),
     "fluoride":  dict(B=1.88e10, alpha=5.77e-3, hw=500, src="Shinn, Sibley, Drexhage, Brown, PRB 27, 6635 "
                       "(1983), fluorozirconate (ZBLA)"),
     "chalcogenide": dict(B=1.0e6, alpha=2.9e-3, hw=350, src="GLS/chalcogenide, e.g. Schweizer et al. "

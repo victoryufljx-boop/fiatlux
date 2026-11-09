@@ -46,6 +46,7 @@ for _f in FAMILIES.values():
 # Judd-Ofelt parameters, 1e-20 cm^2.  Seeded with ln_refs values; glass_refs overrides.
 OMEGA = {
     ("Er3+", "silica"): (4.23, 1.04, 0.61),
+    ("Tm3+", "silica"): (6.23, 1.91, 1.36),       # Walsh & Barnes, Appl. Phys. B 78, 325 (2004)
     ("Er3+", "ZBLAN"): (2.54, 1.39, 0.97),
 }
 

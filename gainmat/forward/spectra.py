@@ -129,6 +129,8 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     sa = {p: np.zeros_like(nu) for p in pairs}
     se = {p: np.zeros_like(nu) for p in pairs}
     bary = np.zeros(len(m.multiplets)); split = [[] for _ in m.multiplets]
+    e_lo = [[] for _ in m.multiplets]; e_hi = [[] for _ in m.multiplets]
+    site_edges = []                       # per site {multiplet index: (lowest, highest) Stark level}
     xe, xm = chi_ed(n_index), chi_md(n_index)
     hg = gamma_h / 2.0
     for lig in sites:
@@ -138,10 +140,14 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
         S_ed = sum(O[i] * sum(np.abs(X) ** 2 for X in Uw[lam])
                    for i, lam in enumerate((2, 4, 6))) * E_ESU ** 2
         S_md = sum(np.abs(X) ** 2 for X in Mw) * MU_B_ESU ** 2
+        se_site = {}
+        site_edges.append(se_site)
         for im in range(len(m.multiplets)):
             e = E[par == im]
             if len(e):
                 bary[im] += e.mean(); split[im].append(e.max() - e.min())
+                e_lo[im].append(e.min()); e_hi[im].append(e.max())
+                se_site[m.multiplets[im]["label"]] = (float(e.min()), float(e.max()))
         for (u, l), (iu, il) in zip(pairs, pidx):
             a_idx = np.where(par == iu)[0]; b_idx = np.where(par == il)[0]
             if len(a_idx) == 0 or len(b_idx) == 0:
@@ -175,7 +181,10 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     return dict(nu=nu, sigma_abs=sa, sigma_em=se, pairs=pairs,
                 bary={mm["label"]: float(bary[i]) for i, mm in enumerate(m.multiplets)},
                 split={mm["label"]: (float(np.mean(split[i])) if split[i] else None)
-                       for i, mm in enumerate(m.multiplets)})
+                       for i, mm in enumerate(m.multiplets)},
+                edges={mm["label"]: (float(np.mean(e_lo[i])), float(np.mean(e_hi[i])))
+                       for i, mm in enumerate(m.multiplets) if e_lo[i]},
+                site_edges=site_edges)
 
 
 def peak(nu, s):

@@ -51,6 +51,10 @@ def test_er_silica_c_band_and_no_2p7():
 
 
 def test_pr_oband_dead_in_silica_alive_in_zblan():
+    # with Stark-edge multiphonon gaps the 1G4 lifetime depends on the crystal-field strength,
+    # so use the production setup (measured site geometry + calibrated SPM scale)
+    from gainmat.forward.glass import load_refs, apply_site_refs, calibrate_spm, CARNALL_ER_LAF3_BKQ
+    load_refs(); apply_site_refs(); calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ)
     hit = lambda r: any(w["lo_nm"] < 1310 < w["hi_nm"] for w in r["pumps"][1017.0]["windows"])
     assert not hit(run("Pr3+", "silica", n_sites=12))
     assert hit(run("Pr3+", "ZBLAN", n_sites=12))

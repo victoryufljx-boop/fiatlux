@@ -46,9 +46,16 @@ def multiplet_rates(ion, omegas, n_index, energies: dict, emax=27000.0):
     return A
 
 
-def nonradiative(ion, energies: dict, hw_max: float, family: str | None = None, emax=27000.0):
-    """W[i] (s^-1): multiphonon decay of each multiplet to the next lower one."""
+def nonradiative(ion, energies: dict, hw_max: float, family: str | None = None, emax=27000.0,
+                 edges: dict | None = None, site_edges: list | None = None):
+    """W[i] (s^-1): multiphonon decay of each multiplet to the next lower one.  The gap is the
+    Stark-edge gap (lowest Stark level of the upper multiplet minus highest of the lower one,
+    site-averaged) when `edges` is given, as in the energy-gap-law literature; otherwise the
+    barycentre gap.  With `site_edges` (one {label: (lo, hi)} per site) the rate is averaged
+    over sites, <W> = <B exp(-alpha dE_site)>: the exponential law weights small-gap sites
+    heavily, so this exceeds W(<dE>) by about exp(alpha^2 var(dE) / 2)."""
     m = get_ion(ion)
+    mode = "family" if family else "phonon"
     E = np.array([energies[mm["label"]] for mm in m.multiplets])
     order = np.argsort(E)
     W = np.zeros(len(E)); tgt = -np.ones(len(E), int)
@@ -56,8 +63,16 @@ def nonradiative(ion, energies: dict, hw_max: float, family: str | None = None, 
         i, j = order[k], order[k - 1]
         if E[i] > emax:
             continue
-        W[i] = w_nr(E[i] - E[j], hw_max=hw_max, family=family,
-                    model="family" if family else "phonon")
+        li, lj = m.multiplets[i]["label"], m.multiplets[j]["label"]
+        if site_edges and all(li in s and lj in s for s in site_edges):
+            W[i] = float(np.mean([w_nr(max(s[li][0] - s[lj][1], 1.0), hw_max=hw_max, family=family,
+                                       model=mode) for s in site_edges]))
+        else:
+            if edges and li in edges and lj in edges:
+                gap = max(edges[li][0] - edges[lj][1], 1.0)
+            else:
+                gap = E[i] - E[j]
+            W[i] = w_nr(gap, hw_max=hw_max, family=family, model=mode)
         tgt[i] = j
     return W, tgt
 
@@ -92,7 +107,8 @@ def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm
     energies = {k: (spec["bary"][k] if spec["bary"].get(k) else m.multiplets[i]["energy"])
                 for i, k in enumerate(labels)}
     A = multiplet_rates(ion, omegas, n_index, energies, emax)
-    W, tgt = nonradiative(ion, energies, hw_max, family, emax)
+    W, tgt = nonradiative(ion, energies, hw_max, family, emax, edges=spec.get("edges"),
+                          site_edges=spec.get("site_edges"))
     active = [i for i, k in enumerate(labels) if energies[k] <= emax]
     nu = spec["nu"]; nup = 1e7 / pump_nm
     g0 = labels.index(min(labels, key=lambda k: energies[k]))
