@@ -1,0 +1,1004 @@
+{
+ "trend_checks_data": {
+  "O2": {
+   "spearman_vs_basicity_oxides_median_over_ions": -0.08,
+   "spearman_vs_fluoride_fraction_median_over_ions": -0.51
+  },
+  "O4": {
+   "spearman_vs_basicity_oxides_median_over_ions": 0.04,
+   "spearman_vs_fluoride_fraction_median_over_ions": -0.1
+  },
+  "O6": {
+   "spearman_vs_basicity_oxides_median_over_ions": -0.17,
+   "spearman_vs_fluoride_fraction_median_over_ions": 0.17
+  }
+ },
+ "family_medians": {
+  "Er": {
+   "silicate": {
+    "n": 34,
+    "O2": 4.79,
+    "O4": 1.05,
+    "O6": 0.55
+   },
+   "borate": {
+    "n": 26,
+    "O2": 5.64,
+    "O4": 1.6,
+    "O6": 1.27
+   },
+   "phosphate": {
+    "n": 38,
+    "O2": 5.91,
+    "O4": 1.53,
+    "O6": 1.1
+   },
+   "germanate": {
+    "n": 7,
+    "O2": 5.18,
+    "O4": 1.36,
+    "O6": 0.9
+   },
+   "tellurite": {
+    "n": 17,
+    "O2": 7.25,
+    "O4": 1.51,
+    "O6": 1.48
+   },
+   "fluoride/halide": {
+    "n": 42,
+    "O2": 2.38,
+    "O4": 1.46,
+    "O6": 1.04
+   }
+  },
+  "Nd": {
+   "silicate": {
+    "n": 30,
+    "O2": 4.73,
+    "O4": 3.62,
+    "O6": 3.7
+   },
+   "borate": {
+    "n": 34,
+    "O2": 4.45,
+    "O4": 3.39,
+    "O6": 5.26
+   },
+   "phosphate": {
+    "n": 61,
+    "O2": 4.0,
+    "O4": 4.1,
+    "O6": 5.0
+   },
+   "tellurite": {
+    "n": 4,
+    "O2": 4.45,
+    "O4": 4.94,
+    "O6": 6.08
+   },
+   "fluoride/halide": {
+    "n": 50,
+    "O2": 1.78,
+    "O4": 3.65,
+    "O6": 4.3
+   },
+   "chalcogenide": {
+    "n": 13,
+    "O2": 9.25,
+    "O4": 6.99,
+    "O6": 6.16
+   }
+  },
+  "Tm": {
+   "silicate": {
+    "n": 24,
+    "O2": 2.99,
+    "O4": 0.73,
+    "O6": 0.58
+   },
+   "borate": {
+    "n": 17,
+    "O2": 3.87,
+    "O4": 1.82,
+    "O6": 1.31
+   },
+   "phosphate": {
+    "n": 26,
+    "O2": 3.84,
+    "O4": 0.94,
+    "O6": 1.11
+   },
+   "germanate": {
+    "n": 6,
+    "O2": 5.11,
+    "O4": 1.2,
+    "O6": 0.86
+   },
+   "fluoride/halide": {
+    "n": 38,
+    "O2": 2.67,
+    "O4": 1.65,
+    "O6": 1.02
+   }
+  },
+  "Pr": {
+   "silicate": {
+    "n": 4,
+    "O2": 4.36,
+    "O4": 5.46,
+    "O6": 3.41
+   },
+   "borate": {
+    "n": 13,
+    "O2": 2.33,
+    "O4": 4.76,
+    "O6": 5.28
+   },
+   "phosphate": {
+    "n": 15,
+    "O2": 3.53,
+    "O4": 4.52,
+    "O6": 4.34
+   },
+   "fluoride/halide": {
+    "n": 27,
+    "O2": 1.56,
+    "O4": 4.8,
+    "O6": 6.5
+   },
+   "chalcogenide": {
+    "n": 12,
+    "O2": 7.91,
+    "O4": 6.97,
+    "O6": 6.55
+   }
+  },
+  "Ho": {
+   "silicate": {
+    "n": 11,
+    "O2": 5.15,
+    "O4": 1.03,
+    "O6": 0.7
+   },
+   "borate": {
+    "n": 10,
+    "O2": 6.84,
+    "O4": 2.58,
+    "O6": 2.27
+   },
+   "phosphate": {
+    "n": 26,
+    "O2": 3.49,
+    "O4": 2.9,
+    "O6": 1.12
+   },
+   "fluoride/halide": {
+    "n": 24,
+    "O2": 2.29,
+    "O4": 1.96,
+    "O6": 1.72
+   },
+   "chalcogenide": {
+    "n": 5,
+    "O2": 6.9,
+    "O4": 3.85,
+    "O6": 1.07
+   }
+  },
+  "Dy": {
+   "silicate": {
+    "n": 4,
+    "O2": 4.34,
+    "O4": 1.43,
+    "O6": 0.66
+   },
+   "borate": {
+    "n": 18,
+    "O2": 3.8,
+    "O4": 1.34,
+    "O6": 1.8
+   },
+   "phosphate": {
+    "n": 11,
+    "O2": 5.36,
+    "O4": 1.57,
+    "O6": 1.62
+   },
+   "fluoride/halide": {
+    "n": 11,
+    "O2": 2.7,
+    "O4": 1.35,
+    "O6": 2.06
+   },
+   "chalcogenide": {
+    "n": 4,
+    "O2": 11.58,
+    "O4": 3.37,
+    "O6": 1.39
+   }
+  }
+ },
+ "model_predictions_forward_families": {
+  "Er3+:silica": {
+   "omega": [
+    6.161,
+    1.56,
+    0.774
+   ],
+   "sigma_log10": [
+    0.064,
+    0.133,
+    0.148
+   ],
+   "family_label": "silicate"
+  },
+  "Tm3+:silica": {
+   "omega": [
+    5.144,
+    1.547,
+    0.881
+   ],
+   "sigma_log10": [
+    0.076,
+    0.183,
+    0.136
+   ],
+   "family_label": "silicate"
+  },
+  "Ho3+:silica": {
+   "omega": [
+    5.36,
+    2.436,
+    0.97
+   ],
+   "sigma_log10": [
+    0.053,
+    0.13,
+    0.141
+   ],
+   "family_label": "silicate"
+  },
+  "Pr3+:silica": {
+   "omega": [
+    3.575,
+    4.242,
+    3.431
+   ],
+   "sigma_log10": [
+    0.131,
+    0.132,
+    0.144
+   ],
+   "family_label": "silicate"
+  },
+  "Nd3+:silica": {
+   "omega": [
+    5.33,
+    3.796,
+    3.221
+   ],
+   "sigma_log10": [
+    0.073,
+    0.119,
+    0.148
+   ],
+   "family_label": "silicate"
+  },
+  "Dy3+:silica": {
+   "omega": [
+    4.749,
+    1.697,
+    1.103
+   ],
+   "sigma_log10": [
+    0.07,
+    0.128,
+    0.139
+   ],
+   "family_label": "silicate"
+  },
+  "Er3+:aluminosilicate": {
+   "omega": [
+    5.612,
+    1.572,
+    0.776
+   ],
+   "sigma_log10": [
+    0.066,
+    0.121,
+    0.112
+   ],
+   "family_label": "silicate"
+  },
+  "Tm3+:aluminosilicate": {
+   "omega": [
+    4.686,
+    1.558,
+    0.882
+   ],
+   "sigma_log10": [
+    0.084,
+    0.183,
+    0.098
+   ],
+   "family_label": "silicate"
+  },
+  "Ho3+:aluminosilicate": {
+   "omega": [
+    5.013,
+    2.454,
+    0.972
+   ],
+   "sigma_log10": [
+    0.053,
+    0.118,
+    0.094
+   ],
+   "family_label": "silicate"
+  },
+  "Pr3+:aluminosilicate": {
+   "omega": [
+    3.256,
+    4.274,
+    3.438
+   ],
+   "sigma_log10": [
+    0.132,
+    0.122,
+    0.109
+   ],
+   "family_label": "silicate"
+  },
+  "Nd3+:aluminosilicate": {
+   "omega": [
+    4.855,
+    3.824,
+    3.227
+   ],
+   "sigma_log10": [
+    0.075,
+    0.107,
+    0.099
+   ],
+   "family_label": "silicate"
+  },
+  "Dy3+:aluminosilicate": {
+   "omega": [
+    4.326,
+    1.746,
+    1.123
+   ],
+   "sigma_log10": [
+    0.077,
+    0.117,
+    0.093
+   ],
+   "family_label": "silicate"
+  },
+  "Er3+:germanosilicate": {
+   "omega": [
+    6.15,
+    1.612,
+    0.831
+   ],
+   "sigma_log10": [
+    0.056,
+    0.135,
+    0.122
+   ],
+   "family_label": "silicate"
+  },
+  "Tm3+:germanosilicate": {
+   "omega": [
+    5.135,
+    1.598,
+    0.945
+   ],
+   "sigma_log10": [
+    0.068,
+    0.183,
+    0.108
+   ],
+   "family_label": "silicate"
+  },
+  "Ho3+:germanosilicate": {
+   "omega": [
+    5.351,
+    2.517,
+    1.042
+   ],
+   "sigma_log10": [
+    0.046,
+    0.13,
+    0.106
+   ],
+   "family_label": "silicate"
+  },
+  "Pr3+:germanosilicate": {
+   "omega": [
+    3.568,
+    4.288,
+    3.683
+   ],
+   "sigma_log10": [
+    0.118,
+    0.124,
+    0.118
+   ],
+   "family_label": "silicate"
+  },
+  "Nd3+:germanosilicate": {
+   "omega": [
+    5.321,
+    3.922,
+    3.458
+   ],
+   "sigma_log10": [
+    0.062,
+    0.121,
+    0.114
+   ],
+   "family_label": "silicate"
+  },
+  "Dy3+:germanosilicate": {
+   "omega": [
+    4.741,
+    1.753,
+    1.203
+   ],
+   "sigma_log10": [
+    0.06,
+    0.129,
+    0.105
+   ],
+   "family_label": "silicate"
+  },
+  "Er3+:phosphosilicate": {
+   "omega": [
+    6.192,
+    1.009,
+    0.76
+   ],
+   "sigma_log10": [
+    0.073,
+    0.096,
+    0.163
+   ],
+   "family_label": "silicate"
+  },
+  "Tm3+:phosphosilicate": {
+   "omega": [
+    5.17,
+    0.948,
+    0.856
+   ],
+   "sigma_log10": [
+    0.078,
+    0.191,
+    0.148
+   ],
+   "family_label": "silicate"
+  },
+  "Ho3+:phosphosilicate": {
+   "omega": [
+    5.387,
+    1.576,
+    0.963
+   ],
+   "sigma_log10": [
+    0.06,
+    0.13,
+    0.133
+   ],
+   "family_label": "silicate"
+  },
+  "Pr3+:phosphosilicate": {
+   "omega": [
+    3.592,
+    3.085,
+    3.404
+   ],
+   "sigma_log10": [
+    0.136,
+    0.104,
+    0.128
+   ],
+   "family_label": "silicate"
+  },
+  "Nd3+:phosphosilicate": {
+   "omega": [
+    5.357,
+    2.592,
+    3.195
+   ],
+   "sigma_log10": [
+    0.078,
+    0.109,
+    0.151
+   ],
+   "family_label": "silicate"
+  },
+  "Dy3+:phosphosilicate": {
+   "omega": [
+    4.773,
+    1.098,
+    1.094
+   ],
+   "sigma_log10": [
+    0.077,
+    0.092,
+    0.137
+   ],
+   "family_label": "silicate"
+  },
+  "Er3+:phosphate": {
+   "omega": [
+    5.804,
+    1.482,
+    0.989
+   ],
+   "sigma_log10": [
+    0.067,
+    0.044,
+    0.036
+   ],
+   "family_label": "phosphate"
+  },
+  "Tm3+:phosphate": {
+   "omega": [
+    4.846,
+    1.327,
+    1.124
+   ],
+   "sigma_log10": [
+    0.059,
+    0.086,
+    0.049
+   ],
+   "family_label": "phosphate"
+  },
+  "Ho3+:phosphate": {
+   "omega": [
+    5.185,
+    2.163,
+    1.263
+   ],
+   "sigma_log10": [
+    0.075,
+    0.046,
+    0.061
+   ],
+   "family_label": "phosphate"
+  },
+  "Pr3+:phosphate": {
+   "omega": [
+    3.367,
+    4.142,
+    4.376
+   ],
+   "sigma_log10": [
+    0.073,
+    0.07,
+    0.063
+   ],
+   "family_label": "phosphate"
+  },
+  "Nd3+:phosphate": {
+   "omega": [
+    5.021,
+    3.557,
+    4.22
+   ],
+   "sigma_log10": [
+    0.053,
+    0.063,
+    0.049
+   ],
+   "family_label": "phosphate"
+  },
+  "Dy3+:phosphate": {
+   "omega": [
+    4.534,
+    1.539,
+    1.459
+   ],
+   "sigma_log10": [
+    0.051,
+    0.053,
+    0.047
+   ],
+   "family_label": "phosphate"
+  },
+  "Er3+:germanate": {
+   "omega": [
+    4.61,
+    1.193,
+    0.757
+   ],
+   "sigma_log10": [
+    0.062,
+    0.073,
+    0.064
+   ],
+   "family_label": "germanate"
+  },
+  "Tm3+:germanate": {
+   "omega": [
+    3.85,
+    1.143,
+    0.86
+   ],
+   "sigma_log10": [
+    0.075,
+    0.105,
+    0.064
+   ],
+   "family_label": "germanate"
+  },
+  "Ho3+:germanate": {
+   "omega": [
+    4.011,
+    1.863,
+    0.962
+   ],
+   "sigma_log10": [
+    0.063,
+    0.068,
+    0.055
+   ],
+   "family_label": "germanate"
+  },
+  "Pr3+:germanate": {
+   "omega": [
+    2.675,
+    3.671,
+    3.639
+   ],
+   "sigma_log10": [
+    0.148,
+    0.061,
+    0.059
+   ],
+   "family_label": "germanate"
+  },
+  "Nd3+:germanate": {
+   "omega": [
+    3.988,
+    3.143,
+    3.229
+   ],
+   "sigma_log10": [
+    0.086,
+    0.066,
+    0.061
+   ],
+   "family_label": "germanate"
+  },
+  "Dy3+:germanate": {
+   "omega": [
+    3.554,
+    1.298,
+    1.116
+   ],
+   "sigma_log10": [
+    0.081,
+    0.054,
+    0.054
+   ],
+   "family_label": "germanate"
+  },
+  "Er3+:tellurite": {
+   "omega": [
+    4.601,
+    1.099,
+    1.081
+   ],
+   "sigma_log10": [
+    0.127,
+    0.146,
+    0.141
+   ],
+   "family_label": "tellurite"
+  },
+  "Tm3+:tellurite": {
+   "omega": [
+    3.842,
+    1.082,
+    1.316
+   ],
+   "sigma_log10": [
+    0.105,
+    0.127,
+    0.13
+   ],
+   "family_label": "tellurite"
+  },
+  "Ho3+:tellurite": {
+   "omega": [
+    4.003,
+    1.764,
+    1.33
+   ],
+   "sigma_log10": [
+    0.122,
+    0.104,
+    0.113
+   ],
+   "family_label": "tellurite"
+  },
+  "Pr3+:tellurite": {
+   "omega": [
+    2.669,
+    3.916,
+    5.49
+   ],
+   "sigma_log10": [
+    0.134,
+    0.1,
+    0.115
+   ],
+   "family_label": "tellurite"
+  },
+  "Nd3+:tellurite": {
+   "omega": [
+    4.013,
+    2.901,
+    4.313
+   ],
+   "sigma_log10": [
+    0.107,
+    0.107,
+    0.115
+   ],
+   "family_label": "tellurite"
+  },
+  "Dy3+:tellurite": {
+   "omega": [
+    3.463,
+    1.205,
+    1.543
+   ],
+   "sigma_log10": [
+    0.107,
+    0.105,
+    0.108
+   ],
+   "family_label": "tellurite"
+  },
+  "Er3+:ZBLAN": {
+   "omega": [
+    2.249,
+    1.411,
+    1.213
+   ],
+   "sigma_log10": [
+    0.057,
+    0.036,
+    0.043
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Tm3+:ZBLAN": {
+   "omega": [
+    1.878,
+    1.317,
+    1.263
+   ],
+   "sigma_log10": [
+    0.045,
+    0.058,
+    0.046
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Ho3+:ZBLAN": {
+   "omega": [
+    1.956,
+    2.06,
+    1.433
+   ],
+   "sigma_log10": [
+    0.056,
+    0.032,
+    0.032
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Pr3+:ZBLAN": {
+   "omega": [
+    1.305,
+    4.059,
+    5.544
+   ],
+   "sigma_log10": [
+    0.126,
+    0.046,
+    0.054
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Nd3+:ZBLAN": {
+   "omega": [
+    1.898,
+    3.36,
+    4.813
+   ],
+   "sigma_log10": [
+    0.045,
+    0.04,
+    0.041
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Dy3+:ZBLAN": {
+   "omega": [
+    1.856,
+    1.435,
+    1.664
+   ],
+   "sigma_log10": [
+    0.038,
+    0.043,
+    0.039
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Er3+:fluoroindate": {
+   "omega": [
+    4.813,
+    1.711,
+    1.346
+   ],
+   "sigma_log10": [
+    0.104,
+    0.08,
+    0.078
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Tm3+:fluoroindate": {
+   "omega": [
+    4.019,
+    1.592,
+    1.452
+   ],
+   "sigma_log10": [
+    0.125,
+    0.083,
+    0.066
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Ho3+:fluoroindate": {
+   "omega": [
+    4.188,
+    2.497,
+    1.502
+   ],
+   "sigma_log10": [
+    0.104,
+    0.073,
+    0.048
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Pr3+:fluoroindate": {
+   "omega": [
+    2.793,
+    5.427,
+    6.338
+   ],
+   "sigma_log10": [
+    0.135,
+    0.101,
+    0.081
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Nd3+:fluoroindate": {
+   "omega": [
+    4.101,
+    4.106,
+    4.872
+   ],
+   "sigma_log10": [
+    0.106,
+    0.071,
+    0.061
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Dy3+:fluoroindate": {
+   "omega": [
+    3.905,
+    1.74,
+    1.743
+   ],
+   "sigma_log10": [
+    0.117,
+    0.071,
+    0.056
+   ],
+   "family_label": "fluoride/halide"
+  },
+  "Er3+:chalcogenide": {
+   "omega": [
+    6.356,
+    2.817,
+    1.382
+   ],
+   "sigma_log10": [
+    0.158,
+    0.083,
+    0.071
+   ],
+   "family_label": "chalcogenide"
+  },
+  "Tm3+:chalcogenide": {
+   "omega": [
+    5.307,
+    2.629,
+    1.385
+   ],
+   "sigma_log10": [
+    0.164,
+    0.105,
+    0.07
+   ],
+   "family_label": "chalcogenide"
+  },
+  "Ho3+:chalcogenide": {
+   "omega": [
+    5.477,
+    4.111,
+    1.513
+   ],
+   "sigma_log10": [
+    0.165,
+    0.087,
+    0.064
+   ],
+   "family_label": "chalcogenide"
+  },
+  "Pr3+:chalcogenide": {
+   "omega": [
+    3.688,
+    7.78,
+    4.909
+   ],
+   "sigma_log10": [
+    0.191,
+    0.104,
+    0.103
+   ],
+   "family_label": "chalcogenide"
+  },
+  "Nd3+:chalcogenide": {
+   "omega": [
+    5.499,
+    6.707,
+    5.046
+   ],
+   "sigma_log10": [
+    0.143,
+    0.09,
+    0.064
+   ],
+   "family_label": "chalcogenide"
+  },
+  "Dy3+:chalcogenide": {
+   "omega": [
+    5.212,
+    2.864,
+    1.756
+   ],
+   "sigma_log10": [
+    0.163,
+    0.101,
+    0.063
+   ],
+   "family_label": "chalcogenide"
+  }
+ }
+}

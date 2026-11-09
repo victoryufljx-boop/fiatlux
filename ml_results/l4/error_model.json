@@ -1,0 +1,99 @@
+{
+ "parameters": {
+  "lifetime": {
+   "bias": 0.10299943533565796,
+   "scatter": 0.42287953898378855,
+   "n": 28
+  },
+  "lifetime|oxide": {
+   "bias": 0.24689576067957916,
+   "scatter": 0.3340607214704974,
+   "n": 10
+  },
+  "lifetime|fluoride": {
+   "bias": 0.013920757741801985,
+   "scatter": 0.43253408324943365,
+   "n": 18
+  },
+  "radiative_lifetime": {
+   "bias": 0.013252091120298877,
+   "scatter": 0.06643292199199832,
+   "n": 12
+  },
+  "radiative_lifetime|oxide": {
+   "bias": 0.03583972346478508,
+   "scatter": 0.05762793972249227,
+   "n": 4
+  },
+  "radiative_lifetime|fluoride": {
+   "bias": -0.0011218567352832471,
+   "scatter": 0.0630910240204455,
+   "n": 8
+  },
+  "cross_section": {
+   "bias": 0.019099933260778475,
+   "scatter": 0.18082964760176454,
+   "n": 18
+  },
+  "cross_section|oxide": {
+   "bias": -0.052874429394963667,
+   "scatter": 0.15657237011638517,
+   "n": 10
+  },
+  "cross_section|fluoride": {
+   "bias": 0.10416054367211008,
+   "scatter": 0.1505179768834065,
+   "n": 8
+  },
+  "cross_section_integrated": {
+   "bias": -0.15793050057893612,
+   "scatter": 0.13519549896033298,
+   "n": 17
+  },
+  "cross_section_integrated|oxide": {
+   "bias": -0.18829087354465626,
+   "scatter": 0.11380128682725772,
+   "n": 14
+  },
+  "cross_section_integrated|fluoride": {
+   "bias": -0.0719094438427289,
+   "scatter": 0.12709445364916708,
+   "n": 3
+  }
+ },
+ "leave_one_source_out": {
+  "cross_section": {
+   "n": 18,
+   "rms_raw": 0.17676973075325728,
+   "rms_bias_corrected": 0.15778502043410952,
+   "coverage68": 0.6666666666666666,
+   "coverage90": 0.8888888888888888,
+   "correction_helps_out_of_source": true
+  },
+  "cross_section_integrated": {
+   "n": 17,
+   "rms_raw": 0.20529174337270262,
+   "rms_bias_corrected": 0.13777649285425983,
+   "coverage68": 0.47058823529411764,
+   "coverage90": 0.8235294117647058,
+   "correction_helps_out_of_source": true
+  },
+  "lifetime": {
+   "n": 28,
+   "rms_raw": 0.42784261810547913,
+   "rms_bias_corrected": 0.4412549017451493,
+   "coverage68": 0.8571428571428571,
+   "coverage90": 0.8928571428571429,
+   "correction_helps_out_of_source": false
+  },
+  "radiative_lifetime": {
+   "n": 12,
+   "rms_raw": 0.06497055704770734,
+   "rms_bias_corrected": 0.07101843707821176,
+   "coverage68": 0.5833333333333334,
+   "coverage90": 0.9166666666666666,
+   "correction_helps_out_of_source": false
+  }
+ },
+ "n_rows": 75
+}
