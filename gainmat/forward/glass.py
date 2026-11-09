@@ -29,9 +29,9 @@ SPM_DEFAULT = {
 
 FAMILIES = {
     # name: n, hw_max, gap_family, ligand, CN, R, R_std, ang_std, loss floor (dB/m)
-    "silica":          dict(n=1.444, hw_max=1100, gap_family="silicate", ligand="O", CN=6.0, R=2.25, R_std=0.07, ang_std=12, loss_dB_m=0.005),
-    "aluminosilicate": dict(n=1.46, hw_max=1100, gap_family="silicate", ligand="O", CN=6.5, R=2.27, R_std=0.09, ang_std=15, loss_dB_m=0.01),
-    "germanosilicate": dict(n=1.46, hw_max=1000, gap_family="silicate", ligand="O", CN=6.0, R=2.26, R_std=0.08, ang_std=13, loss_dB_m=0.01),
+    "silica":          dict(n=1.444, hw_max=1100, gap_family="fused_silica", ligand="O", CN=6.0, R=2.25, R_std=0.07, ang_std=12, loss_dB_m=0.005),
+    "aluminosilicate": dict(n=1.46, hw_max=1100, gap_family="aluminosilicate", ligand="O", CN=6.5, R=2.27, R_std=0.09, ang_std=15, loss_dB_m=0.01),
+    "germanosilicate": dict(n=1.46, hw_max=1000, gap_family="germanosilicate", ligand="O", CN=6.0, R=2.26, R_std=0.08, ang_std=13, loss_dB_m=0.01),
     "phosphosilicate": dict(n=1.46, hw_max=1300, gap_family="phosphate", ligand="O", CN=6.5, R=2.27, R_std=0.08, ang_std=13, loss_dB_m=0.01),
     "phosphate":       dict(n=1.53, hw_max=1200, gap_family="phosphate", ligand="O", CN=6.5, R=2.28, R_std=0.08, ang_std=12, loss_dB_m=0.05),
     "germanate":       dict(n=1.70, hw_max=850, gap_family="germanate", ligand="O", CN=7.0, R=2.30, R_std=0.10, ang_std=15, loss_dB_m=0.5),
@@ -46,6 +46,7 @@ for _f in FAMILIES.values():
 # Judd-Ofelt parameters, 1e-20 cm^2.  Seeded with ln_refs values; glass_refs overrides.
 OMEGA = {
     ("Er3+", "silica"): (4.23, 1.04, 0.61),
+    ("Pr3+", "ZBLAN"): (1.431, 4.221, 4.872),     # Ohishi et al., Opt. Lett. 16, 1747 (1991)
     ("Tm3+", "silica"): (6.23, 1.91, 1.36),       # Walsh & Barnes, Appl. Phys. B 78, 325 (2004)
     ("Er3+", "ZBLAN"): (2.54, 1.39, 0.97),
 }
@@ -131,6 +132,10 @@ def ir_loss_dB_m(lam_nm, hw_max):
     return np.exp(np.clip(a * (1.0 / l1 - 1.0 / lam_um), -50, 50))
 
 
+# dual-wavelength pumping: (first pump from the ground state, second pump between excited states)
+# Er 985 + 1973 nm: 4I15/2 -> 4I11/2, then 4I11/2 -> 4F9/2 for 3.5 um gain on 4F9/2 -> 4I9/2
+# (Henderson-Sapir, Munch & Ottaway, Opt. Lett. 39, 493 (2014)).
+DUAL_PUMPS = {"Er3+": [(985.0, 1973.0)]}
 # pump intensities: up to ~1 W in a ~50 um^2 single-mode core (2e6 W/cm^2)
 I_PUMP = np.logspace(2, np.log10(2e6), 10)
 
@@ -185,15 +190,18 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                loss_dB_m=fam["loss_dB_m"], N_cm3=N, pumps={}, split=spec["split"])
     env_all = None
     loss = fam["loss_dB_m"] + ir_loss_dB_m(1e7 / spec["nu"], fam["hw_max"])
-    for p in (pumps or PUMPS[ion]):
+    for p in (pumps or (PUMPS[ion] + DUAL_PUMPS.get(ion, []))):
+        p1, p2 = (p, None) if not isinstance(p, (tuple, list)) else (float(p[0]), float(p[1]))
+        key = p if p2 is None else f"{p1:g}+{p2:g}"
         try:
             gs = gain_spectra(ion, spec, om, fam["n"], fam["hw_max"], fam.get("gap_family"),
-                              N_tot_cm3=N, pump_nm=p, intensities_W_cm2=intensities, emax=emax)
+                              N_tot_cm3=N, pump_nm=p1, intensities_W_cm2=intensities, emax=emax,
+                              pump2_nm=p2)
         except ValueError as e:
-            res["pumps"][p] = dict(error=str(e)); continue
+            res["pumps"][key] = dict(error=str(e)); continue
         env = envelope(gs)
         env_all = env if env_all is None else np.maximum(env_all, env)
-        res["pumps"][p] = dict(pump_level=gs["pump_level"],
+        res["pumps"][key] = dict(pump_level=gs["pump_level"],
                                windows=windows(gs["nu"], env, loss, threshold_dB_m),
                                tau_ms={k: v * 1e3 for k, v in gs["tau"].items()},
                                eta=gs["eta"])

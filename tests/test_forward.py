@@ -65,3 +65,13 @@ def test_family_matching_prefers_exact():
     assert _family("aluminosilicate") == "aluminosilicate"
     assert _family("phosphosilicate") == "phosphosilicate"
     assert _family("silica") == "silica"
+
+
+def test_er_dual_pump_opens_3p5um_band_in_zblan():
+    # Henderson-Sapir et al., Opt. Lett. 39, 493 (2014): 985 + 1973 nm pumping, lasing 3.47-3.60 um
+    from gainmat.forward.glass import load_refs, apply_site_refs, calibrate_spm, CARNALL_ER_LAF3_BKQ
+    load_refs(); apply_site_refs(); calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ)
+    r = run("Er3+", "ZBLAN", n_sites=12, pumps=[980.0, (985.0, 1973.0)])
+    in_band = lambda d: any(w["lo_nm"] < 3500 < w["hi_nm"] for w in d["windows"])
+    assert not in_band(r["pumps"][980.0])
+    assert in_band(r["pumps"]["985+1973"])

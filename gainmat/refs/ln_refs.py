@@ -118,6 +118,21 @@ GAP_LAW = {
                       "(1983), fluorozirconate (ZBLA)"),
     "chalcogenide": dict(B=1.0e6, alpha=2.9e-3, hw=350, src="GLS/chalcogenide, e.g. Schweizer et al. "
                          "(order of magnitude)"),
+    # MCVD silica-based fibre glasses, calibrated on Tm 3H4 -> 3H5 decay at <= 200 mol ppm Tm
+    # (Faure et al., J. Non-Cryst. Solids 353, 2767 (2007); gainmat/refs/fiber_spectro_refs.py):
+    # W = 1/tau - 1/650us at the measured Stark-edge gap, alpha fixed at the oxide value 4.7e-3.
+    # One ion, one gap each: B is good to about x1.5 (gap error +-40 cm^-1); alpha is assumed.
+    # "fit": False keeps them out of the host-agnostic phonon-order fit (nonrad.py).
+    "fused_silica": dict(B=2.41e12, alpha=4.7e-3, hw=1100, fit=False,
+                         src="Faure 2007: pure silica tau(3H4) = 14 us (from Jackson & King 1999), "
+                             "dE = 3693 cm-1 -> W = 7.0e4 s^-1; ~1.7x faster than Layne's multicomponent "
+                             "silicate at the same gap"),
+    "aluminosilicate": dict(B=6.18e11, alpha=4.7e-3, hw=1100, fit=False,
+                            src="Faure 2007: tau(3H4) linear in AlO3/2 from 14 us (0) to 50 us (17.4 mol%), "
+                                "evaluated at 11.3 mol% AlO3/2 (= 6 mol% Al2O3) -> 37 us, dE = 3620 cm-1"),
+    "germanosilicate": dict(B=2.28e12, alpha=4.7e-3, hw=1000, fit=False,
+                            src="Faure 2007: tau(3H4) 14 us (0) and 28 us (20 mol% GeO2), linear "
+                                "interpolation to 10 mol% (assumed) -> 21 us, dE = 3770 cm-1"),
     "verified": False,
     "note": "Numbers recalled from the cited papers; check before calibration.",
 }

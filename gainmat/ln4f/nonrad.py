@@ -25,7 +25,7 @@ def w_van_dijk(dE, hw_max, beta_el=VAN_DIJK["beta_el"], alpha=VAN_DIJK["alpha"])
 def _fit_phonon_order():
     """Least-squares lines ln B(hw) and alpha*hw (hw) over the oxide+fluoride families.
     Chalcogenide is excluded from the fit (its B is an order-of-magnitude value)."""
-    tab = [v for k, v in FAMILIES.items() if k != "chalcogenide"]
+    tab = [v for k, v in FAMILIES.items() if k != "chalcogenide" and v.get("fit", True)]
     hw = np.array([t["hw"] for t in tab], float)
     cb = np.polyfit(hw, np.log([t["B"] for t in tab]), 1)
     ca = np.polyfit(hw, [t["alpha"] * t["hw"] for t in tab], 1)

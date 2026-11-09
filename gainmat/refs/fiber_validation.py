@@ -177,7 +177,8 @@ VALIDATION = [
         "Pr:ZBLAN O band", "Pr3+", "ZBLAN", "1G4->3H5",
         band_nm=_v((1250, 1340), "US patent 5,309,452", True, "nm",
                    "stated operating range; ESA 1G4->1D2 limits >1310 nm"),
-        sigma_em_peak=_v(3.5e-22, _NTT335, True, "cm^2"),
+        sigma_em_peak=_v(3.48e-21, "Y. Ohishi et al., Opt. Lett. 16, 1747 (1991), p. 1747 and Table 1 "
+                         "(the earlier 3.5e-22 from US patent 5,351,335 was a factor-10 slip)", True, "cm^2"),
         lambda_em_peak_nm=_v(1322, _NTT335, True, "nm",
                              "US 5,309,452 shows peak ~1340 nm"),
         tau_upper_s=_v(110e-6, _PAYNE, True, "s"),
