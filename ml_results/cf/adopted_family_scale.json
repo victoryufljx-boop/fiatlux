@@ -1,0 +1,36 @@
+{
+ "family_scale": {
+  "aluminosilicate": 1.0423,
+  "germanate": 1.2941,
+  "phosphate": 0.8846,
+  "phosphosilicate": 1.2709,
+  "silica": 1.1199,
+  "tellurite": 0.9844
+ },
+ "ions_used": {
+  "ZBLAN": [
+   "Er3+",
+   "Yb3+"
+  ],
+  "aluminosilicate": [
+   "Yb3+"
+  ],
+  "germanate": [
+   "Yb3+"
+  ],
+  "phosphate": [
+   "Er3+",
+   "Yb3+"
+  ],
+  "phosphosilicate": [
+   "Yb3+"
+  ],
+  "silica": [
+   "Er3+"
+  ],
+  "tellurite": [
+   "Yb3+"
+  ]
+ },
+ "note": "Host crystal-field strength per glass family from measured Stark splittings (gainmat.refs.stark_glass_refs), handbook rank balance.  ZBLAN excluded: the L2 host fit (learned_theta.json, cf_scale 1.21 from band widths and shapes) already sets it, and the Stark data agree (Er 1.12, Yb 1.45, joint 1.24).  Transfer evidence: phosphate scale from Er alone predicts Yb 594 vs 589/596 cm^-1.  Families with one ion are calibrations, not tests."
+}

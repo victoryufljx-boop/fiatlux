@@ -128,11 +128,87 @@ def _sideband_kernel(dn, hw_max, T, n_pts=None):
     return k_abs, k_em
 
 
+# ------------------------------------------------- Stark-resolved electric-dipole intensities
+# Judd-Ofelt with an explicit odd-rank crystal field (Goerller-Walrand & Binnemans, Handbook
+# Phys. Chem. Rare Earths 25, ch. 167, eq. for <A|D_rho|B>):
+#   <a|D_rho|b> = sum_{lambda,t,p} (-1)^{p+rho} (2 lambda+1) B_{lambda t p}
+#                 ( 1 lambda t ; rho, -(p+rho), p ) <a|U^lambda_{p+rho}|b>
+# with the intensity parameters from the same site geometry by superposition:
+#   B_{lambda t p} = a_{lambda t} sum_L (R0/R_L)^{tau_t} conj(C^t_p(theta_L, phi_L)).
+# Summed over complete multiplets this reduces exactly to Judd-Ofelt with the site's
+#   Omega_lambda = (2 lambda+1) sum_{t,p} |B_{lambda t p}|^2 / (2t+1),
+# and the a_{lambda t} are renormalised so the ensemble-mean Omega equal the measured Omega:
+# band integrals are unchanged; what changes is how intensity is shared among Stark components
+# (the isotropic form gives every component the same Omega-weighted |U|^2 share).
+_W3J = {}
+
+
+def _w3j(j1, j2, j3, m1, m2, m3):
+    k = (j1, j2, j3, m1, m2, m3)
+    if k not in _W3J:
+        from sympy.physics.wigner import wigner_3j
+        _W3J[k] = float(wigner_3j(j1, j2, j3, m1, m2, m3))
+    return _W3J[k]
+
+
+def intensity_B(ligands, ratio=None, tau=None, R0=2.3):
+    """{(lam, t, p): B} for one site, intrinsic amplitude 1 for t = lam-1, ratio[lam] for t = lam+1."""
+    ratio = ratio or {2: 1.0, 4: 1.0, 6: 1.0}
+    out = {}
+    for lam in (2, 4, 6):
+        for t in (lam - 1, lam + 1):
+            a = 1.0 if t == lam - 1 else ratio.get(lam, 1.0)
+            ta = (tau or {}).get(t, t + 1.0)
+            for p in range(-t, t + 1):
+                out[(lam, t, p)] = 0j
+            for el, x, y, z in ligands:
+                r = np.sqrt(x * x + y * y + z * z)
+                th, ph = np.arccos(np.clip(z / r, -1, 1)), np.arctan2(y, x)
+                f = a * (R0 / r) ** ta
+                for p in range(-t, t + 1):
+                    out[(lam, t, p)] += f * np.conj(ckq(t, p, th, ph))
+    return out
+
+
+def site_omegas(B):
+    om = {}
+    for lam in (2, 4, 6):
+        om[lam] = (2 * lam + 1) * sum(abs(v) ** 2 / (2 * t + 1) for (l, t, p), v in B.items() if l == lam)
+    return om
+
+
+def aniso_S(Uw, B, scale):
+    """S_ED matrix (cm^2-equivalent, before e^2) between all states from site parameters B, with
+    per-lambda scale factors (renormalisation to measured Omega)."""
+    M = [None, None, None]
+    for ir, rho in enumerate((-1, 0, 1)):
+        acc = None
+        for lam in (2, 4, 6):
+            for q in range(-lam, lam + 1):
+                p = q - rho
+                c = 0j
+                for t in (lam - 1, lam + 1):
+                    if abs(p) > t:
+                        continue
+                    w = _w3j(1, lam, t, rho, -q, p)
+                    if w == 0.0:
+                        continue
+                    c += (-1) ** (p + rho) * (2 * lam + 1) * B[(lam, t, p)] * w
+                if c == 0:
+                    continue
+                term = (c * np.sqrt(scale[lam])) * Uw[lam][q + lam]
+                acc = term if acc is None else acc + term
+        M[ir] = acc
+    return sum(np.abs(m) ** 2 for m in M)
+
+
 def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=None,
                      T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0,
                      lineshape: str = "gauss", neph_std: float = 0.0, sideband_S: float = 0.0,
-                     hw_max: float = 1000.0, seed: int = 0):
-    """neph_std: per-site fractional scatter of all multiplet energies (first-order
+                     hw_max: float = 1000.0, seed: int = 0, intensity=None):
+    """intensity: None (isotropic Judd-Ofelt per Stark component) or dict(ratio={2:..,4:..,6:..},
+    tau=None, R0=2.3) for Stark-resolved intensities from the odd-rank crystal field (aniso_S).
+    neph_std: per-site fractional scatter of all multiplet energies (first-order
     nephelauxetic variation, E -> E (1 + eps), eps ~ N(0, neph_std)); an inhomogeneous
     mechanism the crystal-field sites alone miss.  sideband_S: relative strength of the
     one-phonon vibronic sideband (fraction of each line's intensity moved into it at T = 0)."""
@@ -157,14 +233,21 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     hg = gamma_h / 2.0
     e_free = np.array([mm["energy"] for mm in m.multiplets])
     rng_n = np.random.default_rng(10007 + seed)
-    for lig in sites:
+    if intensity is not None:
+        Bs = [intensity_B(lig, intensity.get("ratio"), intensity.get("tau"), intensity.get("R0", 2.3)) for lig in sites]
+        oms = [site_omegas(b) for b in Bs]
+        iscale = {lam: O[i] / max(np.mean([o[lam] for o in oms]), 1e-300) for i, lam in enumerate((2, 4, 6))}
+    for isite, lig in enumerate(sites):
         E, W, par = m.stark(spm_bkq(lig, spm))
         if neph_std > 0:
             E = E + rng_n.normal(0.0, neph_std) * e_free[par]
         Uw = {lam: [W.conj().T @ Uq @ W for Uq in m.Uq[lam]] for lam in (2, 4, 6)}
         Mw = [W.conj().T @ Mq @ W for Mq in m.MDq]
-        S_ed = sum(O[i] * sum(np.abs(X) ** 2 for X in Uw[lam])
-                   for i, lam in enumerate((2, 4, 6))) * E_ESU ** 2
+        if intensity is None:
+            S_ed = sum(O[i] * sum(np.abs(X) ** 2 for X in Uw[lam])
+                       for i, lam in enumerate((2, 4, 6))) * E_ESU ** 2
+        else:
+            S_ed = aniso_S(Uw, Bs[isite], iscale) * E_ESU ** 2
         S_md = sum(np.abs(X) ** 2 for X in Mw) * MU_B_ESU ** 2
         se_site = {}
         site_edges.append(se_site)

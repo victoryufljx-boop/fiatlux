@@ -152,6 +152,19 @@ USE_ML = os.environ.get("GAINMAT_ML", "") == "1"   # off unless GAINMAT_ML=1
 _LEARNED_THETA = None
 
 
+_CF_FAMILY = None
+
+
+def cf_family_scale(family):
+    """Host crystal-field strength fitted to measured Stark splittings (ml_results/cf)."""
+    global _CF_FAMILY
+    if _CF_FAMILY is None:
+        import json as _json
+        p = os.path.join(os.path.dirname(__file__), "..", "..", "ml_results", "cf", "adopted_family_scale.json")
+        _CF_FAMILY = _json.load(open(p)).get("family_scale", {}) if os.path.exists(p) else {}
+    return _CF_FAMILY.get(family)
+
+
 def learned_theta(family):
     global _LEARNED_THETA
     if _LEARNED_THETA is None:
@@ -213,6 +226,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
         th = learned_theta(family)
         fam.update(cf_scale=th["cf_scale"], R_std=fam["R_std"] * th["disorder"],
                    ang_std=fam["ang_std"] * th["disorder"], neph_std=th["neph_std"], gamma_h=th["gamma_h"])
+    elif USE_ML and cf_family_scale(family):
+        fam["cf_scale"] = cf_family_scale(family)
     fam.update(overrides or {})
     om, om_src = omegas_for(ion, family) if "omegas" not in fam else (fam["omegas"], "override")
     lig = fam["ligand"]
@@ -225,7 +240,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
                             emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0),
                             neph_std=fam.get("neph_std", NEPH_STD), sideband_S=fam.get("sideband_S", SIDEBAND_S),
-                            hw_max=fam["hw_max"], seed=seed)
+                            hw_max=fam["hw_max"], seed=seed,
+                            intensity=fam.get("intensity", INTENSITY))
     N = fam.get("N_cm3", N_DEFAULT[ion])
     res = dict(ion=ion, family=family, omegas=om, omega_src=om_src, n=fam["n"], hw_max=fam["hw_max"],
                loss_dB_m=fam["loss_dB_m"], N_cm3=N, pumps={}, split=spec["split"])
@@ -302,6 +318,11 @@ ION_SPM_SCALE = {}
 # differently (Er 4I15/2 is ~half B6; Yb 2F7/2 has almost no B6 sensitivity; Tm 3F4 is mostly
 # B4), so a multi-ion fit can determine the balance (gainmat.ml.cf_ranks).  Default: no change.
 RANK_SCALE = {}
+
+# Stark-resolved intensity model: None = isotropic Judd-Ofelt per Stark component (each component
+# gets the Omega-weighted |U|^2 share); a dict switches to intensities from the odd-rank crystal
+# field of each site (spectra.aniso_S), renormalised to the measured Omega.
+INTENSITY = None
 
 
 def _load_cf_ranks():

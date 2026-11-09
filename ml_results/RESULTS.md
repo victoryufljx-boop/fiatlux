@@ -118,3 +118,33 @@ the ZBLAN theta. With theta switched on:
 
 Dy 6H13/2 also improves, from 6.0x to 4.0x. The one row that gets worse is Ho 5F5 in ZBLAN, from
 0.03x to 0.02x; the explicit model already gets it wrong by 30x.
+
+## Crystal field across glasses (round 2, `gainmat/ml/cf_ranks.py`, `ml_results/cf/`)
+
+New data: measured total Stark splittings (`gainmat/refs/stark_glass_refs.py`):
+
+- Yb³⁺ ²F₇/₂ at room temperature in seven glasses (Yang 2014; Cao 2018).
+- Yb³⁺ ²F₇/₂ at low temperature in phosphate (Zhang 2015).
+- Er³⁺ ⁴I₁₅/₂ by FLN at 4.2 K in fluorozirconate, phosphate and silicate (Zemon 1991).
+
+Findings:
+
+1. **No Yb-specific crystal-field anomaly.** Modern Yb ²F₇/₂ splittings in silicates are
+   874–965 cm⁻¹, not Pask 1995's approximate 1490. With the Er-calibrated field the model is
+   within about 15 % for Yb in oxide glasses. The earlier "Yb needs 2x" was driven by one
+   approximate figure.
+2. **Ion transfer works in phosphate.** A host field scale set from Er alone (0.84) predicts
+   Yb at 594 cm⁻¹ against 589 and 596 measured. In fluorozirconate it is partial: Er wants
+   1.12x, Yb 1.45x.
+3. **Two independent routes agree for ZBLAN.** The field strength learned by L2 from band
+   widths and shapes (cf_scale 1.21) matches the one from Stark splittings (joint 1.24).
+4. **Oxygen rank balance does not transfer.** A learned B2:B4:B6 balance (1.22 : 1 : 0.86) fits
+   better in-sample, but in the phosphate leave-family-out test it does worse than the handbook
+   balance. It is not adopted.
+5. **Field strength alone cannot move the Tm ³F₄ absorption peak.** At 1.5x field the peak is
+   still at 1705 nm, against 1633 measured.
+6. **Adopted (ML on):** per-family field scales from the splittings for silica 1.12,
+   aluminosilicate 1.04, phosphosilicate 1.27, germanate 1.29, phosphate 0.88 and tellurite
+   0.98 (`ml_results/cf/adopted_family_scale.json`).
+    - Only phosphate has a transfer test behind it. The others are single-ion calibrations.
+    - ZBLAN keeps its L2 value.
