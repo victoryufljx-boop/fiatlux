@@ -224,3 +224,13 @@ Findings:
     - It does not transfer to the dilute, low-Al fibre 1 (slope 0.33 vs 0.21). Cross-relaxation
       depends on more than the mean Tm density: the Al:Tm ratio, which sets the Tm–Tm distances,
       differs (5 vs 9–10).
+- **The reduced matrix elements match the standard tables.** The model's own U^(λ)² agree with
+  Carnall (Er) and Krupke (Nd) to within 1 % for every tabulated transition. So the Judd–Ofelt
+  layer is consistent with how literature Ω are derived, except where a paper's own U² differ.
+- **Pr³⁺ is the exception.** With Ohishi's Ω, the model's 1G4 radiative rates are uniformly
+  about 1.37x the rates Ohishi tabulates (Table 1), and τ_rad is 0.71x theirs.
+    - Translating their Ω into the model's basis (NNLS on their six 1G4 rates) gives
+      (1.63, 3.26, 3.19) instead of (1.43, 4.22, 4.87).
+    - That lowers the 1310 nm peak σe by 32 % (explicit model 9.2 → 6.3e-21; measured 3.5e-21).
+    - Not applied by default: it calibrates to one paper's derived rates. It explains about a
+      third of the Pr amplifier overestimate.
