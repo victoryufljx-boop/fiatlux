@@ -1,0 +1,70 @@
+{
+ "best_cr_scale_from_fibre4": 8,
+ "rows": [
+  {
+   "fit_on": "fibre 4",
+   "cr_scale": 1,
+   "slope": 0.34074782062353615,
+   "threshold_W": 7.851333438463901,
+   "measured_slope": 0.46,
+   "measured_threshold_W": 5.24
+  },
+  {
+   "fit_on": "fibre 4",
+   "cr_scale": 2,
+   "slope": 0.38230963533552054,
+   "threshold_W": 7.090251766954163,
+   "measured_slope": 0.46,
+   "measured_threshold_W": 5.24
+  },
+  {
+   "fit_on": "fibre 4",
+   "cr_scale": 4,
+   "slope": 0.435904902893543,
+   "threshold_W": 6.304805971160701,
+   "measured_slope": 0.46,
+   "measured_threshold_W": 5.24
+  },
+  {
+   "fit_on": "fibre 4",
+   "cr_scale": 8,
+   "slope": 0.49135899192125504,
+   "threshold_W": 5.6540302390155,
+   "measured_slope": 0.46,
+   "measured_threshold_W": 5.24
+  },
+  {
+   "predict": "fibre 3",
+   "cr_scale": 1,
+   "slope": 0.28940749019821754,
+   "threshold_W": 9.893293041331296,
+   "measured_slope": 0.415,
+   "measured_threshold_W": 5.99
+  },
+  {
+   "predict": "fibre 3",
+   "cr_scale": 8,
+   "slope": 0.4146812255811419,
+   "threshold_W": 7.217418424733744,
+   "measured_slope": 0.415,
+   "measured_threshold_W": 5.99
+  },
+  {
+   "predict": "fibre 1",
+   "cr_scale": 1,
+   "slope": 0.26648612594186283,
+   "threshold_W": 7.358744440636234,
+   "measured_slope": 0.213,
+   "measured_threshold_W": 7.41
+  },
+  {
+   "predict": "fibre 1",
+   "cr_scale": 8,
+   "slope": 0.3307711855098171,
+   "threshold_W": 6.103147456865925,
+   "measured_slope": 0.213,
+   "measured_threshold_W": 7.41
+  }
+ ],
+ "pump_band": "Gaussian in energy: 8.6e-21 at 790 nm, 4.8e-21 at 805 nm"
+}

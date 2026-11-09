@@ -212,3 +212,15 @@ Findings:
       0. Full measured curves are needed.
     - The CLI accepts several `--band/--abs` pairs, fits Ω when they constrain all three, and uses
       the fitted Ω for every other transition.
+- **The Tm laser error is the pump band, then cross-relaxation (`scripts/validate_tm_cr_transfer.py`).**
+    - Pump band: I replaced only the 3H6 → 3H4 absorption with a band built from two published
+      numbers (8.6e-21 cm² peak at 790 nm, about 4.8e-21 cm² at 805 nm; 32 nm FWHM). Combined
+      with L3 + cross-relaxation, fibre 1 (0.7 wt %) goes from threshold 11.4 W to 7.4 W
+      (measured 7.41), slope 0.27 (0.21).
+    - Cross-relaxation, learned on fibre 4 only: 8x the Jackson & King coefficient (linear in N),
+      giving slope 0.49 / threshold 5.7 W (measured 0.46 / 5.24).
+    - Predicting fibre 3 with that coefficient: slope 0.415 against 0.415 measured, threshold
+      7.2 W against 6.0 (with the literature coefficient: 0.29 / 9.9 W).
+    - It does not transfer to the dilute, low-Al fibre 1 (slope 0.33 vs 0.21). Cross-relaxation
+      depends on more than the mean Tm density: the Al:Tm ratio, which sets the Tm–Tm distances,
+      differs (5 vs 9–10).
