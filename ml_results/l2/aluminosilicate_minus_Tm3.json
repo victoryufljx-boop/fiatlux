@@ -1,0 +1,360 @@
+{
+ "family": "aluminosilicate",
+ "holdout": "Tm3+",
+ "theta_default": {
+  "cf_scale": 1.0,
+  "disorder": 1.0,
+  "neph_std": 0.0027,
+  "gamma_h": 49.0
+ },
+ "theta_fit": {
+  "cf_scale": 0.9966307301634731,
+  "disorder": 0.7924112809049193,
+  "neph_std": 0.0036837166387400973,
+  "gamma_h": 79.44647814161128
+ },
+ "loss_train_default": 148.07854110257006,
+ "loss_train_fit": 112.6815338551125,
+ "n_train": 11,
+ "n_test": 5,
+ "evals": 87,
+ "seconds": 341.69838547706604,
+ "detail_train": [
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.413092192086476,
+    -1.858116446323811,
+    1.3333333333333333
+   ],
+   "shape_rms": 0.1706546096043238,
+   "width_model": 53.963744628981665,
+   "width_meas": 71.3095238095238,
+   "peak_shift_nm": 20.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.3577885904549243,
+    -0.2792071694309781,
+    -0.2
+   ],
+   "shape_rms": 0.11788942952274623,
+   "width_model": 46.682232123279015,
+   "width_meas": 48.00399999999999,
+   "peak_shift_nm": -3.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.007136978642727,
+    0.6447606944221044,
+    -0.06666666666666667
+   ],
+   "shape_rms": 0.15035684893213636,
+   "width_model": 42.41146889621489,
+   "width_meas": 39.76323529411765,
+   "peak_shift_nm": -1.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    3.2629389930859944
+   ],
+   "model": -0.2086311245204435,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    1.8997592239681516
+   ],
+   "model": 0.0558813583810946,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.827086616237602
+   ],
+   "model": 0.18316682700511797,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "resid": [
+    2.695424096368314
+   ],
+   "model": 0.29348836780467424,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "ion": "Er3+",
+   "kind": "zpl_fwhm_cm1",
+   "pair": null,
+   "resid": [
+    -0.5319724415515346
+   ],
+   "model": 44.74422046758772,
+   "src": "Desurvire & Simpson, OL 15, 547 (1990), 4.2 K"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "curve",
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "resid": [
+    6.41820506264994,
+    0.6778496503984835,
+    -1.3333333333333333
+   ],
+   "shape_rms": 0.320910253132497,
+   "width_model": 160.23238592389185,
+   "width_meas": 144.74125874125875,
+   "peak_shift_nm": -20.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "curve",
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "resid": [
+    1.5551707567807542,
+    0.9507645909520129,
+    -0.4
+   ],
+   "shape_rms": 0.07775853783903772,
+   "width_model": 126.29396740677662,
+   "width_meas": 114.83953488372094,
+   "peak_shift_nm": -6.0,
+   "src": "Le Gouet et al., arXiv:2003.14188"
+  },
+  {
+   "ion": "Ho3+",
+   "kind": "curve",
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "resid": [
+    1.7880497607646424,
+    0.8269623298409645,
+    -0.26666666666666666
+   ],
+   "shape_rms": 0.08940248803823213,
+   "width_model": 167.39770951061755,
+   "width_meas": 154.11148086522462,
+   "peak_shift_nm": -4.0,
+   "src": "Le Gouet et al., arXiv:2003.14188"
+  }
+ ],
+ "loss_test_default": 85.13873131994059,
+ "loss_test_fit": 100.56145178274114,
+ "detail_test_default": [
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    3.8357671076345046,
+    -2.4871428981476824,
+    0.0
+   ],
+   "shape_rms": 0.19178835538172523,
+   "width_model": 236.84898795792932,
+   "width_meas": 343.94927536231893,
+   "peak_shift_nm": 0.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    4.1807386611508734,
+    -1.9586265446777995,
+    5.0
+   ],
+   "shape_rms": 0.20903693305754367,
+   "width_model": 171.55470220842437,
+   "width_meas": 208.67224880382778,
+   "peak_shift_nm": 75.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    2.9753532771865743,
+    -2.288912640470965,
+    -1.6666666666666667
+   ],
+   "shape_rms": 0.1487676638593287,
+   "width_model": 227.4621816037545,
+   "width_meas": 285.9666666666666,
+   "peak_shift_nm": -25.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    -0.7359179662038197
+   ],
+   "model": 0.020307808751319243,
+   "src": "Agger & Povlsen 2006 p. 53"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    0.7167616725476291
+   ],
+   "model": -0.9426590661961897,
+   "src": "Agger & Povlsen 2006 p. 53"
+  }
+ ],
+ "detail_test_fit": [
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    4.302058517257414,
+    -2.923537146620815,
+    0.0
+   ],
+   "shape_rms": 0.21510292586287075,
+   "width_model": 221.8416012154084,
+   "width_meas": 343.94927536231893,
+   "peak_shift_nm": 0.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    4.557722397488875,
+    -2.110239996296597,
+    5.0
+   ],
+   "shape_rms": 0.22788611987444374,
+   "width_model": 168.97332021336646,
+   "width_meas": 208.67224880382778,
+   "peak_shift_nm": 75.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    3.3818447769354276,
+    -2.7571964839775247,
+    -1.6666666666666667
+   ],
+   "shape_rms": 0.16909223884677138,
+   "width_model": 217.05604791498445,
+   "width_meas": 285.9666666666666,
+   "peak_shift_nm": -25.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    -1.1828031732556235
+   ],
+   "model": -0.015443007812825066,
+   "src": "Agger & Povlsen 2006 p. 53"
+  },
+  {
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "resid": [
+    0.2547957684811586
+   ],
+   "model": -0.9796163385215073,
+   "src": "Agger & Povlsen 2006 p. 53"
+  }
+ ]
+}
