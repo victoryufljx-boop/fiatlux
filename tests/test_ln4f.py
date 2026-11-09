@@ -99,3 +99,49 @@ def test_er_2p7_silica_vs_zblan():
 def test_phonon_order_monotone():
     assert w_phonon_order(3600, 1100) > w_phonon_order(3600, 580) > w_phonon_order(3600, 350)
     assert w_nr(3600, 1100, "silicate") > 1e3
+
+
+# ---------------- complete-Carnall |tau S L J> solver (lsj.py) ----------------
+from gainmat.ln4f.run_ln import score_barycentres
+from gainmat.ln4f.lsj import solve_lsj, duplicate_labels
+from gainmat.refs import ln_refs as RR
+
+
+def test_lsj_counts_and_hund():
+    for N, ion in [(3, "Nd3+"), (11, "Er3+")]:
+        r = solve_lsj(N, RR.FREE_ION_CARNALL[ion])
+        assert len(r.multiplets) == 41
+        assert r.multiplets[0]["label"] == HUND[N]
+        assert duplicate_labels(r) == 0
+
+
+def test_lsj_f2_matches_det_solver():
+    # same physics (F^k, zeta, alpha, beta, gamma only) must give identical levels in both bases
+    p = dict(F2=68878, F4=50347, F6=32901, zeta=751.7, alpha=16.23, beta=-566.6, gamma=1371, M0=0, P2=0)
+    a = sorted(m["energy"] for m in solve_lsj(2, p).multiplets)
+    b = sorted(m["energy"] for m in solve(2, 68878, 50347, 32901, 751.7, 16.23, -566.6, 1371).multiplets)
+    assert np.allclose(a, b, atol=1e-6)
+
+
+@pytest.mark.parametrize("ion,tol", [("Er3+", 40.0), ("Nd3+", 60.0)])
+def test_lsj_barycentres_carnall1989(ion, tol):
+    s = score_barycentres(ion, solver="lsj")
+    assert s["rms"] < tol and s["duplicates"] == 0
+
+
+def test_lsj_U_tables():
+    r = free_ion("Er3+", solver="lsj"); L = {m["label"]: i for i, m in enumerate(r.multiplets)}
+    assert [r.U2(L["4I13/2"], L["4I15/2"], k) for k in (2, 4, 6)] == pytest.approx([0.0195, 0.1173, 1.4316], abs=2e-3)
+    r = free_ion("Nd3+", solver="lsj"); L = {m["label"]: i for i, m in enumerate(r.multiplets)}
+    assert [r.U2(L["4F3/2"], L["4I11/2"], k) for k in (2, 4, 6)] == pytest.approx([0, 0.1423, 0.4083], abs=3e-3)
+
+
+def test_lsj_md_f1():
+    r = solve_lsj(1, dict(F2=0, F4=0, F6=0, zeta=1000.0, M0=0, P2=0))
+    # <2F5/2||L+2S||2F5/2>^2 = J(J+1)(2J+1) g^2, g=6/7
+    assert r.MD(0, 0) == pytest.approx(2.5 * 3.5 * 6 * (6 / 7) ** 2)
+
+
+def test_run_dopant_lsj():
+    p = run_dopant("Er3+", "ZBLAN", solver="lsj")
+    assert 5e-3 < p.tau_rad_s["4I13/2"] < 20e-3

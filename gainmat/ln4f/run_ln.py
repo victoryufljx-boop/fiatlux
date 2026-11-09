@@ -4,18 +4,55 @@ import numpy as np
 from ..schema import DopantProps, Level, Transition
 from ..refs import ln_refs as R
 from .fn_ci import solve_params
+from .lsj import solve_lsj
 from .judd_ofelt import rates, find
 from .nonrad import w_nr, quantum_eff, FAMILIES
 
 _CACHE = {}
 
 
-def free_ion(ion, casimir=True, bkq=None):
-    key = (ion, casimir, None if bkq is None else tuple(sorted(bkq.items())))
+SOLVER = "det"   # default free-ion solver: "det" (determinant CI) or "lsj" (complete Carnall, |tau S L J>)
+
+
+def free_ion(ion, casimir=True, bkq=None, solver=None):
+    """solver='det': determinant CI (F^k, zeta, alpha, beta, gamma [, B^k_q]).
+    solver='lsj': complete Carnall effective Hamiltonian in the coupled |tau S L J> basis
+    (adds T^i, M^k, P^k; free ion only, so bkq forces 'det')."""
+    solver = solver or SOLVER
+    if bkq:
+        solver = "det"
+    key = (ion, casimir, None if bkq is None else tuple(sorted(bkq.items())), solver)
     if key not in _CACHE:
-        p = R.FREE_ION[ion]
-        _CACHE[key] = solve_params(p["N"], p, bkq=bkq, casimir=casimir)
+        if solver == "lsj":
+            p = dict(R.FREE_ION_CARNALL[ion])
+            if not casimir:
+                p["beta"] = p["gamma"] = 0.0
+            _CACHE[key] = solve_lsj(p["N"], p)
+        else:
+            p = R.FREE_ION[ion]
+            _CACHE[key] = solve_params(p["N"], p, bkq=bkq, casimir=casimir)
     return _CACHE[key]
+
+
+def score_barycentres(ion, solver="lsj", emax=30000.0):
+    """Computed vs experimental (Carnall 1989 App. II/VI) barycentres, ground-barycentre
+    referenced. Returns dict(rows, rms, max, n, duplicates)."""
+    res = free_ion(ion, solver=solver)
+    exp = R.EXP_BARY_CARNALL1989[ion]
+    calc = {}
+    for m in res.multiplets:
+        calc.setdefault(m["label"], m["energy"])
+    g = next(iter(exp))
+    rows = []
+    for lab, e in exp.items():
+        if e - exp[g] > emax or lab not in calc:
+            continue
+        c = calc[lab] - calc[g]
+        rows.append(dict(label=lab, calc=round(c, 1), exp=round(e - exp[g], 1), diff=round(c - (e - exp[g]), 1)))
+    d = np.array([r["diff"] for r in rows[1:]])
+    labs = [m["label"] for m in res.multiplets if m["energy"] <= emax + 3000]
+    return dict(rows=rows, rms=float(np.sqrt(np.mean(d ** 2))), max=float(np.max(np.abs(d))),
+                n=len(d), duplicates=len(labs) - len(set(labs)))
 
 
 def _host_info(ion, host_key):
@@ -26,7 +63,7 @@ def _host_info(ion, host_key):
 
 
 def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, emax=27000.0,
-               family=None, nr_model="auto", bkq=None):
+               family=None, nr_model="auto", bkq=None, solver=None):
     """Levels, JO radiative rates, branching, tau_rad, multiphonon W_nr and eta.
 
     ion: "Er3+"; host_key: "silica"|"ZBLAN"|"YAG"|"LiYF4" or "Er:ZBLAN"-style key.
@@ -34,7 +71,7 @@ def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, em
     host-agnostic gap law (if family is None and nr_model == 'auto', the literature
     family law is used when the host family is tabulated, else the phonon-order form).
     """
-    res = free_ion(ion, bkq=bkq)
+    res = free_ion(ion, bkq=bkq, solver=solver)
     jo, h = _host_info(ion, host_key)
     if omegas is None:
         if jo is None:
@@ -45,7 +82,8 @@ def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, em
     family = family if family is not None else h.get("family")
     if nr_model == "phonon":
         family = None
-    trans, tot, tau = rates(res, omegas, n_index, emax=emax)
+    red = res.reduced_elements(emax) if hasattr(res, "reduced_elements") else None
+    trans, tot, tau = rates(res, omegas, n_index, emax=emax, red=red)
     m = res.multiplets
     idx = [i for i in range(len(m)) if m[i]["energy"] <= emax]
     out = DopantProps()
@@ -69,8 +107,10 @@ def run_dopant(ion, host_key, n_index=None, phonon_max_cm1=None, omegas=None, em
     out.tau_rad_s = {m[i]["label"]: float(tau[i]) for i in tau}
     out.quantum_eff = eta
     out.judd_ofelt = dict(O2=omegas[0], O4=omegas[1], O6=omegas[2])
-    out.method = dict(tier="ln4f", hamiltonian="4f^N determinant CI: F2,F4,F6,zeta,alpha,beta,gamma"
-                      + (", B^k_q" if bkq else ""), params=R.FREE_ION[ion]["src"],
+    out.method = dict(tier="ln4f", hamiltonian=("4f^N |tau S L J>: complete Carnall (F^k,zeta,alpha,beta,gamma,T^i,M^k,P^k)"
+                                   if hasattr(res, "reduced_elements") else
+                                   "4f^N determinant CI: F2,F4,F6,zeta,alpha,beta,gamma"
+                                   + (", B^k_q" if bkq else "")), params=R.FREE_ION[ion]["src"],
                       n_index=n_index, phonon_max_cm1=phonon_max_cm1,
                       nr_model=("family:" + family) if family in FAMILIES else "phonon-order",
                       W_nr_s1={m[i]["label"]: float(W[i]) for i in W})
