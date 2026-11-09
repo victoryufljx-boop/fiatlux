@@ -5,3 +5,5 @@ results/
 *.gpw
 *.chk
 results/forward/*_pass1*
+*.pkl
+private_data/

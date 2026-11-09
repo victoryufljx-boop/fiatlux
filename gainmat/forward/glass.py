@@ -134,11 +134,23 @@ def ir_loss_dB_m(lam_nm, hw_max):
 I_PUMP = np.logspace(2, np.log10(2e6), 10)
 
 
+# measured sets the data agent flagged as unreliable (garbled exponent / implausibly low)
+OMEGA_SUSPECT = {("Er3+", "chalcogenide"), ("Ho3+", "ZBLAN")}
+
+
 def omegas_for(ion, family):
-    """Measured Omega for (ion, family); fall back to the same ion in the nearest family,
-    then to the same family for another ion (flagged)."""
-    if (ion, family) in OMEGA:
+    """Measured Omega for (ion, family) when available and not flagged; otherwise the
+    LOMS-trained composition model's prediction for the family's representative composition;
+    otherwise fall back to the same ion in the nearest family (flagged)."""
+    if (ion, family) in OMEGA and (ion, family) not in OMEGA_SUSPECT:
         return OMEGA[(ion, family)], "measured"
+    try:
+        from ..refs.omega_family_pred import OMEGA_PRED
+        v = OMEGA_PRED.get(f"{ion}:{family}")
+        if v:
+            return tuple(v), "predicted (LOMS-trained model)"
+    except ImportError:
+        pass
     near = {"aluminosilicate": "silica", "germanosilicate": "silica", "phosphosilicate": "silica",
             "fluoroindate": "ZBLAN", "germanate": "tellurite", "tellurite": "germanate",
             "phosphate": "silica", "chalcogenide": "tellurite", "silica": "aluminosilicate",
