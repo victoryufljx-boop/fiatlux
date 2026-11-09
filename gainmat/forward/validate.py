@@ -20,7 +20,7 @@ from .glass import run, key_transitions, FAMILIES
 FAMILY_ALIASES = {
     "silica": "silica", "pure silica": "silica", "aluminosilicate": "aluminosilicate",
     "al-silica": "aluminosilicate", "alumino-silicate": "aluminosilicate",
-    "germanosilicate": "germanosilicate", "phosphate": "phosphate", "germanate": "germanate",
+    "germanosilicate": "germanosilicate", "phosphosilicate": "phosphosilicate", "phosphate": "phosphate", "germanate": "germanate",
     "tellurite": "tellurite", "zblan": "ZBLAN", "fluoride": "ZBLAN", "fluoroindate": "fluoroindate",
     "inf3": "fluoroindate", "chalcogenide": "chalcogenide", "sulfide": "chalcogenide",
 }
@@ -88,7 +88,7 @@ def validate(entries=None, n_sites=40, verbose=True):
             for k in ("peak_em_cross_section_cm2", "sigma_em_peak_cm2", "peak_sigma_em_cm2"):
                 if e.get(k) is not None:
                     row["exp_sigma_em"] = _val(e[k])
-            for k in ("fwhm_nm", "emission_fwhm_nm"):
+            for k in ("fwhm_nm", "emission_fwhm_nm", "em_fwhm_nm"):
                 if e.get(k) is not None:
                     row["exp_fwhm_nm"] = _val(e[k])
             taus = [d["tau_ms"].get(pair[0]) for d in r["pumps"].values() if "tau_ms" in d]
@@ -98,6 +98,11 @@ def validate(entries=None, n_sites=40, verbose=True):
             for k in ("lifetime_ms", "tau_ms", "upper_lifetime_ms"):
                 if e.get(k) is not None:
                     row["exp_tau_ms"] = _val(e[k])
+            if e.get("tau_upper_s") is not None and _val(e["tau_upper_s"]) is not None:
+                row["exp_tau_ms"] = float(_val(e["tau_upper_s"])) * 1000.0
+            for k in ("lambda_abs_peak_nm", "lambda_em_peak_nm"):
+                if e.get(k) is not None:
+                    row["exp_" + k] = _val(e[k])
             for k in ("lifetime_us", "tau_us", "upper_lifetime_us"):
                 if e.get(k) is not None and _val(e[k]) is not None:
                     row["exp_tau_ms"] = float(_val(e[k])) / 1000.0

@@ -32,6 +32,7 @@ FAMILIES = {
     "silica":          dict(n=1.444, hw_max=1100, gap_family="silicate", ligand="O", CN=6.0, R=2.25, R_std=0.07, ang_std=12, loss_dB_m=0.005),
     "aluminosilicate": dict(n=1.46, hw_max=1100, gap_family="silicate", ligand="O", CN=6.5, R=2.27, R_std=0.09, ang_std=15, loss_dB_m=0.01),
     "germanosilicate": dict(n=1.46, hw_max=1000, gap_family="silicate", ligand="O", CN=6.0, R=2.26, R_std=0.08, ang_std=13, loss_dB_m=0.01),
+    "phosphosilicate": dict(n=1.46, hw_max=1300, gap_family="phosphate", ligand="O", CN=6.5, R=2.27, R_std=0.08, ang_std=13, loss_dB_m=0.01),
     "phosphate":       dict(n=1.53, hw_max=1200, gap_family="phosphate", ligand="O", CN=6.5, R=2.28, R_std=0.08, ang_std=12, loss_dB_m=0.05),
     "germanate":       dict(n=1.70, hw_max=850, gap_family="germanate", ligand="O", CN=7.0, R=2.30, R_std=0.10, ang_std=15, loss_dB_m=0.5),
     "tellurite":       dict(n=2.00, hw_max=750, gap_family="tellurite", ligand="O", CN=7.0, R=2.32, R_std=0.12, ang_std=18, loss_dB_m=0.2),
