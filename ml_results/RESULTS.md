@@ -252,3 +252,8 @@ Findings:
       tested mechanism fixes.
 
   Not adopted. For Yb, the measured-spectrum mode is the reliable route.
+- **Uncertainty grid, round 2 (`ml_results/uq2/`, ML layer with the per-glass field scales).**
+  All 10 known media still reach P = 1.00 inside their measured band.
+    - Ho:silica 2.1 µm band coverage at P ≥ 0.5 rises from 0.84 to 0.95.
+    - Yb:aluminosilicate stays at 0.64: the model's windows stop near 1095 nm against a measured
+      band to 1200 nm, the missing Yb long-wavelength emission above.
