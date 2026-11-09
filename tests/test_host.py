@@ -5,6 +5,7 @@ Tests skip (not fail) when an optional heavy dependency is missing.
 """
 import importlib.util
 import os
+import shutil
 import sys
 
 import pytest
@@ -52,9 +53,48 @@ def test_caf2_gap_smoke():
     from gainmat.host.gap import compute_gap
     g = compute_gap(get_structure("CaF2"), ecut=300, kpts=(2, 2, 2))
     print("CaF2 smoke gap:", g)
+    assert g["gap_method"] == "gllbsc" and g["gap_eV"] == g["gap_gllbsc_eV"]
     assert 5.0 < g["gap_pbe_eV"] < 9.0          # PBE ~7 eV
     assert g["gap_gllbsc_eV"] > g["gap_pbe_eV"] + 2.0   # GLLB-SC opens it
     assert 9.0 < g["gap_gllbsc_eV"] < 15.0       # exp 12.1 eV (fundamental)
+
+
+def test_gap_defaults():
+    """Bake-off winner (BAKEOFF_GAPS.md): GLLB-SC is the default everywhere."""
+    from gainmat.host.run_host import LEVELS
+    for lv in LEVELS.values():
+        assert lv["gap"]["method"] == "gllbsc"
+        assert lv["gap"]["ecut"] >= 300
+    assert LEVELS["full"]["gap"]["ecut"] >= 500
+    if HAVE_GPAW:
+        from gainmat.host import gap
+        assert gap.DEFAULT_GAP_METHOD == "gllbsc"
+        assert set(gap.GAP_METHODS) == {"gllbsc", "pbe", "tb09", "hse06"}
+        with pytest.raises(ValueError):
+            gap.compute_gap(get_structure("CaF2"), method="b3lyp")
+
+
+def test_mpi_command():
+    from gainmat.host.mpi_run import mpi_command, mpi_env
+    env = mpi_env()
+    assert env["GPAW_MPI_BACKEND"] == "cgpaw" and env["OMP_NUM_THREADS"] == "1"
+    cmd = mpi_command("x.py", nproc=12)
+    if shutil.which("mpiexec") or shutil.which("mpirun"):
+        assert cmd[1:5] == ["-n", "12", "--allow-run-as-root", "--oversubscribe"]
+    assert cmd[-1] == "x.py"
+    assert mpi_command("x.py", nproc=1)[-1] == "x.py"
+
+
+@pytest.mark.skipif(not HAVE_GPAW or not shutil.which("mpiexec"),
+                    reason="gpaw or mpiexec missing")
+def test_caf2_gap_mpi_smoke(tmp_path):
+    from gainmat.host.mpi_run import run_gpaw_mpi
+    n = min(2, os.cpu_count() or 1)
+    r = run_gpaw_mpi("CaF2", level="smoke", nproc=n, workdir=str(tmp_path),
+                     gap_kwargs=dict(ecut=300, kpts=(2, 2, 2)))
+    assert not r["errors"], r["errors"]
+    assert r["nproc"] == n
+    assert 9.0 < r["gap"]["gap_eV"] < 15.0
 
 
 @pytest.mark.skipif(not _mace_ok(), reason="mace/torch not importable")
@@ -111,3 +151,18 @@ def test_glass_smoke():
                     log=lambda *a: None)
     print("SiO2 glass smoke:", r["n_atoms"], r["phonon_eff_cm1"], r["phonon_max_cm1"])
     assert r["phonon_eff_cm1"] > 0
+
+
+@pytest.mark.skipif(not HAVE_GPAW, reason="gpaw not installed")
+def test_lif_eps_inf_smoke(tmp_path):
+    """Unshifted PBE RPA+LFE is the reported eps_inf; the scissor lowers it."""
+    from ase.build import bulk
+    from gainmat.host.gap import compute_eps_inf
+    r = compute_eps_inf(bulk("LiF", "rocksalt", a=4.0263), ecut=300, kpts=(4, 4, 4),
+                        ecut_resp=30, nbands_factor=4, scissor_eV=5.0,
+                        workdir=str(tmp_path))
+    print("LiF eps smoke:", r)
+    assert r["directions"] == ["x"]
+    assert r["eps_inf"] == r["eps_inf_rpa"]
+    assert 1.6 < r["eps_inf"] < 2.3            # exp 1.92-1.93
+    assert r["eps_inf_rpa_scissor"] < r["eps_inf"]

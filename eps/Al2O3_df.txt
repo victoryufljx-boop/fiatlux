@@ -1,0 +1,107 @@
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+Using integrator: PointIntegrator
+FrequencyGridDescriptor(from 0.000 to 0.000 eV, 1 points)
+Nonperiodic BCs:  [False False False]
+
+Sun Nov  8 23:30:58 2026
+Calculating chi0 body with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 64
+    Number of irreducible kpoints: 14
+    Number of completely occupied states: 24
+    Number of partially occupied states: 24
+    Occupied states memory: 5.0625 M / cpu
+
+    Linear response parametrization:
+    q_c: [0.0, 0.0, 0.0]
+    Number of frequency points: 1
+    Planewave cutoff: 50.0
+    Number of bands: 96
+    Number of planewaves: 65
+    Broadening (eta): 0.0001
+    comm.size: 2
+    kncomm.size: 2
+    blockcomm.size: 1
+
+    Memory estimate of potentially large arrays:
+        chi0_wGG: 0.0644683837890625 M / cpu
+        Memory usage before allocation: 346.1875 M / cpu
+Integrating chi0 body.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 6
+    Indirect symmetries (TUq -> q): 0
+In total 6 allowed symmetries.
+
+  ( 1  0  0)  ( 0  1  0)  ( 0  0  1)  ( 0  0 -1)  ( 0 -1  0)  (-1  0  0)
+  ( 0  1  0)  ( 0  0  1)  ( 1  0  0)  (-1  0  0)  ( 0  0 -1)  ( 0 -1  0)
+  ( 0  0  1)  ( 1  0  0)  ( 0  1  0)  ( 0 -1  0)  (-1  0  0)  ( 0  0 -1)
+
+14 groups of equivalent kpoints. 78.125% reduction.
+
+Integral kind: response function
+1.7634732723236084s |----------------------------------------| Time: 1.854s
+
+Sun Nov  8 23:31:00 2026
+Calculating chi0 optical extensions with:
+    Ground state adapter containing:
+    Number of spins: 1
+    Number of kpoints: 64
+    Number of irreducible kpoints: 14
+    Number of completely occupied states: 24
+    Number of partially occupied states: 24
+    Occupied states memory: 5.0625 M / cpu
+
+    Linear response parametrization:
+    Number of frequency points: 1
+    Planewave cutoff: 50.0
+    Number of bands: 96
+    Number of planewaves: 65
+    Broadening (eta): 0.0001
+Integrating chi0 head and wings.
+
+Symmetries of q_c:
+    Direct symmetries (Uq -> q): 6
+    Indirect symmetries (TUq -> q): 0
+In total 6 allowed symmetries.
+
+  ( 1  0  0)  ( 0  1  0)  ( 0  0  1)  ( 0  0 -1)  ( 0 -1  0)  (-1  0  0)
+  ( 0  1  0)  ( 0  0  1)  ( 1  0  0)  (-1  0  0)  ( 0  0 -1)  ( 0 -1  0)
+  ( 0  0  1)  ( 1  0  0)  ( 0  1  0)  ( 0 -1  0)  (-1  0  0)  ( 0  0 -1)
+
+14 groups of equivalent kpoints. 78.125% reduction.
+
+Integral kind: response function wings
+2.606414794921875s |----------------------------------------| Time: 2.532s
+
+Finished calculating chi0
+
+Timing:                             incl.     excl.
+----------------------------------------------------------
+Get eigenvalues:                    0.003     0.003   0.1% |
+Get kpoints:                        0.001     0.001   0.0% |
+Get matrix element:                 4.361     0.024   0.5% |
+ Get kpoint pair:                   0.525     0.001   0.0% |
+  fft indices:                      0.000     0.000   0.0% |
+  get k-points:                     0.524     0.000   0.0% |
+   Get a k-point:                   0.524     0.002   0.0% |
+    Load projections:               0.013     0.013   0.3% |
+    load wfs:                       0.509     0.509  10.8% |---|
+ get_optical_pair_density_head:     0.700     0.007   0.2% |
+  Optical limit:                    0.693     0.455   9.7% |---|
+   Derivatives:                     0.238     0.238   5.0% |-|
+ get_pair_density:                  3.112     0.002   0.1% |
+  conj:                             0.010     0.010   0.2% |
+  paw:                              3.100     0.087   1.8% ||
+   Calculate pair-densities:        3.013     0.608  12.9% |----|
+    fft:                            2.357     2.357  50.0% |-------------------|
+    gemm:                           0.048     0.048   1.0% |
+symmetrize_wGG:                     0.001     0.001   0.0% |
+Other:                              0.345     0.345   7.3% |--|
+----------------------------------------------------------
+Total:                                        4.711 100.0%
+
+Sun Nov  8 23:31:03 2026

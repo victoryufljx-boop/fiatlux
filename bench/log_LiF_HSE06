@@ -1,0 +1,13 @@
+IBZ(<points: 16, symmetries: 48>)
+Occupied bands: 4
+Transforming wave functions from IBZ to BZ: 0.053 seconds
+Distributing wave functions and iFFT-ing to real space: 0.493 seconds
+Calculating eigenvalues:
+  k-points: 1
+  Bands: 3-4 (inclusive)
+  Seconds: 0.721 (wave-function broadcasting: 0.003 seconds)
+HSE06-eigenvalue shifts:
+  min: -1.778 eV
+  ave: -0.689 eV
+  max: 0.400 eV
+{"mat": "LiF", "method": "HSE06", "ecut": 400.0, "kpts": [6, 6, 6], "natoms": 2, "gap_pbe": 9.101015782805886, "t_scf": 1.5216879844665527, "kpts_used": [0], "kv": 0, "kc": 0, "gap_hse": 11.279430841918096, "gap_hse_direct_G": 11.279430841918096, "t_hse_nsc": 1.5481431484222412, "t_total": 3.0787410736083984}

@@ -1,0 +1,13 @@
+IBZ(<points: 16, symmetries: 48>)
+Occupied bands: 8
+Transforming wave functions from IBZ to BZ: 0.063 seconds
+Distributing wave functions and iFFT-ing to real space: 0.597 seconds
+Calculating eigenvalues:
+  k-points: 1
+  Bands: 7-8 (inclusive)
+  Seconds: 1.000 (wave-function broadcasting: 0.002 seconds)
+HSE06-eigenvalue shifts:
+  min: -1.292 eV
+  ave: -0.441 eV
+  max: 0.411 eV
+{"mat": "MgO", "method": "HSE06", "ecut": 400.0, "kpts": [6, 6, 6], "natoms": 2, "gap_pbe": 4.582916037330346, "t_scf": 2.350522518157959, "kpts_used": [0], "kv": 0, "kc": 0, "gap_hse": 6.285474215565181, "gap_hse_direct_G": 6.285474215565181, "t_hse_nsc": 1.8055915832519531, "t_total": 4.161455154418945}

@@ -23,8 +23,8 @@ and calibrated against a small experimental set.
 ### Host (dopant-independent)
 | Output | Why it matters | Method (tier) |
 |---|---|---|
-| Band gap E_g → UV edge λ_UV = 1240/E_g nm | Sets shortest usable wavelength; 5d levels must sit below the conduction band | GPAW GLLB-SC (cheap, good for wide-gap ionics); PBE reported for reference |
-| ε∞ → refractive index n | Local-field factor in radiative rates; waveguide design | GPAW RPA (scissor-corrected) |
+| Band gap E_g → UV edge λ_UV = 1240/E_g nm | Sets shortest usable wavelength; 5d levels must sit below the conduction band | GPAW GLLB-SC (default; bake-off winner, see BAKEOFF_GAPS.md); PBE reported for reference; TB09 / HSE06 selectable |
+| ε∞ → refractive index n | Local-field factor in radiative rates; waveguide design | GPAW RPA with local fields on PBE, no scissor (the scissor makes it worse; see BAKEOFF_GAPS.md) |
 | Max phonon energy ħω_max, phonon DOS | Multiphonon quenching → sets longest usable wavelength | MACE foundation MLIP + phonopy; spot-checked with DFT finite differences |
 | Glass vibrational DOS cutoff | Same, for amorphous hosts | MACE melt-quench MD on GPU |
 

@@ -32,3 +32,10 @@ gainmat/
 tests/             pytest smoke tests (CPU)
 notebooks/         Colab notebooks
 ```
+
+## GPAW under MPI
+In a notebook kernel GPAW runs on one core. `run_host(key, gpaw_nproc=os.cpu_count())`
+(or `gainmat.host.mpi_run.run_gpaw_mpi`) runs the gap / ε∞ steps through
+`mpiexec -n N --allow-run-as-root python <driver>` with `GPAW_MPI_BACKEND=cgpaw` and
+collects the JSON. Command line: `python -m gainmat.host.mpi_run CaF2 full 12`.
+Method choice and benchmarks: `BAKEOFF_GAPS.md`.

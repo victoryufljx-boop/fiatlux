@@ -1,0 +1,1 @@
+{"nproc": 2, "errors": {}, "gap": {"ecut": 500, "band_edges": "path", "gap_method": "gllbsc", "kpts": [2, 2, 2], "gap_pbe_eV": 7.264144726053157, "t_pbe_s": 5.9, "gap_gllbsc_KS_eV": 9.34849149096412, "dxc_eV": 3.6331514753143526, "gap_gllbsc_eV": 12.981642966278473, "t_gllbsc_s": 7.0, "gap_eV": 12.981642966278473}, "t_wall_s": 12.9}

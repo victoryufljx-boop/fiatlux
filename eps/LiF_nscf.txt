@@ -1,0 +1,78 @@
+
+Diagonalizing LCAO Hamiltonian
+Converting LCAO to pw mode
+convergence criteria:
+- Maximum integral of absolute [eigenst]ate change: 4e-08 eV^2 / valence electron
+maximum number of iterations: 333
+
+SCF iterations
+|iter     |     time |      energy | eigst |  dens |
+|---------|----------|-------------|-------|-------|
+|iter:   1| 23:30:06 |             | +3.77 |       |
+|iter:   2| 23:30:06 |             | +1.95 |       |
+|iter:   3| 23:30:07 |             | +0.45 |       |
+|iter:   4| 23:30:07 |             | -0.89 |       |
+|iter:   5| 23:30:07 |             | -2.01 |       |
+|iter:   6| 23:30:07 |             | -3.45 |       |
+|iter:   7| 23:30:08 |             | -4.30 |       |
+|iter:   8| 23:30:08 |             | -4.95 |       |
+|iter:   9| 23:30:08 |             | -5.70 |       |
+|iter:  10| 23:30:08 |             | -6.78 |       |
+|iter:  11| 23:30:08 |             | -7.63c|       |
+SCF steps: 11
+  __  _  _
+ | _ |_)|_||  |
+ |__||  | ||/\| - 26.7.0
+
+User:   ???@vm
+Date:   Sun Nov  8 23:30:08 2026
+Arch:   x86_64
+Pid:    2255
+CWD:    /home/claude/fiatlux/eps
+units:  Angstrom and eV
+cores:  2
+OpenMP: False
+
+Versions:
+  Python: 3.13.18
+  ASE:    3.29.0
+  Numpy:  2.5.3
+  Scipy:  1.18.1
+  Libxc:  5.2.3
+
+Paths:
+  gpaw:  /usr/local/lib/python3.13/site-packages/gpaw
+  _gpaw: /usr/local/lib/python3.13/dist-packages/
+        _gpaw.cpython-313-x86_64-linux-gnu.so
+  ase:   /usr/local/lib/python3.13/site-packages/ase
+  numpy: /usr/local/lib/python3.13/site-packages/numpy
+  scipy: /usr/local/lib/python3.13/site-packages/scipy
+
+Git-hashes:
+
+OMP_NUM_THREADS: 1
+
+
+Environment variables:
+  GPAW_CPUPY:          False
+  GPAW_DEBUG:          False
+  GPAW_MPI_BACKEND:    cgpaw
+  GPAW_MPI_OPTIONS:    None
+  GPAW_NO_C_EXTENSION: False
+  GPAW_NO_GPU_MPI:     False
+  GPAW_TRACE:          False
+  GPAW_USE_GPUS:       False
+
+Input parameters:
+  mode=PW(ecut=400.0),
+  convergence={'bands': 32},
+  gpts=array([14, 14, 14]),
+  kpts=MonkhorstPack(size=(8, 8, 8), gamma=True),
+  nbands=40,
+  occupations=Occupations(name='fermi-dirac', width=0.01, fixmagmom=False),
+  xc=XC(name='PBE')
+# Writing to /home/claude/fiatlux/eps/LiF_k8.gpw (mode='all')
+
+
+timing:  # [seconds]
+  Total: 1.446  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
