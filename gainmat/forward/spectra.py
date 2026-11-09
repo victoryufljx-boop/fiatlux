@@ -111,9 +111,31 @@ def nu_grid(lmin_nm=400.0, lmax_nm=5000.0, dnu=2.0):
     return np.arange(1e7 / lmax_nm, 1e7 / lmin_nm, dnu)
 
 
+def _sideband_kernel(dn, hw_max, T, n_pts=None):
+    """One-phonon vibronic sideband kernels on a grid of spacing dn (cm^-1).
+    Phonon density of states g(e) ~ e^2 (Debye-like) below hw_max, zero above.
+    Absorption: phonon creation at nu0 + e weighted n(e)+1, annihilation at nu0 - e weighted n(e).
+    Emission: the mirror image.  Normalised so the T = 0 sideband has unit weight; detailed
+    balance between the two kernels keeps McCumber reciprocity."""
+    m = int(np.ceil(hw_max / dn)) + 1
+    e = np.arange(1, m + 1) * dn
+    g = np.where(e <= hw_max, e ** 2, 0.0)
+    g = g / g.sum()
+    nb = 1.0 / np.expm1(e / (KB_CM * T)) if T > 0 else np.zeros_like(e)
+    k_abs = np.zeros(2 * m + 1); k_em = np.zeros(2 * m + 1)
+    k_abs[m + 1:] = g * (nb + 1); k_abs[:m] = (g * nb)[::-1]
+    k_em[:m] = (g * (nb + 1))[::-1]; k_em[m + 1:] = g * nb
+    return k_abs, k_em
+
+
 def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=None,
                      T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0,
-                     lineshape: str = "gauss"):
+                     lineshape: str = "gauss", neph_std: float = 0.0, sideband_S: float = 0.0,
+                     hw_max: float = 1000.0, seed: int = 0):
+    """neph_std: per-site fractional scatter of all multiplet energies (first-order
+    nephelauxetic variation, E -> E (1 + eps), eps ~ N(0, neph_std)); an inhomogeneous
+    mechanism the crystal-field sites alone miss.  sideband_S: relative strength of the
+    one-phonon vibronic sideband (fraction of each line's intensity moved into it at T = 0)."""
     """Site-averaged absorption and emission cross sections (cm^2) on grid nu (cm^-1)
     for multiplet pairs (upper_label, lower_label).  Returns dict with nu, pairs ->
     (sigma_abs[lower->upper], sigma_em[upper->lower]), mean Stark energies per multiplet,
@@ -133,8 +155,12 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     site_edges = []                       # per site {multiplet index: (lowest, highest) Stark level}
     xe, xm = chi_ed(n_index), chi_md(n_index)
     hg = gamma_h / 2.0
+    e_free = np.array([mm["energy"] for mm in m.multiplets])
+    rng_n = np.random.default_rng(10007 + seed)
     for lig in sites:
         E, W, par = m.stark(spm_bkq(lig, spm))
+        if neph_std > 0:
+            E = E + rng_n.normal(0.0, neph_std) * e_free[par]
         Uw = {lam: [W.conj().T @ Uq @ W for Uq in m.Uq[lam]] for lam in (2, 4, 6)}
         Mw = [W.conj().T @ Mq @ W for Mq in m.MDq]
         S_ed = sum(O[i] * sum(np.abs(X) ** 2 for X in Uw[lam])
@@ -174,6 +200,11 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     else:   # Gaussian of FWHM gamma_h: far wings of RT 4f lines fall faster than Lorentzian
         sg = gamma_h / 2.3548
         ker = np.exp(-0.5 * (ker_x / sg) ** 2) / (sg * np.sqrt(2 * np.pi))
+    if sideband_S > 0:
+        k_abs, k_em = _sideband_kernel(dn, hw_max, T)
+        for p in pairs:
+            sa[p] = (1 - sideband_S) * sa[p] + sideband_S * np.convolve(sa[p], k_abs, mode="same")
+            se[p] = (1 - sideband_S) * se[p] + sideband_S * np.convolve(se[p], k_em, mode="same")
     for p in pairs:
         sa[p] = np.convolve(sa[p] / ns, ker * dn, mode="same")
         se[p] = np.convolve(se[p] / ns, ker * dn, mode="same")

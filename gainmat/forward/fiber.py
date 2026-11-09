@@ -233,3 +233,149 @@ def slope_and_threshold(lm, L_m, core_um, NA, N_cm3, pump_nm, P_list, laser_nm, 
         return None, None, rows
     s, c = np.polyfit(x, y, 1)
     return float(s), float(-c / s), rows
+
+
+# ---------------------------------------------------------------------------- co-doped glasses
+class CoDopedModel:
+    """Several dopant species in one glass, coupled by inter-ion energy transfer.
+
+    members: {name: (LocalModel, N_cm3)}
+    et: list of (donor_species, d_from, d_to, acceptor_species, a_from, a_to, k_cm3_s); a donor
+        ion in d_from transfers to an acceptor ion in a_from at rate k N_acceptor n_a (per donor
+        ion), both ions changing level.  Same-species processes (A == B) are allowed.
+    Same interface as LocalModel for amplifier()/laser(): populations(fields) -> {name: n},
+    gain_cm(lam, pops) -> sum over species."""
+
+    def __init__(self, members: dict, et=None):
+        self.members = members
+        self.et = et or []
+
+    def populations(self, fields, N_cm3=None, n0=None, iters=80, tol=1e-9):
+        base = {}
+        for name, (lm, N) in self.members.items():
+            terms = []
+            for lam, I in fields:
+                if I > 0:
+                    terms += _pump_terms(lm.spec, lm.labels, lam, I)
+            base[name] = terms
+        n = dict(n0) if n0 else {name: steady_state(lm.A, lm.W, lm.tgt, base[name], lm.active)
+                                 for name, (lm, N) in self.members.items()}
+        for _ in range(iters):
+            ext = {k: list(v) for k, v in base.items()}
+            for (sa, d0, d1, sb, a0, a1, k) in self.et:
+                lA, NA = self.members[sa]; lB, NB = self.members[sb]
+                i, i2 = lA.labels.index(d0), lA.labels.index(d1)
+                j, j2 = lB.labels.index(a0), lB.labels.index(a1)
+                ext[sa].append((i, i2, k * NB * n[sb][j]))          # donor, linear in n_A,i
+                ext[sb].append((j, j2, k * NA * n[sa][i]))          # acceptor, linear in n_B,j
+            new = {name: steady_state(lm.A, lm.W, lm.tgt, ext[name], lm.active)
+                   for name, (lm, N) in self.members.items()}
+            dmax = max(np.max(np.abs(new[k] - n[k])) for k in n)
+            n = {k: 0.5 * n[k] + 0.5 * new[k] for k in n}
+            if dmax < tol:
+                break
+        return n
+
+    def gain_cm(self, lam_nm, pops, N_cm3=None):
+        return sum(lm.gain_cm(lam_nm, pops[name], N) for name, (lm, N) in self.members.items())
+
+    def lifetimes(self, level_species, level, eps=1e-6):
+        """Effective small-signal decay rate of one level including energy transfer to the
+        other species in their unexcited (ground-state) populations.  Returns seconds."""
+        lm, N = self.members[level_species]
+        i = lm.labels.index(level)
+        rate = lm.A[i].sum() + lm.W[i]
+        for (sa, d0, d1, sb, a0, a1, k) in self.et:
+            if sa == level_species and d0 == level:
+                lB, NB = self.members[sb]
+                g = lB.labels.index(min(lB.labels, key=lambda x: lB.spec["bary"].get(x) or 1e9))
+                if lB.labels.index(a0) == g:
+                    rate += k * NB
+        return 1.0 / rate
+
+
+# ------------------------------------------------------------------- amplifier with ASE
+def _xs_matrix(lm, lams_nm):
+    """sigma_abs/sigma_em of every multiplet pair at the given wavelengths: (n_pairs, n_lam)."""
+    nu, x = lm.spec["nu"], 1e7 / np.asarray(lams_nm, float)
+    P = lm.spec["pairs"]
+    Sa = np.array([np.interp(x, nu, lm.spec["sigma_abs"][p], left=0, right=0) for p in P])
+    Se = np.array([np.interp(x, nu, lm.spec["sigma_em"][p], left=0, right=0) for p in P])
+    iu = np.array([lm.labels.index(u) for u, l in P]); il = np.array([lm.labels.index(l) for u, l in P])
+    return Sa, Se, iu, il
+
+
+def amplifier_ase(lm: LocalModel, L_m, core_um, NA, N_cm3, pumps, signals, ase_band_nm=(1450, 1650),
+                  ase_step_nm=2.0, alpha_bg_dB_m=0.0, nz=150, n_iter=8, backward_pump=False):
+    """Amplifier with forward and backward amplified spontaneous emission.
+    pumps: [(lam_nm, P_W)] launched at z = 0 (or at z = L if backward_pump);
+    signals: [(lam_nm, P_W)] launched at z = 0.
+    ASE in bins of ase_step_nm over ase_band_nm, both directions, spontaneous source
+    2 h nu dnu Gamma N_tot sum_u n_u sigma_em(nu) per unit length (two polarisations).
+    Solved by forward/backward relaxation sweeps.  Returns gains, ASE spectra, noise figure
+    (signal-spontaneous beat limit: NF = (1 + 2 P_ase_fwd(lam_s) / (h nu dnu G)) / G ... , i.e.
+    NF = 1/G + 2 n_sp (1 - 1/G) with n_sp from the forward ASE density at the signal)."""
+    H, C = 6.62607015e-34, 2.99792458e8
+    A_core = np.pi * (core_um * 1e-4 / 2) ** 2
+    a_bg = alpha_bg_dB_m / DB / 100.0
+    lam_ase = np.arange(ase_band_nm[0], ase_band_nm[1] + 1e-9, ase_step_nm)
+    lam_all = np.concatenate([[l for l, _ in pumps], [l for l, _ in signals], lam_ase, lam_ase])
+    npmp, nsig, nb = len(pumps), len(signals), len(lam_ase)
+    Gam = np.array([mode_overlap(core_um, NA, l)[0] for l in lam_all])
+    Sa, Se, iu, il = _xs_matrix(lm, lam_all)
+    hnu = H * C / (lam_all * 1e-9)                                   # J
+    dnu = C * (ase_step_nm * 1e-9) / (lam_ase * 1e-9) ** 2           # Hz per bin
+    dz = L_m * 100.0 / nz
+    direction = np.concatenate([[-1.0 if backward_pump else 1.0] * npmp, [1.0] * nsig, [1.0] * nb, [-1.0] * nb])
+    P = np.zeros((nz + 1, len(lam_all)))
+    P[:, :npmp] = [p for _, p in pumps]; P[:, npmp:npmp + nsig] = [p for _, p in signals]
+    n_lev = len(lm.labels)
+    pops = np.zeros((nz + 1, n_lev))
+
+    def local(Prow):
+        phi = Gam * Prow / A_core / hnu                               # photons/cm^2/s per field
+        up = Sa @ phi; dn = Se @ phi
+        terms = [(il[k], iu[k], up[k]) for k in range(len(iu))] + [(iu[k], il[k], dn[k]) for k in range(len(iu))]
+        n = steady_state(lm.A, lm.W, lm.tgt, terms, lm.active)
+        g = Gam * N_cm3 * ((n[iu] @ Se) - (n[il] @ Sa))                  # 1/cm per field
+        spont = Gam * N_cm3 * (n[iu] @ Se)                             # 1/cm, emission part
+        return n, g, spont
+
+    for it in range(n_iter):
+        for k in range(nz + 1):
+            pops[k], _, _ = local(P[k])
+        # forward-travelling fields
+        newP = P.copy()
+        fw = direction > 0; bw = ~fw
+        start = P[0].copy()
+        start[npmp + nsig:npmp + nsig + nb] = 0.0                     # forward ASE starts at 0
+        newP[0, fw] = start[fw]
+        for k in range(nz):
+            _, g, sp = local(np.where(fw, newP[k], P[k]))
+            src = np.zeros(len(lam_all)); src[npmp + nsig:npmp + nsig + nb] = 2 * hnu[npmp + nsig:npmp + nsig + nb] * dnu
+            newP[k + 1, fw] = (newP[k, fw] * np.exp((g[fw] - a_bg) * dz)
+                               + (src * sp)[fw] * dz)
+        # backward-travelling fields
+        endrow = newP[nz].copy()
+        endrow[npmp + nsig + nb:] = 0.0
+        if backward_pump:
+            endrow[:npmp] = [p for _, p in pumps]
+        newP[nz, bw] = endrow[bw]
+        for k in range(nz, 0, -1):
+            _, g, sp = local(np.where(bw, newP[k], newP[k]))
+            src = np.zeros(len(lam_all)); src[npmp + nsig + nb:] = 2 * hnu[npmp + nsig + nb:] * dnu
+            newP[k - 1, bw] = (newP[k, bw] * np.exp((g[bw] - a_bg) * dz) + (src * sp)[bw] * dz)
+        P = newP
+    sig = P[:, npmp:npmp + nsig]
+    G = sig[-1] / sig[0]
+    ase_f = P[-1, npmp + nsig:npmp + nsig + nb]; ase_b = P[0, npmp + nsig + nb:]
+    nf = []
+    for s, (lam_s, _) in enumerate(signals):
+        pa = np.interp(lam_s, lam_ase, ase_f) / (ase_step_nm)        # W per nm at output
+        dnu_s = C * 1e-9 / (lam_s * 1e-9) ** 2                         # Hz per nm
+        nsp_term = pa / (H * C / (lam_s * 1e-9) * dnu_s)              # = 2 n_sp (G-1) per 2 pol -> photons
+        nf.append(float(10 * np.log10((1 + nsp_term) / G[s])))
+    return dict(gain_dB=[float(10 * np.log10(g)) for g in G], noise_figure_dB=nf,
+                ase_fwd_W=float(ase_f.sum()), ase_bwd_W=float(ase_b.sum()),
+                lam_ase_nm=lam_ase, ase_fwd_spectrum_W=ase_f, ase_bwd_spectrum_W=ase_b,
+                pump_out_W=[float(x) for x in P[-1, :npmp]] if not backward_pump else [float(x) for x in P[0, :npmp]])

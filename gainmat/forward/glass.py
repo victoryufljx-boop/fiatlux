@@ -137,6 +137,13 @@ def ir_loss_dB_m(lam_nm, hw_max):
     return np.exp(np.clip(a * (1.0 / l1 - 1.0 / lam_um), -50, 50))
 
 
+# Extra inhomogeneous broadening: per-site fractional scatter of multiplet energies
+# (nephelauxetic variation).  0.27 % makes the Er 4I13/2-4I15/2 zero-phonon line 49 cm^-1 wide
+# (FWHM) in aluminosilicate, as measured at 4.2 K by Desurvire & Simpson, OL 15, 547 (1990);
+# the crystal-field disorder alone gives 27 cm^-1.  Applied to every family (fluorides assumed).
+NEPH_STD = 0.0027
+# One-phonon vibronic sideband strength (fraction of each line).  0 = off unless calibrated.
+SIDEBAND_S = 0.0
 # dual-wavelength pumping: (first pump from the ground state, second pump between excited states)
 # Er 985 + 1973 nm: 4I15/2 -> 4I11/2, then 4I11/2 -> 4F9/2 for 3.5 um gain on 4F9/2 -> 4I9/2
 # (Henderson-Sapir, Munch & Ottaway, Opt. Lett. 39, 493 (2014)).
@@ -192,7 +199,9 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     spm = {lig: spm_for(ion, lig)}
     emax = fam.get("emax", EMAX[ion])
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
-                            emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0))
+                            emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0),
+                            neph_std=fam.get("neph_std", NEPH_STD), sideband_S=fam.get("sideband_S", SIDEBAND_S),
+                            hw_max=fam["hw_max"], seed=seed)
     N = fam.get("N_cm3", N_DEFAULT[ion])
     res = dict(ion=ion, family=family, omegas=om, omega_src=om_src, n=fam["n"], hw_max=fam["hw_max"],
                loss_dB_m=fam["loss_dB_m"], N_cm3=N, pumps={}, split=spec["split"])
