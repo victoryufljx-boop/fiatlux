@@ -297,3 +297,21 @@ Numbers are in `gainmat/refs/simpson_malouf_refs.py`; none of them were used in 
 
   The remaining gap is in the energy-transfer and loss terms (Malouf's model needs a large
   W5362 cross-relaxation), not in cross sections.
+- **Yb Stark levels in a silica fibre (Newell 2007, 77 K).**
+    - Measured: ²F₇/₂ at 0, 425, 530, 865 cm⁻¹; ²F₅/₂ first gap 630 cm⁻¹; zero-phonon line
+      977 nm (Wang 2014: 975–976).
+    - The total ground splitting (865) agrees with Yang's 874 and with the model's silica scale
+      (802 with the ML layer), not with Pask's 1490. The highest ground level gives the 1069 nm
+      line, so the 1100 nm emission tail is thermal or vibronic, not another Stark level.
+    - The model's lowest gaps are too small: ²F₇/₂ second level at 240–300 (measured 425);
+      ²F₅/₂ gap 240–350 (630).
+    - Rank balance does not fix this. Distorted sites move it toward the data (MD sites: 363/427;
+      a 30 % uniaxial distortion: 418/479) but not all the way, while leaving the Er ⁴I₁₅/₂ pattern
+      (0, 30, 55, 80 vs Desurvire 0, 30, 55, 129) intact.
+    - Real sites are more axially distorted than the jittered polyhedra. This is a site-geometry
+      problem (better MD), not a data problem.
+- **Lincoln 1991 (Tm silica; old level labels).**
+    - FLN at 9 K resolves ground ³H₆ components near 0, 250 and 430 cm⁻¹ and more above
+      500 cm⁻¹ in Ge-silica, but not a full set.
+    - The 3H4 lifetime (about 20 µs) shows no concentration dependence from 20 to 12 000 ppm,
+      consistent with the corrected L3.
