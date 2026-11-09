@@ -1,0 +1,416 @@
+{
+ "explicit": {
+  "rms_log": 0.1900361669962707,
+  "table": [
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "germanate",
+    "measured": 901,
+    "sigma": 50,
+    "model": 696.2,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "aluminosilicate",
+    "measured": 874,
+    "sigma": 50,
+    "model": 838.6,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "tellurite",
+    "measured": 722,
+    "sigma": 50,
+    "model": 733.4,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 596,
+    "sigma": 50,
+    "model": 710.2,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "ZBLAN",
+    "measured": 624,
+    "sigma": 50,
+    "model": 431.4,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphosilicate",
+    "measured": 895.965,
+    "sigma": 50,
+    "model": 705.0,
+    "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 797.965,
+    "sigma": 50,
+    "model": 710.2,
+    "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 589,
+    "sigma": 30,
+    "model": 710.2,
+    "src": "Zhang et al., OE 23, 1505 (2015) p. 1507"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "ZBLAN",
+    "measured": 335,
+    "sigma": 25,
+    "model": 297.9,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6806"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "phosphate",
+    "measured": 325,
+    "sigma": 30,
+    "model": 388.6,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6807 ('300-350')"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "silica",
+    "measured": 400,
+    "sigma": 30,
+    "model": 376.9,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6807"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "silica",
+    "measured": 445,
+    "sigma": 50,
+    "model": 376.9,
+    "src": "Desurvire & Simpson, OL 15, 547 (1990) Table 1"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I13/2",
+    "family": "silica",
+    "measured": 330,
+    "sigma": 40,
+    "model": 263.2,
+    "src": "Desurvire & Simpson, OL 15, 547 (1990) Table 1"
+   }
+  ]
+ },
+ "ion_transfer_Er3+_to_Yb3+": {
+  "s_f": {
+   "ZBLAN": 1.124358057637562,
+   "phosphate": 0.8362881836072407
+  },
+  "rms_log_before": 0.23214667775697106,
+  "rms_log_after": 0.19411068520672525,
+  "table": [
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 596,
+    "sigma": 50,
+    "model": 593.9,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "ZBLAN",
+    "measured": 624,
+    "sigma": 50,
+    "model": 485.1,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 797.965,
+    "sigma": 50,
+    "model": 593.9,
+    "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 589,
+    "sigma": 30,
+    "model": 593.9,
+    "src": "Zhang et al., OE 23, 1505 (2015) p. 1507"
+   }
+  ]
+ },
+ "ion_transfer_Yb3+_to_Er3+": {
+  "s_f": {
+   "ZBLAN": 1.4463187473167665,
+   "phosphate": 0.8930477704295856
+  },
+  "rms_log_before": 0.15119374414806414,
+  "rms_log_after": 0.18398889914663616,
+  "table": [
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "ZBLAN",
+    "measured": 335,
+    "sigma": 25,
+    "model": 430.9,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6806"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "phosphate",
+    "measured": 325,
+    "sigma": 30,
+    "model": 347.1,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6807 ('300-350')"
+   }
+  ]
+ },
+ "joint": {
+  "s_f": {
+   "ZBLAN": 1.2350868085932807,
+   "aluminosilicate": 0.9512340969303348,
+   "germanate": 1.1468111274578905,
+   "phosphate": 0.8200765167817783,
+   "phosphosilicate": 1.1508038805125347,
+   "silica": 1.0961454936205768,
+   "tellurite": 0.8612559769538822
+  },
+  "rank_O": [
+   1.2188793388422956,
+   1.0,
+   0.8577106747465584
+  ],
+  "rms_log": 0.08988172281189727,
+  "table": [
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "germanate",
+    "measured": 901,
+    "sigma": 50,
+    "model": 901.0,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "aluminosilicate",
+    "measured": 874,
+    "sigma": 50,
+    "model": 874.0,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "tellurite",
+    "measured": 722,
+    "sigma": 50,
+    "model": 722.0,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 596,
+    "sigma": 50,
+    "model": 633.4,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "ZBLAN",
+    "measured": 624,
+    "sigma": 50,
+    "model": 532.9,
+    "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphosilicate",
+    "measured": 895.965,
+    "sigma": 50,
+    "model": 896.0,
+    "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 797.965,
+    "sigma": 50,
+    "model": 633.4,
+    "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+   },
+   {
+    "ion": "Yb3+",
+    "level": "2F7/2",
+    "family": "phosphate",
+    "measured": 589,
+    "sigma": 30,
+    "model": 633.4,
+    "src": "Zhang et al., OE 23, 1505 (2015) p. 1507"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "ZBLAN",
+    "measured": 335,
+    "sigma": 25,
+    "model": 368.0,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6806"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "phosphate",
+    "measured": 325,
+    "sigma": 30,
+    "model": 327.7,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6807 ('300-350')"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "silica",
+    "measured": 400,
+    "sigma": 30,
+    "model": 417.3,
+    "src": "Zemon et al., JAP 69, 6799 (1991) p. 6807"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I15/2",
+    "family": "silica",
+    "measured": 445,
+    "sigma": 50,
+    "model": 417.3,
+    "src": "Desurvire & Simpson, OL 15, 547 (1990) Table 1"
+   },
+   {
+    "ion": "Er3+",
+    "level": "4I13/2",
+    "family": "silica",
+    "measured": 330,
+    "sigma": 40,
+    "model": 312.5,
+    "src": "Desurvire & Simpson, OL 15, 547 (1990) Table 1"
+   }
+  ]
+ },
+ "family_transfer": [
+  {
+   "family": "phosphate",
+   "ranks": "learned ranks",
+   "rank_O": [
+    1.2004690605335817,
+    1.0,
+    0.8663827301407073
+   ],
+   "s_f": 0.8164620936111578,
+   "yb": [
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 596,
+     "sigma": 50,
+     "model": 626.1,
+     "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+    },
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 797.965,
+     "sigma": 50,
+     "model": 626.1,
+     "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+    },
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 589,
+     "sigma": 30,
+     "model": 626.1,
+     "src": "Zhang et al., OE 23, 1505 (2015) p. 1507"
+    }
+   ],
+   "rms_log": 0.14718635917631095
+  },
+  {
+   "family": "phosphate",
+   "ranks": "handbook ranks",
+   "rank_O": [
+    1,
+    1,
+    1
+   ],
+   "s_f": 0.8362881836072407,
+   "yb": [
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 596,
+     "sigma": 50,
+     "model": 593.9,
+     "src": "Yang et al., OL 39, 1772 (2014) Table 2"
+    },
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 797.965,
+     "sigma": 50,
+     "model": 593.9,
+     "src": "Cao et al., JAP 123, 215106 (2018) Table II (N_J x 0.245)"
+    },
+    {
+     "ion": "Yb3+",
+     "level": "2F7/2",
+     "family": "phosphate",
+     "measured": 589,
+     "sigma": 30,
+     "model": 593.9,
+     "src": "Zhang et al., OE 23, 1505 (2015) p. 1507"
+    }
+   ],
+   "rms_log": 0.17060182954995587
+  }
+ ]
+}

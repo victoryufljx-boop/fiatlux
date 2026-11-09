@@ -296,6 +296,23 @@ USE_HANDBOOK = True
 # 2F5/2 is then a check.  calibrate_yb_spm() recomputes it.
 ION_SPM_SCALE = {}
 
+# Rank-resolved correction to the handbook intrinsic parameters, per ligand: B_k -> r_k B_k.
+# The handbook B2:B4:B6 balance comes from crystals; one strength scale fitted to one Er number
+# constrains only one combination of the three.  Different multiplets weigh the ranks very
+# differently (Er 4I15/2 is ~half B6; Yb 2F7/2 has almost no B6 sensitivity; Tm 3F4 is mostly
+# B4), so a multi-ion fit can determine the balance (gainmat.ml.cf_ranks).  Default: no change.
+RANK_SCALE = {}
+
+
+def _load_cf_ranks():
+    """Apply ml_results/cf/cf_ranks.json (rank multipliers, ion factors) when USE_ML is on."""
+    import json as _json
+    p = os.path.join(os.path.dirname(__file__), "..", "..", "ml_results", "cf", "cf_ranks.json")
+    if os.path.exists(p):
+        d = _json.load(open(p))
+        RANK_SCALE.update({k: tuple(v) for k, v in d.get("rank_scale", {}).items()})
+        ION_SPM_SCALE.update(d.get("ion_scale", {}))
+
 
 def calibrate_yb_spm(target_cm1=1490.0, family="germanosilicate", n_sites=30, verbose=True):
     """Scale Yb3+ SPM so the site-averaged 2F7/2 splitting matches target (Pask 1995)."""
@@ -325,8 +342,9 @@ def spm_for(ion: str, ligand: str) -> dict:
             if ligand in H and el in H[ligand]:
                 p = dict(H[ligand][el])
                 f = SPM_SCALE.get(ligand, 1.0) * ION_SPM_SCALE.get(el, 1.0)
-                for k in (2, 4, 6):
-                    p[f"B{k}"] = p[f"B{k}"] * f
+                rk = RANK_SCALE.get(ligand, (1.0, 1.0, 1.0))
+                for i, k in enumerate((2, 4, 6)):
+                    p[f"B{k}"] = p[f"B{k}"] * f * rk[i]
                 p["src"] = f"Newman & Ng handbook x{f:.3f}"
                 return p
         except ImportError:

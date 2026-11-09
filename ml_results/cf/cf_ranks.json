@@ -1,0 +1,19 @@
+{
+ "rank_scale": {
+  "O": [
+   1.2188793388422956,
+   1.0,
+   0.8577106747465584
+  ]
+ },
+ "family_scale": {
+  "ZBLAN": 1.2350868085932807,
+  "aluminosilicate": 0.9512340969303348,
+  "germanate": 1.1468111274578905,
+  "phosphate": 0.8200765167817783,
+  "phosphosilicate": 1.1508038805125347,
+  "silica": 1.0961454936205768,
+  "tellurite": 0.8612559769538822
+ },
+ "note": "joint fit to measured Stark splittings (gainmat.refs.stark_glass_refs)"
+}
