@@ -1,0 +1,519 @@
+{
+ "holdout": "Tm3+",
+ "baselines": {
+  "isotropic JO": {
+   "train": 231.68879594685862,
+   "train_components": {
+    "shape": 131.7,
+    "width": 10.9,
+    "peak_shift": 37.7,
+    "ratio_log10": 51.3
+   },
+   "test": 119.75425663203656,
+   "test_components": {
+    "shape": 46.1,
+    "width": 16.4,
+    "peak_shift": 27.8,
+    "ratio_log10": 0.9,
+    "peak_nm": 28.5
+   },
+   "test_detail": [
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      3.8711288007743585,
+      -2.423540302292941,
+      0.0
+     ],
+     "shape_rms": 0.19355644003871794,
+     "width_model": 239.11943276955142,
+     "width_meas": 343.94927536231893,
+     "peak_shift_nm": 0.0,
+     "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      4.639015828295354,
+      -2.4110019179893416,
+      5.0
+     ],
+     "shape_rms": 0.2319507914147677,
+     "width_model": 163.966910419383,
+     "width_meas": 208.67224880382778,
+     "peak_shift_nm": 75.0,
+     "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      3.1053330956260803,
+      -2.171572423976968,
+      -1.6666666666666667
+     ],
+     "shape_rms": 0.15526665478130403,
+     "width_model": 230.14694851888527,
+     "width_meas": 285.9666666666666,
+     "peak_shift_nm": -25.0,
+     "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": null,
+     "resid": [
+      -0.8753950900026688
+     ],
+     "model": 0.009149638847411308,
+     "src": "Agger & Povlsen 2006 p. 53"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": null,
+     "resid": [
+      0.4154989153628663
+     ],
+     "model": -0.9667600867709707,
+     "src": "Agger & Povlsen 2006 p. 53"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      4.9750866250866235
+     ],
+     "model": 1732.5017325017325,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3H5",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      -0.06868052199129124
+     ],
+     "model": 1208.313194780087,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3H4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      0.18987341772151467
+     ],
+     "model": 791.1392405063291,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      -1.9219424460431696
+     ],
+     "model": 1798.5611510791366,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    }
+   ]
+  },
+  "odd-rank, equal amplitudes": {
+   "train": 200.68613854311877,
+   "train_components": {
+    "shape": 112.4,
+    "width": 6.9,
+    "peak_shift": 30.7,
+    "ratio_log10": 50.7
+   },
+   "test": 175.72673796416217,
+   "test_components": {
+    "shape": 78.3,
+    "width": 39.6,
+    "peak_shift": 27.8,
+    "ratio_log10": 1.1,
+    "peak_nm": 28.9
+   },
+   "test_detail": [
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      4.999524045801371,
+      -3.4752521071714977,
+      0.0
+     ],
+     "shape_rms": 0.24997620229006853,
+     "width_model": 204.22174219917943,
+     "width_meas": 343.94927536231893,
+     "peak_shift_nm": 0.0,
+     "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      5.549648847705509,
+      -3.4255749017542136,
+      5.0
+     ],
+     "shape_rms": 0.2774824423852755,
+     "width_model": 148.14734359582891,
+     "width_meas": 208.67224880382778,
+     "peak_shift_nm": 75.0,
+     "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "curve",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      4.74460947465324,
+      -3.9718583502206855,
+      -1.6666666666666667
+     ],
+     "shape_rms": 0.237230473732662,
+     "width_model": 192.22939392359658,
+     "width_meas": 285.9666666666666,
+     "peak_shift_nm": -25.0,
+     "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": null,
+     "resid": [
+      -0.851556716727991
+     ],
+     "model": 0.011056708709385528,
+     "src": "Agger & Povlsen 2006 p. 53"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Tm3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": null,
+     "resid": [
+      0.6319530794067149
+     ],
+     "model": -0.9494437536474628,
+     "src": "Agger & Povlsen 2006 p. 53"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      5.336778009742522
+     ],
+     "model": 1739.7355601948504,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3H5",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      -0.06868052199129124
+     ],
+     "model": 1208.313194780087,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3H4",
+      "3H6"
+     ],
+     "which": "abs",
+     "resid": [
+      0.2733797762296793
+     ],
+     "model": 791.6402786573781,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    },
+    {
+     "family": "silica",
+     "ion": "Tm3+",
+     "kind": "peak_nm",
+     "pair": [
+      "3F4",
+      "3H6"
+     ],
+     "which": "em",
+     "resid": [
+      -0.6091240875912376
+     ],
+     "model": 1824.8175182481752,
+     "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+    }
+   ]
+  }
+ },
+ "learned": {
+  "ratio": {
+   "2": 0.9294905459703726,
+   "4": 0.083275688557925,
+   "6": 1.524834480837516
+  }
+ },
+ "train": 187.7400062841187,
+ "train_components": {
+  "shape": 99.9,
+  "width": 6.8,
+  "peak_shift": 30.5,
+  "ratio_log10": 50.5
+ },
+ "evals": 50,
+ "seconds": 233.87954211235046,
+ "test": 170.99356839402606,
+ "test_components": {
+  "shape": 75.6,
+  "width": 38.4,
+  "peak_shift": 27.8,
+  "ratio_log10": 0.9,
+  "peak_nm": 28.3
+ },
+ "test_detail": [
+  {
+   "family": "aluminosilicate",
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": "em",
+   "resid": [
+    4.949233866556947,
+    -3.4244398813396293,
+    0.0
+   ],
+   "shape_rms": 0.24746169332784734,
+   "width_model": 205.78423335177962,
+   "width_meas": 343.94927536231893,
+   "peak_shift_nm": 0.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": "abs",
+   "resid": [
+    5.402401666929178,
+    -3.3197974137265245,
+    5.0
+   ],
+   "shape_rms": 0.27012008334645893,
+   "width_model": 149.72272629446837,
+   "width_meas": 208.67224880382778,
+   "peak_shift_nm": 75.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Tm3+",
+   "kind": "curve",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": "em",
+   "resid": [
+    4.681249101319305,
+    -3.9511423567978468,
+    -1.6666666666666667
+   ],
+   "shape_rms": 0.2340624550659653,
+   "width_model": 192.6280289731069,
+   "width_meas": 285.9666666666666,
+   "peak_shift_nm": -25.0,
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": null,
+   "resid": [
+    -0.8801882196720894
+   ],
+   "model": 0.008766188473857676,
+   "src": "Agger & Povlsen 2006 p. 53"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Tm3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": null,
+   "resid": [
+    0.41527696098290073
+   ],
+   "model": -0.9667778431213679,
+   "src": "Agger & Povlsen 2006 p. 53"
+  },
+  {
+   "family": "silica",
+   "ion": "Tm3+",
+   "kind": "peak_nm",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": "abs",
+   "resid": [
+    5.276286509040335
+   ],
+   "model": 1738.5257301808067,
+   "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+  },
+  {
+   "family": "silica",
+   "ion": "Tm3+",
+   "kind": "peak_nm",
+   "pair": [
+    "3H5",
+    "3H6"
+   ],
+   "which": "abs",
+   "resid": [
+    -0.06868052199129124
+   ],
+   "model": 1208.313194780087,
+   "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+  },
+  {
+   "family": "silica",
+   "ion": "Tm3+",
+   "kind": "peak_nm",
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "which": "abs",
+   "resid": [
+    0.3151726322457951
+   ],
+   "model": 791.8910357934748,
+   "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+  },
+  {
+   "family": "silica",
+   "ion": "Tm3+",
+   "kind": "peak_nm",
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "which": "em",
+   "resid": [
+    -0.6091240875912376
+   ],
+   "model": 1824.8175182481752,
+   "src": "Jackson & King, JLT 17, 948 (1999) (digitised peaks)"
+  }
+ ]
+}

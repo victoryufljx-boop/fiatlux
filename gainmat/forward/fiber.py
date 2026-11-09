@@ -46,7 +46,8 @@ class LocalModel:
         self.spec = spec
         en = {k: (spec["bary"][k] if spec["bary"].get(k) else m.multiplets[i]["energy"])
               for i, k in enumerate(self.labels)}
-        self.A = multiplet_rates(ion, omegas, n_index, en, emax)
+        from .gain import apply_A_scale
+        self.A = apply_A_scale(multiplet_rates(ion, omegas, n_index, en, emax), self.labels, spec)
         self.W, self.tgt = nonradiative(ion, en, hw_max, family, emax, edges=spec.get("edges"),
                                         site_edges=spec.get("site_edges"))
         if quench:                                  # extra first-order loss of a level (s^-1)

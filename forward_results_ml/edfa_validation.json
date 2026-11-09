@@ -31,7 +31,7 @@
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): alpha shape rms (peak-normalised)",
-  "model": 0.127,
+  "model": 0.129,
   "measured": 0.0
  },
  {
@@ -46,12 +46,12 @@
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1550 nm",
-  "model": 1.61,
+  "model": 1.63,
   "measured": 1.1
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a rms log10 over 1471-1569 nm",
-  "model": 0.162,
+  "model": 0.164,
   "measured": 0.0
  },
  {

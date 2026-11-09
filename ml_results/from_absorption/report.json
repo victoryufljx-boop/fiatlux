@@ -1,0 +1,191 @@
+{
+ "cases": [
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "src": "Agger & Povlsen, OE 14, 50 (2006) Fig. 4",
+   "M0_model_only": {
+    "shape_rms": 0.1487676638593287,
+    "peak_shift_nm": -25.0,
+    "peak_ratio_err_log10": 0.09697926069931212
+   },
+   "M1_model_refit_to_absorption": {
+    "shape_rms": 0.11427558094251077,
+    "peak_shift_nm": -50.0,
+    "peak_ratio_err_log10": 0.002075388147460041,
+    "theta": {
+     "cf_scale": 1.4001523467081627,
+     "disorder": 1.1565325261976203,
+     "neph_std": 0.0027,
+     "gamma_h": 49.583955616813235
+    }
+   },
+   "M2_mccumber_eps_from_model": {
+    "shape_rms": 0.23555147744149454,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": -0.03869093233238432,
+    "eps_cm1": 5763.116205904878
+   },
+   "M3_mccumber_eps_from_refit": {
+    "shape_rms": 0.23555147744149446,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": 0.18983115665511371,
+    "eps_cm1": 5871.004031458382
+   }
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "src": "Le Gouet et al., arXiv:2003.14188",
+   "M0_model_only": {
+    "shape_rms": 0.09169252517557945,
+    "peak_shift_nm": -4.0,
+    "peak_ratio_err_log10": -0.1950471642629469
+   },
+   "M1_model_refit_to_absorption": {
+    "shape_rms": 0.10030493814460545,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": -0.19548732478157554,
+    "theta": {
+     "cf_scale": 0.959784302540462,
+     "disorder": 0.9411299387851264,
+     "neph_std": 0.0027,
+     "gamma_h": 59.0838232245574
+    }
+   },
+   "M2_mccumber_eps_from_model": {
+    "shape_rms": 0.07320878565938843,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": -0.17068486301333113,
+    "eps_cm1": 5118.668803569844
+   },
+   "M3_mccumber_eps_from_refit": {
+    "shape_rms": 0.07320878565938839,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": -0.1749454807191342,
+    "eps_cm1": 5116.657318457703
+   }
+  },
+  {
+   "ion": "Er3+",
+   "family": "germanosilicate",
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2",
+   "M0_model_only": {
+    "shape_rms": 0.15999794954158522,
+    "peak_shift_nm": -2.0,
+    "peak_ratio_err_log10": 0.09140581801898968
+   },
+   "M1_model_refit_to_absorption": {
+    "shape_rms": 0.15658821027714534,
+    "peak_shift_nm": -1.0,
+    "peak_ratio_err_log10": 0.08964554005950393,
+    "theta": {
+     "cf_scale": 0.915942829303327,
+     "disorder": 1.1126728837946331,
+     "neph_std": 0.0027,
+     "gamma_h": 68.68418540353623
+    }
+   },
+   "M2_mccumber_eps_from_model": {
+    "shape_rms": 0.03347491352713491,
+    "peak_shift_nm": 1.0,
+    "peak_ratio_err_log10": 0.1152125232239043,
+    "eps_cm1": 6555.456195499007
+   },
+   "M3_mccumber_eps_from_refit": {
+    "shape_rms": 0.0334749135271349,
+    "peak_shift_nm": 1.0,
+    "peak_ratio_err_log10": 0.10808612835581227,
+    "eps_cm1": 6552.0917450436455
+   }
+  },
+  {
+   "ion": "Er3+",
+   "family": "aluminosilicate",
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2",
+   "M0_model_only": {
+    "shape_rms": 0.14220572703313522,
+    "peak_shift_nm": -1.0,
+    "peak_ratio_err_log10": 0.0936663144447167
+   },
+   "M1_model_refit_to_absorption": {
+    "shape_rms": 0.14591165430427205,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": 0.09709156728237409,
+    "theta": {
+     "cf_scale": 0.8723002407456072,
+     "disorder": 0.6892969364074657,
+     "neph_std": 0.0027,
+     "gamma_h": 92.68766354987775
+    }
+   },
+   "M2_mccumber_eps_from_model": {
+    "shape_rms": 0.07891585084714998,
+    "peak_shift_nm": 1.0,
+    "peak_ratio_err_log10": 0.11661533827983588,
+    "eps_cm1": 6557.1778781296025
+   },
+   "M3_mccumber_eps_from_refit": {
+    "shape_rms": 0.07891585084715003,
+    "peak_shift_nm": 1.0,
+    "peak_ratio_err_log10": 0.11293625429625874,
+    "eps_cm1": 6555.4409415700975
+   }
+  },
+  {
+   "ion": "Yb3+",
+   "family": "germanosilicate",
+   "src": "Pask et al., JSTQE 1, 2 (1995) Fig. 1(b)",
+   "M0_model_only": {
+    "shape_rms": 0.3859809810625348,
+    "peak_shift_nm": -4.0,
+    "peak_ratio_err_log10": 0.05353975371232915
+   },
+   "M1_model_refit_to_absorption": {
+    "shape_rms": 0.2279109504886244,
+    "peak_shift_nm": -4.0,
+    "peak_ratio_err_log10": 0.039190351081800544,
+    "theta": {
+     "cf_scale": 0.7558859068400272,
+     "disorder": 1.7769476615946869,
+     "neph_std": 0.0027,
+     "gamma_h": 87.27943995649508
+    }
+   },
+   "M2_mccumber_eps_from_model": {
+    "shape_rms": 0.08036152769868211,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": 0.18523870520193125,
+    "eps_cm1": 10354.393709332555
+   },
+   "M3_mccumber_eps_from_refit": {
+    "shape_rms": 0.08036152769868211,
+    "peak_shift_nm": 0.0,
+    "peak_ratio_err_log10": 0.14085318047620096,
+    "eps_cm1": 10333.438808342777
+   }
+  }
+ ],
+ "summary": {
+  "M0_model_only": {
+   "shape_rms_mean": 0.18572896933443267,
+   "peak_shift_abs_mean_nm": 7.2,
+   "ratio_err_rms_dex": 0.11614067379669898
+  },
+  "M1_model_refit_to_absorption": {
+   "shape_rms_mean": 0.1489982668314316,
+   "peak_shift_abs_mean_nm": 11.0,
+   "ratio_err_rms_dex": 0.10697530583648032
+  },
+  "M2_mccumber_eps_from_model": {
+   "shape_rms_mean": 0.10030251103476999,
+   "peak_shift_abs_mean_nm": 0.4,
+   "ratio_err_rms_dex": 0.135511439547557
+  },
+  "M3_mccumber_eps_from_refit": {
+   "shape_rms_mean": 0.10030251103476998,
+   "peak_shift_abs_mean_nm": 0.4,
+   "ratio_err_rms_dex": 0.1489420131385009
+  }
+ }
+}

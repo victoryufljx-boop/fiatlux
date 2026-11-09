@@ -149,9 +149,9 @@
   "item": "3H4",
   "kind": "tau",
   "measured": 0.014,
-  "model": 0.022324435284007023,
+  "model": 0.016119882502464766,
   "unit": "ms",
-  "ratio": 1.594602520286216,
+  "ratio": 1.1514201787474834,
   "src": "Faure et al., JNCS 353, 2767 (2007) (<=200 ppm Tm) (pure silica, via Jackson & King 1999)",
   "note": ""
  },
@@ -162,9 +162,9 @@
   "item": "3H4",
   "kind": "tau",
   "measured": 0.037,
-  "model": 0.04166717226227129,
+  "model": 0.035747419347429546,
   "unit": "ms",
-  "ratio": 1.126139790872197,
+  "ratio": 0.9661464688494472,
   "src": "Faure et al., JNCS 353, 2767 (2007) (<=200 ppm Tm)",
   "note": "interpolated to 11.3 mol% AlO3/2"
  },
@@ -188,9 +188,9 @@
   "item": "5I7",
   "kind": "tau",
   "measured": 1.9,
-  "model": 5.34751403559244,
+  "model": 5.107062097270732,
   "unit": "ms",
-  "ratio": 2.8144810713644426,
+  "ratio": 2.687927419616175,
   "src": "Le Gouet et al., arXiv:2003.14188, Forster tau0",
   "note": "intrinsic decay; 1/e lifetime 0.7 ms includes Ho-Ho transfer"
  },
@@ -201,9 +201,9 @@
   "item": "3F4",
   "kind": "tau",
   "measured": 0.65,
-  "model": 3.995237406894364,
+  "model": 3.782691857191788,
   "unit": "ms",
-  "ratio": 6.14651908752979,
+  "ratio": 5.819525934141212,
   "src": "Agger & Povlsen, OE 14, 50 (2006), 8.4e19 cm^-3",
   "note": "observed; quantum efficiency ~10%: not single-ion"
  },
@@ -214,9 +214,9 @@
   "item": "3F4",
   "kind": "tau_rad",
   "measured": 6.0,
-  "model": 5.743046263828464,
+  "model": 5.739166814990312,
   "unit": "ms",
-  "ratio": 0.957174377304744,
+  "ratio": 0.9565278024983853,
   "src": "Agger & Povlsen 2006 (FL from measured sigma_e)",
   "note": ""
  },
@@ -227,9 +227,9 @@
   "item": "3F4",
   "kind": "tau_rad",
   "measured": 4.56,
-  "model": 5.004586938124362,
+  "model": 4.997279956533069,
   "unit": "ms",
-  "ratio": 1.0974971355535883,
+  "ratio": 1.0958947273098836,
   "src": "Walsh & Barnes 2004 (JO)",
   "note": ""
  },
@@ -240,9 +240,9 @@
   "item": "3H4",
   "kind": "tau_rad",
   "measured": 0.67,
-  "model": 0.8292817295004569,
+  "model": 0.8293592481083257,
   "unit": "ms",
-  "ratio": 1.2377339246275474,
+  "ratio": 1.2378496240422772,
   "src": "Walsh & Barnes 2004 (JO)",
   "note": ""
  },
@@ -370,11 +370,11 @@
   "item": "4I13/2->4I15/2 em",
   "kind": "em",
   "measured": 5e-21,
-  "model": 5.283764899909379e-21,
+  "model": 5.1637323275128535e-21,
   "unit": "cm2",
-  "ratio": 1.0567529799818758,
+  "ratio": 1.0327464655025707,
   "peak_meas_nm": 1533,
-  "peak_model_nm": 1531.4,
+  "peak_model_nm": 1530.9,
   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
  },
  {
@@ -384,11 +384,11 @@
   "item": "3F4->3H6 em",
   "kind": "em",
   "measured": 5.5e-21,
-  "model": 4.691776604743924e-21,
+  "model": 4.502200432068584e-21,
   "unit": "cm2",
-  "ratio": 0.8530502917716226,
+  "ratio": 0.8185818967397426,
   "peak_meas_nm": 1810,
-  "peak_model_nm": 1803.8,
+  "peak_model_nm": 1804.4,
   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
  },
  {
@@ -398,11 +398,11 @@
   "item": "5I7->5I8 em",
   "kind": "em",
   "measured": 7e-21,
-  "model": 3.197594308595702e-21,
+  "model": 3.089494789784607e-21,
   "unit": "cm2",
-  "ratio": 0.45679918694224314,
+  "ratio": 0.4413563985406581,
   "peak_meas_nm": 2030,
-  "peak_model_nm": 1945.5,
+  "peak_model_nm": 1943.3,
   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
  },
  {
@@ -454,11 +454,11 @@
   "item": "3F4->3H6 abs",
   "kind": "abs",
   "measured": 4.2e-21,
-  "model": 4.212002301677068e-21,
+  "model": 4.095262253915722e-21,
   "unit": "cm2",
-  "ratio": 1.0028576908754925,
+  "ratio": 0.9750624414085051,
   "peak_meas_nm": 1650,
-  "peak_model_nm": 1710.0,
+  "peak_model_nm": 1706.5,
   "src": "Agger & Povlsen 2006 (Tm1)"
  },
  {
@@ -468,11 +468,11 @@
   "item": "3F4->3H6 em",
   "kind": "em",
   "measured": 3.76e-21,
-  "model": 4.691776604743924e-21,
+  "model": 4.502200432068584e-21,
   "unit": "cm2",
-  "ratio": 1.247812926793597,
+  "ratio": 1.197393731933134,
   "peak_meas_nm": 1817,
-  "peak_model_nm": 1803.8,
+  "peak_model_nm": 1804.4,
   "src": "Agger & Povlsen 2006 (Tm1, digitised)"
  },
  {
@@ -482,9 +482,9 @@
   "item": "3F4->3H6 em",
   "kind": "em",
   "measured": 6e-21,
-  "model": 6.4259432853925734e-21,
+  "model": 5.7914967770975996e-21,
   "unit": "cm2",
-  "ratio": 1.0709905475654289,
+  "ratio": 0.9652494628496,
   "peak_meas_nm": 1837,
   "peak_model_nm": 1798.6,
   "src": "Jackson & King, JLT 17, 948 (1999) Fig. 2"
@@ -496,11 +496,11 @@
   "item": "3F4->3H6 abs",
   "kind": "abs",
   "measured": 4.47e-21,
-  "model": 5.469939958462734e-21,
+  "model": 5.07019524579198e-21,
   "unit": "cm2",
-  "ratio": 1.2237002144211933,
+  "ratio": 1.134271867067557,
   "peak_meas_nm": 1633,
-  "peak_model_nm": 1731.3,
+  "peak_model_nm": 1725.9,
   "src": "Jackson & King 1999 Fig. 3"
  },
  {
@@ -510,11 +510,11 @@
   "item": "5I7->5I8 abs",
   "kind": "abs",
   "measured": 4.3e-21,
-  "model": 3.647605575879335e-21,
+  "model": 3.553863894333086e-21,
   "unit": "cm2",
-  "ratio": 0.8482803664835663,
+  "ratio": 0.8264799754262991,
   "peak_meas_nm": 1946,
-  "peak_model_nm": 1940.2,
+  "peak_model_nm": 1938.7,
   "src": "Le Gouet et al. 2020"
  },
  {
@@ -524,11 +524,11 @@
   "item": "5I7->5I8 em",
   "kind": "em",
   "measured": 6e-21,
-  "model": 3.197594308595702e-21,
+  "model": 3.089494789784607e-21,
   "unit": "cm2",
-  "ratio": 0.5329323847659504,
+  "ratio": 0.5149157982974345,
   "peak_meas_nm": 1950,
-  "peak_model_nm": 1945.5,
+  "peak_model_nm": 1943.3,
   "src": "Le Gouet et al. 2020"
  },
  {
@@ -622,9 +622,9 @@
   "item": "4I13/2 lo",
   "kind": "lo",
   "measured": 6544,
-  "model": 6553.174073068809,
+  "model": 6554.937178974172,
   "unit": "cm-1",
-  "diff": 9.174073068808866,
+  "diff": 10.93717897417173,
   "src": "Desurvire & Simpson, OL 15, 547 (1990)"
  },
  {
@@ -634,9 +634,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 268,
-  "model": 456.21349349202166,
+  "model": 475.7071544268618,
   "unit": "cm-1",
-  "diff": 188.21349349202166,
+  "diff": 207.7071544268618,
   "src": "Desurvire & Simpson 1990 (lower bound: 5 of 8 levels)"
  },
  {
@@ -646,9 +646,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 445,
-  "model": 378.586374606947,
+  "model": 424.3989366527225,
   "unit": "cm-1",
-  "diff": -66.413625393053,
+  "diff": -20.60106334727749,
   "src": "Desurvire 1990 Table 1, silicate glasses 395-500"
  },
  {
@@ -658,9 +658,9 @@
   "item": "4I13/2 split",
   "kind": "split",
   "measured": 330,
-  "model": 263.79266800353173,
+  "model": 296.2428130127737,
   "unit": "cm-1",
-  "diff": -66.20733199646827,
+  "diff": -33.757186987226305,
   "src": "Desurvire 1990 Table 1, silicate glasses 305-357"
  },
  {
@@ -706,9 +706,9 @@
   "item": "3H4 lo",
   "kind": "lo",
   "measured": 12710,
-  "model": 12656.966601779692,
+  "model": 12662.081635476263,
   "unit": "cm-1",
-  "diff": -53.0333982203083,
+  "diff": -47.91836452373718,
   "src": "Faure et al. 2007 Table 2 (GSA peak)"
  },
  {
@@ -718,9 +718,9 @@
   "item": "3H5 hi",
   "kind": "hi",
   "measured": 9090,
-  "model": 8943.135951417033,
+  "model": 8974.740778332225,
   "unit": "cm-1",
-  "diff": -146.86404858296737,
+  "diff": -115.25922166777491,
   "src": "Faure et al. 2007 Table 2 (10% edge)"
  },
  {
@@ -735,8 +735,8 @@
   "error": null,
   "windows": [
    [
-    1442.6,
-    1632.4
+    1439.7,
+    1631.9
    ]
   ],
   "src": "Jackson 2012 Table B1: Y. Jeong et al., IEEE JSTQE 13, 573-579 (2007) (Er:Yb large-core, 297 W CW)"
@@ -783,12 +783,12 @@
   "error": null,
   "windows": [
    [
-    797.7,
-    851.4
+    798.6,
+    853.5
    ],
    [
-    1606.7,
-    2373.0
+    1601.5,
+    2364.1
    ]
   ],
   "src": "Jackson 2012 Table B1: T. Ehrenreich et al., '1 kW, all-glass Tm:fiber laser', SPIE Photonics West 2010, conf. 7850"
@@ -818,8 +818,8 @@
   "error": null,
   "windows": [
    [
-    1952.4,
-    2206.5
+    1953.1,
+    2216.3
    ]
   ],
   "src": "Jackson 2012 Table B1: A. V. Hemming et al., Proc. SPIE 8237, 82371J (2012)"

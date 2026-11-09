@@ -7,7 +7,7 @@
   "model_slope_dB_per_mW": 0.055849781842222335,
   "measured_slope_dB_per_mW": 0.03,
   "note": "8 m, 4 um core, Delta n 0.6 %, 500 wppm, 1017 nm backward pump; measured internal gain 7.1 dB",
-  "seconds": 1.5479950904846191,
+  "seconds": 1.6549787521362305,
   "case": "Pr:ZBLAN amplifier (Ohishi et al. 1991)"
  },
  {
@@ -18,7 +18,7 @@
   "model_slope_dB_per_mW": 0.04392562552896611,
   "measured_slope_dB_per_mW": 0.03,
   "note": "8 m, 4 um core, Delta n 0.6 %, 500 wppm, 1017 nm backward pump; measured internal gain 7.1 dB",
-  "seconds": 4.74928092956543,
+  "seconds": 4.010971546173096,
   "case": "Pr:ZBLAN amplifier (Ohishi et al. 1991)"
  },
  {
@@ -51,7 +51,7 @@
    ]
   ],
   "note": "18 cm, 10 um core, NA 0.15, 1 mol% Er, 985 nm 175 mW launched, R 0.99 / 0.90; measured slope is vs INCIDENT P2 (52 % vs absorbed); pump overlap 0.8 assumed (multimode); +ETU: Golding 2000 ETU1/ETU2 at this N, k = 1.2e-17 / 1.8e-18 cm3/s",
-  "seconds": 38.40521264076233,
+  "seconds": 32.862626791000366,
   "case": "Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014)"
  },
  {
@@ -84,52 +84,52 @@
    ]
   ],
   "note": "18 cm, 10 um core, NA 0.15, 1 mol% Er, 985 nm 175 mW launched, R 0.99 / 0.90; measured slope is vs INCIDENT P2 (52 % vs absorbed); pump overlap 0.8 assumed (multimode); +ETU: Golding 2000 ETU1/ETU2 at this N, k = 1.2e-17 / 1.8e-18 cm3/s",
-  "seconds": 111.7881669998169,
+  "seconds": 90.86632251739502,
   "case": "Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014)"
  },
  {
   "variant": "single-ion",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.2065642706535219,
+  "model_slope": 0.20108274300570028,
   "measured_slope": 0.46,
-  "model_threshold_W": 1.469627865750309,
+  "model_threshold_W": 1.551100486158251,
   "measured_threshold_W": 5.24,
   "curve": [
    [
     6,
-    0.9310779313465964
+    0.891220373028948
    ],
    [
     9,
-    1.5563165695477148
+    1.497743103197943
    ],
    [
     12,
-    2.1784370969662796
+    2.1038881905774987
    ],
    [
     15,
-    2.798583294529242
+    2.7074227531318327
    ],
    [
     18,
-    3.4163328213056325
+    3.309048605866005
    ],
    [
     22,
-    4.236086830568492
+    4.10806465806013
    ]
   ],
   "note": "L 10.0 m (derived), core 20.0 um, N 1.21e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.8e-17 cm3/s",
-  "seconds": 2.5407216548919678,
+  "seconds": 2.0799412727355957,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4"
  },
  {
   "variant": "observed",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.2055339515592886,
+  "model_slope": 0.20005287272213462,
   "measured_slope": 0.46,
-  "model_threshold_W": 9.51699873882106,
+  "model_threshold_W": 9.374971957657753,
   "measured_threshold_W": 5.24,
   "curve": [
    [
@@ -142,31 +142,31 @@
    ],
    [
     12,
-    0.5092262317908103
+    0.5242931950218426
    ],
    [
     15,
-    1.1277011125994032
+    1.1255707744153607
    ],
    [
     18,
-    1.74500499843424
+    1.7271210797878487
    ],
    [
     22,
-    2.5645769805492495
+    2.524597135882418
    ]
   ],
   "note": "L 10.0 m (derived), core 20.0 um, N 1.21e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.8e-17 cm3/s",
-  "seconds": 2.5700185298919678,
+  "seconds": 2.176759958267212,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4"
  },
  {
   "variant": "observed+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.24827148244750832,
+  "model_slope": 0.23634432906195157,
   "measured_slope": 0.46,
-  "model_threshold_W": 8.000723672076097,
+  "model_threshold_W": 8.050169881259466,
   "measured_threshold_W": 5.24,
   "curve": [
    [
@@ -175,35 +175,35 @@
    ],
    [
     9,
-    0.2465529401094317
+    0.22342492043422862
    ],
    [
     12,
-    0.9927661911018059
+    0.9334177218491277
    ],
    [
     15,
-    1.73982708062991
+    1.6439808105993095
    ],
    [
     18,
-    2.484200531991346
+    2.3527943482506335
    ],
    [
     22,
-    3.473528288582107
+    3.295491210470021
    ]
   ],
   "note": "L 10.0 m (derived), core 20.0 um, N 1.21e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.8e-17 cm3/s",
-  "seconds": 8.635385990142822,
+  "seconds": 7.556893587112427,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4"
  },
  {
   "variant": "ML-L3",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.2047931757439629,
+  "model_slope": 0.19946380746335496,
   "measured_slope": 0.46,
-  "model_threshold_W": 12.962535490064058,
+  "model_threshold_W": 12.850549550113644,
   "measured_threshold_W": 5.24,
   "curve": [
    [
@@ -220,27 +220,27 @@
    ],
    [
     15,
-    0.41716793576952327
+    0.42891942809023414
    ],
    [
     18,
-    1.0317974151375682
+    1.026810742624576
    ],
    [
     22,
-    1.850742888898732
+    1.8251206159831983
    ]
   ],
   "note": "L 10.0 m (derived), core 20.0 um, N 1.21e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.8e-17 cm3/s",
-  "seconds": 2.8687140941619873,
+  "seconds": 2.1234922409057617,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4"
  },
  {
   "variant": "ML-L3+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.24763128532596826,
+  "model_slope": 0.23577545775553094,
   "measured_slope": 0.46,
-  "model_threshold_W": 10.85742516642804,
+  "model_threshold_W": 10.996271887713775,
   "measured_threshold_W": 5.24,
   "curve": [
    [
@@ -253,68 +253,68 @@
    ],
    [
     12,
-    0.2825369754726908
+    0.23655929010301474
    ],
    [
     15,
-    1.0258823656545883
+    0.943801172882808
    ],
    [
     18,
-    1.7696360730871614
+    1.6518595114132668
    ],
    [
     22,
-    2.7586881054530714
+    2.5941315435015184
    ]
   ],
   "note": "L 10.0 m (derived), core 20.0 um, N 1.21e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.8e-17 cm3/s",
-  "seconds": 8.706881761550903,
+  "seconds": 7.779976844787598,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4"
  },
  {
   "variant": "single-ion",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.20865015484283694,
+  "model_slope": 0.20448946310355323,
   "measured_slope": 0.415,
-  "model_threshold_W": 1.7392041019915625,
+  "model_threshold_W": 1.8191780185614697,
   "measured_threshold_W": 5.99,
   "curve": [
    [
     6,
-    0.8862580317797801
+    0.8527733248411373
    ],
    [
     9,
-    1.5155063712635837
+    1.4688929340488224
    ],
    [
     12,
-    2.142601521623012
+    2.0831227182743297
    ],
    [
     15,
-    2.7692259720453944
+    2.6971660813300975
    ],
    [
     18,
-    3.393752588800996
+    3.309529568848549
    ],
    [
     22,
-    4.224656980496834
+    4.124634929315898
    ]
   ],
   "note": "L 16.0 m (derived), core 20.0 um, N 1.04e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.2e-17 cm3/s",
-  "seconds": 1.7941956520080566,
+  "seconds": 1.6098244190216064,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3"
  },
  {
   "variant": "observed",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.20592792913644584,
+  "model_slope": 0.20204724784848907,
   "measured_slope": 0.415,
-  "model_threshold_W": 10.859622575893686,
+  "model_threshold_W": 10.693271596412849,
   "measured_threshold_W": 5.99,
   "curve": [
    [
@@ -327,31 +327,31 @@
    ],
    [
     12,
-    0.23835187290869791
+    0.2671002050038709
    ],
    [
     15,
-    0.8486518324910038
+    0.8669021458127161
    ],
    [
     18,
-    1.4685555108998944
+    1.4743118781722993
    ],
    [
     22,
-    2.296413682813546
+    2.2866669906533414
    ]
   ],
   "note": "L 16.0 m (derived), core 20.0 um, N 1.04e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.2e-17 cm3/s",
-  "seconds": 2.741656541824341,
+  "seconds": 2.1931254863739014,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3"
  },
  {
   "variant": "observed+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.24020620558680458,
+  "model_slope": 0.23116342970858514,
   "measured_slope": 0.415,
-  "model_threshold_W": 9.483656426115287,
+  "model_threshold_W": 9.502620828959985,
   "measured_threshold_W": 5.99,
   "curve": [
    [
@@ -364,31 +364,31 @@
    ],
    [
     12,
-    0.6055930118293611
+    0.578604716205472
    ],
    [
     15,
-    1.3237973167140336
+    1.2697643329548003
    ],
    [
     18,
-    2.0450090236654153
+    1.9628285669540666
    ],
    [
     22,
-    3.00728392128282
+    2.8901184861903513
    ]
   ],
   "note": "L 16.0 m (derived), core 20.0 um, N 1.04e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.2e-17 cm3/s",
-  "seconds": 10.533520460128784,
+  "seconds": 7.889968395233154,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3"
  },
  {
   "variant": "ML-L3",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.2037250365879984,
+  "model_slope": 0.20012309220851537,
   "measured_slope": 0.415,
-  "model_threshold_W": 13.92847904240939,
+  "model_threshold_W": 13.81117133068543,
   "measured_threshold_W": 5.99,
   "curve": [
    [
@@ -405,27 +405,27 @@
    ],
    [
     15,
-    0.22070811647374614
+    0.24042750729273044
    ],
    [
     18,
-    0.8252489332323114
+    0.8338793297390226
    ],
    [
     22,
-    1.6461802550437863
+    1.6406602932814964
    ]
   ],
   "note": "L 16.0 m (derived), core 20.0 um, N 1.04e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.2e-17 cm3/s",
-  "seconds": 2.444600820541382,
+  "seconds": 2.0723347663879395,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3"
  },
  {
   "variant": "ML-L3+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.23907054531307653,
+  "model_slope": 0.23005602270844883,
   "measured_slope": 0.415,
-  "model_threshold_W": 12.151838318447883,
+  "model_threshold_W": 12.259597881598737,
   "measured_threshold_W": 5.99,
   "curve": [
    [
@@ -442,64 +442,64 @@
    ],
    [
     15,
-    0.6817014571791611
+    0.631325324291765
    ],
    [
     18,
-    1.3967408933339986
+    1.3190752835630617
    ],
    [
     22,
-    2.354997801663024
+    2.2414976551732653
    ]
   ],
   "note": "L 16.0 m (derived), core 20.0 um, N 1.04e+20, Gamma_p 0.0063, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 4.2e-17 cm3/s",
-  "seconds": 15.691025495529175,
+  "seconds": 10.501352548599243,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3"
  },
  {
   "variant": "single-ion",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.16816547562643058,
+  "model_slope": 0.1630254097682464,
   "measured_slope": 0.213,
-  "model_threshold_W": 1.8042241043998792,
+  "model_threshold_W": 1.879262856833983,
   "measured_threshold_W": 7.41,
   "curve": [
    [
     6,
-    0.70074511633971
+    0.6679042010867248
    ],
    [
     9,
-    1.2105096104699926
+    1.1611994371606214
    ],
    [
     12,
-    1.7179822771719515
+    1.6525761114714566
    ],
    [
     15,
-    2.2235562018814257
+    2.1427508656871423
    ],
    [
     18,
-    2.725179838597743
+    2.6293755104812693
    ],
    [
     22,
-    3.39114672898802
+    3.276071891323348
    ]
   ],
   "note": "L 12.5 m (derived), core 23.8 um, N 5.42e+19, Gamma_p 0.0089, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 2.2e-17 cm3/s",
-  "seconds": 1.5773780345916748,
+  "seconds": 1.576223373413086,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1"
  },
  {
   "variant": "observed",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.1673968041241101,
+  "model_slope": 0.16239432914472793,
   "measured_slope": 0.213,
-  "model_threshold_W": 11.766473946035433,
+  "model_threshold_W": 11.459419071204687,
   "measured_threshold_W": 7.41,
   "curve": [
    [
@@ -512,31 +512,31 @@
    ],
    [
     12,
-    0.03742219815362655
+    0.08670588657596885
    ],
    [
     15,
-    0.5425053136195476
+    0.575908100742269
    ],
    [
     18,
-    1.0455047065232252
+    1.0632155158600782
    ],
    [
     22,
-    1.7114731205152252
+    1.7108118596921105
    ]
   ],
   "note": "L 12.5 m (derived), core 23.8 um, N 5.42e+19, Gamma_p 0.0089, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 2.2e-17 cm3/s",
-  "seconds": 3.018935441970825,
+  "seconds": 1.9753735065460205,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1"
  },
  {
   "variant": "observed+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.1755110032209229,
+  "model_slope": 0.16900951350065113,
   "measured_slope": 0.213,
-  "model_threshold_W": 11.266673219390466,
+  "model_threshold_W": 11.041124147839982,
   "measured_threshold_W": 7.41,
   "curve": [
    [
@@ -549,31 +549,31 @@
    ],
    [
     12,
-    0.127264022845906
+    0.16065588773523562
    ],
    [
     15,
-    0.6564897422535612
+    0.6700614278613884
    ],
    [
     18,
-    1.1831930046830192
+    1.1779203005125132
    ],
    [
     22,
-    1.8825899672292452
+    1.850779705527582
    ]
   ],
   "note": "L 12.5 m (derived), core 23.8 um, N 5.42e+19, Gamma_p 0.0089, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 2.2e-17 cm3/s",
-  "seconds": 9.414351463317871,
+  "seconds": 8.137431621551514,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1"
  },
  {
   "variant": "ML-L3",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.16737994291188824,
+  "model_slope": 0.16240026583339826,
   "measured_slope": 0.213,
-  "model_threshold_W": 11.862965658582537,
+  "model_threshold_W": 11.659990638165976,
   "measured_threshold_W": 7.41,
   "curve": [
    [
@@ -586,31 +586,31 @@
    ],
    [
     12,
-    0.021100357291361553
+    0.05409626966197713
    ],
    [
     15,
-    0.5265825507319829
+    0.543240900840663
    ],
    [
     18,
-    1.0291722020273415
+    1.0309831964250014
    ],
    [
     22,
-    1.6951110062488843
+    1.6781551268976866
    ]
   ],
   "note": "L 12.5 m (derived), core 23.8 um, N 5.42e+19, Gamma_p 0.0089, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 2.2e-17 cm3/s",
-  "seconds": 3.2273874282836914,
+  "seconds": 2.2171404361724854,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1"
  },
  {
   "variant": "ML-L3+CR",
   "quantity": "slope (launched) / threshold W",
-  "model_slope": 0.17549574081440508,
+  "model_slope": 0.16909641642657397,
   "measured_slope": 0.213,
-  "model_threshold_W": 11.358379121033963,
+  "model_threshold_W": 11.235792220805672,
   "measured_threshold_W": 7.41,
   "curve": [
    [
@@ -623,110 +623,110 @@
    ],
    [
     12,
-    0.11083779213943953
+    0.12804953086053983
    ],
    [
     15,
-    0.6408933002025149
+    0.6373679529464041
    ],
    [
     18,
-    1.1668284187087636
+    1.1452471235435255
    ],
    [
     22,
-    1.8662664903275166
+    1.8190664922227222
    ]
   ],
   "note": "L 12.5 m (derived), core 23.8 um, N 5.42e+19, Gamma_p 0.0089, 805 nm, R 0.99/0.035, bg 0.1 dB/m; k3101 2.2e-17 cm3/s",
-  "seconds": 9.746992349624634,
+  "seconds": 8.539390563964844,
   "case": "Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1"
  },
  {
   "variant": "single-ion",
   "quantity": "slope (coupled) / threshold W",
-  "model_slope": 0.5624767620248955,
+  "model_slope": 0.5584785243232947,
   "measured_slope": 0.49,
-  "model_threshold_W": 1.266455915792364,
+  "model_threshold_W": 1.2454861014165235,
   "measured_threshold_W": 13,
   "curve": [
    [
     50,
-    27.41149251136019
+    27.218618983322568
    ],
    [
     100,
-    55.53531794048948
+    55.17094337266598
    ],
    [
     150,
-    83.65915546081538
+    83.06805502644222
    ],
    [
     200,
-    111.78300700873413
+    110.9993358192796
    ]
   ],
   "note": "16 m, 20 um core NA 0.08, 250 um octagonal clad (Gamma_p 0.0061), 5.3e19 cm^-3, 1940 -> 2120 nm, FBG 0.99 / Fresnel 0.03, bg 0.04 dB/m; 15-23 % of ions in pairs not modelled",
-  "seconds": 19.26431703567505,
+  "seconds": 15.843034505844116,
   "case": "Ho:silica cladding-pumped laser (Le Gouet et al. 2020)"
  },
  {
   "variant": "observed",
   "quantity": "slope (coupled) / threshold W",
-  "model_slope": 0.562468024154754,
+  "model_slope": 0.5587706232252242,
   "measured_slope": 0.49,
-  "model_threshold_W": 9.659309144695374,
+  "model_threshold_W": 9.398447002487904,
   "measured_threshold_W": 13,
   "curve": [
    [
     50,
-    22.684731574029712
+    22.686724737615993
    ],
    [
     100,
-    50.818684794717335
+    50.62519275490749
    ],
    [
     150,
-    78.94413258995289
+    78.56529535637289
    ],
    [
     200,
-    107.0542530014102
+    106.50179440799825
    ]
   ],
   "note": "16 m, 20 um core NA 0.08, 250 um octagonal clad (Gamma_p 0.0061), 5.3e19 cm^-3, 1940 -> 2120 nm, FBG 0.99 / Fresnel 0.03, bg 0.04 dB/m; 15-23 % of ions in pairs not modelled",
-  "seconds": 11.297008037567139,
+  "seconds": 9.932092666625977,
   "case": "Ho:silica cladding-pumped laser (Le Gouet et al. 2020)"
  },
  {
   "variant": "ML-L3",
   "quantity": "slope (coupled) / threshold W",
-  "model_slope": 0.5624404288148679,
+  "model_slope": 0.5587707162683035,
   "measured_slope": 0.49,
-  "model_threshold_W": 9.966749145583707,
+  "model_threshold_W": 9.762993406477397,
   "measured_threshold_W": 13,
   "curve": [
    [
     50,
-    22.51194706974293
+    22.483054459536866
    ],
    [
     100,
-    50.64156422482966
+    50.42148734936503
    ],
    [
     150,
-    78.76702876855202
+    78.36157114485067
    ],
    [
     200,
-    106.87686369098013
+    106.29814590575891
    ]
   ],
   "note": "16 m, 20 um core NA 0.08, 250 um octagonal clad (Gamma_p 0.0061), 5.3e19 cm^-3, 1940 -> 2120 nm, FBG 0.99 / Fresnel 0.03, bg 0.04 dB/m; 15-23 % of ions in pairs not modelled",
-  "seconds": 12.032008409500122,
+  "seconds": 9.534578561782837,
   "case": "Ho:silica cladding-pumped laser (Le Gouet et al. 2020)"
  },
  {
@@ -755,7 +755,7 @@
    ]
   ],
   "note": "90 m, 3.75 um core, NA 0.17, 550 ppm (taken as 1.2e19 cm^-3), 1047 nm pump, R 0.98 / Fresnel",
-  "seconds": 0.2790989875793457,
+  "seconds": 0.22446274757385254,
   "case": "Yb:germanosilicate 1102 nm laser (Pask et al. 1995)"
  },
  {
@@ -783,7 +783,7 @@
    ]
   ],
   "note": "5 m, Fresnel both ends, 840 nm pump; measured minimum threshold ~45 mW (digitised)",
-  "seconds": 0.18926310539245605,
+  "seconds": 0.15156912803649902,
   "case": "Yb:germanosilicate free-running laser, 5 m (Pask et al. 1995 Fig. 4)"
  }
 ]

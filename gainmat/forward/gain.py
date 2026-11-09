@@ -24,6 +24,15 @@ HC = 6.62607015e-34 * 2.99792458e8   # J m
 DB = 10 / np.log(10)                 # 4.343
 
 
+def apply_A_scale(A, labels, spec):
+    """Measured-absorption mode: rescale the radiative rate of a transition whose cross sections
+    were replaced by measured ones (spec['A_scale'] = {(upper, lower): factor})."""
+    for (u, l), k in (spec.get("A_scale") or {}).items():
+        if u in labels and l in labels:
+            A[labels.index(u), labels.index(l)] *= k
+    return A
+
+
 def multiplet_rates(ion, omegas, n_index, energies: dict, emax=27000.0):
     """Radiative rate matrix A[i, j] (s^-1) between kept multiplets, from Judd-Ofelt
     reduced elements computed in the free-ion basis and the given (site-averaged) energies."""
@@ -132,7 +141,7 @@ def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm
     labels = [mm["label"] for mm in m.multiplets]
     energies = {k: (spec["bary"][k] if spec["bary"].get(k) else m.multiplets[i]["energy"])
                 for i, k in enumerate(labels)}
-    A = multiplet_rates(ion, omegas, n_index, energies, emax)
+    A = apply_A_scale(multiplet_rates(ion, omegas, n_index, energies, emax), labels, spec)
     W, tgt = nonradiative(ion, energies, hw_max, family, emax, edges=spec.get("edges"),
                           site_edges=spec.get("site_edges"), T=T)
     active = [i for i, k in enumerate(labels) if energies[k] <= emax]

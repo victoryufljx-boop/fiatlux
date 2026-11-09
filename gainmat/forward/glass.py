@@ -242,6 +242,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                             neph_std=fam.get("neph_std", NEPH_STD), sideband_S=fam.get("sideband_S", SIDEBAND_S),
                             hw_max=fam["hw_max"], seed=seed,
                             intensity=fam.get("intensity", INTENSITY))
+    if fam.get("measured_absorption"):
+        apply_measured_absorption(spec, fam["measured_absorption"], T=fam.get("T", 295.0))
     N = fam.get("N_cm3", N_DEFAULT[ion])
     res = dict(ion=ion, family=family, omegas=om, omega_src=om_src, n=fam["n"], hw_max=fam["hw_max"],
                loss_dB_m=fam["loss_dB_m"], N_cm3=N, pumps={}, split=spec["split"])
@@ -269,6 +271,49 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     res["windows"] = windows(spec["nu"], env_all, loss, threshold_dB_m) if env_all is not None else []
     res["_spec"], res["_env"], res["_loss"] = spec, env_all, loss
     return res
+
+
+def apply_measured_absorption(spec, measured, T=295.0, floor=0.02):
+    """Measured-absorption mode.  measured = {(upper, lower): (lam_nm, sigma_abs_cm2)}.
+    For each listed band: sigma_abs := the measured curve (model kept outside the measured range
+    and where the measurement falls below `floor` x its peak); sigma_em := McCumber transform of
+    it, sigma_e = sigma_a exp((eps - h nu)/kT), with eps from the model's own Stark structure
+    (the part of the model the absorption alone cannot give); the radiative rate of the band is
+    rescaled by the ratio of measured to model integrated absorption.  Tested in
+    gainmat.ml.from_absorption: this beats the model's own emission line shape (rms 0.10 vs 0.19
+    over five measured abs/em pairs) and peak position (0.4 vs 7 nm)."""
+    kT = 0.6950348 * T
+    nu = spec["nu"]
+    spec.setdefault("A_scale", {})
+    for pair, val in measured.items():
+        pair = tuple(pair)
+        if pair not in spec["sigma_abs"]:
+            continue
+        lam, sig = val[0], val[1]
+        em = val[2] if len(val) > 2 else None           # optional measured emission (lam_nm, sigma_em)
+        lam = np.asarray(lam, float); sig = np.asarray(sig, float)
+        ok = np.isfinite(sig) & (sig >= 0); lam, sig = lam[ok], sig[ok]
+        o = np.argsort(1e7 / lam); x, y = (1e7 / lam)[o], sig[o]
+        sa0, se0 = spec["sigma_abs"][pair], spec["sigma_em"][pair]
+        i = int(np.argmax(sa0))
+        eps = nu[i] + kT * np.log(max(se0[i], 1e-60) / max(sa0[i], 1e-60))
+        inside = (nu >= x.min()) & (nu <= x.max())
+        meas = np.interp(nu, x, y)
+        use = inside & (meas >= floor * y.max())
+        k = np.trapezoid(meas[inside], nu[inside]) / max(np.trapezoid(sa0[inside], nu[inside]), 1e-60)
+        sa = np.where(use, meas, sa0 * k)
+        se = np.where(use, meas * np.exp(np.clip((eps - nu) / kT, -50, 50)), se0 * k)
+        if em is not None:                               # measured emission replaces McCumber where measured
+            le, ye = np.asarray(em[0], float), np.asarray(em[1], float)
+            oke = np.isfinite(ye) & (ye >= 0); le, ye = le[oke], ye[oke]
+            oe = np.argsort(1e7 / le); xe_, ye_ = (1e7 / le)[oe], ye[oe]
+            ine = (nu >= xe_.min()) & (nu <= xe_.max())
+            se = np.where(ine, np.interp(nu, xe_, ye_), se)
+            sa = np.where(inside, meas, sa)
+        spec["sigma_abs"][pair], spec["sigma_em"][pair] = sa, se
+        spec["A_scale"][pair] = float(k)
+        spec.setdefault("measured_bands", {})[f"{pair[0]}->{pair[1]}"] = dict(eps_cm1=float(eps), A_scale=float(k))
+    return spec
 
 
 def key_transitions(res, pairs):

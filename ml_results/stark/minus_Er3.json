@@ -1,0 +1,729 @@
+{
+ "holdout": "Er3+",
+ "baselines": {
+  "isotropic JO": {
+   "train": 242.86645976478397,
+   "train_components": {
+    "shape": 132.4,
+    "width": 17.4,
+    "peak_shift": 63.6,
+    "ratio_log10": 0.9,
+    "peak_nm": 28.5
+   },
+   "test": 108.57659281411127,
+   "test_components": {
+    "shape": 45.4,
+    "width": 10.0,
+    "peak_shift": 1.9,
+    "ratio_log10": 51.3
+   },
+   "test_detail": [
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      3.9591795818074598,
+      -2.2832817674561743,
+      1.3333333333333333
+     ],
+     "shape_rms": 0.197958979090373,
+     "width_model": 50.62966286435387,
+     "width_meas": 71.3095238095238,
+     "peak_shift_nm": 20.0,
+     "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "abs",
+     "resid": [
+      2.5040702318051093,
+      -1.6065692264193223,
+      -0.2
+     ],
+     "shape_rms": 0.12520351159025547,
+     "width_model": 40.87944698857705,
+     "width_meas": 48.00399999999999,
+     "peak_shift_nm": -3.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      2.7627785828943194,
+      -0.5206870111538223,
+      -0.06666666666666667
+     ],
+     "shape_rms": 0.13813892914471598,
+     "width_model": 37.74579383655519,
+     "width_meas": 39.76323529411765,
+     "peak_shift_nm": -1.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.83221859956301
+     ],
+     "model": -0.23016714419659273,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.7953113363105122
+     ],
+     "model": 0.05065896399821262,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      3.239508819899153
+     ],
+     "model": 0.2037879371881955,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      3.1914455469096357
+     ],
+     "model": 0.31828944033174034,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "abs",
+     "resid": [
+      2.3787447773108363,
+      -1.1143858618758589,
+      -0.2
+     ],
+     "shape_rms": 0.11893723886554183,
+     "width_model": 37.943524288386186,
+     "width_meas": 42.4165,
+     "peak_shift_nm": -3.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      3.190550785743934,
+      -0.8136271937719278,
+      -0.06666666666666667
+     ],
+     "shape_rms": 0.1595275392871967,
+     "width_model": 33.009382470589316,
+     "width_meas": 35.80739934711644,
+     "peak_shift_nm": -1.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.8498477331485637
+     ],
+     "model": -0.25605460252138434,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.7197482228407817
+     ],
+     "model": 0.04889707304274975,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.399091964350221
+     ],
+     "model": 0.1984832603979394,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.6015346483569164
+     ],
+     "model": 0.302342872245958,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    }
+   ]
+  },
+  "odd-rank, equal amplitudes": {
+   "train": 276.5085120664916,
+   "train_components": {
+    "shape": 149.5,
+    "width": 40.4,
+    "peak_shift": 56.6,
+    "ratio_log10": 1.1,
+    "peak_nm": 28.9
+   },
+   "test": 99.90436444078932,
+   "test_components": {
+    "shape": 41.2,
+    "width": 6.1,
+    "peak_shift": 1.9,
+    "ratio_log10": 50.7
+   },
+   "test_detail": [
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      3.909642907312575,
+      -2.237391396277891,
+      1.3333333333333333
+     ],
+     "shape_rms": 0.19548214536562877,
+     "width_model": 50.97937722582936,
+     "width_meas": 71.3095238095238,
+     "peak_shift_nm": 20.0,
+     "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "abs",
+     "resid": [
+      2.2204049344747623,
+      -1.0162544364237889,
+      -0.2
+     ],
+     "shape_rms": 0.11102024672373813,
+     "width_model": 43.365270294470925,
+     "width_meas": 48.00399999999999,
+     "peak_shift_nm": -3.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      2.6601196546472874,
+      0.003038347932541608,
+      -0.06666666666666667
+     ],
+     "shape_rms": 0.1330059827323644,
+     "width_model": 39.775318584061345,
+     "width_meas": 39.76323529411765,
+     "peak_shift_nm": -1.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.7450439666213704
+     ],
+     "model": -0.2345258758436747,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.742264575383139
+     ],
+     "model": 0.048006625951843955,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      3.2313261700202345
+     ],
+     "model": 0.20337880469424957,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "aluminosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      3.150074653328949
+     ],
+     "model": 0.316220895652706,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "abs",
+     "resid": [
+      2.199949429858779,
+      -0.21883037832912194,
+      -0.2
+     ],
+     "shape_rms": 0.10999747149293895,
+     "width_model": 41.49838038670938,
+     "width_meas": 42.4165,
+     "peak_shift_nm": -3.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "curve",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": "em",
+     "resid": [
+      3.0178136935208513,
+      -0.0657378666938965,
+      -0.13333333333333333
+     ],
+     "shape_rms": 0.15089068467604258,
+     "width_model": 35.57278115251462,
+     "width_meas": 35.80739934711644,
+     "peak_shift_nm": -2.0,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.916959255823662
+     ],
+     "model": -0.2526990263876294,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.6973018383997267
+     ],
+     "model": 0.047774753820697,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      2.4697241903574447
+     ],
+     "model": 0.2020148716983006,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    },
+    {
+     "family": "germanosilicate",
+     "ion": "Er3+",
+     "kind": "ratio_log10",
+     "pair": [
+      "4I13/2",
+      "4I15/2"
+     ],
+     "which": null,
+     "resid": [
+      1.5068246737085471
+     ],
+     "model": 0.29760737351353955,
+     "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+    }
+   ]
+  }
+ },
+ "learned": {
+  "ratio": {
+   "2": 0.03164555581236339,
+   "4": 0.1547386557390951,
+   "6": 18.418012056690184
+  }
+ },
+ "train": 215.3469554840788,
+ "train_components": {
+  "shape": 117.1,
+  "width": 23.6,
+  "peak_shift": 45.3,
+  "ratio_log10": 0.8,
+  "peak_nm": 28.6
+ },
+ "evals": 50,
+ "seconds": 177.71382856369019,
+ "test": 110.66584806649657,
+ "test_components": {
+  "shape": 48.0,
+  "width": 10.3,
+  "peak_shift": 1.9,
+  "ratio_log10": 50.5
+ },
+ "test_detail": [
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": "em",
+   "resid": [
+    4.071532490108732,
+    -2.4482031667427013,
+    1.3333333333333333
+   ],
+   "shape_rms": 0.20357662450543662,
+   "width_model": 49.392540820416535,
+   "width_meas": 71.3095238095238,
+   "peak_shift_nm": 20.0,
+   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": "abs",
+   "resid": [
+    2.4972273584825677,
+    -1.4199620227684013,
+    -0.2
+   ],
+   "shape_rms": 0.1248613679241284,
+   "width_model": 41.649448969126404,
+   "width_meas": 48.00399999999999,
+   "peak_shift_nm": -3.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": "em",
+   "resid": [
+    2.847767824189572,
+    -0.4547779348141644,
+    -0.06666666666666667
+   ],
+   "shape_rms": 0.1423883912094786,
+   "width_model": 37.99539452127668,
+   "width_meas": 39.76323529411765,
+   "peak_shift_nm": -1.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    2.8166051826072662
+   ],
+   "model": -0.23094781504437992,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    1.7638806737617996
+   ],
+   "model": 0.04908743087077699,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    3.2106293160348276
+   ],
+   "model": 0.20234396199497923,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "aluminosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    3.0887479361271453
+   ],
+   "model": 0.3131545597926158,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": "abs",
+   "resid": [
+    2.4671731960232735,
+    -1.1480479692240653,
+    -0.2
+   ],
+   "shape_rms": 0.12335865980116369,
+   "width_model": 37.81601312474,
+   "width_meas": 42.4165,
+   "peak_shift_nm": -3.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "curve",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": "em",
+   "resid": [
+    3.313872264943322,
+    -0.8826169513250273,
+    -0.13333333333333333
+   ],
+   "shape_rms": 0.1656936132471661,
+   "width_model": 32.78243529291016,
+   "width_meas": 35.80739934711644,
+   "peak_shift_nm": -2.0,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    2.889664115158954
+   ],
+   "model": -0.25406378342086483,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    1.7156969747493727
+   ],
+   "model": 0.04869451063817931,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    2.4405473305114653
+   ],
+   "model": 0.20055602870600162,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  },
+  {
+   "family": "germanosilicate",
+   "ion": "Er3+",
+   "kind": "ratio_log10",
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "which": null,
+   "resid": [
+    1.5286992027250772
+   ],
+   "model": 0.29870109996436606,
+   "src": "Giles & Desurvire, JLT 9, 271 (1991) Fig. 2"
+  }
+ ]
+}
