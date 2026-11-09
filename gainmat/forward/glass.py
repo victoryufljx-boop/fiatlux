@@ -47,6 +47,10 @@ for _f in FAMILIES.values():
 OMEGA = {
     ("Er3+", "silica"): (4.23, 1.04, 0.61),
     ("Pr3+", "ZBLAN"): (1.431, 4.221, 4.872),     # Ohishi et al., Opt. Lett. 16, 1747 (1991)
+    # Wetenkamp, West & Toebben, J. Non-Cryst. Solids 140, 35 (1992), Table 1
+    ("Ho3+", "ZBLAN"): (2.30, 2.30, 1.71),
+    ("Tm3+", "ZBLAN"): (2.70, 1.59, 1.09),
+    ("Nd3+", "ZBLAN"): (2.10, 3.71, 4.62),
     ("Tm3+", "silica"): (6.23, 1.91, 1.36),       # Walsh & Barnes, Appl. Phys. B 78, 325 (2004)
     ("Er3+", "ZBLAN"): (2.54, 1.39, 0.97),
 }
@@ -102,6 +106,7 @@ def load_refs():
                 tau = tau.get("value") if isinstance(tau, dict) else tau
                 if ion == "Yb3+" and tau and fam in FAMILIES:
                     OMEGA[(ion, fam)] = yb_omega_from_lifetime(float(tau), FAMILIES[fam]["n"])
+        OMEGA.update(OMEGA_PRIMARY)          # values read from the primary papers win
         loaded.append("glass_refs")
     except ImportError:
         pass
@@ -141,7 +146,10 @@ I_PUMP = np.logspace(2, np.log10(2e6), 10)
 
 
 # measured sets the data agent flagged as unreliable (garbled exponent / implausibly low)
-OMEGA_SUSPECT = {("Er3+", "chalcogenide"), ("Ho3+", "ZBLAN")}
+OMEGA_SUSPECT = {("Er3+", "chalcogenide")}
+# Omega read directly from primary papers (kept over compilation values by load_refs)
+OMEGA_PRIMARY = {k: OMEGA[k] for k in [("Pr3+", "ZBLAN"), ("Ho3+", "ZBLAN"), ("Tm3+", "ZBLAN"),
+                                       ("Nd3+", "ZBLAN"), ("Tm3+", "silica")]}
 
 
 def omegas_for(ion, family):
@@ -242,6 +250,36 @@ SPM_SCALE = {"O": 1.0, "F": 1.0, "S": 1.0}
 USE_HANDBOOK = True
 
 
+# Ion-specific strength factor on top of the per-ligand scale.  Yb3+: the Er-calibrated scale
+# gives half the measured Stark splittings in silica glass (Pask et al., IEEE JSTQE 1, 2 (1995),
+# Fig. 1(a): 2F7/2 1490, 2F5/2 1370 cm^-1, germanosilicate).  Yb3+ has the lowest
+# ligand->metal charge-transfer energy of the trivalent lanthanides after Eu3+, and the
+# charge-transfer (covalent) contribution to the crystal field grows as that energy falls,
+# so a larger effective field is physical.  Set from the 2F7/2 total splitting only;
+# 2F5/2 is then a check.  calibrate_yb_spm() recomputes it.
+ION_SPM_SCALE = {}
+
+
+def calibrate_yb_spm(target_cm1=1490.0, family="germanosilicate", n_sites=30, verbose=True):
+    """Scale Yb3+ SPM so the site-averaged 2F7/2 splitting matches target (Pask 1995)."""
+    ION_SPM_SCALE["Yb"] = 1.0
+    out = {}
+    for _ in range(4):
+        r = run("Yb3+", family, n_sites=n_sites, pumps=[])
+        sp = r["split"]["2F7/2"]
+        ION_SPM_SCALE["Yb"] *= target_cm1 / sp
+        out = dict(split_before=sp, scale=ION_SPM_SCALE["Yb"])
+        if abs(sp - target_cm1) < 10:
+            break
+    r = run("Yb3+", family, n_sites=n_sites, pumps=[])
+    out.update(split_2F72=r["split"]["2F7/2"], split_2F52=r["split"]["2F5/2"],
+               target_2F72=target_cm1, measured_2F52=1370.0)
+    if verbose:
+        print("Yb SPM scale %.3f: 2F7/2 %.0f (target %.0f), 2F5/2 %.0f (Pask 1370)" % (
+            ION_SPM_SCALE["Yb"], out["split_2F72"], target_cm1, out["split_2F52"]))
+    return out
+
+
 def spm_for(ion: str, ligand: str) -> dict:
     el = ion.replace("3+", "")
     if USE_HANDBOOK:
@@ -249,9 +287,10 @@ def spm_for(ion: str, ligand: str) -> dict:
             from ..refs.spm_handbook import SPM_FOR_MODEL as H
             if ligand in H and el in H[ligand]:
                 p = dict(H[ligand][el])
+                f = SPM_SCALE.get(ligand, 1.0) * ION_SPM_SCALE.get(el, 1.0)
                 for k in (2, 4, 6):
-                    p[f"B{k}"] = p[f"B{k}"] * SPM_SCALE.get(ligand, 1.0)
-                p["src"] = f"Newman & Ng handbook x{SPM_SCALE.get(ligand, 1.0):.3f}"
+                    p[f"B{k}"] = p[f"B{k}"] * f
+                p["src"] = f"Newman & Ng handbook x{f:.3f}"
                 return p
         except ImportError:
             pass

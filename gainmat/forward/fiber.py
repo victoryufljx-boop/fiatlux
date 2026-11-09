@@ -201,10 +201,13 @@ def laser(lm: LocalModel, L_m, core_um, NA, N_cm3, pumps, laser_nm, R1=0.99, R2=
         shape_f = np.exp(cum); shape_b = np.exp(G - cum)
         # adjust the circulating power multiplicatively toward rt = 0 (gain clamping)
         scale = np.exp(np.clip(rt, -2, 2) * 0.5)
-        Pf0 = max(Pf[0] * scale, 1e-12)
-        newPf = Pf0 * shape_f
+        Pmax = 5.0 * sum(P for _, P in pumps) + 1e-6       # energy conservation bound
+        Pf0 = min(max(Pf[0] * scale, 1e-12), Pmax)
+        if not np.isfinite(Pf0):
+            Pf0 = 1e-3
+        newPf = np.minimum(Pf0 * shape_f, Pmax)
         PbL = newPf[-1] * R2
-        newPb = PbL * shape_b
+        newPb = np.minimum(PbL * shape_b, Pmax)
         newPf[0] = R1 * newPb[0] if R1 * newPb[0] > 0 else newPf[0]
         Pf = 0.5 * Pf + 0.5 * newPf; Pb = 0.5 * Pb + 0.5 * newPb; Pp = 0.5 * Pp + 0.5 * newPp
         out = (1 - R2) * Pf[-1]
