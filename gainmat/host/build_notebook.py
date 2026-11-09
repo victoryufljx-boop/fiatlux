@@ -38,7 +38,8 @@ pip -q install mace-torch 'e3nn==0.4.4'   # uses Colab's preinstalled CUDA torch
 gpaw info | grep -E 'MPI|FFTW|libxc|scalapack'
 # MPI check: must print the number of ranks
 GPAW_MPI_BACKEND=cgpaw mpiexec -n $(nproc) --allow-run-as-root --oversubscribe \
-    python -c "from gpaw.mpi import world; world.rank == 0 and print('GPAW MPI ranks:', world.size)"""))
+    python -c "from gpaw.mpi import world; world.rank == 0 and print('GPAW MPI ranks:', world.size)"
+"""))
 
 cells.append(code("""# If you uploaded a zip instead of the folder:
 import os, zipfile, glob
