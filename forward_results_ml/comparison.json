@@ -1,0 +1,1060 @@
+{
+ "summary": {
+  "Stark splitting": {
+   "independent": {
+    "off": {
+     "n": 9,
+     "rms_dex": 0.1773974710877843,
+     "within30": 0.6666666666666666,
+     "within2x": 0.7777777777777778
+    },
+    "on": {
+     "n": 9,
+     "rms_dex": 0.1773974710877843,
+     "within30": 0.6666666666666666,
+     "within2x": 0.7777777777777778
+    },
+    "n_changed": 0
+   }
+  },
+  "integrated cross section": {
+   "independent": {
+    "off": {
+     "n": 14,
+     "rms_dex": 0.2229632929313149,
+     "within30": 0.2857142857142857,
+     "within2x": 0.7857142857142857
+    },
+    "on": {
+     "n": 14,
+     "rms_dex": 0.2229632929313149,
+     "within30": 0.2857142857142857,
+     "within2x": 0.7857142857142857
+    },
+    "n_changed": 0
+   },
+   "same source as L2 widths": {
+    "off": {
+     "n": 3,
+     "rms_dex": 0.0826298540121472,
+     "within30": 1.0,
+     "within2x": 1.0
+    },
+    "on": {
+     "n": 3,
+     "rms_dex": 0.08482214618739592,
+     "within30": 0.6666666666666666,
+     "within2x": 1.0
+    },
+    "n_changed": 2
+   }
+  },
+  "lifetime": {
+   "independent": {
+    "off": {
+     "n": 24,
+     "rms_dex": 0.3891748049969654,
+     "within30": 0.625,
+     "within2x": 0.875
+    },
+    "on": {
+     "n": 24,
+     "rms_dex": 0.3871500464193601,
+     "within30": 0.6666666666666666,
+     "within2x": 0.875
+    },
+    "n_changed": 11
+   },
+   "in-sample (trained L3)": {
+    "off": {
+     "n": 4,
+     "rms_dex": 0.6104121296344789,
+     "within30": 0.25,
+     "within2x": 0.25
+    },
+    "on": {
+     "n": 4,
+     "rms_dex": 0.4002419026264711,
+     "within30": 0.75,
+     "within2x": 0.75
+    },
+    "n_changed": 2
+   }
+  },
+  "peak cross section": {
+   "independent": {
+    "off": {
+     "n": 11,
+     "rms_dex": 0.19682250541811344,
+     "within30": 0.6363636363636364,
+     "within2x": 0.8181818181818182
+    },
+    "on": {
+     "n": 11,
+     "rms_dex": 0.17859053474240547,
+     "within30": 0.6363636363636364,
+     "within2x": 0.9090909090909091
+    },
+    "n_changed": 1
+   },
+   "same source as L2 widths": {
+    "off": {
+     "n": 7,
+     "rms_dex": 0.1395531612789943,
+     "within30": 0.42857142857142855,
+     "within2x": 1.0
+    },
+    "on": {
+     "n": 7,
+     "rms_dex": 0.09194554382365165,
+     "within30": 0.5714285714285714,
+     "within2x": 1.0
+    },
+    "n_changed": 7
+   }
+  },
+  "radiative lifetime": {
+   "independent": {
+    "off": {
+     "n": 12,
+     "rms_dex": 0.06497055704770734,
+     "within30": 0.9166666666666666,
+     "within2x": 1.0
+    },
+    "on": {
+     "n": 12,
+     "rms_dex": 0.06549044277885965,
+     "within30": 0.9166666666666666,
+     "within2x": 1.0
+    },
+    "n_changed": 1
+   }
+  }
+ },
+ "rows": [
+  {
+   "cls": "lifetime",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "item": "['2F5/2', '2F7/2']",
+   "measured": 0.83,
+   "off": -0.0024038231501490987,
+   "on": -0.0024038231501490987,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Yb3+",
+   "host": "phosphosilicate",
+   "item": "['2F5/2', '2F7/2']",
+   "measured": 1.45,
+   "off": -0.0019838203959594665,
+   "on": -0.0019838203959594665,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "['4I13/2', '4I15/2']",
+   "measured": 10.0,
+   "off": 0.10985428012033252,
+   "on": 0.10985428012033252,
+   "changed": false,
+   "subset": "in-sample (trained L3)"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "['4I13/2', '4I15/2']",
+   "measured": 6.44,
+   "off": 0.14698874065901765,
+   "on": 0.14297670744730392,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "['3F4', '3H6']",
+   "measured": 0.65,
+   "off": 0.7886292346268705,
+   "on": 0.009155259472000105,
+   "changed": true,
+   "subset": "in-sample (trained L3)"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "['3H4', '3F4']",
+   "measured": 1.5,
+   "off": -0.07039750206881862,
+   "on": -0.07492453673270656,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Pr3+",
+   "host": "ZBLAN",
+   "item": "['1G4', '3H5']",
+   "measured": 0.11,
+   "off": 0.28948307890372954,
+   "on": 0.11681078833566542,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "['4I11/2', '4I13/2']",
+   "measured": 6.8999999999999995,
+   "off": -0.01788126994177363,
+   "on": -0.03821068654052671,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "['5I6', '5I7']",
+   "measured": 3.5,
+   "off": 0.10570318255295727,
+   "on": 0.08497881764120889,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "silica",
+   "item": "['5I7', '5I8']",
+   "measured": 0.7,
+   "off": 0.4842228513221115,
+   "on": -0.08177084521582513,
+   "changed": true,
+   "subset": "in-sample (trained L3)"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Dy3+",
+   "host": "ZBLAN",
+   "item": "['6H13/2', '6H15/2']",
+   "measured": 0.65,
+   "off": 0.7803322112852427,
+   "on": 0.6049353206919574,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "['4F9/2', '4I9/2']",
+   "measured": 0.177,
+   "off": 0.12046967659376633,
+   "on": 0.058539637906682644,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I7",
+   "measured": 12.01,
+   "off": 0.04389530544466861,
+   "on": 0.03976808556627975,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I6",
+   "measured": 3.5,
+   "off": 0.10570318255295727,
+   "on": 0.0849788176412088,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5F5",
+   "measured": 0.29,
+   "off": -1.5877766717619286,
+   "on": -1.6974226119368228,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5S2",
+   "measured": 0.3,
+   "off": -0.006704209719714442,
+   "on": -0.033768672728943724,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I13/2",
+   "measured": 8.69,
+   "off": 0.016854831570163337,
+   "on": 0.012842798358449564,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I11/2",
+   "measured": 6.71,
+   "off": -0.00575469937351044,
+   "on": -0.026084115972263438,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4S3/2",
+   "measured": 0.57,
+   "off": 0.0012840618576615392,
+   "on": -0.01909367129997155,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Nd3+",
+   "host": "ZBLAN",
+   "item": "4F3/2",
+   "measured": 0.46,
+   "off": -0.016747442729089426,
+   "on": -0.02062020498248707,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "3F4",
+   "measured": 11.2,
+   "off": -0.13831475785188393,
+   "on": -0.14270676772249868,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "3H4",
+   "measured": 1.51,
+   "off": -0.07328319030630681,
+   "on": -0.07781022497019476,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Pr3+",
+   "host": "ZBLAN",
+   "item": "1G4",
+   "measured": 0.11,
+   "off": 0.28948307890372954,
+   "on": 0.11681078833566542,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "silica",
+   "item": "3H4",
+   "measured": 0.014,
+   "off": 0.20265244616492112,
+   "on": 0.20265244616492112,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3H4",
+   "measured": 0.037,
+   "off": 0.05159230404657415,
+   "on": 0.05159230404657415,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "germanosilicate",
+   "item": "3H4",
+   "measured": 0.021,
+   "off": 0.03005554328326946,
+   "on": 0.03005554328326946,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "5I7",
+   "measured": 1.9,
+   "off": 0.4493983321827138,
+   "on": 0.4493983321827138,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "lifetime",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3F4",
+   "measured": 0.65,
+   "off": 0.7886292346268705,
+   "on": 0.7886292346268705,
+   "changed": false,
+   "subset": "in-sample (trained L3)"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3F4",
+   "measured": 6.0,
+   "off": -0.019008935574793714,
+   "on": -0.019008935574793714,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Tm3+",
+   "host": "silica",
+   "item": "3F4",
+   "measured": 4.56,
+   "off": 0.04040339541539476,
+   "on": 0.04040339541539476,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Tm3+",
+   "host": "silica",
+   "item": "3H4",
+   "measured": 0.67,
+   "off": 0.09262729453421276,
+   "on": 0.09262729453421276,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "2F5/2",
+   "measured": 0.84,
+   "off": 0.09710003651778511,
+   "on": 0.09710003651778511,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Pr3+",
+   "host": "ZBLAN",
+   "item": "1G4",
+   "measured": 3.24,
+   "off": -0.14070655692957387,
+   "on": -0.1458780476052723,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I7",
+   "measured": 12.65,
+   "off": 0.0214196004840234,
+   "on": 0.017310049747939642,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I6",
+   "measured": 5.87,
+   "off": 0.023817924005702693,
+   "on": 0.019774719475974024,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I13/2",
+   "measured": 9.52,
+   "off": -0.022762325686533885,
+   "on": -0.026774353664605375,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I11/2",
+   "measured": 8.69,
+   "off": -0.016491583481227673,
+   "on": -0.02061392577534661,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "3F4",
+   "measured": 6.56,
+   "off": 0.09400423153916397,
+   "on": 0.08961528500646652,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "3H4",
+   "measured": 1.32,
+   "off": -0.013935933302504418,
+   "on": -0.017901409064702764,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "radiative lifetime",
+   "ion": "Nd3+",
+   "host": "ZBLAN",
+   "item": "4F3/2",
+   "measured": 0.44,
+   "off": 0.0025579459219374386,
+   "on": -0.0013147388006972819,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "4I13/2->4I15/2 em",
+   "measured": 5e-21,
+   "off": 0.02397348118793611,
+   "on": 0.02397348118793611,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3F4->3H6 em",
+   "measured": 5.5e-21,
+   "off": -0.06902536414894271,
+   "on": -0.06902536414894271,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "5I7->5I8 em",
+   "measured": 7e-21,
+   "off": -0.3402746777631092,
+   "on": -0.3402746777631092,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I11/2->4I13/2 em",
+   "measured": 5.6e-21,
+   "off": 0.006465213711678257,
+   "on": -0.11999521581287528,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I6->5I7 em",
+   "measured": 5.2e-21,
+   "off": 0.2624123180792292,
+   "on": 0.08616233013299014,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Dy3+",
+   "host": "ZBLAN",
+   "item": "6H13/2->6H15/2 em",
+   "measured": 2.95e-21,
+   "off": 0.1405348730825087,
+   "on": 0.023288450776663114,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3F4->3H6 abs",
+   "measured": 4.2e-21,
+   "off": 0.0012393094387623145,
+   "on": 0.0012393094387623145,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3F4->3H6 em",
+   "measured": 3.76e-21,
+   "off": 0.09614948041764007,
+   "on": 0.09614948041764007,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "silica",
+   "item": "3F4->3H6 em",
+   "measured": 6e-21,
+   "off": 0.029785637817578817,
+   "on": 0.029785637817578817,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "silica",
+   "item": "3F4->3H6 abs",
+   "measured": 4.47e-21,
+   "off": 0.08767503613541917,
+   "on": 0.08767503613541917,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "5I7->5I8 abs",
+   "measured": 4.3e-21,
+   "off": -0.07146058466227892,
+   "on": -0.07146058466227892,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "5I7->5I8 em",
+   "measured": 6e-21,
+   "off": -0.273327888132496,
+   "on": -0.273327888132496,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "2F5/2->2F7/2 em",
+   "measured": 2.5e-20,
+   "off": -0.22940181220737274,
+   "on": -0.22940181220737274,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Pr3+",
+   "host": "ZBLAN",
+   "item": "1G4->3H5 em",
+   "measured": 3.48e-21,
+   "off": 0.39337476319339565,
+   "on": 0.2818758403679277,
+   "changed": true,
+   "subset": "independent"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "5I7->5I8 em",
+   "measured": 5.6e-21,
+   "off": 0.0044072345326921876,
+   "on": -0.118626070105432,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "4I13/2->4I15/2 em",
+   "measured": 4.2e-21,
+   "off": 0.1457132740378071,
+   "on": 0.00722492985019334,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Tm3+",
+   "host": "ZBLAN",
+   "item": "3F4->3H6 em",
+   "measured": 5.7e-21,
+   "off": -0.02504769343732211,
+   "on": -0.1382406371756012,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "peak cross section",
+   "ion": "Nd3+",
+   "host": "ZBLAN",
+   "item": "4F3/2->4I11/2 em",
+   "measured": 2.64e-20,
+   "off": 0.1606061974108865,
+   "on": -0.059815653678381486,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "4I13/2 lo",
+   "measured": 6544,
+   "off": 0.0006084136837081715,
+   "on": 0.0006084136837081715,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "4I15/2 split",
+   "measured": 268,
+   "off": 0.23103333229207446,
+   "on": 0.23103333229207446,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Er3+",
+   "host": "silica",
+   "item": "4I15/2 split",
+   "measured": 445,
+   "off": -0.07019503140994221,
+   "on": -0.07019503140994221,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Er3+",
+   "host": "silica",
+   "item": "4I13/2 split",
+   "measured": 330,
+   "off": -0.09725121951613622,
+   "on": -0.09725121951613622,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "2F7/2 split",
+   "measured": 1490,
+   "off": -0.3028936184170046,
+   "on": -0.3028936184170046,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "2F5/2 split",
+   "measured": 1370,
+   "off": -0.3516497810635491,
+   "on": -0.3516497810635491,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "2F5/2 lo",
+   "measured": 10260,
+   "off": 0.0033763093494847524,
+   "on": 0.0033763093494847524,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3H4 lo",
+   "measured": 12710,
+   "off": -0.0018159164334967566,
+   "on": -0.0018159164334967566,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "Stark splitting",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "3H5 hi",
+   "measured": 9090,
+   "off": -0.0070740503784919,
+   "on": -0.0070740503784919,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "Tm:Al-silica abs (Agger 2006)",
+   "measured": 1.0,
+   "off": -0.08144784820986581,
+   "on": -0.08144784820986581,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "Tm:Al-silica em (Agger 2006)",
+   "measured": 1.0,
+   "off": 0.0017446299640462351,
+   "on": 0.0017446299640462351,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "Ho:Al-silica abs (Le Gouet 2020)",
+   "measured": 1.0,
+   "off": -0.05531514245140155,
+   "on": -0.05531514245140155,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "Ho:Al-silica em (Le Gouet 2020)",
+   "measured": 1.0,
+   "off": -0.2553905720614004,
+   "on": -0.2553905720614004,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "Yb:Ge-silica abs (Pask 1995)",
+   "measured": 1.0,
+   "off": -0.31248373151956055,
+   "on": -0.31248373151956055,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Yb3+",
+   "host": "germanosilicate",
+   "item": "Yb:Ge-silica em (Pask 1995)",
+   "measured": 1.0,
+   "off": -0.20479582232671825,
+   "on": -0.20479582232671825,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Ho3+",
+   "host": "aluminosilicate",
+   "item": "Ho:alumi 5I7 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": -0.33640581696443883,
+   "on": -0.33640581696443883,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Tm3+",
+   "host": "aluminosilicate",
+   "item": "Tm:alumi 3F4 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": -0.23623373870768852,
+   "on": -0.23623373870768852,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "Er:alumi 4I13/2 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": -0.2057094320979605,
+   "on": -0.2057094320979605,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Er3+",
+   "host": "ZBLAN",
+   "item": "Er:ZBLAN 4I11/2 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": -0.10102160737689173,
+   "on": -0.11604543435849467,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Ho3+",
+   "host": "ZBLAN",
+   "item": "Ho:ZBLAN 5I6 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": 0.07063470683285994,
+   "on": 0.0661849950405426,
+   "changed": false,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Dy3+",
+   "host": "ZBLAN",
+   "item": "Dy:ZBLAN 6H13/2 em (Jackson 2012)",
+   "measured": 1.0,
+   "off": 0.07272173922446673,
+   "on": 0.06113422157465937,
+   "changed": true,
+   "subset": "same source as L2 widths"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "Er 1.5 um band abs",
+   "measured": 1.0,
+   "off": -0.28771039960683376,
+   "on": -0.28771039960683376,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "Er 1.5 um band em",
+   "measured": 1.0,
+   "off": -0.1942082999325372,
+   "on": -0.1942082999325372,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "item": "Er 980 nm band abs",
+   "measured": 1.0,
+   "off": -0.33829787683456836,
+   "on": -0.33829787683456836,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "item": "Yb abs",
+   "measured": 1.0,
+   "off": -0.18406703483194906,
+   "on": -0.18406703483194906,
+   "changed": false,
+   "subset": "independent"
+  },
+  {
+   "cls": "integrated cross section",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "item": "Yb em",
+   "measured": 1.0,
+   "off": -0.036832262941472294,
+   "on": -0.036832262941472294,
+   "changed": false,
+   "subset": "independent"
+  }
+ ]
+}

@@ -1,0 +1,1046 @@
+[
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I7",
+  "kind": "tau",
+  "measured": 12.01,
+  "model": 13.161672889665828,
+  "unit": "ms",
+  "ratio": 1.0958928301137243,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I6",
+  "kind": "tau",
+  "measured": 3.5,
+  "model": 4.256443392647873,
+  "unit": "ms",
+  "ratio": 1.2161266836136781,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5F5",
+  "kind": "tau",
+  "measured": 0.29,
+  "model": 0.005820702274722941,
+  "unit": "ms",
+  "ratio": 0.020071387154217038,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5S2",
+  "kind": "tau",
+  "measured": 0.3,
+  "model": 0.27755725388740154,
+  "unit": "ms",
+  "ratio": 0.9251908462913385,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": "5S2,5F4 thermalised in the paper"
+ },
+ {
+  "group": "lifetime",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I13/2",
+  "kind": "tau",
+  "measured": 8.69,
+  "model": 8.950814872328793,
+  "unit": "ms",
+  "ratio": 1.0300132189101028,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I11/2",
+  "kind": "tau",
+  "measured": 6.71,
+  "model": 6.31885521182487,
+  "unit": "ms",
+  "ratio": 0.9417071850707704,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4S3/2",
+  "kind": "tau",
+  "measured": 0.57,
+  "model": 0.5454829548366813,
+  "unit": "ms",
+  "ratio": 0.9569876400643532,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Nd3+",
+  "family": "ZBLAN",
+  "item": "4F3/2",
+  "kind": "tau",
+  "measured": 0.46,
+  "model": 0.43866968894075203,
+  "unit": "ms",
+  "ratio": 0.9536297585668522,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "3F4",
+  "kind": "tau",
+  "measured": 11.2,
+  "model": 8.063270974335001,
+  "unit": "ms",
+  "ratio": 0.719934908422768,
+  "src": "Walsh & Barnes, APB 78, 325 (2004), 0.32 wt%",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "3H4",
+  "kind": "tau",
+  "measured": 1.51,
+  "model": 1.2623120335017461,
+  "unit": "ms",
+  "ratio": 0.8359682341071166,
+  "src": "Walsh & Barnes 2004, 0.32 wt%",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Pr3+",
+  "family": "ZBLAN",
+  "item": "1G4",
+  "kind": "tau",
+  "measured": 0.11,
+  "model": 0.14394728349578098,
+  "unit": "ms",
+  "ratio": 1.3086116681434634,
+  "src": "Ohishi et al., OL 16, 1747 (1991)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "silica",
+  "item": "3H4",
+  "kind": "tau",
+  "measured": 0.014,
+  "model": 0.022324435284007023,
+  "unit": "ms",
+  "ratio": 1.594602520286216,
+  "src": "Faure et al., JNCS 353, 2767 (2007) (<=200 ppm Tm) (pure silica, via Jackson & King 1999)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3H4",
+  "kind": "tau",
+  "measured": 0.037,
+  "model": 0.04166717226227129,
+  "unit": "ms",
+  "ratio": 1.126139790872197,
+  "src": "Faure et al., JNCS 353, 2767 (2007) (<=200 ppm Tm)",
+  "note": "interpolated to 11.3 mol% AlO3/2"
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "germanosilicate",
+  "item": "3H4",
+  "kind": "tau",
+  "measured": 0.021,
+  "model": 0.02250478343327601,
+  "unit": "ms",
+  "ratio": 1.0716563539655242,
+  "src": "Faure et al., JNCS 353, 2767 (2007) (<=200 ppm Tm)",
+  "note": "interpolated to 10 mol% GeO2"
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "5I7",
+  "kind": "tau",
+  "measured": 1.9,
+  "model": 5.34751403559244,
+  "unit": "ms",
+  "ratio": 2.8144810713644426,
+  "src": "Le Gouet et al., arXiv:2003.14188, Forster tau0",
+  "note": "intrinsic decay; 1/e lifetime 0.7 ms includes Ho-Ho transfer"
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3F4",
+  "kind": "tau",
+  "measured": 0.65,
+  "model": 3.995237406894364,
+  "unit": "ms",
+  "ratio": 6.14651908752979,
+  "src": "Agger & Povlsen, OE 14, 50 (2006), 8.4e19 cm^-3",
+  "note": "observed; quantum efficiency ~10%: not single-ion"
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3F4",
+  "kind": "tau_rad",
+  "measured": 6.0,
+  "model": 5.743046263828464,
+  "unit": "ms",
+  "ratio": 0.957174377304744,
+  "src": "Agger & Povlsen 2006 (FL from measured sigma_e)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "silica",
+  "item": "3F4",
+  "kind": "tau_rad",
+  "measured": 4.56,
+  "model": 5.004586938124362,
+  "unit": "ms",
+  "ratio": 1.0974971355535883,
+  "src": "Walsh & Barnes 2004 (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "silica",
+  "item": "3H4",
+  "kind": "tau_rad",
+  "measured": 0.67,
+  "model": 0.8292817295004569,
+  "unit": "ms",
+  "ratio": 1.2377339246275474,
+  "src": "Walsh & Barnes 2004 (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Yb3+",
+  "family": "germanosilicate",
+  "item": "2F5/2",
+  "kind": "tau_rad",
+  "measured": 0.84,
+  "model": 1.0504595230896137,
+  "unit": "ms",
+  "ratio": 1.2505470512971593,
+  "src": "Pask et al., JSTQE 1, 2 (1995)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Pr3+",
+  "family": "ZBLAN",
+  "item": "1G4",
+  "kind": "tau_rad",
+  "measured": 3.24,
+  "model": 2.315618244152956,
+  "unit": "ms",
+  "ratio": 0.7146969889360975,
+  "src": "Ohishi 1991 (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I7",
+  "kind": "tau_rad",
+  "measured": 12.65,
+  "model": 13.164385007885976,
+  "unit": "ms",
+  "ratio": 1.0406628464731997,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I6",
+  "kind": "tau_rad",
+  "measured": 5.87,
+  "model": 6.143456969835912,
+  "unit": "ms",
+  "ratio": 1.0465855144524552,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I13/2",
+  "kind": "tau_rad",
+  "measured": 9.52,
+  "model": 8.950815282730897,
+  "unit": "ms",
+  "ratio": 0.9402116893624892,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I11/2",
+  "kind": "tau_rad",
+  "measured": 8.69,
+  "model": 8.287162420261463,
+  "unit": "ms",
+  "ratio": 0.9536435466353813,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "3F4",
+  "kind": "tau_rad",
+  "measured": 6.56,
+  "model": 8.063417082471005,
+  "unit": "ms",
+  "ratio": 1.229179433303507,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "3H4",
+  "kind": "tau_rad",
+  "measured": 1.32,
+  "model": 1.2666963587935665,
+  "unit": "ms",
+  "ratio": 0.9596184536314897,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "lifetime",
+  "ion": "Nd3+",
+  "family": "ZBLAN",
+  "item": "4F3/2",
+  "kind": "tau_rad",
+  "measured": 0.44,
+  "model": 0.43867000306023374,
+  "unit": "ms",
+  "ratio": 0.9969772796823494,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO)",
+  "note": ""
+ },
+ {
+  "group": "cross_section",
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "item": "4I13/2->4I15/2 em",
+  "kind": "em",
+  "measured": 5e-21,
+  "model": 5.283764899909379e-21,
+  "unit": "cm2",
+  "ratio": 1.0567529799818758,
+  "peak_meas_nm": 1533,
+  "peak_model_nm": 1531.4,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3F4->3H6 em",
+  "kind": "em",
+  "measured": 5.5e-21,
+  "model": 4.691776604743924e-21,
+  "unit": "cm2",
+  "ratio": 0.8530502917716226,
+  "peak_meas_nm": 1810,
+  "peak_model_nm": 1803.8,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "5I7->5I8 em",
+  "kind": "em",
+  "measured": 7e-21,
+  "model": 3.197594308595702e-21,
+  "unit": "cm2",
+  "ratio": 0.45679918694224314,
+  "peak_meas_nm": 2030,
+  "peak_model_nm": 1945.5,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I11/2->4I13/2 em",
+  "kind": "em",
+  "measured": 5.6e-21,
+  "model": 4.2480812167596716e-21,
+  "unit": "cm2",
+  "ratio": 0.758585931564227,
+  "peak_meas_nm": 2730,
+  "peak_model_nm": 2727.8,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I6->5I7 em",
+  "kind": "em",
+  "measured": 5.2e-21,
+  "model": 6.3411156470162906e-21,
+  "unit": "cm2",
+  "ratio": 1.2194453167339019,
+  "peak_meas_nm": 2850,
+  "peak_model_nm": 2844.1,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Dy3+",
+  "family": "ZBLAN",
+  "item": "6H13/2->6H15/2 em",
+  "kind": "em",
+  "measured": 2.95e-21,
+  "model": 3.112507931152417e-21,
+  "unit": "cm2",
+  "ratio": 1.055087434288955,
+  "peak_meas_nm": 2870,
+  "peak_model_nm": 2826.5,
+  "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3F4->3H6 abs",
+  "kind": "abs",
+  "measured": 4.2e-21,
+  "model": 4.212002301677068e-21,
+  "unit": "cm2",
+  "ratio": 1.0028576908754925,
+  "peak_meas_nm": 1650,
+  "peak_model_nm": 1710.0,
+  "src": "Agger & Povlsen 2006 (Tm1)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3F4->3H6 em",
+  "kind": "em",
+  "measured": 3.76e-21,
+  "model": 4.691776604743924e-21,
+  "unit": "cm2",
+  "ratio": 1.247812926793597,
+  "peak_meas_nm": 1817,
+  "peak_model_nm": 1803.8,
+  "src": "Agger & Povlsen 2006 (Tm1, digitised)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "silica",
+  "item": "3F4->3H6 em",
+  "kind": "em",
+  "measured": 6e-21,
+  "model": 6.4259432853925734e-21,
+  "unit": "cm2",
+  "ratio": 1.0709905475654289,
+  "peak_meas_nm": 1837,
+  "peak_model_nm": 1798.6,
+  "src": "Jackson & King, JLT 17, 948 (1999) Fig. 2"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "silica",
+  "item": "3F4->3H6 abs",
+  "kind": "abs",
+  "measured": 4.47e-21,
+  "model": 5.469939958462734e-21,
+  "unit": "cm2",
+  "ratio": 1.2237002144211933,
+  "peak_meas_nm": 1633,
+  "peak_model_nm": 1731.3,
+  "src": "Jackson & King 1999 Fig. 3"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "5I7->5I8 abs",
+  "kind": "abs",
+  "measured": 4.3e-21,
+  "model": 3.647605575879335e-21,
+  "unit": "cm2",
+  "ratio": 0.8482803664835663,
+  "peak_meas_nm": 1946,
+  "peak_model_nm": 1940.2,
+  "src": "Le Gouet et al. 2020"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "5I7->5I8 em",
+  "kind": "em",
+  "measured": 6e-21,
+  "model": 3.197594308595702e-21,
+  "unit": "cm2",
+  "ratio": 0.5329323847659504,
+  "peak_meas_nm": 1950,
+  "peak_model_nm": 1945.5,
+  "src": "Le Gouet et al. 2020"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Yb3+",
+  "family": "germanosilicate",
+  "item": "2F5/2->2F7/2 em",
+  "kind": "em",
+  "measured": 2.5e-20,
+  "model": 1.4741381866254687e-20,
+  "unit": "cm2",
+  "ratio": 0.5896552746501875,
+  "peak_meas_nm": 975,
+  "peak_model_nm": 966.9,
+  "src": "Pask et al. 1995"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Pr3+",
+  "family": "ZBLAN",
+  "item": "1G4->3H5 em",
+  "kind": "em",
+  "measured": 3.48e-21,
+  "model": 6.6597064159583915e-21,
+  "unit": "cm2",
+  "ratio": 1.9137087402179287,
+  "peak_meas_nm": 1322,
+  "peak_model_nm": 1317.2,
+  "src": "Ohishi et al. 1991"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "5I7->5I8 em",
+  "kind": "em",
+  "measured": 5.6e-21,
+  "model": 4.261494741719873e-21,
+  "unit": "cm2",
+  "ratio": 0.7609812038785488,
+  "peak_meas_nm": 2030,
+  "peak_model_nm": 1971.6,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "4I13/2->4I15/2 em",
+  "kind": "em",
+  "measured": 4.2e-21,
+  "model": 4.2704556923243296e-21,
+  "unit": "cm2",
+  "ratio": 1.016775164839126,
+  "peak_meas_nm": 1540,
+  "peak_model_nm": 1531.4,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "3F4->3H6 em",
+  "kind": "em",
+  "measured": 5.7e-21,
+  "model": 4.14604697618902e-21,
+  "unit": "cm2",
+  "ratio": 0.7273766624893018,
+  "peak_meas_nm": 1660,
+  "peak_model_nm": 1801.8,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (wavelength = mean)"
+ },
+ {
+  "group": "cross_section",
+  "ion": "Nd3+",
+  "family": "ZBLAN",
+  "item": "4F3/2->4I11/2 em",
+  "kind": "em",
+  "measured": 2.64e-20,
+  "model": 2.300320094263766e-20,
+  "unit": "cm2",
+  "ratio": 0.8713333690393052,
+  "peak_meas_nm": 1050,
+  "peak_model_nm": 1044.3,
+  "src": "Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%)"
+ },
+ {
+  "group": "stark",
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "item": "4I13/2 lo",
+  "kind": "lo",
+  "measured": 6544,
+  "model": 6553.174073068809,
+  "unit": "cm-1",
+  "diff": 9.174073068808866,
+  "src": "Desurvire & Simpson, OL 15, 547 (1990)"
+ },
+ {
+  "group": "stark",
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "item": "4I15/2 split",
+  "kind": "split",
+  "measured": 268,
+  "model": 456.21349349202166,
+  "unit": "cm-1",
+  "diff": 188.21349349202166,
+  "src": "Desurvire & Simpson 1990 (lower bound: 5 of 8 levels)"
+ },
+ {
+  "group": "stark",
+  "ion": "Er3+",
+  "family": "silica",
+  "item": "4I15/2 split",
+  "kind": "split",
+  "measured": 445,
+  "model": 378.586374606947,
+  "unit": "cm-1",
+  "diff": -66.413625393053,
+  "src": "Desurvire 1990 Table 1, silicate glasses 395-500"
+ },
+ {
+  "group": "stark",
+  "ion": "Er3+",
+  "family": "silica",
+  "item": "4I13/2 split",
+  "kind": "split",
+  "measured": 330,
+  "model": 263.79266800353173,
+  "unit": "cm-1",
+  "diff": -66.20733199646827,
+  "src": "Desurvire 1990 Table 1, silicate glasses 305-357"
+ },
+ {
+  "group": "stark",
+  "ion": "Yb3+",
+  "family": "germanosilicate",
+  "item": "2F7/2 split",
+  "kind": "split",
+  "measured": 1490,
+  "model": 741.8099426746244,
+  "unit": "cm-1",
+  "diff": -748.1900573253756,
+  "src": "Pask et al. 1995 Fig. 1(a)"
+ },
+ {
+  "group": "stark",
+  "ion": "Yb3+",
+  "family": "germanosilicate",
+  "item": "2F5/2 split",
+  "kind": "split",
+  "measured": 1370,
+  "model": 609.6362543668703,
+  "unit": "cm-1",
+  "diff": -760.3637456331297,
+  "src": "Pask et al. 1995 Fig. 1(a)"
+ },
+ {
+  "group": "stark",
+  "ion": "Yb3+",
+  "family": "germanosilicate",
+  "item": "2F5/2 lo",
+  "kind": "lo",
+  "measured": 10260,
+  "model": 10340.074554148312,
+  "unit": "cm-1",
+  "diff": 80.07455414831202,
+  "src": "Pask et al. 1995 Fig. 1(a)"
+ },
+ {
+  "group": "stark",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3H4 lo",
+  "kind": "lo",
+  "measured": 12710,
+  "model": 12656.966601779692,
+  "unit": "cm-1",
+  "diff": -53.0333982203083,
+  "src": "Faure et al. 2007 Table 2 (GSA peak)"
+ },
+ {
+  "group": "stark",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "3H5 hi",
+  "kind": "hi",
+  "measured": 9090,
+  "model": 8943.135951417033,
+  "unit": "cm-1",
+  "diff": -146.86404858296737,
+  "src": "Faure et al. 2007 Table 2 (10% edge)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "item": "Er 4I13/2->4I15/2",
+  "measured": 1500.0,
+  "pump_nm": 975.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    1442.6,
+    1632.4
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: Y. Jeong et al., IEEE JSTQE 13, 573-579 (2007) (Er:Yb large-core, 297 W CW)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "Tm 3F4->3H6",
+  "measured": 1940.0,
+  "pump_nm": 792.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    792.6,
+    842.3
+   ],
+   [
+    1432.3,
+    1549.9
+   ],
+   [
+    1776.2,
+    2010.5
+   ],
+   [
+    2084.2,
+    2642.7
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: M. Eichhorn & S. D. Jackson, Appl. Phys. B 90, 35-41 (2008)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "item": "Tm 3F4->3H6",
+  "measured": 2050.0,
+  "pump_nm": 793.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    797.7,
+    851.4
+   ],
+   [
+    1606.7,
+    2373.0
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: T. Ehrenreich et al., '1 kW, all-glass Tm:fiber laser', SPIE Photonics West 2010, conf. 7850"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "Ho 5I7->5I8",
+  "measured": 2100.0,
+  "pump_nm": 793.0,
+  "reproduced": false,
+  "nearest_edge_nm": null,
+  "error": null,
+  "windows": [],
+  "src": "Jackson 2012 Table B1: S. D. Jackson et al., Opt. Lett. 32, 241-243 (2007) (83 W Ho silica)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "item": "Ho 5I7->5I8",
+  "measured": 2140.0,
+  "pump_nm": 1950.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    1952.4,
+    2206.5
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: A. V. Hemming et al., Proc. SPIE 8237, 82371J (2012)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "item": "Tm 3H4->3H5",
+  "measured": 2310.0,
+  "pump_nm": 1064.0,
+  "reproduced": false,
+  "nearest_edge_nm": null,
+  "error": null,
+  "windows": [],
+  "src": "Jackson 2012 Table B1: R. M. El-Agmy & N. M. Al-Hosiny, Electron. Lett. 46, 936-937 (2010)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "Er 4I11/2->4I13/2",
+  "measured": 2800.0,
+  "pump_nm": 975.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    531.2,
+    558.7
+   ],
+   [
+    841.3,
+    865.4
+   ],
+   [
+    991.9,
+    1017.3
+   ],
+   [
+    1188.8,
+    1243.5
+   ],
+   [
+    1442.2,
+    1636.1
+   ],
+   [
+    2635.7,
+    2930.8
+   ],
+   [
+    3134.8,
+    3309.1
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: S. Tokita et al., Opt. Lett. 34, 3062-3064 (2009) (liquid-cooled 24 W Er:ZBLAN)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "Ho 5I6->5I7",
+  "measured": 2860.0,
+  "pump_nm": 1100.0,
+  "reproduced": false,
+  "nearest_edge_nm": 18.5,
+  "error": null,
+  "windows": [
+   [
+    1175.6,
+    1200.8
+   ],
+   [
+    1988.9,
+    2077.3
+   ],
+   [
+    2878.5,
+    3063.7
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: S. D. Jackson, Opt. Lett. 29, 334-336 (2004)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Dy3+",
+  "family": "ZBLAN",
+  "item": "Dy 6H13/2->6H15/2",
+  "measured": 2900.0,
+  "pump_nm": 1100.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    1609.3,
+    1654.5
+   ],
+   [
+    2585.3,
+    3399.0
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: S. D. Jackson, Appl. Phys. Lett. 83, 1316-1318 (2003)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "Ho 5I6->5I7 (cascade with 5I7->5I8 at ~2.1 um)",
+  "measured": 3002.0,
+  "pump_nm": 1150.0,
+  "reproduced": true,
+  "nearest_edge_nm": 0.0,
+  "error": null,
+  "windows": [
+   [
+    1150.7,
+    1204.2
+   ],
+   [
+    1919.4,
+    2083.3
+   ],
+   [
+    2876.9,
+    3069.4
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: J. Li, D. D. Hudson & S. D. Jackson, Opt. Lett. 36, 3642-3644 (2011)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "Ho 5S2->5F5",
+  "measured": 3220.0,
+  "pump_nm": 532.0,
+  "reproduced": false,
+  "nearest_edge_nm": 56.5,
+  "error": null,
+  "windows": [
+   [
+    538.7,
+    557.0
+   ],
+   [
+    1104.2,
+    1201.6
+   ],
+   [
+    1353.2,
+    1385.0
+   ],
+   [
+    1817.5,
+    2095.6
+   ],
+   [
+    3276.5,
+    3506.3
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: C. Carbonnier, H. Tobben & U. B. Unrau, Electron. Lett. 34, 893-894 (1998)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "item": "Er 4F9/2->4I9/2",
+  "measured": 3450.0,
+  "pump_nm": 653.0,
+  "reproduced": false,
+  "nearest_edge_nm": 496.6999999999998,
+  "error": null,
+  "windows": [
+   [
+    658.0,
+    666.9
+   ],
+   [
+    975.2,
+    1024.2
+   ],
+   [
+    1451.8,
+    1625.0
+   ],
+   [
+    2616.4,
+    2953.3
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: H. Tobben, Electron. Lett. 28, 1361-1363 (1992)"
+ },
+ {
+  "group": "laser_wavelength",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "item": "Ho 5I5->5I6",
+  "measured": 3950.0,
+  "pump_nm": 890.0,
+  "reproduced": false,
+  "nearest_edge_nm": 876.9000000000001,
+  "error": null,
+  "windows": [
+   [
+    1103.0,
+    1205.7
+   ],
+   [
+    1820.2,
+    2085.9
+   ],
+   [
+    2881.8,
+    3073.1
+   ]
+  ],
+  "src": "Jackson 2012 Table B1: J. Schneider, C. Carbonnier & U. B. Unrau, Appl. Opt. 36, 8595-8600 (1997)"
+ }
+]

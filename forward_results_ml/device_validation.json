@@ -1,0 +1,57 @@
+[
+ {
+  "variant": "single-ion",
+  "quantity": "net gain at 1310 nm, 180 mW",
+  "model": 10.364122315542794,
+  "measured": 5.2,
+  "model_slope_dB_per_mW": 0.055849781842222335,
+  "measured_slope_dB_per_mW": 0.03,
+  "note": "8 m, 4 um core, Delta n 0.6 %, 500 wppm, 1017 nm backward pump; measured internal gain 7.1 dB",
+  "seconds": 1.5816154479980469,
+  "case": "Pr:ZBLAN amplifier (Ohishi et al. 1991)"
+ },
+ {
+  "variant": "observed",
+  "quantity": "net gain at 1310 nm, 180 mW",
+  "model": 8.08144440718181,
+  "measured": 5.2,
+  "model_slope_dB_per_mW": 0.04392562552896611,
+  "measured_slope_dB_per_mW": 0.03,
+  "note": "8 m, 4 um core, Delta n 0.6 %, 500 wppm, 1017 nm backward pump; measured internal gain 7.1 dB",
+  "seconds": 4.2383482456207275,
+  "case": "Pr:ZBLAN amplifier (Ohishi et al. 1991)"
+ },
+ {
+  "variant": "single-ion",
+  "quantity": "slope vs launched 1973 nm power; output at 2.4 W",
+  "model_slope": -0.0547586215695854,
+  "measured_slope": 0.254,
+  "model_P_out_W": 0.006617871949732677,
+  "measured_P_out_W": 0.26,
+  "curve": [
+   [
+    0.3,
+    0.07224814306090081
+   ],
+   [
+    0.8,
+    0.19170242813971705
+   ],
+   [
+    1.4,
+    0.16771621676728213
+   ],
+   [
+    2.0,
+    0.030286459914499762
+   ],
+   [
+    2.4,
+    0.006617871949732677
+   ]
+  ],
+  "note": "18 cm, 10 um core, NA 0.15, 1 mol% Er, 985 nm 175 mW launched, R 0.99 / 0.90; measured slope is vs INCIDENT P2 (52 % vs absorbed); pump overlap 0.8 assumed (multimode)",
+  "seconds": 18.938883781433105,
+  "case": "Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014)"
+ }
+]

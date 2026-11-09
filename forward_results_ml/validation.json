@@ -1,0 +1,450 @@
+[
+ {
+  "entry": "Yb:aluminosilicate",
+  "ion": "Yb3+",
+  "family": "aluminosilicate",
+  "transition": [
+   "2F5/2",
+   "2F7/2"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   976.0,
+   1200.0
+  ],
+  "window_model_nm": [
+   [
+    926.6,
+    1083.9
+   ],
+   [
+    1089.1,
+    1121.1
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 967.1,
+  "model_sigma_abs": 1.8206358198849777e-20,
+  "model_em_peak_nm": 967.3,
+  "model_sigma_em": 1.968385383981465e-20,
+  "model_fwhm_em_nm": 9.4,
+  "exp_sigma_abs": 2.7e-20,
+  "exp_sigma_em": 3e-20,
+  "exp_fwhm_nm": 7.7,
+  "model_tau_ms": 0.825418634540154,
+  "exp_tau_ms": 0.83,
+  "exp_lambda_abs_peak_nm": 976,
+  "exp_lambda_em_peak_nm": 976
+ },
+ {
+  "entry": "Yb:phosphosilicate",
+  "ion": "Yb3+",
+  "family": "phosphosilicate",
+  "transition": [
+   "2F5/2",
+   "2F7/2"
+  ],
+  "omega_src": "measured",
+  "model_abs_peak_nm": 968.2,
+  "model_sigma_abs": 1.2226882267817208e-20,
+  "model_em_peak_nm": 968.4,
+  "model_sigma_em": 1.3265804538905854e-20,
+  "model_fwhm_em_nm": 7.9,
+  "exp_sigma_abs": 1.4e-20,
+  "exp_sigma_em": 1.5e-20,
+  "exp_fwhm_nm": 4.8,
+  "model_tau_ms": 1.443391627590569,
+  "exp_tau_ms": 1.45,
+  "exp_lambda_abs_peak_nm": 974.5,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Er:aluminosilicate C/L band",
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "transition": [
+   "4I13/2",
+   "4I15/2"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   1530.0,
+   1610.0
+  ],
+  "window_model_nm": [
+   [
+    1439.3,
+    1630.8
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1529.5,
+  "model_sigma_abs": 4.70385909600416e-21,
+  "model_em_peak_nm": 1531.4,
+  "model_sigma_em": 5.283764899909379e-21,
+  "model_fwhm_em_nm": 33.9,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 12.87817374708794,
+  "exp_tau_ms": 10.0,
+  "exp_lambda_abs_peak_nm": 1530,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Er:tellurite L band",
+  "ion": "Er3+",
+  "family": "tellurite",
+  "transition": [
+   "4I13/2",
+   "4I15/2"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   1561.0,
+   1611.0
+  ],
+  "window_model_nm": [
+   [
+    1456.9,
+    1631.3
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1529.5,
+  "model_sigma_abs": 9.532892917589855e-21,
+  "model_em_peak_nm": 1532.3,
+  "model_sigma_em": 1.041824006980597e-20,
+  "model_fwhm_em_nm": 36.7,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 3.2157731449224127,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Er:phosphate",
+  "ion": "Er3+",
+  "family": "phosphate",
+  "transition": [
+   "4I13/2",
+   "4I15/2"
+  ],
+  "omega_src": "measured",
+  "model_abs_peak_nm": 1529.1,
+  "model_sigma_abs": 4.712351393155233e-21,
+  "model_em_peak_nm": 1531.4,
+  "model_sigma_em": 5.195162059415977e-21,
+  "model_fwhm_em_nm": 33.0,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 12.488969032112214,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Er:ZBLAN 1.5um",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "transition": [
+   "4I13/2",
+   "4I15/2"
+  ],
+  "omega_src": "measured",
+  "model_abs_peak_nm": 1518.4,
+  "model_sigma_abs": 3.988492618828275e-21,
+  "model_em_peak_nm": 1531.4,
+  "model_sigma_em": 4.2704556923243296e-21,
+  "model_fwhm_em_nm": 77.6,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 8.950814872328793,
+  "exp_tau_ms": 6.44,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Tm:silica 2um",
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "transition": [
+   "3F4",
+   "3H6"
+  ],
+  "omega_src": "predicted (LOMS-trained model)",
+  "band_exp_nm": [
+   1800.0,
+   2050.0
+  ],
+  "window_model_nm": [
+   [
+    1574.3,
+    2382.1
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1710.0,
+  "model_sigma_abs": 4.212002301677068e-21,
+  "model_em_peak_nm": 1803.8,
+  "model_sigma_em": 4.691776604743924e-21,
+  "model_fwhm_em_nm": 227.3,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": [
+   4e-21,
+   6e-21
+  ],
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 0.6638479464034434,
+  "exp_tau_ms": 0.65,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Tm:ZBLAN S band",
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "transition": [
+   "3H4",
+   "3F4"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   1480.0,
+   1510.0
+  ],
+  "window_model_nm": [
+   [
+    1429.4,
+    1564.5
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1418.0,
+  "model_sigma_abs": 2.022068462875067e-21,
+  "model_em_peak_nm": 1457.3,
+  "model_sigma_em": 1.9886765863233976e-21,
+  "model_fwhm_em_nm": 96.3,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 1.2623120335017461,
+  "exp_tau_ms": 1.5,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Pr:ZBLAN O band",
+  "ion": "Pr3+",
+  "family": "ZBLAN",
+  "transition": [
+   "1G4",
+   "3H5"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   1250.0,
+   1340.0
+  ],
+  "window_model_nm": [
+   [
+    1217.4,
+    1370.6
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1312.7,
+  "model_sigma_abs": 4.505915191090596e-21,
+  "model_em_peak_nm": 1317.2,
+  "model_sigma_em": 6.6597064159583915e-21,
+  "model_fwhm_em_nm": 72.4,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": 3.48e-21,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 0.14394728349578098,
+  "exp_tau_ms": 0.11,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": 1322
+ },
+ {
+  "entry": "Er:ZBLAN 2.8um",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "transition": [
+   "4I11/2",
+   "4I13/2"
+  ],
+  "omega_src": "measured",
+  "model_abs_peak_nm": 2713.0,
+  "model_sigma_abs": 3.804357912414412e-21,
+  "model_em_peak_nm": 2727.8,
+  "model_sigma_em": 4.2480812167596716e-21,
+  "model_fwhm_em_nm": 147.8,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": 7e-21,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 6.318855211824869,
+  "exp_tau_ms": 6.8999999999999995,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": 2708
+ },
+ {
+  "entry": "Ho:ZBLAN 2.9um",
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "transition": [
+   "5I6",
+   "5I7"
+  ],
+  "omega_src": "measured",
+  "model_abs_peak_nm": 2836.1,
+  "model_sigma_abs": 5.469983096600403e-21,
+  "model_em_peak_nm": 2844.1,
+  "model_sigma_em": 6.3411156470162906e-21,
+  "model_fwhm_em_nm": 134.6,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 4.256443392647874,
+  "exp_tau_ms": 3.5,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Ho:silica 2.1um",
+  "ion": "Ho3+",
+  "family": "silica",
+  "transition": [
+   "5I7",
+   "5I8"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   2019.0,
+   2163.0
+  ],
+  "window_model_nm": [
+   [
+    1791.5,
+    2156.1
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 1944.0,
+  "model_sigma_abs": 4.960687072614722e-21,
+  "model_em_peak_nm": 1990.4,
+  "model_sigma_em": 5.13790987502596e-21,
+  "model_fwhm_em_nm": 143.7,
+  "exp_sigma_abs": 4.3e-21,
+  "exp_sigma_em": 6e-21,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 0.5798653989360303,
+  "exp_tau_ms": 0.7,
+  "exp_lambda_abs_peak_nm": 1946,
+  "exp_lambda_em_peak_nm": null
+ },
+ {
+  "entry": "Dy:ZBLAN 3um",
+  "ion": "Dy3+",
+  "family": "ZBLAN",
+  "transition": [
+   "6H13/2",
+   "6H15/2"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   2807.0,
+   3380.0
+  ],
+  "window_model_nm": [
+   [
+    2586.7,
+    3453.0
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 2791.7,
+  "model_sigma_abs": 3.395458246409312e-21,
+  "model_em_peak_nm": 2826.5,
+  "model_sigma_em": 3.112507931152417e-21,
+  "model_fwhm_em_nm": 303.2,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 2.617270904951961,
+  "exp_tau_ms": 0.65,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": 2950
+ },
+ {
+  "entry": "Er:ZBLAN 3.5um",
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "transition": [
+   "4F9/2",
+   "4I9/2"
+  ],
+  "omega_src": "measured",
+  "band_exp_nm": [
+   3330.0,
+   3780.0
+  ],
+  "window_model_nm": [
+   [
+    3138.7,
+    3739.7
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 3410.6,
+  "model_sigma_abs": 1.2170568955059664e-21,
+  "model_em_peak_nm": 3528.6,
+  "model_sigma_em": 1.0495976546800797e-21,
+  "model_fwhm_em_nm": 365.4,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": 1.2e-21,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 0.20254097872888982,
+  "exp_tau_ms": 0.177,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": 3470
+ },
+ {
+  "entry": "Er:fluoroindate 3.3um",
+  "ion": "Er3+",
+  "family": "fluoroindate",
+  "transition": [
+   "4F9/2",
+   "4I9/2"
+  ],
+  "omega_src": "predicted (LOMS-trained model)",
+  "band_exp_nm": [
+   3100.0,
+   3850.0
+  ],
+  "window_model_nm": [
+   [
+    3162.6,
+    3230.0
+   ],
+   [
+    3313.5,
+    3748.1
+   ]
+  ],
+  "band_reproduced": true,
+  "model_abs_peak_nm": 3443.5,
+  "model_sigma_abs": 1.6901850829380827e-21,
+  "model_em_peak_nm": 3518.6,
+  "model_sigma_em": 1.455730532685776e-21,
+  "model_fwhm_em_nm": 287.3,
+  "exp_sigma_abs": null,
+  "exp_sigma_em": null,
+  "exp_fwhm_nm": null,
+  "model_tau_ms": 0.11492659711700023,
+  "exp_lambda_abs_peak_nm": null,
+  "exp_lambda_em_peak_nm": 3300
+ }
+]

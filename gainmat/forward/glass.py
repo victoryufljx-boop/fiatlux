@@ -148,7 +148,7 @@ SIDEBAND_S = 0.0
 # Learned host microstructure (ML layer L2, gainmat/ml/host_calib.py): when USE_ML is set,
 # run() applies ml_results/l2/learned_theta.json (cf_scale, disorder, neph_std, gamma_h)
 # to the families that have been calibrated.  Off by default.
-USE_ML = False
+USE_ML = os.environ.get("GAINMAT_ML", "") == "1"   # off unless GAINMAT_ML=1
 _LEARNED_THETA = None
 
 
