@@ -104,7 +104,7 @@ if not only or "tm_laser" in only:
             else:
                 q = {"3F4": tau_quench(lm0, "3F4", 0.65e-3)} if var != "single-ion" else None
             lm = local_model_for("Tm3+", "aluminosilicate", n_sites=a.sites, quench=q, energy_transfer=et)
-            s, th, curve = slope_and_threshold(lm, L, core, 0.19, N, 805, [6, 9, 12, 15], 1990,
+            s, th, curve = slope_and_threshold(lm, L, core, 0.19, N, 805, [6, 9, 12, 15, 18, 22], 1990,
                                                R1=0.99, R2=0.035, alpha_bg_dB_m=0.1, nz=40,
                                                pump_overlap=Gp)
             done(f"Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre {k}", variant=var,
