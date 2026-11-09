@@ -1,0 +1,351 @@
+{
+ "liekki": [
+  {
+   "curve": "Er 1.5 um band abs",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "integrated_ratio": 0.515572328842733,
+   "peak_ratio": 0.689330240399119,
+   "peak_shift_nm": 0.0,
+   "shape_rms": 0.10923069287331913,
+   "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
+  },
+  {
+   "curve": "Er 1.5 um band em",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "integrated_ratio": 0.6394280741101611,
+   "peak_ratio": 0.8239995659149764,
+   "peak_shift_nm": 0.0,
+   "shape_rms": 0.12011082805869436,
+   "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
+  },
+  {
+   "curve": "Er 1.5 um band sigma_e/sigma_a",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "rms_log10": 0.08402875779927885,
+   "mean_log10": 0.08168755086819965,
+   "src": "nLIGHT LIEKKI cross sections"
+  },
+  {
+   "curve": "Er 980 nm band abs",
+   "ion": "Er3+",
+   "host": "aluminosilicate",
+   "integrated_ratio": 0.4588831629881992,
+   "peak_ratio": 0.4902590179602099,
+   "peak_shift_nm": 0.0,
+   "shape_rms": 0.11581957771628214,
+   "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
+  },
+  {
+   "curve": "Yb abs",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "integrated_ratio": 0.654535136542874,
+   "peak_ratio": 0.7412247348202633,
+   "peak_shift_nm": -9.0,
+   "shape_rms": 0.36852410127179447,
+   "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
+  },
+  {
+   "curve": "Yb em",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "integrated_ratio": 0.9186873515306123,
+   "peak_ratio": 0.7787726452400848,
+   "peak_shift_nm": -10.0,
+   "shape_rms": 0.3587696947468677,
+   "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
+  },
+  {
+   "curve": "Yb sigma_e/sigma_a",
+   "ion": "Yb3+",
+   "host": "aluminosilicate",
+   "rms_log10": 0.2322273676961863,
+   "mean_log10": 0.22626525147632137,
+   "src": "nLIGHT LIEKKI cross sections"
+  }
+ ],
+ "lvf": [
+  {
+   "ion": "Er3+",
+   "dopants": [
+    "Er"
+   ],
+   "ppm": {
+    "Er": 70000
+   },
+   "target_nm": 2940.0,
+   "description": "41 W CW laser at 2.94 \u00b5m",
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 46.5,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Er3+",
+   "dopants": [
+    "Er"
+   ],
+   "ppm": {
+    "Er": 10000
+   },
+   "target_nm": 3550.0,
+   "description": "5.6 W CW at 3.55 \u00b5m",
+   "reproduced": true,
+   "pumps_that_work": [
+    "976.0",
+    "985+1973"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Tm3+",
+   "dopants": [
+    "Tm"
+   ],
+   "ppm": {
+    "Tm": 30000
+   },
+   "target_nm": 2300.0,
+   "description": "Laser at 2.3 \u00b5m",
+   "reproduced": true,
+   "pumps_that_work": [
+    "793.0",
+    "690.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Pr3+",
+   "dopants": [
+    "Pr",
+    "Yb"
+   ],
+   "ppm": {
+    "Pr": 3000,
+    "Yb": 20000
+   },
+   "target_nm": 491.0,
+   "description": "Visible emission at 491, 520, 535 and 620 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "444.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Pr3+",
+   "dopants": [
+    "Pr",
+    "Yb"
+   ],
+   "ppm": {
+    "Pr": 3000,
+    "Yb": 20000
+   },
+   "target_nm": 520.0,
+   "description": "Visible emission at 491, 520, 535 and 620 nm",
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 11.200000000000045,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Pr3+",
+   "dopants": [
+    "Pr",
+    "Yb"
+   ],
+   "ppm": {
+    "Pr": 3000,
+    "Yb": 20000
+   },
+   "target_nm": 535.0,
+   "description": "Visible emission at 491, 520, 535 and 620 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "444.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Pr3+",
+   "dopants": [
+    "Pr",
+    "Yb"
+   ],
+   "ppm": {
+    "Pr": 3000,
+    "Yb": 20000
+   },
+   "target_nm": 620.0,
+   "description": "Visible emission at 491, 520, 535 and 620 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "444.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Pr3+",
+   "dopants": [
+    "Pr"
+   ],
+   "ppm": {
+    "Pr": 8000
+   },
+   "target_nm": 635.0,
+   "description": "Red laser around 635 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "444.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Tm3+",
+   "dopants": [
+    "Tm"
+   ],
+   "ppm": {
+    "Tm": 1000
+   },
+   "target_nm": 785.0,
+   "description": "0.5 W CW laser at 785 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "793.0",
+    "690.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Tm3+",
+   "dopants": [
+    "Tm"
+   ],
+   "ppm": {
+    "Tm": 2000
+   },
+   "target_nm": 1480.0,
+   "description": "2.25 W CW laser at 1480 nm",
+   "reproduced": true,
+   "pumps_that_work": [
+    "793.0",
+    "690.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Dy3+",
+   "dopants": [
+    "Dy"
+   ],
+   "ppm": {
+    "Dy": 2000
+   },
+   "target_nm": 3240.0,
+   "description": "10.1 W CW laser at 3.24 \u00b5m",
+   "reproduced": true,
+   "pumps_that_work": [
+    "1100.0",
+    "1700.0",
+    "2800.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Dy3+",
+   "dopants": [
+    "Dy"
+   ],
+   "ppm": {
+    "Dy": 2000
+   },
+   "target_nm": 2800.0,
+   "description": "Tunable laser from 2.8 up to 3.4 \u00b5m",
+   "reproduced": true,
+   "pumps_that_work": [
+    "1100.0",
+    "1700.0",
+    "2800.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Dy3+",
+   "dopants": [
+    "Dy"
+   ],
+   "ppm": {
+    "Dy": 2000
+   },
+   "target_nm": 3400.0,
+   "description": "Tunable laser from 2.8 up to 3.4 \u00b5m",
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 142.69999999999982,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Dy3+",
+   "dopants": [
+    "Dy"
+   ],
+   "ppm": {
+    "Dy": 2000
+   },
+   "target_nm": 4300.0,
+   "description": "Emission at 4.3\u00b5m",
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 1042.6999999999998,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  },
+  {
+   "ion": "Ho3+",
+   "dopants": [
+    "Ho"
+   ],
+   "ppm": {
+    "Ho": 5000
+   },
+   "target_nm": 2950.0,
+   "description": "650 mW CW laser at 2.95 \u00b5m",
+   "reproduced": true,
+   "pumps_that_work": [
+    "1150.0",
+    "890.0"
+   ],
+   "nearest_window_edge_nm": null,
+   "out_of_model_range": false,
+   "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
+  }
+ ]
+}
