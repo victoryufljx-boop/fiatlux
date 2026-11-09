@@ -175,7 +175,7 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     lig = fam["ligand"]
     sites = fam.get("sites") or random_sites(n_sites, lig, fam["CN"], fam["R"], fam["R_std"],
                                              fam["ang_std"], seed=seed)
-    spm = {lig: SPM_DEFAULT[lig]}
+    spm = {lig: spm_for(ion, lig)}
     emax = fam.get("emax", EMAX[ion])
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
                             emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0))
@@ -224,6 +224,31 @@ def load_md_sites(path, max_sites=None):
     return sites[:max_sites] if max_sites else sites
 
 
+# ------------------------------------------------------------------ crystal-field parameters
+# Ion-specific superposition-model parameters from Newman & Ng (eds.), Crystal Field Handbook
+# (CUP 2000), ch. 5 (gainmat.refs.spm_handbook), multiplied by one strength scale per ligand
+# type set by calibrate_spm().  Garnet/fluorite crystal values over-predict glass splittings
+# about 2x, hence the scale; the per-ion ratios and the distance laws t_k are kept.
+SPM_SCALE = {"O": 1.0, "F": 1.0, "S": 1.0}
+USE_HANDBOOK = True
+
+
+def spm_for(ion: str, ligand: str) -> dict:
+    el = ion.replace("3+", "")
+    if USE_HANDBOOK:
+        try:
+            from ..refs.spm_handbook import SPM_FOR_MODEL as H
+            if ligand in H and el in H[ligand]:
+                p = dict(H[ligand][el])
+                for k in (2, 4, 6):
+                    p[f"B{k}"] = p[f"B{k}"] * SPM_SCALE.get(ligand, 1.0)
+                p["src"] = f"Newman & Ng handbook x{SPM_SCALE.get(ligand, 1.0):.3f}"
+                return p
+        except ImportError:
+            pass
+    return SPM_DEFAULT[ligand]
+
+
 # ------------------------------------------------------------------ crystal-field calibration
 def cf_strength(bkq):
     """Scalar crystal-field strength S = sqrt(sum_k 1/(2k+1) sum_q |B^k_q|^2) (cm^-1)."""
@@ -237,7 +262,7 @@ def _er_ground_split(fam, scale, n_sites=30, seed=11):
     from .ions import get_ion
     from .spectra import spm_bkq
     f = FAMILIES[fam]; lig = f["ligand"]
-    p = dict(SPM_DEFAULT[lig]); [p.__setitem__(f"B{k}", p[f"B{k}"] * scale) for k in (2, 4, 6)]
+    p = dict(spm_for("Er3+", lig)); [p.__setitem__(f"B{k}", p[f"B{k}"] * scale) for k in (2, 4, 6)]
     m = get_ion("Er3+"); g = m.mult_index("4I15/2")
     sp = []
     for s in random_sites(n_sites, lig, f["CN"], f["R"], f["R_std"], f["ang_std"], seed=seed):
@@ -247,37 +272,39 @@ def _er_ground_split(fam, scale, n_sites=30, seed=11):
 
 
 def calibrate_spm(target_er_split_O=370.0, carnall_er_laf3=None, verbose=True):
-    """One strength parameter per ligand type (the Bbar ratios and t_k stay generic):
-    O: scale so that Er3+ 4I15/2 total Stark splitting in silica sites = 370 cm^-1
-       (glasses: 335-400 cm^-1, Zemon et al., J. Appl. Phys. 69, 6799 (1991), site_refs.CF_CHECKS);
-    F: scale so the mean scalar crystal-field strength of ZBLAN sites equals that of Carnall's
-       fitted Er:LaF3 crystal field (a fluoride crystal), i.e. transfer from a fluoride fit;
-    S: no data; uses the O scale (flagged).
-    Returns the scales; SPM_DEFAULT is updated in place."""
+    """One strength scale per ligand type; ion-specific ratios and t_k come from the handbook
+    (or the generic SPM_DEFAULT shape when USE_HANDBOOK is False):
+    O: Er3+ 4I15/2 total Stark splitting in silica sites = 370 cm^-1
+       (glasses: 335-400 cm^-1, Zemon et al., J. Appl. Phys. 69, 6799 (1991));
+    F: mean scalar crystal-field strength of Er3+ ZBLAN sites = that of Carnall's fitted
+       Er:LaF3 crystal field (transfer from a fluoride-crystal fit);
+    S: no glass data; the O scale is applied (unconstrained, flagged)."""
     from .spectra import spm_bkq
     out = {}
-    s0 = 1.0
-    a = _er_ground_split("silica", s0)
-    s1 = s0 * target_er_split_O / a
-    b = _er_ground_split("silica", s1)
-    s2 = s1 * target_er_split_O / b                     # one secant-free refinement (near linear)
-    for k in (2, 4, 6):
-        SPM_DEFAULT["O"][f"B{k}"] *= s2
-    SPM_DEFAULT["O"]["src"] = f"generic Bbar ratios scaled x{s2:.3f} to Er 4I15/2 splitting {target_er_split_O} cm-1 in silica"
-    out["O"] = dict(scale=s2, er_split_check=_er_ground_split("silica", 1.0))
+    for _ in range(2):                                  # splitting is ~linear in the scale
+        a = _er_ground_split("silica", 1.0)
+        r = target_er_split_O / a
+        if USE_HANDBOOK:
+            SPM_SCALE["O"] *= r
+        else:
+            for k in (2, 4, 6):
+                SPM_DEFAULT["O"][f"B{k}"] *= r
+    out["O"] = dict(scale=SPM_SCALE["O"], er_split_check=_er_ground_split("silica", 1.0))
     if carnall_er_laf3:
         S_ref = cf_strength(carnall_er_laf3)
         f = FAMILIES["ZBLAN"]
-        S_now = np.mean([cf_strength(spm_bkq(s, {"F": SPM_DEFAULT["F"]}))
+        S_now = np.mean([cf_strength(spm_bkq(s, {"F": spm_for("Er3+", "F")}))
                          for s in random_sites(30, "F", f["CN"], f["R"], f["R_std"], f["ang_std"], seed=5)])
-        sF = S_ref / S_now
-        for k in (2, 4, 6):
-            SPM_DEFAULT["F"][f"B{k}"] *= sF
-        SPM_DEFAULT["F"]["src"] = f"generic Bbar ratios scaled x{sF:.3f} so <S>(ZBLAN sites) = S(Carnall Er:LaF3) = {S_ref:.0f} cm-1"
-        out["F"] = dict(scale=sF, S_ref=S_ref)
-    for k in (2, 4, 6):
-        SPM_DEFAULT["S"][f"B{k}"] *= s2
-    SPM_DEFAULT["S"]["src"] = "no data: O scale applied (unconstrained)"
+        r = S_ref / S_now
+        if USE_HANDBOOK:
+            SPM_SCALE["F"] *= r
+        else:
+            for k in (2, 4, 6):
+                SPM_DEFAULT["F"][f"B{k}"] *= r
+        out["F"] = dict(scale=SPM_SCALE["F"], S_ref=S_ref)
+    SPM_SCALE["S"] = SPM_SCALE["O"]
+    out["S"] = dict(scale=SPM_SCALE["S"], note="O scale applied (no data)")
+    out["source"] = "Newman & Ng handbook per-ion parameters" if USE_HANDBOOK else "generic shape"
     if verbose:
         print("SPM calibration:", out, flush=True)
     return out

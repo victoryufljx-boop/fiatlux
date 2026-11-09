@@ -29,7 +29,7 @@ loaded = load_refs()
 site_used = apply_site_refs()
 cal = calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ)
 meta = dict(loaded_refs=loaded, site_refs_used=site_used, spm_calibration=cal,
-            families=FAMILIES, spm=SPM_DEFAULT,
+            families=FAMILIES, spm=SPM_DEFAULT, spm_scale=__import__("gainmat.forward.glass", fromlist=["SPM_SCALE"]).SPM_SCALE,
             omega={f"{k[0]}:{k[1]}": v for k, v in OMEGA.items()})
 json.dump(meta, open(f"{a.out}/inputs.json", "w"), indent=1, default=str)
 print("refs loaded:", loaded, flush=True)
