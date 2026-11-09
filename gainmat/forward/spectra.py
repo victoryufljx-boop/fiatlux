@@ -205,7 +205,7 @@ def aniso_S(Uw, B, scale):
 def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=None,
                      T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0,
                      lineshape: str = "gauss", neph_std: float = 0.0, sideband_S: float = 0.0,
-                     hw_max: float = 1000.0, seed: int = 0, intensity=None):
+                     hw_max: float = 1000.0, seed: int = 0, intensity=None, energy_scale: float = 1.0):
     """intensity: None (isotropic Judd-Ofelt per Stark component) or dict(ratio={2:..,4:..,6:..},
     tau=None, R0=2.3) for Stark-resolved intensities from the odd-rank crystal field (aniso_S).
     neph_std: per-site fractional scatter of all multiplet energies (first-order
@@ -241,6 +241,8 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
         E, W, par = m.stark(spm_bkq(lig, spm))
         if neph_std > 0:
             E = E + rng_n.normal(0.0, neph_std) * e_free[par]
+        if energy_scale != 1.0:                       # mean shift of all multiplets, E -> E (1 + d)
+            E = E + (energy_scale - 1.0) * e_free[par]
         Uw = {lam: [W.conj().T @ Uq @ W for Uq in m.Uq[lam]] for lam in (2, 4, 6)}
         Mw = [W.conj().T @ Mq @ W for Mq in m.MDq]
         if intensity is None:

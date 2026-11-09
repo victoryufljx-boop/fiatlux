@@ -148,3 +148,46 @@ Findings:
    0.98 (`ml_results/cf/adopted_family_scale.json`).
     - Only phosphate has a transfer test behind it. The others are single-ion calibrations.
     - ZBLAN keeps its L2 value.
+
+### Round 2, continued: what limits the line shapes in silica, and the measured-absorption mode
+
+- **Stark-resolved intensities (not adopted).** `spectra.aniso_S` computes each Stark
+  component's strength from the odd-rank crystal field of the same site. It is renormalised to
+  the measured Ω, and the multiplet sums reproduce Judd–Ofelt to better than 1 %. The free
+  amplitude ratios fitted on Er/Yb/Ho line shapes do not transfer:
+    - held-out Tm: 120 → 171;
+    - held-out Er: 109 → 111.
+
+  The fitted ratios also differ completely between folds. Off by default.
+- **Free-ion level energies are right.** In ZBLAN, 65 multiplets of Pr, Nd, Dy, Ho, Er and Tm
+  match Wetenkamp 1992: median deviation 57 cm⁻¹ (0.36 %), 92 % within 2 %
+  (`forward_results/level_energy_validation.json`). Tm sits 0.8 % low. A Tm energy scale fixed
+  on ZBLAN makes the silica 3H4/3H5 peaks worse, so it is not the cause of the silica 3F4 error.
+- **Neither vibronic sidebands nor field strength fixes the silica peaks.**
+    - A sideband with S up to 0.5 leaves every peak in place.
+    - A larger Yb field reproduces the measured 1064/1102 nm emission tail, but the emission peak
+      moves to 994 nm (measured 975).
+
+  The remaining silica errors need measured Stark levels for Tm (and Yb in germanosilicate) to
+  diagnose further.
+- **Measured-absorption mode (`glass.apply_measured_absorption`, override
+  `measured_absorption=`).**
+    - What it does: it replaces a band's absorption with the measured curve and derives the
+      emission by McCumber, using ε from the model's Stark structure (or uses a measured emission
+      if one is given). It also rescales the band's radiative rate to the measured integral.
+    - Test (`gainmat.ml.from_absorption`, 5 glasses with measured abs + em of the same band): the
+      emission predicted from the measured absorption beats the model's own emission.
+        - shape rms 0.10 vs 0.19;
+        - peak position 0.4 vs 7 nm.
+
+      Refitting the host parameters to the absorption helps the model (0.19 → 0.15) but not
+      past McCumber. The emission/absorption ratio error (about 0.1 dex) is the same for all
+      methods, which locates it in ε (Stark structure).
+- **The Yb laser failure is spectroscopy, not the device model.** With Pask's own measured Yb
+  spectra the 1102 nm laser gives slope 0.85 and threshold 51 mW (measured 0.90 / 30 mW). The
+  composition-only model never reaches threshold, because its emission at 1102 nm is
+  essentially zero against 2.2e-21 cm² measured. Ho is unchanged with measured spectra (slope
+  0.60); its error is the lifetime, which L3 handles.
+- **Independent L3 check (Walsh & Barnes 2004, never used in fitting).** Tm:silica, 1.12e20 cm⁻³:
+  ³F₄ lifetime 0.42 ms measured; L3 predicts 0.46 ms (single-ion model 2.9 ms). In Tm:ZBLAN
+  (0.36e20) the model gives 8.1 ms against 11.2 ms measured, with no quenching, as expected.
