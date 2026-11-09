@@ -4,3 +4,4 @@ __pycache__/
 results/
 *.gpw
 *.chk
+results/forward/*_pass1*
