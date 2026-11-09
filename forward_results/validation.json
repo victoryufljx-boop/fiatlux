@@ -31,7 +31,7 @@
   "exp_sigma_abs": 2.7e-20,
   "exp_sigma_em": 3e-20,
   "exp_fwhm_nm": 7.7,
-  "model_tau_ms": 0.8276461986529118,
+  "model_tau_ms": 0.8276461986889344,
   "exp_tau_ms": 0.83,
   "exp_lambda_abs_peak_nm": 976,
   "exp_lambda_em_peak_nm": 976
@@ -86,7 +86,7 @@
   "exp_sigma_abs": null,
   "exp_sigma_em": null,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 12.856810223644551,
+  "model_tau_ms": 12.911579522527548,
   "exp_tau_ms": 10.0,
   "exp_lambda_abs_peak_nm": 1530,
   "exp_lambda_em_peak_nm": null
@@ -107,7 +107,7 @@
   "window_model_nm": [
    [
     1459.4,
-    1631.9
+    1632.4
    ]
   ],
   "band_reproduced": true,
@@ -181,8 +181,8 @@
   ],
   "window_model_nm": [
    [
-    1573.3,
-    2275.8
+    1572.8,
+    2277.9
    ]
   ],
   "band_reproduced": true,
@@ -197,7 +197,7 @@
    6e-21
   ],
   "exp_fwhm_nm": null,
-  "model_tau_ms": 2.851045034270004,
+  "model_tau_ms": 3.9709391193120953,
   "exp_tau_ms": 0.65,
   "exp_lambda_abs_peak_nm": null,
   "exp_lambda_em_peak_nm": null
@@ -243,27 +243,27 @@
    "1G4",
    "3H5"
   ],
-  "omega_src": "predicted (LOMS-trained model)",
+  "omega_src": "measured",
   "band_exp_nm": [
    1250.0,
    1340.0
   ],
   "window_model_nm": [
    [
-    1228.2,
-    1370.6
+    1230.9,
+    1369.5
    ]
   ],
   "band_reproduced": true,
   "model_abs_peak_nm": 1316.1,
-  "model_sigma_abs": 7.15397404151854e-21,
+  "model_sigma_abs": 5.835291754269594e-21,
   "model_em_peak_nm": 1321.7,
-  "model_sigma_em": 1.0767889142514704e-20,
-  "model_fwhm_em_nm": 51.0,
+  "model_sigma_em": 8.792677285334981e-21,
+  "model_fwhm_em_nm": 51.3,
   "exp_sigma_abs": null,
-  "exp_sigma_em": 3.5e-22,
+  "exp_sigma_em": 3.48e-21,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 0.2081031398054874,
+  "model_tau_ms": 0.21182536932126908,
   "exp_tau_ms": 0.11,
   "exp_lambda_abs_peak_nm": null,
   "exp_lambda_em_peak_nm": 1322
@@ -340,7 +340,7 @@
   "exp_sigma_abs": 4.3e-21,
   "exp_sigma_em": 6e-21,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 3.213158422035562,
+  "model_tau_ms": 2.1004596070584483,
   "exp_tau_ms": 0.7,
   "exp_lambda_abs_peak_nm": 1946,
   "exp_lambda_em_peak_nm": null
@@ -361,7 +361,7 @@
   "window_model_nm": [
    [
     2597.4,
-    3291.6
+    3289.5
    ]
   ],
   "band_reproduced": true,
@@ -391,8 +391,13 @@
    3330.0,
    3780.0
   ],
-  "window_model_nm": [],
-  "band_reproduced": false,
+  "window_model_nm": [
+   [
+    3315.6,
+    3739.7
+   ]
+  ],
+  "band_reproduced": true,
   "model_abs_peak_nm": 3448.3,
   "model_sigma_abs": 1.5801097167539458e-21,
   "model_em_peak_nm": 3523.6,
@@ -419,8 +424,13 @@
    3100.0,
    3850.0
   ],
-  "window_model_nm": [],
-  "band_reproduced": false,
+  "window_model_nm": [
+   [
+    3315.6,
+    3750.9
+   ]
+  ],
+  "band_reproduced": true,
   "model_abs_peak_nm": 3448.3,
   "model_sigma_abs": 1.712848517088649e-21,
   "model_em_peak_nm": 3521.1,
