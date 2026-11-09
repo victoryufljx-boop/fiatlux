@@ -204,3 +204,11 @@ Findings:
   [--em file.csv] [--ml]` writes the calibrated spectra, gain windows and lifetimes, plus a
   comparison plot. Example, Ho:silica with Le Gouët's absorption and the ML layer on: ⁵I₇
   lifetime 0.69 ms (measured 0.70), net-gain window 1807–2214 nm.
+- **Judd–Ofelt from measured bands (`gainmat/forward/jo_fit.py`).** Ω are fitted to measured
+  band integrals with the model's own band kernels (linear in Ω), so the fit is consistent with
+  how the model turns Ω into cross sections.
+    - Round trip, Tm:silica: (6.23, 1.91, 1.36) recovered as (6.20, 1.89, 1.37).
+    - With peaks only (Jackson 1999 peaks times model shapes) the fit is unreliable: Ω₄ goes to
+      0. Full measured curves are needed.
+    - The CLI accepts several `--band/--abs` pairs, fits Ω when they constrain all three, and uses
+      the fitted Ω for every other transition.

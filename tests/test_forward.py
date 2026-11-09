@@ -75,3 +75,42 @@ def test_er_dual_pump_opens_3p5um_band_in_zblan():
     in_band = lambda d: any(w["lo_nm"] < 3500 < w["hi_nm"] for w in d["windows"])
     assert not in_band(r["pumps"][980.0])
     assert in_band(r["pumps"]["985+1973"])
+
+
+def test_stark_resolved_intensities_keep_judd_ofelt_sums():
+    # odd-rank crystal-field intensities redistribute strength among Stark components but the
+    # multiplet sum must stay the Judd-Ofelt value of that site
+    from gainmat.forward.spectra import intensity_B, site_omegas, aniso_S
+    from gainmat.forward.glass import spm_for
+    m = get_ion("Yb3+")
+    lig = random_sites(1, "O", 6.0, 2.28, 0.1, 10.0, seed=3)[0]
+    E, W, par = m.stark(spm_bkq(lig, {"O": spm_for("Yb3+", "O")}))
+    Uw = {lam: [W.conj().T @ Uq @ W for Uq in m.Uq[lam]] for lam in (2, 4, 6)}
+    B = intensity_B(lig, {2: 0.7, 4: 1.3, 6: -0.5}); om = site_omegas(B)
+    Sa = aniso_S(Uw, B, {2: 1, 4: 1, 6: 1})
+    Si = sum(om[lam] * sum(np.abs(X) ** 2 for X in Uw[lam]) for lam in (2, 4, 6))
+    a = np.where(par == m.mult_index("2F5/2"))[0]; b = np.where(par == m.mult_index("2F7/2"))[0]
+    assert abs(Sa[np.ix_(a, b)].sum() / Si[np.ix_(a, b)].sum() - 1) < 0.02
+    assert np.allclose(Sa, Sa.T, atol=1e-12 * Sa.max())
+
+
+def test_measured_absorption_mode_mccumber_and_rate_scale():
+    nu = np.linspace(9500, 11200, 400); lam = 1e7 / nu
+    sig = 2e-20 * np.exp(-0.5 * ((nu - 10250) / 60) ** 2) + 5e-21 * np.exp(-0.5 * ((nu - 10600) / 200) ** 2)
+    r = run("Yb3+", "germanosilicate", n_sites=8, pumps=[], overrides=dict(measured_absorption={("2F5/2", "2F7/2"): (lam, sig)}))
+    s = r["_spec"]; p = ("2F5/2", "2F7/2")
+    assert "2F5/2->2F7/2" in s["measured_bands"] and s["A_scale"][p] > 0
+    i = np.argmin(abs(s["nu"] - 10250))
+    eps = s["measured_bands"]["2F5/2->2F7/2"]["eps_cm1"]
+    assert np.isclose(s["sigma_em"][p][i] / s["sigma_abs"][p][i], np.exp((eps - s["nu"][i]) / (0.6950348 * 295)), rtol=1e-6)
+
+
+def test_judd_ofelt_fit_round_trip():
+    from gainmat.forward.jo_fit import fit_omegas
+    pairs = [("3F4", "3H6"), ("3H5", "3H6"), ("3H4", "3H6"), ("3F3", "3H6")]
+    om_true = (6.23, 1.91, 1.36)
+    r = run("Tm3+", "silica", n_sites=8, pumps=[], seed=5, overrides=dict(omegas=om_true))
+    s = r["_spec"]; lam = 1e7 / s["nu"]
+    om, info = fit_omegas("Tm3+", "silica", {p: (lam, s["sigma_abs"][p]) for p in pairs}, n_sites=8)
+    assert info["rank"] == 3
+    assert np.allclose(om, om_true, rtol=0.08)

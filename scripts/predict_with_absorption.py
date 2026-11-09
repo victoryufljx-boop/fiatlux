@@ -2,6 +2,8 @@
 
     python scripts/predict_with_absorption.py --ion Er3+ --family aluminosilicate \
         --band 4I13/2,4I15/2 --abs my_abs.csv [--em my_em.csv] [--ml] [--N 1e20] [--out out_dir]
+    several bands (then Omega is fitted to the measured band integrals, gainmat.forward.jo_fit):
+        --band 3F4,3H6 --abs a1.csv --band 3H4,3H6 --abs a2.csv --band 3H5,3H6 --abs a3.csv
 
 CSV files: two columns, wavelength (nm) and cross section (cm^2); '#' comment lines allowed.
 What changes with the measured absorption: that band's absorption is the measured curve, its
@@ -43,9 +45,10 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--ion", required=True)
     ap.add_argument("--family", required=True)
-    ap.add_argument("--band", required=True, help="upper,lower multiplet labels, e.g. 4I13/2,4I15/2")
-    ap.add_argument("--abs", required=True)
-    ap.add_argument("--em", default="")
+    ap.add_argument("--band", required=True, action="append", help="upper,lower multiplet labels, e.g. 4I13/2,4I15/2")
+    ap.add_argument("--abs", required=True, action="append")
+    ap.add_argument("--em", default="", help="measured emission for the first band (optional)")
+    ap.add_argument("--fit-omega", action="store_true", help="fit Omega even with one band (only Omega combos it constrains)")
     ap.add_argument("--N", type=float, default=None, help="dopant density, cm^-3")
     ap.add_argument("--ml", action="store_true", help="also switch on the ML layer")
     ap.add_argument("--sites", type=int, default=30)
@@ -56,15 +59,30 @@ def main():
     from gainmat.forward import glass as g
     g.USE_ML = a.ml
     g.load_refs(); g.apply_site_refs(); g.calibrate_spm(370.0, g.CARNALL_ER_LAF3_BKQ, verbose=False)
-    band = tuple(x.strip() for x in a.band.split(","))
-    meas = read_csv(a.abs)
-    val = (meas[0], meas[1]) + ((read_csv(a.em),) if a.em else ())
+    if len(a.band) != len(a.abs):
+        sys.exit("give one --abs per --band")
+    bands = [tuple(x.strip() for x in b.split(",")) for b in a.band]
+    curves = {b: read_csv(f) for b, f in zip(bands, a.abs)}
+    band, meas = bands[0], curves[bands[0]]
+    mabs = {b: (c[0], c[1]) for b, c in curves.items()}
+    if a.em:
+        mabs[band] = mabs[band] + (read_csv(a.em),)
     base = dict(N_cm3=a.N) if a.N else {}
+    fit = None
+    if len(bands) > 1 or a.fit_omega:
+        from gainmat.forward.jo_fit import fit_omegas
+        om, info = fit_omegas(a.ion, a.family, {b: (c[0], c[1]) for b, c in curves.items()}, n_sites=16, overrides=base)
+        fit = dict(omegas=om, **info)
+        print("fitted Omega (1e-20 cm2):", om, "rank", info["rank"])
     r0 = g.run(a.ion, a.family, n_sites=a.sites, overrides=dict(base))
-    r1 = g.run(a.ion, a.family, n_sites=a.sites, overrides=dict(base, measured_absorption={band: val}))
+    ov1 = dict(base, measured_absorption=mabs)
+    if fit and fit["rank"] == 3:
+        ov1["omegas"] = fit["omegas"]
+    r1 = g.run(a.ion, a.family, n_sites=a.sites, overrides=ov1)
     os.makedirs(a.out, exist_ok=True)
-    out = dict(ion=a.ion, family=a.family, band=list(band), model_only=summary(r0, band),
-               calibrated=summary(r1, band), abs_file=a.abs, em_file=a.em or None, ml=a.ml)
+    out = dict(ion=a.ion, family=a.family, bands=[list(b) for b in bands], model_only=summary(r0, band),
+               calibrated=summary(r1, band), omega_model=list(r0["omegas"]), omega_fit=fit,
+               abs_files=a.abs, em_file=a.em or None, ml=a.ml)
     json.dump(out, open(os.path.join(a.out, "prediction.json"), "w"), indent=1, default=float)
     import matplotlib
     matplotlib.use("Agg")
