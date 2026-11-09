@@ -21,13 +21,18 @@
  },
  "spm_calibration": {
   "O": {
-   "scale": 1.3252255541679947,
-   "er_split_check": 369.99253964329387
+   "scale": 0.4791999268938395,
+   "er_split_check": 370.03610840064295
   },
   "F": {
-   "scale": 1.079837714785178,
+   "scale": 0.4709177502573528,
    "S_ref": 444.65277339615113
-  }
+  },
+  "S": {
+   "scale": 0.4791999268938395,
+   "note": "O scale applied (no data)"
+  },
+  "source": "Newman & Ng handbook per-ion parameters"
  },
  "families": {
   "silica": {
@@ -167,40 +172,50 @@
  "spm": {
   "O": {
    "R0": 2.3,
-   "B2": 530.0902216671979,
-   "B4": 463.82894395879816,
-   "B6": 198.7838331251992,
+   "B2": 400.0,
+   "B4": 350.0,
+   "B6": 150.0,
    "t2": 5.0,
    "t4": 6.0,
    "t6": 6.0,
-   "src": "generic Bbar ratios scaled x1.325 to Er 4I15/2 splitting 370.0 cm-1 in silica"
+   "src": "placeholder"
   },
   "F": {
    "R0": 2.3,
-   "B2": 323.9513144355534,
-   "B4": 323.9513144355534,
-   "B6": 140.37890292207317,
+   "B2": 300.0,
+   "B4": 300.0,
+   "B6": 130.0,
    "t2": 5.0,
    "t4": 6.0,
    "t6": 6.0,
-   "src": "generic Bbar ratios scaled x1.080 so <S>(ZBLAN sites) = S(Carnall Er:LaF3) = 445 cm-1"
+   "src": "placeholder"
   },
   "S": {
    "R0": 2.8,
-   "B2": 463.82894395879816,
-   "B4": 331.3063885419987,
-   "B6": 132.52255541679946,
+   "B2": 350.0,
+   "B4": 250.0,
+   "B6": 100.0,
    "t2": 5.0,
    "t4": 6.0,
    "t6": 6.0,
-   "src": "no data: O scale applied (unconstrained)"
+   "src": "placeholder"
   }
+ },
+ "spm_scale": {
+  "O": 0.4791999268938395,
+  "F": 0.4709177502573528,
+  "S": 0.4791999268938395
  },
  "omega": {
   "Er3+:silica": [
    4.23,
    1.04,
    0.61
+  ],
+  "Tm3+:silica": [
+   6.23,
+   1.91,
+   1.36
   ],
   "Er3+:ZBLAN": [
    2.91,

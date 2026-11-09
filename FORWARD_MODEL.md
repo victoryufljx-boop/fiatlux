@@ -31,7 +31,11 @@ wavelength ranges where small-signal gain minus background loss exceeds a thresh
    disorder.
 6. **Rates** (`gain.py`). JO radiative rates between all multiplets; multiphonon decay to the
    next lower multiplet from the energy-gap law (family parameters, or a host-agnostic law
-   parameterised by the max phonon energy).
+   parameterised by the max phonon energy). The gap is the **Stark-edge gap** of each site
+   (lowest Stark level of the upper multiplet minus highest of the lower, the definition used
+   by Layne et al. 1977), and the rate is averaged over sites, <B exp(-alpha dE_site)>.
+   Gap-law parameters vs 26 room-temperature measured rates: rms error 0.40 decades for
+   Layne's glasses (`scripts/check_gap_law.py`, `forward_results/gap_law_check.json`).
 7. **Steady state + gain.** Pump from the ground multiplet into whichever multiplet absorbs at
    the pump wavelength; solve the multi-level rate equations; the small-signal gain
    g = sum [N_i sigma_em(i->j) - N_j sigma_abs(j->i)] includes excited-state absorption.
@@ -72,7 +76,14 @@ See `forward_results/SUMMARY.md` (validation and grid tables), `forward_results/
 - Crystal-field strength: one calibration per ligand (O: Er 4I15/2 splitting 370 cm^-1 in silica;
   F: Carnall Er:LaF3). Independent checks: Ho 5I8 (silica) 332 vs 330 cm^-1, Yb 2F5/2 645 vs 695,
   Yb 2F7/2 765 vs 1210 (miss -> Yb band ends ~1.10 um instead of ~1.2 um).
-- Largest error: multiphonon-limited lifetimes ~10x too long (Tm 3F4 and Ho 5I7 in silica,
-  Pr 1G4 in ZBLAN; Dy 6H13/2 24x).
+- Largest error: lifetimes of the ~2-3 um upper levels. Stark-edge gaps cut the error from
+  10-25x to 2-6x (model / measured, ms: Tm 3F4 silica 2.85 / 0.65 (was 6.28); Ho 5I7 silica
+  3.21 / 0.7 (6.70); Pr 1G4 ZBLAN 0.21 / 0.11 (0.99); Dy 6H13/2 ZBLAN 3.87 / 0.65 (15.8)).
+  What is left is not one global factor (Tm 3F4 needs W x25, Ho 5I7 x5), and fused-silica fibre
+  rates sit 10-80x above the multicomponent-silicate gap law that Layne measured. Likely
+  causes: fused silica is not Layne's silicate, OH and Tm-Tm / Ho-Ho quenching at the
+  measured concentrations (WB04: 1.1e20 cm^-3). Not fitted, to avoid tuning to the
+  validation set. Gain windows barely move (envelope over pump intensity), but the threshold
+  pump power for these levels is optimistic.
 - MLIP-MD (MACE-OMAT-0) Er:ZBLAN sites reproduce the stochastic-site spectra (splitting 291 vs
   269 cm^-1, 1.5 um FWHM 40 vs 36 nm), though from a very short quench.
