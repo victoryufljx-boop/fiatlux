@@ -11,7 +11,7 @@ from .nonrad import w_nr, quantum_eff, FAMILIES
 _CACHE = {}
 
 
-SOLVER = "det"   # default free-ion solver: "det" (determinant CI) or "lsj" (complete Carnall, |tau S L J>)
+SOLVER = "lsj"   # default free-ion solver (bake-off: Nd 39, Er 20 cm-1 RMS vs 341/439 for det): "det" (determinant CI) or "lsj" (complete Carnall, |tau S L J>)
 
 
 def free_ion(ion, casimir=True, bkq=None, solver=None):

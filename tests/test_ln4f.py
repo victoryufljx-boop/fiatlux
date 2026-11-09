@@ -51,14 +51,14 @@ def test_casimir_eigenvalues_f2():
 
 
 def test_er_U_table():
-    r = free_ion("Er3+"); b = r.basis; m = r.multiplets
+    r = free_ion("Er3+", solver="det"); b = r.basis; m = r.multiplets
     i, g = find(r, "4I13/2"), find(r, "4I15/2")
     u = [U2(b, m[i]["vecs"], m[g]["vecs"], l) for l in (2, 4, 6)]
     assert u == pytest.approx([0.0195, 0.1173, 1.4316], abs=1e-3)
 
 
 def test_nd_U_table():
-    r = free_ion("Nd3+"); b = r.basis; m = r.multiplets
+    r = free_ion("Nd3+", solver="det"); b = r.basis; m = r.multiplets
     i = find(r, "4F3/2")
     for lo, ref in [("4I9/2", [0, 0.2293, 0.0548]), ("4I11/2", [0, 0.1423, 0.4083])]:
         j = find(r, lo)
