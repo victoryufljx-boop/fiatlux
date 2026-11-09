@@ -242,7 +242,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                             neph_std=fam.get("neph_std", NEPH_STD), sideband_S=fam.get("sideband_S", SIDEBAND_S),
                             hw_max=fam["hw_max"], seed=seed,
                             intensity=fam.get("intensity", INTENSITY),
-                            energy_scale=fam.get("energy_scale", 1.0))
+                            energy_scale=fam.get("energy_scale", 1.0),
+                            lineshape=fam.get("lineshape", "gauss"))
     if fam.get("measured_absorption"):
         apply_measured_absorption(spec, fam["measured_absorption"], T=fam.get("T", 295.0))
     N = fam.get("N_cm3", N_DEFAULT[ion])
