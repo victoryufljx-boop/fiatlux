@@ -210,27 +210,27 @@
    "3H4",
    "3F4"
   ],
-  "omega_src": "predicted (LOMS-trained model)",
+  "omega_src": "measured",
   "band_exp_nm": [
    1480.0,
    1510.0
   ],
   "window_model_nm": [
    [
-    1438.4,
-    1528.6
+    1436.4,
+    1529.1
    ]
   ],
   "band_reproduced": true,
   "model_abs_peak_nm": 1442.2,
-  "model_sigma_abs": 2.612878547666707e-21,
+  "model_sigma_abs": 2.850483786489189e-21,
   "model_em_peak_nm": 1446.3,
-  "model_sigma_em": 2.4975680631877876e-21,
-  "model_fwhm_em_nm": 72.4,
+  "model_sigma_em": 2.7183430942387866e-21,
+  "model_fwhm_em_nm": 73.2,
   "exp_sigma_abs": null,
   "exp_sigma_em": null,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 1.4310856507635843,
+  "model_tau_ms": 1.2789296927813372,
   "exp_tau_ms": 1.5,
   "exp_lambda_abs_peak_nm": null,
   "exp_lambda_em_peak_nm": null
@@ -298,16 +298,16 @@
    "5I6",
    "5I7"
   ],
-  "omega_src": "predicted (LOMS-trained model)",
+  "omega_src": "measured",
   "model_abs_peak_nm": 2845.8,
-  "model_sigma_abs": 8.168686455552837e-21,
+  "model_sigma_abs": 8.52361451569021e-21,
   "model_em_peak_nm": 2849.0,
-  "model_sigma_em": 9.318386186000754e-21,
-  "model_fwhm_em_nm": 76.6,
+  "model_sigma_em": 9.719783787988764e-21,
+  "model_fwhm_em_nm": 79.9,
   "exp_sigma_abs": null,
   "exp_sigma_em": null,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 4.859901182176988,
+  "model_tau_ms": 4.4529308821244244,
   "exp_tau_ms": 3.5,
   "exp_lambda_abs_peak_nm": null,
   "exp_lambda_em_peak_nm": null
