@@ -65,8 +65,30 @@ def test_caf2_mace_phonons():
     print("CaF2 MACE phonons: max %.1f eff %.1f cm-1, Gamma %s" %
           (r["phonon_max_cm1"], r["phonon_eff_cm1"], r["gamma_cm1"]))
     assert r["min_freq_cm1"] > -10.0           # dynamically stable
-    # exp: Raman T2g 322 cm^-1, TO 257 cm^-1; no NAC -> max is TO-like (~330-400)
-    assert 250 < r["phonon_max_cm1"] < 550
+    # default: MACE-OMAT-0, exp cell, NAC -> max includes LO (exp 463 cm^-1)
+    assert r["nac"] and r["cell_protocol"] == "expcell"
+    assert 420 < r["phonon_max_cm1"] < 520
+    modes = {m["irrep"]: m["freq_cm1"] for m in r["gamma_modes"]}
+    assert abs(modes["T2g"] - 322) < 25 and abs(modes["T1u"] - 257) < 30
+
+
+@pytest.mark.skipif(not _mace_ok(), reason="mace/torch not importable")
+def test_caf2_legacy_protocol_selectable():
+    from gainmat.host.phonons import compute_phonons
+    r = compute_phonons(get_structure("CaF2"), device="cpu", model="medium",
+                        relax_cell=True, nac=False, supercell_min_len=7.0,
+                        mesh=(6, 6, 6))
+    assert not r["nac"] and r["model"] == "mace-mp-0-medium"
+    assert r["phonon_max_cm1"] == r["phonon_max_TO_cm1"] < 420
+
+
+def test_phonon_refs_and_matching():
+    from gainmat.refs.phonon_refs import PHONON_REFS, match_modes
+    for h, ref in PHONON_REFS.items():
+        assert ref["source"] and ref["url"]
+    comp = [dict(freq_cm1=300.0, irrep="T2g", deg=3), dict(freq_cm1=250.0, irrep="T1u", deg=3)]
+    pairs = match_modes(comp, {"T2g": [322], "T1u": [257]})
+    assert pairs == [("T2g", 322, 300.0), ("T1u", 257, 250.0)]
 
 
 @pytest.mark.skipif(not _mace_ok() or not os.environ.get("GAINMAT_SLOW"),

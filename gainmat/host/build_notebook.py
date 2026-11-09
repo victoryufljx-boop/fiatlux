@@ -13,7 +13,7 @@ Runs the host tier for the validation set on a Colab **A100** and compares with 
 
 * **Band gap**: GPAW plane-wave PBE and GLLB-SC (with derivative discontinuity). Expect PBE −30…45 %, GLLB-SC within ~10–15 % of the *fundamental* gap.
 * **ε∞ / n**: GPAW RPA (optional, off by default: expensive, and it runs on CPU only).
-* **Max phonon**: MACE-MP-0 *medium* + phonopy (GPU). No LO–TO correction, so the max is TO-like. Expect ±20–60 cm⁻¹ against experiment.
+* **Max phonon**: MACE-OMAT-0 *medium* + phonopy (GPU) at the experimental lattice (positions relaxed), with the LO–TO non-analytic correction where Born charges + ε∞ are tabulated (CaF2, Al2O3), so the max includes LO. Bake-off: Γ TO/Raman MAE ≈ 8 cm⁻¹ (see BAKEOFF_PHONONS.md). Legacy MACE-MP-0 protocol: `MACE_MODEL='medium'` + `relax_cell=True, nac=False`.
 * **Glasses**: MACE melt-quench MD (GPU) → VDOS cutoff.
 
 **Setup**: upload the `gainmat` project folder (the one containing `gainmat/`, `notebooks/`, `tests/`), or a zip of it, to `/content`. The project then lives at `/content/gainmat`.
@@ -32,7 +32,9 @@ fftw = True
 EOF
 pip -q install ase phonopy spglib seekpath nbformat
 pip -q install gpaw          # builds _gpaw against libxc/openblas/fftw; pulls gpaw-data (PAW setups)
-pip -q install mace-torch    # uses Colab's preinstalled CUDA torch
+pip -q install mace-torch 'e3nn==0.4.4'   # uses Colab's preinstalled CUDA torch; MACE-OMAT-0 downloads on first use
+# optional bake-off models (separate envs recommended: sevenn needs e3nn>=0.5, breaks MACE pickles):
+# pip -q install mattersim     |   pip -q install sevenn
 gpaw info | head -25"""))
 
 cells.append(code("""# If you uploaded a zip instead of the folder:
@@ -60,7 +62,7 @@ CRYSTALS = ['CaF2', 'LiYF4', 'Al2O3', 'SiO2-alpha-quartz', 'Y3Al5O12']
 GLASSES = ['SiO2-glass', 'ZBLAN']
 DO_EPS = False            # RPA eps_inf: slow; set True to try (CPU)
 SKIP_GAP = []             # e.g. ['Y3Al5O12'] if short on time
-MACE_MODEL = 'medium'     # MACE-MP-0 medium; alternatives: 'medium-mpa-0', 'medium-omat-0'
+MACE_MODEL = 'medium-omat-0'   # bake-off winner; legacy: 'medium' (MACE-MP-0); also 'medium-mpa-0'
 RESULTS = '/content/results/host_results.json'
 os.makedirs('/content/results', exist_ok=True)"""))
 

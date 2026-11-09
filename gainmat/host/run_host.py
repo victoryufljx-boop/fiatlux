@@ -42,7 +42,7 @@ def _err(method, step, e):
 
 def run_host(key: str, level: str = "fast", do_gap: bool = True,
              do_phonons: bool = True, do_eps: bool | None = None,
-             mace_model: str = "medium", device=None, gap_kwargs=None,
+             mace_model: str = "medium-omat-0", device=None, gap_kwargs=None,
              phon_kwargs=None, verbose: bool = True) -> HostProps:
     cfg = LEVELS[level]
     hp = HostProps()
