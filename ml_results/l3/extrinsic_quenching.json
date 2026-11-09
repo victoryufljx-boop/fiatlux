@@ -1,0 +1,112 @@
+[
+ {
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "level": "3F4",
+  "E_cm1": 6017,
+  "N_cm3": 6.1e+19,
+  "tau_obs_ms": 0.5599999999999999,
+  "tau_model_ms": 3.995237406894364,
+  "W_extra_s1": 1535.4162688118722,
+  "src": "Agger & Povlsen 2006 Tm2 (Al/Ge)"
+ },
+ {
+  "ion": "Tm3+",
+  "family": "aluminosilicate",
+  "level": "3F4",
+  "E_cm1": 6017,
+  "N_cm3": 8.4e+19,
+  "tau_obs_ms": 0.65,
+  "tau_model_ms": 3.995237406894364,
+  "W_extra_s1": 1288.163521559125,
+  "src": "Agger & Povlsen 2006 Tm1 (Al/La)"
+ },
+ {
+  "ion": "Tm3+",
+  "family": "silica",
+  "level": "3F4",
+  "E_cm1": 5950,
+  "N_cm3": 1.12e+20,
+  "tau_obs_ms": 0.42000000000000004,
+  "tau_model_ms": 2.9548472899445564,
+  "W_extra_s1": 2042.5254160790917,
+  "src": "Walsh & Barnes 2004 preform"
+ },
+ {
+  "ion": "Tm3+",
+  "family": "silica",
+  "level": "3F4",
+  "E_cm1": 5950,
+  "N_cm3": 2.91e+20,
+  "tau_obs_ms": 0.3347,
+  "tau_model_ms": 2.9548472899445564,
+  "W_extra_s1": 2649.3232592079776,
+  "src": "Tao 2015 / Jackson & King 1999 model input"
+ },
+ {
+  "ion": "Ho3+",
+  "family": "aluminosilicate",
+  "level": "5I7",
+  "E_cm1": 5321,
+  "N_cm3": 5.3e+19,
+  "tau_obs_ms": 0.7,
+  "tau_model_ms": 5.34751403559244,
+  "W_extra_s1": 1241.5686468406816,
+  "src": "Le Gouet 2020 (1/e; Forster tau0 1.9 ms)"
+ },
+ {
+  "ion": "Er3+",
+  "family": "aluminosilicate",
+  "level": "4I13/2",
+  "E_cm1": 6686,
+  "N_cm3": 2.8e+18,
+  "tau_obs_ms": 10.0,
+  "tau_model_ms": 12.87817374708794,
+  "W_extra_s1": 22.349238359505463,
+  "src": "Desurvire & Simpson 1990"
+ },
+ {
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "level": "3F4",
+  "E_cm1": 5823,
+  "N_cm3": 3.6e+19,
+  "tau_obs_ms": 11.2,
+  "tau_model_ms": 8.14522836192898,
+  "W_extra_s1": -33.48555197786001,
+  "src": "Walsh & Barnes 2004 ZBLAN 0.32 wt%"
+ },
+ {
+  "ion": "Tm3+",
+  "family": "ZBLAN",
+  "level": "3F4",
+  "E_cm1": 5823,
+  "N_cm3": 3.23e+20,
+  "tau_obs_ms": 13.700000000000001,
+  "tau_model_ms": 8.14522836192898,
+  "W_extra_s1": -49.778565533647296,
+  "src": "Walsh & Barnes 2004 ZBLAN 2.88 wt%"
+ },
+ {
+  "ion": "Er3+",
+  "family": "ZBLAN",
+  "level": "4I13/2",
+  "E_cm1": 6646,
+  "N_cm3": 4e+19,
+  "tau_obs_ms": 9.0,
+  "tau_model_ms": 9.033886045510911,
+  "W_extra_s1": 0.41677702695287167,
+  "src": "Golding 2000 (0.25 mol%)"
+ },
+ {
+  "ion": "Ho3+",
+  "family": "ZBLAN",
+  "level": "5I7",
+  "E_cm1": 5212,
+  "N_cm3": 1.6e+19,
+  "tau_obs_ms": 12.01,
+  "tau_model_ms": 13.287348103392063,
+  "W_extra_s1": 8.004384590870842,
+  "src": "Wetenkamp 1992 (0.1 mol%)"
+ }
+]

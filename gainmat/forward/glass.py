@@ -231,13 +231,17 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                loss_dB_m=fam["loss_dB_m"], N_cm3=N, pumps={}, split=spec["split"])
     env_all = None
     loss = fam["loss_dB_m"] + ir_loss_dB_m(1e7 / spec["nu"], fam["hw_max"])
+    xW = None
+    if USE_ML:                                          # L3 extrinsic quenching
+        from ..ml.quench import extra_rates
+        xW = extra_rates(family, spec["bary"], N) or None
     for p in (PUMPS[ion] + DUAL_PUMPS.get(ion, []) if pumps is None else pumps):
         p1, p2 = (p, None) if not isinstance(p, (tuple, list)) else (float(p[0]), float(p[1]))
         key = p if p2 is None else f"{p1:g}+{p2:g}"
         try:
             gs = gain_spectra(ion, spec, om, fam["n"], fam["hw_max"], fam.get("gap_family"),
                               N_tot_cm3=N, pump_nm=p1, intensities_W_cm2=intensities, emax=emax,
-                              pump2_nm=p2, T=fam.get("T", 295.0))
+                              pump2_nm=p2, T=fam.get("T", 295.0), extra_W=xW)
         except ValueError as e:
             res["pumps"][key] = dict(error=str(e)); continue
         env = envelope(gs)

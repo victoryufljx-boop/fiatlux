@@ -123,7 +123,7 @@ def _pump_terms(spec, labels, pump_nm, I_W_cm2):
 
 def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm3=1e19,
                  pump_nm=980.0, intensities_W_cm2=np.logspace(2, 7, 11), emax=27000.0,
-                 pump2_nm=None, intensities2_W_cm2=None, T=None):
+                 pump2_nm=None, intensities2_W_cm2=None, T=None, extra_W=None):
     """Gain g(nu) in dB/m for each pump intensity, using ensemble spectra `spec`
     (from spectra.ensemble_spectra with all pairs among multiplets below emax).
     pump2_nm: optional second pump (dual-wavelength pumping); the runs then cover the grid
@@ -136,6 +136,12 @@ def gain_spectra(ion, spec: dict, omegas, n_index, hw_max, family=None, N_tot_cm
     W, tgt = nonradiative(ion, energies, hw_max, family, emax, edges=spec.get("edges"),
                           site_edges=spec.get("site_edges"), T=T)
     active = [i for i, k in enumerate(labels) if energies[k] <= emax]
+    g0_ = labels.index(min(labels, key=lambda k: energies[k]))
+    for lab_, w_ in (extra_W or {}).items():          # extrinsic quenching (ML layer L3)
+        i_ = labels.index(lab_)
+        W[i_] += w_
+        if tgt[i_] < 0:
+            tgt[i_] = g0_
     nu = spec["nu"]; nup = 1e7 / pump_nm
     g0 = labels.index(min(labels, key=lambda k: energies[k]))
     # which multiplet does the (first) pump land in?  the GSA pair with the largest sigma at nu_p

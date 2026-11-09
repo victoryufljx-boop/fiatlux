@@ -1,0 +1,78 @@
+{
+ "A_s1": 1695.4361205585235,
+ "p": 0.43273837562167045,
+ "window_cm1": [
+  4800.0,
+  6300.0
+ ],
+ "n_points": 5,
+ "leave_one_out": [
+  {
+   "ion": "Tm3+",
+   "level": "3F4",
+   "N_cm3": 6.1e+19,
+   "W_meas": 1535.4162688118722,
+   "W_pred": 1296.7333741755504,
+   "tau_obs_ms": 0.5599999999999999,
+   "tau_pred_ms": 0.6463992946537465,
+   "tau_single_ion_ms": 3.995237406894364,
+   "src": "Agger & Povlsen 2006 Tm2 (Al/Ge)"
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F4",
+   "N_cm3": 8.4e+19,
+   "W_meas": 1288.163521559125,
+   "W_pred": 1658.9699763844303,
+   "tau_obs_ms": 0.65,
+   "tau_pred_ms": 0.5237609405887959,
+   "tau_single_ion_ms": 3.995237406894364,
+   "src": "Agger & Povlsen 2006 Tm1 (Al/La)"
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F4",
+   "N_cm3": 1.12e+20,
+   "W_meas": 2042.5254160790917,
+   "W_pred": 1716.739604475145,
+   "tau_obs_ms": 0.42000000000000004,
+   "tau_pred_ms": 0.4865785649272399,
+   "tau_single_ion_ms": 2.9548472899445564,
+   "src": "Walsh & Barnes 2004 preform"
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F4",
+   "N_cm3": 2.91e+20,
+   "W_meas": 2649.3232592079776,
+   "W_pred": 2950.819698289802,
+   "tau_obs_ms": 0.3347,
+   "tau_pred_ms": 0.3040209818251678,
+   "tau_single_ion_ms": 2.9548472899445564,
+   "src": "Tao 2015 / Jackson & King 1999 model input"
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5I7",
+   "N_cm3": 5.3e+19,
+   "W_meas": 1241.5686468406816,
+   "W_pred": 1320.680611349441,
+   "tau_obs_ms": 0.7,
+   "tau_pred_ms": 0.6632692278695237,
+   "tau_single_ion_ms": 5.34751403559244,
+   "src": "Le Gouet 2020 (1/e; Forster tau0 1.9 ms)"
+  }
+ ],
+ "cross_ion": [
+  {
+   "fit_on": "Tm3+ only",
+   "predict": "Ho3+ 5I7",
+   "N_cm3": 5.3e+19,
+   "W_meas": 1241.5686468406816,
+   "W_pred": 1320.680611349441,
+   "tau_obs_ms": 0.7,
+   "tau_pred_ms": 0.6632692278695237,
+   "tau_single_ion_ms": 5.34751403559244
+  }
+ ]
+}

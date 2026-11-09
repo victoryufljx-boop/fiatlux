@@ -93,12 +93,16 @@ if not only or "tm_laser" in only:
         N = f["N_Tm_cm3_from_alpha_core"]; core = min(max(f["core_diam_um_est_from_area_ratio"], 20.0), 25.0)
         Gp = (core / 300.0) ** 2 * 4 / np.pi / (1 - 0.1)  # D-shaped 300 um clad (~10 % cut), core/clad area
         k3101 = 1.8e-16 * N / 4.5e20                       # Jackson & King 1999, linear in N
-        for var in ("single-ion", "observed", "observed+CR"):
+        for var in ("single-ion", "observed", "observed+CR", "ML-L3", "ML-L3+CR"):
             t0 = time.time()
             et = [("3H4", "3F4", "3H6", "3F4", k3101), ("3F4", "3H4", "3F4", "3H6", 0.084 * k3101)] \
                 if "CR" in var else None
             lm0 = local_model_for("Tm3+", "aluminosilicate", n_sites=a.sites)
-            q = {"3F4": tau_quench(lm0, "3F4", 0.65e-3)} if var != "single-ion" else None
+            if var.startswith("ML"):
+                from gainmat.ml.quench import extra_rates
+                q = extra_rates("aluminosilicate", lm0.spec["bary"], N)
+            else:
+                q = {"3F4": tau_quench(lm0, "3F4", 0.65e-3)} if var != "single-ion" else None
             lm = local_model_for("Tm3+", "aluminosilicate", n_sites=a.sites, quench=q, energy_transfer=et)
             s, th, curve = slope_and_threshold(lm, L, core, 0.19, N, 805, [6, 9, 12, 15], 1990,
                                                R1=0.99, R2=0.035, alpha_bg_dB_m=0.1, nz=40,
@@ -114,10 +118,14 @@ if not only or "ho_laser" in only:
     from gainmat.refs.midir_ho_refs import LEGOUET2020 as LG
     N = 5.3e19; core = 20.0
     Gp = np.pi * (core / 2) ** 2 / (0.8284 * 250.0 ** 2)   # octagon 250 um flat-to-flat
-    for var in ("single-ion", "observed"):
+    for var in ("single-ion", "observed", "ML-L3"):
         t0 = time.time()
         lm0 = local_model_for("Ho3+", "aluminosilicate", n_sites=a.sites)
-        q = {"5I7": tau_quench(lm0, "5I7", 0.7e-3)} if var == "observed" else None
+        if var == "ML-L3":
+            from gainmat.ml.quench import extra_rates
+            q = extra_rates("aluminosilicate", lm0.spec["bary"], N)
+        else:
+            q = {"5I7": tau_quench(lm0, "5I7", 0.7e-3)} if var == "observed" else None
         lm = local_model_for("Ho3+", "aluminosilicate", n_sites=a.sites, quench=q)
         s, th, curve = slope_and_threshold(lm, 16, core, 0.08, N, 1940, [50, 100, 150, 200], 2120,
                                            R1=0.99, R2=0.03, alpha_bg_dB_m=0.04, nz=40, pump_overlap=Gp)
