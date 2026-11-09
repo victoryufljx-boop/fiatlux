@@ -93,12 +93,17 @@ def main():
     ap.add_argument("--family", default="")
     ap.add_argument("--n", type=int, default=16)
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--families", default="", help="comma list restricting --all")
+    ap.add_argument("--no-ml", action="store_true", help="explicit model only (no learned theta / L3 quenching)")
     ap.add_argument("--out", default="ml_results/uq")
     a = ap.parse_args()
     load_refs(); apply_site_refs(); calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ, verbose=False)
+    from ..forward import glass as _g
+    _g.USE_ML = not a.no_ml
     os.makedirs(a.out, exist_ok=True)
     from ..forward.glass import FAMILIES, EMAX
-    combos = [(i, f) for i in EMAX for f in FAMILIES] if a.all else [(a.ion, a.family)]
+    fams = [f for f in FAMILIES if not a.families or f in a.families.split(",")]
+    combos = [(i, f) for i in EMAX for f in fams] if a.all else [(a.ion, a.family)]
     for ion, fam in combos:
         tag = f"{ion.replace('+', '')}_{fam}"
         if os.path.exists(os.path.join(a.out, tag + ".json")):

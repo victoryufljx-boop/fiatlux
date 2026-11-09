@@ -295,5 +295,25 @@
     "n": 2
    }
   }
+ },
+ "cross_host": {
+  "ZBLAN": {
+   "default": 233.120727492694,
+   "ZBLAN": 79.18500116380594,
+   "aluminosilicate": 158.07736039782833,
+   "germanosilicate": 175.9338073898239
+  },
+  "aluminosilicate": {
+   "default": 233.21727242251066,
+   "ZBLAN": 327.54388683228757,
+   "aluminosilicate": 156.0907064530386,
+   "germanosilicate": 185.93166781580257
+  },
+  "germanosilicate": {
+   "default": 137.7604557097561,
+   "ZBLAN": 247.85366485284956,
+   "aluminosilicate": 148.6025424948644,
+   "germanosilicate": 89.11136387943169
+  }
  }
 }
