@@ -13,7 +13,8 @@ For each site:
   4. per state pair  A_ab = 64 pi^4 nu^3 / (3 h) [chi_ED S_ED + chi_MD S_MD]
      and the Fuechtbauer-Ladenburg / Einstein relation
         sigma_ab(nu) = A_ab / (8 pi c n^2 nu^2) * L(nu - nu_ab)
-     with a homogeneous Lorentzian L.  Emission weights upper states by their Boltzmann
+     with a homogeneous lineshape L (Gaussian of FWHM gamma_h by default; Lorentzian optional,
+     whose slow wings over-extend band edges when multiplied by high doping).  Emission weights upper states by their Boltzmann
      population inside the upper multiplet, absorption weights lower states likewise;
      this makes sigma_a and sigma_e obey McCumber reciprocity by construction.
 The inhomogeneous width is not a parameter: it comes from the spread of site geometries.
@@ -111,7 +112,8 @@ def nu_grid(lmin_nm=400.0, lmax_nm=5000.0, dnu=2.0):
 
 
 def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=None,
-                     T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0):
+                     T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0,
+                     lineshape: str = "gauss"):
     """Site-averaged absorption and emission cross sections (cm^2) on grid nu (cm^-1)
     for multiplet pairs (upper_label, lower_label).  Returns dict with nu, pairs ->
     (sigma_abs[lower->upper], sigma_em[upper->lower]), mean Stark energies per multiplet,
@@ -161,7 +163,11 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     ns = len(sites)
     dn = nu[1] - nu[0]
     ker_x = np.arange(-int(40 * gamma_h / dn) - 1, int(40 * gamma_h / dn) + 2) * dn
-    ker = (hg / np.pi) / (ker_x ** 2 + hg * hg)          # per cm^-1; integrates to ~1
+    if lineshape == "lorentz":
+        ker = (hg / np.pi) / (ker_x ** 2 + hg * hg)      # per cm^-1; integrates to ~1
+    else:   # Gaussian of FWHM gamma_h: far wings of RT 4f lines fall faster than Lorentzian
+        sg = gamma_h / 2.3548
+        ker = np.exp(-0.5 * (ker_x / sg) ** 2) / (sg * np.sqrt(2 * np.pi))
     for p in pairs:
         sa[p] = np.convolve(sa[p] / ns, ker * dn, mode="same")
         se[p] = np.convolve(se[p] / ns, ker * dn, mode="same")
