@@ -13,6 +13,7 @@ provide sourced values (see load_refs()).  Every value records where it came fro
 from __future__ import annotations
 
 import copy
+import os
 
 import numpy as np
 
@@ -144,6 +145,22 @@ def ir_loss_dB_m(lam_nm, hw_max):
 NEPH_STD = 0.0027
 # One-phonon vibronic sideband strength (fraction of each line).  0 = off unless calibrated.
 SIDEBAND_S = 0.0
+# Learned host microstructure (ML layer L2, gainmat/ml/host_calib.py): when USE_ML is set,
+# run() applies ml_results/l2/learned_theta.json (cf_scale, disorder, neph_std, gamma_h)
+# to the families that have been calibrated.  Off by default.
+USE_ML = False
+_LEARNED_THETA = None
+
+
+def learned_theta(family):
+    global _LEARNED_THETA
+    if _LEARNED_THETA is None:
+        import json as _json
+        p = os.path.join(os.path.dirname(__file__), "..", "..", "ml_results", "l2", "learned_theta.json")
+        _LEARNED_THETA = _json.load(open(p)) if os.path.exists(p) else {}
+    return _LEARNED_THETA.get(family)
+
+
 # dual-wavelength pumping: (first pump from the ground state, second pump between excited states)
 # Er 985 + 1973 nm: 4I15/2 -> 4I11/2, then 4I11/2 -> 4F9/2 for 3.5 um gain on 4F9/2 -> 4I9/2
 # (Henderson-Sapir, Munch & Ottaway, Opt. Lett. 39, 493 (2014)).
@@ -191,7 +208,12 @@ def omegas_for(ion, family):
 def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_dB_m=0.1,
         lam=(400.0, 5000.0), dnu=2.0, intensities=I_PUMP):
     """Forward model for one (ion, glass): spectra, lifetimes, efficiencies, gain windows."""
-    fam = copy.deepcopy(FAMILIES[family]); fam.update(overrides or {})
+    fam = copy.deepcopy(FAMILIES[family])
+    if USE_ML and learned_theta(family):
+        th = learned_theta(family)
+        fam.update(cf_scale=th["cf_scale"], R_std=fam["R_std"] * th["disorder"],
+                   ang_std=fam["ang_std"] * th["disorder"], neph_std=th["neph_std"], gamma_h=th["gamma_h"])
+    fam.update(overrides or {})
     om, om_src = omegas_for(ion, family) if "omegas" not in fam else (fam["omegas"], "override")
     lig = fam["ligand"]
     sites = fam.get("sites") or random_sites(n_sites, lig, fam["CN"], fam["R"], fam["R_std"],
