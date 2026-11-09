@@ -210,3 +210,90 @@ def load_md_sites(path, max_sites=None):
     sites = [[(l[0], float(l[1]), float(l[2]), float(l[3])) for l in s["ligands"]]
              for s in d.get("er_sites", []) if s.get("ligands")]
     return sites[:max_sites] if max_sites else sites
+
+
+# ------------------------------------------------------------------ crystal-field calibration
+def cf_strength(bkq):
+    """Scalar crystal-field strength S = sqrt(sum_k 1/(2k+1) sum_q |B^k_q|^2) (cm^-1)."""
+    s = 0.0
+    for (k, q), B in bkq.items():
+        s += (1 if q == 0 else 2) * abs(B) ** 2 / (2 * k + 1)
+    return float(np.sqrt(s))
+
+
+def _er_ground_split(fam, scale, n_sites=30, seed=11):
+    from .ions import get_ion
+    from .spectra import spm_bkq
+    f = FAMILIES[fam]; lig = f["ligand"]
+    p = dict(SPM_DEFAULT[lig]); [p.__setitem__(f"B{k}", p[f"B{k}"] * scale) for k in (2, 4, 6)]
+    m = get_ion("Er3+"); g = m.mult_index("4I15/2")
+    sp = []
+    for s in random_sites(n_sites, lig, f["CN"], f["R"], f["R_std"], f["ang_std"], seed=seed):
+        E, W, par = m.stark(spm_bkq(s, {lig: p}))
+        e = E[par == g]; sp.append(e.max() - e.min())
+    return float(np.mean(sp))
+
+
+def calibrate_spm(target_er_split_O=370.0, carnall_er_laf3=None, verbose=True):
+    """One strength parameter per ligand type (the Bbar ratios and t_k stay generic):
+    O: scale so that Er3+ 4I15/2 total Stark splitting in silica sites = 370 cm^-1
+       (glasses: 335-400 cm^-1, Zemon et al., J. Appl. Phys. 69, 6799 (1991), site_refs.CF_CHECKS);
+    F: scale so the mean scalar crystal-field strength of ZBLAN sites equals that of Carnall's
+       fitted Er:LaF3 crystal field (a fluoride crystal), i.e. transfer from a fluoride fit;
+    S: no data; uses the O scale (flagged).
+    Returns the scales; SPM_DEFAULT is updated in place."""
+    from .spectra import spm_bkq
+    out = {}
+    s0 = 1.0
+    a = _er_ground_split("silica", s0)
+    s1 = s0 * target_er_split_O / a
+    b = _er_ground_split("silica", s1)
+    s2 = s1 * target_er_split_O / b                     # one secant-free refinement (near linear)
+    for k in (2, 4, 6):
+        SPM_DEFAULT["O"][f"B{k}"] *= s2
+    SPM_DEFAULT["O"]["src"] = f"generic Bbar ratios scaled x{s2:.3f} to Er 4I15/2 splitting {target_er_split_O} cm-1 in silica"
+    out["O"] = dict(scale=s2, er_split_check=_er_ground_split("silica", 1.0))
+    if carnall_er_laf3:
+        S_ref = cf_strength(carnall_er_laf3)
+        f = FAMILIES["ZBLAN"]
+        S_now = np.mean([cf_strength(spm_bkq(s, {"F": SPM_DEFAULT["F"]}))
+                         for s in random_sites(30, "F", f["CN"], f["R"], f["R_std"], f["ang_std"], seed=5)])
+        sF = S_ref / S_now
+        for k in (2, 4, 6):
+            SPM_DEFAULT["F"][f"B{k}"] *= sF
+        SPM_DEFAULT["F"]["src"] = f"generic Bbar ratios scaled x{sF:.3f} so <S>(ZBLAN sites) = S(Carnall Er:LaF3) = {S_ref:.0f} cm-1"
+        out["F"] = dict(scale=sF, S_ref=S_ref)
+    for k in (2, 4, 6):
+        SPM_DEFAULT["S"][f"B{k}"] *= s2
+    SPM_DEFAULT["S"]["src"] = "no data: O scale applied (unconstrained)"
+    if verbose:
+        print("SPM calibration:", out, flush=True)
+    return out
+
+
+# Er3+:LaF3 crystal field (Wybourne, cm^-1), Carnall et al. 1989 via qlanth data/carnall.py
+CARNALL_ER_LAF3_BKQ = {(2, 0): -238.0, (4, 0): 453.0, (6, 0): 373.0, (2, 2): -91.0, (4, 2): 308.0,
+                       (4, 4): 417.0, (6, 2): -489.0, (6, 4): -240.0, (6, 6): -536.0}
+
+
+def apply_site_refs():
+    """Measured first-shell statistics (site_refs.SITES) and RT homogeneous width."""
+    used = {}
+    try:
+        from ..refs import site_refs as S
+    except ImportError:
+        return used
+    v = lambda x: x.get("value") if isinstance(x, dict) else x
+    # silica: CN 6.0, Er-O 2.28 A, spread 0.09 A (EXAFS, Marcus & Polman 1991)
+    # aluminosilicate: CN 6.3, Er-O 2.21-2.25 A (Peters & Houde-Walter 1998)
+    # phosphate: CN 6.4-7, Er-O 2.23-2.29 A (Karabulut 2002; Mountjoy 2007)
+    meas = {"silica": dict(CN=6.0, R=2.28, R_std=0.09), "aluminosilicate": dict(CN=6.3, R=2.23),
+            "phosphate": dict(CN=6.7, R=2.26)}
+    for fam, d in meas.items():
+        FAMILIES[fam].update(d); FAMILIES[fam]["site_src"] = "site_refs (EXAFS)"
+        used[fam] = d
+    # RT homogeneous width: Er 1.53 um in Al-silica EDFA, 11.5 nm ~ 49 cm^-1 (IEEE PTL 2(4) 1990)
+    for fam in FAMILIES:
+        FAMILIES[fam].setdefault("gamma_h", 49.0)
+    used["gamma_h_cm1"] = 49.0
+    return used

@@ -13,7 +13,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 import numpy as np
 
-from gainmat.forward.glass import load_refs, FAMILIES, OMEGA, SPM_DEFAULT
+from gainmat.forward.glass import (load_refs, apply_site_refs, calibrate_spm, CARNALL_ER_LAF3_BKQ,
+                                   FAMILIES, OMEGA, SPM_DEFAULT)
 from gainmat.forward.sweep import grid_sweep, phonon_sweep, mixture_sweep, coverage_plot
 
 ap = argparse.ArgumentParser()
@@ -25,7 +26,10 @@ os.makedirs(a.out, exist_ok=True)
 skip = set(a.skip.split(","))
 t0 = time.time()
 loaded = load_refs()
-meta = dict(loaded_refs=loaded, families=FAMILIES, spm=SPM_DEFAULT,
+site_used = apply_site_refs()
+cal = calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ)
+meta = dict(loaded_refs=loaded, site_refs_used=site_used, spm_calibration=cal,
+            families=FAMILIES, spm=SPM_DEFAULT,
             omega={f"{k[0]}:{k[1]}": v for k, v in OMEGA.items()})
 json.dump(meta, open(f"{a.out}/inputs.json", "w"), indent=1, default=str)
 print("refs loaded:", loaded, flush=True)
