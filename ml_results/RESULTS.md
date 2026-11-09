@@ -243,3 +243,12 @@ Findings:
     - Either the superposition model misses the low-symmetry ⁴I₁₃/₂ pattern, or the FLN set skips
       closely spaced levels. Crystals such as Er:YAG also have first ⁴I₁₃/₂ spacings near 20 cm⁻¹.
       Unresolved.
+- **Yb long-wavelength emission: sidebands don't transfer.** Both real Yb fibres (Pask's Ge-silica
+  and a vendor aluminosilicate, the latter a private check) emit 5–9 % of peak at 1100 nm. The
+  model emits essentially zero there.
+    - A one-phonon sideband fitted on Pask's tail (S = 0.2, tail rms 0.079 → 0.026) makes the
+      held-out vendor tail worse (0.047 → 0.067).
+    - The whole-curve error (rms 0.22–0.33) is dominated by the zero-phonon region, which no
+      tested mechanism fixes.
+
+  Not adopted. For Yb, the measured-spectrum mode is the reliable route.
