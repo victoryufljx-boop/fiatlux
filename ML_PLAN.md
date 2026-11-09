@@ -1,5 +1,7 @@
 # ML layer: plan
 
+**Status (2026-11-09):** layers L1-L4 and UQ run; results and adoption decisions in `ml_results/RESULTS.md`, comparison against the explicit model in `forward_results_ml/COMPARISON.md`.
+
 ## The problem, stated carefully
 
 We have an explicit forward model, composition + dopant -> (Stark levels, cross sections,
