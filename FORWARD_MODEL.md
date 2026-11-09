@@ -129,3 +129,26 @@ midir_ho_refs); results in `forward_results/level_validation.*` and `device_vali
 - Common thread of the remaining misses: band wings.  The Gaussian homogeneous line has no
   phonon sideband and the stochastic sites give too narrow silica bands, so pump tails and
   emission edges are under-predicted.
+
+
+## Explicit physics added in the last round, and the full scorecard
+
+See `forward_results/SCORECARD.md` (every check in one place) and `forward_results/residuals.jsonl`
+(84 model/measured pairs, the target table for an ML correction layer).
+
+New physics: optical pumping on every transition (ground- and excited-state absorption) and
+dual-wavelength pumping; fibre amplifier (with forward/backward ASE and noise figure) and
+Fabry-Perot laser models; ion-ion energy transfer within one species and between species
+(`fiber.CoDopedModel`); temperature-dependent multiphonon decay; per-site nephelauxetic
+energy scatter (calibrated on the Er zero-phonon-line width); optional one-phonon sideband.
+
+New checks: Giles & Desurvire 1991 (Er alpha/g* spectra and sigma_e/sigma_a), Golding 2000
+(Er,Pr:ZBLAN energy transfer), nLIGHT LIEKKI Er/Yb cross sections (metrics only), Le Verre
+Fluore demonstrated lasers (11/15 inside a model window).
+
+What explicit physics has not fixed, and why the next step is a learned correction:
+- band wings and widths: model bands are ~1.5x too narrow and absolute cross sections
+  ~0.5-0.9x (silica); several demonstrated lines sit 10-150 nm beyond the model's window edge;
+- the sigma_e/sigma_a ratio is 0.1-0.2 decades high in Er:silica (McCumber energy too high);
+- Yb Stark structure (half the measured splitting), and lineshape tails used by pumps;
+- concentration / OH quenching of the ~2 um levels in silica (needs a measured series).

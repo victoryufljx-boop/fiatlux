@@ -108,6 +108,28 @@ if ed:
         md.append(f"| {r['case']} | {r['model']} | {r['measured']} |")
     md.append("")
 
+vd = load("vendor_validation.json")
+if vd:
+    if vd.get("liekki"):
+        md += ["## Commercial fibre cross sections (nLIGHT LIEKKI, metrics only)", "",
+               "| curve | integrated x | peak x | peak shift nm | shape rms / ratio rms |", "|---|---|---|---|---|"]
+        for r in vd["liekki"]:
+            if "integrated_ratio" in r:
+                md.append(f"| {r['curve']} | {r['integrated_ratio']:.2f} | {r['peak_ratio']:.2f} | "
+                          f"{r['peak_shift_nm']:+.0f} | {r['shape_rms']:.2f} |")
+                res.append(dict(quantity="vendor_xs_integrated", ion=r["ion"], host=r["host"], item=r["curve"],
+                                measured=1.0, model=r["integrated_ratio"], src=r["src"]))
+            else:
+                md.append(f"| {r['curve']} | | | | ratio rms {r['rms_log10']:.2f} dec (bias {r['mean_log10']:+.2f}) |")
+        md.append("")
+    if vd.get("lvf"):
+        ok = sum(r["reproduced"] for r in vd["lvf"])
+        md += [f"## Le Verre Fluore demonstrated lines inside a model gain window: {ok} / {len(vd['lvf'])}", ""]
+        for r in vd["lvf"]:
+            md.append(f"- {'OK  ' if r['reproduced'] else 'MISS'} {r['ion']} {r['target_nm']:.0f} nm: {r['description']}"
+                      + ("" if r["reproduced"] else f" (nearest window edge {r['nearest_window_edge_nm']:.0f} nm)"))
+        md.append("")
+
 gl = load("gap_law_check.json")
 if gl:
     md += [f"## Multiphonon rates: gap law vs {gl['n']} measured rates, rms {gl['rms_log10_layne']:.2f} decades "
