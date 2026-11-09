@@ -127,6 +127,14 @@ def run_gpaw_mpi(key_or_atoms, level: str = "full", nproc: int | None = None,
         ek = dict(cfg["eps"] or LEVELS["full"]["eps"])
         ek["scissor_from_gap"] = do_gap
         ek.update(eps_kwargs or {})
+    nproc = nproc or os.cpu_count() or 1
+    if gk is not None and nproc > 1 and "parallel" not in gk:
+        # GPAW builds without ScaLAPACK (pip/Colab) can only parallelise over k-points:
+        # any domain or band split trips `assert c == 1` in the BLACS matrix code.
+        # So use one rank per irreducible k-point (at most nproc of them).
+        nibz = n_ibz_kpoints(atoms, gk)
+        nproc = max(1, min(nproc, nibz))
+        gk["parallel"] = {"kpt": nproc, "domain": 1, "band": 1}
     workdir = workdir or tempfile.mkdtemp(prefix=f"gpaw_{key}_")
     script, out_json = write_driver(atoms, workdir, gk, ek, tag=key)
     cmd = mpi_command(script, nproc)
@@ -148,7 +156,31 @@ def run_gpaw_mpi(key_or_atoms, level: str = "full", nproc: int | None = None,
         print(f"[{key}] {out['nproc']} ranks, {out['t_launch_s']} s: "
               f"gap({g.get('gap_method')})={g.get('gap_eV')} PBE={g.get('gap_pbe_eV')} "
               f"errors={out['errors'] or None}", flush=True)
+    gerr = (out.get("errors") or {}).get("gap", "")
+    if nproc > 1 and gerr and any(w in gerr for w in ("AssertionError", "BadParallelization",
+                                                      "parallelize", "ranks")):
+        if verbose:
+            print(f"[{key}] parallel layout refused by GPAW ({gerr[:80]}); retrying serially",
+                  flush=True)
+        gk2 = {k: v for k, v in (gap_kwargs or {}).items() if k != "parallel"}
+        gk2["parallel"] = {"kpt": 1, "domain": 1, "band": 1}
+        return run_gpaw_mpi(key_or_atoms, level=level, nproc=1, do_gap=do_gap, do_eps=do_eps,
+                            gap_kwargs=gk2, eps_kwargs=eps_kwargs, timeout=timeout,
+                            verbose=verbose)
     return out
+
+
+def n_ibz_kpoints(atoms, gap_kw: dict) -> int:
+    """Number of irreducible k-points of the Gamma-centred SCF mesh compute_gap will use
+    (spglib, with time reversal; matches GPAW's reduction for these crystals)."""
+    import numpy as np
+    import spglib
+    from .gap import _kmesh
+    mesh = gap_kw.get("kpts") or _kmesh(atoms, gap_kw.get("kdens", 3.0))
+    cell = (atoms.cell[:], atoms.get_scaled_positions(), atoms.numbers)
+    mapping, _ = spglib.get_ir_reciprocal_mesh(tuple(int(m) for m in mesh), cell,
+                                               is_shift=[0, 0, 0])
+    return int(len(np.unique(mapping)))
 
 
 if __name__ == "__main__":   # python -m gainmat.host.mpi_run CaF2 smoke [nproc]
