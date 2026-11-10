@@ -39,7 +39,7 @@ Extra fast-quench replicas: rep5, rep6. These used a shortened schedule (6000 K 
 
 1. **Quench rate 10 K/ps, not 5 K/ps.** `nproc` = 2. At about 9 ms/step per core, one 5 K/ps replica (760 ps) takes about 110 min. Within 3 h 15 min that would allow only 2 replicas (16 Er), so I followed the 10 K/ps fallback.
 
-2. **Distinct Er sites: 32 (main set) + 16 (fast set), below the target of ≥ 60.** Each replica holds 8 Er, and 2 cores allowed only 2 rounds of 2 concurrent replicas. `er_sites` contains 10 frames per Er. These snapshots are thermally correlated (300 K vibrations of the same site), not independent sites.
+2. **Distinct Er sites: 32 (main set) + 16 (fast set), below the target of ≥ 60.** Each replica holds 8 Er, and 2 cores allowed only 2 rounds of 2 concurrent replicas at 10 K/ps, plus one shortened round at 20 K/ps. `er_sites` contains 10 frames per Er. These snapshots are thermally correlated (300 K vibrations of the same site), not independent sites.
 
 3. Coulomb uses DSF instead of Ewald/PPPM (see above).
 
@@ -79,7 +79,7 @@ The Si-O-Si angle comes out a few degrees above the requested range, consistent 
 
 ## Fast-quench replicas (20 K/ps; separate, tagged)
 
-16 distinct Er, 160 snapshots. Final T {'rep5': 300.0, 'rep6': 301.8} K. r_min 3.01 Å, Er-O peak 2.15 Å, CN 4.463 ± 0.724 {'3': 8, '4': 84, '5': 54, '6': 14}, CN within 2.6 Å 3.944. R 2.2944 ± 0.2109 Å, NBO fraction 0.7031, Er-Er nn min 3.498 Å. Each replica uses its own r_min, taken from that set's pooled g(r).
+16 distinct Er, 160 snapshots. Final T {'rep5': 300.0, 'rep6': 301.8} K. r_min 3.01 Å, Er-O peak 2.15 Å, CN 4.463 ± 0.724 {'3': 8, '4': 84, '5': 54, '6': 14}, CN within 2.6 Å 3.944. R 2.2944 ± 0.2109 Å, NBO fraction 0.7031, Er-Er nn min 3.498 Å. This set uses its own r_min (3.01 Å) from its own pooled g(r).
 
 ## JSON layout
 
