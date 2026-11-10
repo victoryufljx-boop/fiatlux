@@ -1,28 +1,40 @@
 {
  "summary": {
   "overlap / paper Omega": {
-   "n": 11,
-   "median_abs_dex": 0.24664834006164713,
-   "rms_dex": 0.35474335014697794,
-   "within_2x": 0.7272727272727273
+   "n": 36,
+   "median_abs_dex": 0.23911590005606326,
+   "rms_dex": 0.3311478036085988,
+   "within_2x": 0.6944444444444444
   },
   "overlap / model defaults": {
-   "n": 11,
-   "median_abs_dex": 0.09939611401422485,
-   "rms_dex": 0.2208845050237421,
-   "within_2x": 0.8181818181818182
+   "n": 36,
+   "median_abs_dex": 0.21293000413504354,
+   "rms_dex": 0.35707974774672047,
+   "within_2x": 0.6944444444444444
   },
   "decay fit / paper Omega": {
-   "n": 2,
-   "median_abs_dex": 0.652164708265337,
-   "rms_dex": 0.6521693917598445,
-   "within_2x": 0.0
+   "n": 8,
+   "median_abs_dex": 0.5736564188204831,
+   "rms_dex": 0.5687733914093601,
+   "within_2x": 0.375
   },
   "decay fit / model defaults": {
-   "n": 2,
-   "median_abs_dex": 0.6386125721236495,
-   "rms_dex": 0.6387393249969014,
-   "within_2x": 0.0
+   "n": 8,
+   "median_abs_dex": 0.5617540001157124,
+   "rms_dex": 0.5663150263416828,
+   "within_2x": 0.375
+  },
+  "overlap (unflagged) / paper Omega": {
+   "n": 34,
+   "median_abs_dex": 0.23911590005606326,
+   "rms_dex": 0.3356647478012725,
+   "within_2x": 0.7058823529411765
+  },
+  "overlap (unflagged) / model defaults": {
+   "n": 34,
+   "median_abs_dex": 0.21293000413504354,
+   "rms_dex": 0.36502776339770426,
+   "within_2x": 0.6764705882352942
   }
  },
  "rows": [
@@ -397,6 +409,905 @@
     "log10_ratio": 0.6513368804786775,
     "phonon_fractions": [
      0.998,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Yb->Er 2F5/2->4I11/2 [flagged]",
+   "family": "fluoroindate",
+   "published_cm6_s": 2.06e-39,
+   "kind": "overlap",
+   "src": "Huang F, Liu X, Ma Y, Kang S, Hu L, Chen D, Sci Rep 5, 8233 (2015), doi:10.1038/srep08233 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.5481175192594487e-39,
+    "ratio": 0.7515133588638101,
+    "log10_ratio": -0.12406329501150853,
+    "phonon_fractions": [
+     0.981,
+     0.017,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.8537284094771762e-39,
+    "ratio": 0.8998681599403768,
+    "log10_ratio": -0.045821114565771634,
+    "phonon_fractions": [
+     0.981,
+     0.017,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er->Yb back transfer 4I11/2->2F5/2 [flagged]",
+   "family": "fluoroindate",
+   "published_cm6_s": 2.12e-39,
+   "kind": "overlap",
+   "src": "Huang F, Liu X, Ma Y, Kang S, Hu L, Chen D, Sci Rep 5, 8233 (2015), doi:10.1038/srep08233 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.0179220347788036e-39,
+    "ratio": 0.48015190319754886,
+    "log10_ratio": -0.3186213453661443,
+    "phonon_fractions": [
+     0.981,
+     0.002,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.2189075592024576e-39,
+    "ratio": 0.5749563958502159,
+    "log10_ratio": -0.24036509054463884,
+    "phonon_fractions": [
+     0.981,
+     0.002,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd self-quenching cross-relaxation 4F3/2+4I9/2->4I15/2+4I15/2",
+   "family": "aluminosilicate",
+   "published_cm6_s": 1.5e-40,
+   "kind": "decay fit",
+   "src": "C.B. Layne, PhD thesis 'Multiphonon Relaxation and Excitation Transfer in Rare-Earth Doped Glasses', UCRL-51862, Lawrence Livermore Lab (1975) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.598373540838045e-41,
+    "ratio": 0.10655823605586967,
+    "log10_ratio": -0.9724129773399045,
+    "phonon_fractions": [
+     0.989,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.5685313120452122e-41,
+    "ratio": 0.10456875413634747,
+    "log10_ratio": -0.9805980662656412,
+    "phonon_fractions": [
+     0.994,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd 4F3/2 migration",
+   "family": "aluminosilicate",
+   "published_cm6_s": 3.8e-39,
+   "kind": "overlap",
+   "src": "C.B. Layne, PhD thesis, UCRL-51862, Lawrence Livermore Lab (1975) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.182669946389735e-39,
+    "ratio": 0.5743868279972987,
+    "log10_ratio": -0.24079552801659293,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.1513230266652413e-39,
+    "ratio": 0.5661376385961161,
+    "log10_ratio": -0.24707797090375908,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd 4F3/2 migration",
+   "family": "aluminosilicate",
+   "published_cm6_s": 2.1e-39,
+   "kind": "decay fit",
+   "src": "C.B. Layne, PhD thesis, UCRL-51862, Lawrence Livermore Lab (1975) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.182669946389735e-39,
+    "ratio": 1.039366641137969,
+    "log10_ratio": 0.016768773866297926,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.1513230266652413e-39,
+    "ratio": 1.0244395365072578,
+    "log10_ratio": 0.010486330979131861,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Yb 2F5/2 migration",
+   "family": "ZBLAN",
+   "published_cm6_s": 6.77e-39,
+   "kind": "overlap",
+   "src": "L.D. da Vila, L. Gomes, L.V.G. Tarelho, S.J.L. Ribeiro, Y. Messaddeq, J. Appl. Phys. 93, 3873 (2003), doi:10.1063/1.1555679 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.232120293562038e-38,
+    "ratio": 1.8199708915244284,
+    "log10_ratio": 0.26006444196781564,
+    "phonon_fractions": [
+     0.989,
+     0.005,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.232120293562038e-38,
+    "ratio": 1.8199708915244284,
+    "log10_ratio": 0.26006444196781564,
+    "phonon_fractions": [
+     0.989,
+     0.005,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Yb->Er 2F5/2->4I11/2",
+   "family": "ZBLAN",
+   "published_cm6_s": 1.76e-39,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 93, 3873 (2003), doi:10.1063/1.1555679 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.6425272594130606e-39,
+    "ratio": 0.9332541246665117,
+    "log10_ratio": -0.030000081963193127,
+    "phonon_fractions": [
+     0.993,
+     0.006,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.6425272594130606e-39,
+    "ratio": 0.9332541246665117,
+    "log10_ratio": -0.030000081963193127,
+    "phonon_fractions": [
+     0.993,
+     0.006,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er->Yb back transfer 4I11/2->2F5/2",
+   "family": "ZBLAN",
+   "published_cm6_s": 1.18e-39,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 93, 3873 (2003), doi:10.1063/1.1555679 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.0801036190516576e-39,
+    "ratio": 0.9153420500437777,
+    "log10_ratio": -0.038416586056484875,
+    "phonon_fractions": [
+     0.994,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.0801036190516576e-39,
+    "ratio": 0.9153420500437777,
+    "log10_ratio": -0.038416586056484875,
+    "phonon_fractions": [
+     0.994,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3F4 migration",
+   "family": "ZBLAN",
+   "published_cm6_s": 3.27e-39,
+   "kind": "overlap",
+   "src": "L.D. da Vila, L. Gomes, L.V.G. Tarelho, S.J.L. Ribeiro, Y. Messaddeq, J. Appl. Phys. 95, 5451 (2004), doi:10.1063/1.1704845 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 6.376797401762735e-39,
+    "ratio": 1.9500909485512952,
+    "log10_ratio": 0.29005486650758655,
+    "phonon_fractions": [
+     0.885,
+     0.055,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 6.390955396942503e-39,
+    "ratio": 1.9544206106857804,
+    "log10_ratio": 0.2910180339182583,
+    "phonon_fractions": [
+     0.996,
+     0.002,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm->Ho 3F4->5I7",
+   "family": "ZBLAN",
+   "published_cm6_s": 4.29e-39,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 95, 5451 (2004), doi:10.1063/1.1704845 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 3.049396211450094e-39,
+    "ratio": 0.7108149677039846,
+    "log10_ratio": -0.14824343578681617,
+    "phonon_fractions": [
+     0.112,
+     0.781,
+     0.107,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.455830212718306e-39,
+    "ratio": 0.5724545950392321,
+    "log10_ratio": -0.2422589542385818,
+    "phonon_fractions": [
+     0.157,
+     0.843,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Ho->Tm back transfer 5I7->3F4",
+   "family": "ZBLAN",
+   "published_cm6_s": 2.1e-40,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 95, 5451 (2004), doi:10.1063/1.1704845 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.940044473625026e-40,
+    "ratio": 0.9238307017262029,
+    "log10_ratio": -0.03440760891268673,
+    "phonon_fractions": [
+     0.106,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.6311861165358041e-40,
+    "ratio": 0.7767552935884781,
+    "log10_ratio": -0.10971577834536424,
+    "phonon_fractions": [
+     0.142,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm cross-relaxation 3H4+3H6->3F4+3F4",
+   "family": "ZBLAN",
+   "published_cm6_s": 7.83e-41,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 95, 5451 (2004), doi:10.1063/1.1704845 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.5036925051779814e-41,
+    "ratio": 0.1920424655399721,
+    "log10_ratio": -0.716602726971091,
+    "phonon_fractions": [
+     0.0,
+     0.0,
+     0.116,
+     0.884
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.2044570670742582e-40,
+    "ratio": 1.5382593449224242,
+    "log10_ratio": 0.18702956210618374,
+    "phonon_fractions": [
+     0.0,
+     0.011,
+     0.988,
+     0.001
+    ]
+   }
+  },
+  {
+   "process": "Tm 3H4 migration",
+   "family": "ZBLAN",
+   "published_cm6_s": 8.896e-40,
+   "kind": "overlap",
+   "src": "L.D. da Vila et al., J. Appl. Phys. 95, 5451 (2004), doi:10.1063/1.1704845 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.9425005740171853e-39,
+    "ratio": 2.1835662927351454,
+    "log10_ratio": 0.339166381570856,
+    "phonon_fractions": [
+     0.919,
+     0.042,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.0157181993990678e-39,
+    "ratio": 2.26587027810147,
+    "log10_ratio": 0.3552350427218382,
+    "phonon_fractions": [
+     0.998,
+     0.001,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Ho->Pr 5I7->(3F2,3H6)",
+   "family": "ZBLAN",
+   "published_cm6_s": 3.9e-38,
+   "kind": "decay fit",
+   "src": "A.F.H. Librantz, S.D. Jackson, F.H. Jagosich, L. Gomes, G. Poirier, S.J.L. Ribeiro, Y. Messaddeq, J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.2400662008532215e-38,
+    "ratio": 0.31796569252646706,
+    "log10_ratio": -0.4976197364628032,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.2400662008532215e-38,
+    "ratio": 0.31796569252646706,
+    "log10_ratio": -0.4976197364628032,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Ho->Pr 5I6->(3F4,3F3)",
+   "family": "ZBLAN",
+   "published_cm6_s": 2.05e-41,
+   "kind": "decay fit",
+   "src": "A.F.H. Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.606630184102028e-41,
+    "ratio": 0.7837220410253795,
+    "log10_ratio": -0.1058379391691799,
+    "phonon_fractions": [
+     0.0,
+     0.0,
+     0.012,
+     0.988
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.606630184102028e-41,
+    "ratio": 0.7837220410253795,
+    "log10_ratio": -0.1058379391691799,
+    "phonon_fractions": [
+     0.0,
+     0.0,
+     0.012,
+     0.988
+    ]
+   }
+  },
+  {
+   "process": "Nd->Er 4F3/2->4I11/2",
+   "family": "phosphate",
+   "published_cm6_s": 3.31e-40,
+   "kind": "decay fit",
+   "src": "A.D. Sontakke, K. Biswas, A.K. Mandal, K. Annapurna, 'Time resolved spectra and energy transfer analysis of Nd3+-Yb3+-Er3+ triply-doped Ba-Al-metaphosphate glasses for an eye safe emission (1.54 um)' (CGCRI; journal/doi not in repository text, likely Appl. Phys. B ~2010) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.1409951721597697e-40,
+    "ratio": 0.6468263359999304,
+    "log10_ratio": -0.1892123057931606,
+    "phonon_fractions": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.1241776708507713e-40,
+    "ratio": 0.6417455198944929,
+    "log10_ratio": -0.19263715450987562,
+    "phonon_fractions": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd 4F3/2 migration",
+   "family": "phosphate",
+   "published_cm6_s": 3.84e-39,
+   "kind": "overlap",
+   "src": "A.D. Sontakke, K. Biswas, A.K. Mandal, K. Annapurna, Nd-Yb-Er triply-doped Ba-Al-metaphosphate glasses (CGCRI, ~2010) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 4.43464045942939e-39,
+    "ratio": 1.154854286309737,
+    "log10_ratio": 0.06252719059717265,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 4.400116328745853e-39,
+    "ratio": 1.145863627277566,
+    "log10_ratio": 0.0591329339969697,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd self-quenching cross-relaxation 4F3/2+4I9/2->4I15/2+4I15/2",
+   "family": "phosphate",
+   "published_cm6_s": 4.9e-42,
+   "kind": "decay fit",
+   "src": "A.D. Sontakke, K. Biswas, A.K. Mandal, K. Annapurna, Nd-Yb-Er triply-doped Ba-Al-metaphosphate glasses (CGCRI, ~2010) [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.483662097909673e-41,
+    "ratio": 5.068698158999332,
+    "log10_ratio": 0.7048964297548543,
+    "phonon_fractions": [
+     0.998,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.464334005714388e-41,
+    "ratio": 5.029253072886506,
+    "log10_ratio": 0.7015034899444077,
+    "phonon_fractions": [
+     0.998,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 5e-39,
+   "kind": "overlap",
+   "src": "M. Cai, B. Zhou, F. Wang, T. Wei, Y. Tian, J. Zhou, S. Xu, J. Zhang, Sci. Rep. 5, 13056 (2015), doi:10.1038/srep13056 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 3.75447725092588e-39,
+    "ratio": 0.750895450185176,
+    "log10_ratio": -0.12442052713496968,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.7564571830623088e-39,
+    "ratio": 0.35129143661246176,
+    "log10_ratio": -0.4543324368213621,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 5.2e-39,
+   "kind": "overlap",
+   "src": "M. Cai et al., Sci. Rep. 5, 13056 (2015), doi:10.1038/srep13056 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 4.6972327710193085e-39,
+    "ratio": 0.9033139944267901,
+    "log10_ratio": -0.04416126148765659,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.7564571830623088e-39,
+    "ratio": 0.33778022751198244,
+    "log10_ratio": -0.47136577612014247,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I11/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 4.61e-40,
+   "kind": "overlap",
+   "src": "M. Cai et al., Sci. Rep. 5, 13056 (2015), doi:10.1038/srep13056 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.6640233365050357e-40,
+    "ratio": 0.3609595090032615,
+    "log10_ratio": -0.4425415127833224,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 6.32388884442152e-41,
+    "ratio": 0.13717763220003298,
+    "log10_ratio": -0.8627166976966216,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I11/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 4.63e-40,
+   "kind": "overlap",
+   "src": "M. Cai et al., Sci. Rep. 5, 13056 (2015), doi:10.1038/srep13056 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.5684916072086427e-40,
+    "ratio": 0.554749807172493,
+    "log10_ratio": -0.2559028400539294,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 6.32388884442152e-41,
+    "ratio": 0.13658507223372615,
+    "log10_ratio": -0.8645967633249266,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I11/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 2.68e-40,
+   "kind": "overlap",
+   "src": "T. Wei, Y. Tian, F. Chen, M. Cai, J. Zhang, X. Jing, F. Wang, Q. Zhang, S. Xu, Sci. Rep. 4, 6060 (2014), doi:10.1038/srep06060 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.546168744781707e-40,
+    "ratio": 0.9500629644707862,
+    "log10_ratio": -0.022247611325822654,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 6.32388884442152e-41,
+    "ratio": 0.23596600165751944,
+    "log10_ratio": -0.6271505663357623,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 1.04e-39,
+   "kind": "overlap",
+   "src": "T. Wei, Y. Tian, F. Chen, M. Cai, J. Zhang, X. Jing, F. Wang, Q. Zhang, S. Xu, Sci. Rep. 4, 6060 (2014), doi:10.1038/srep06060 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 4.673865184589033e-39,
+    "ratio": 4.494101139027916,
+    "log10_ratio": 0.652642841920999,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.7564571830623088e-39,
+    "ratio": 1.6889011375599123,
+    "log10_ratio": 0.2276042282158764,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I11/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 4.17e-40,
+   "kind": "overlap",
+   "src": "T. Wei, Y. Tian, F. Chen, M. Cai, J. Zhang, X. Jing, F. Wang, Q. Zhang, S. Xu, Sci. Rep. 4, 6060 (2014), doi:10.1038/srep06060 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.723024113221248e-40,
+    "ratio": 0.6530033844655271,
+    "log10_ratio": -0.1850845678047216,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 6.32388884442152e-41,
+    "ratio": 0.15165201065759043,
+    "log10_ratio": -0.819151827280731,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 migration",
+   "family": "germanate",
+   "published_cm6_s": 1.3e-39,
+   "kind": "overlap",
+   "src": "T. Wei, Y. Tian, F. Chen, M. Cai, J. Zhang, X. Jing, F. Wang, Q. Zhang, S. Xu, Sci. Rep. 4, 6060 (2014), doi:10.1038/srep06060 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 4.7668010844662954e-39,
+    "ratio": 3.6667700649740733,
+    "log10_ratio": 0.5642836771697995,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.7564571830623088e-39,
+    "ratio": 1.3511209100479298,
+    "log10_ratio": 0.13069421520781993,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm cross-relaxation 3H4+3H6->3F4+3F4",
+   "family": "germanate",
+   "published_cm6_s": 3.63e-39,
+   "kind": "overlap",
+   "src": "X. Wen, G. Tang, Q. Yang, X. Chen, Q. Qian, Q. Zhang, Z. Yang, Sci. Rep. 6, 20344 (2016), doi:10.1038/srep20344 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 9.600699183788228e-40,
+    "ratio": 0.264482071178739,
+    "log10_ratio": -0.5776037627669738,
+    "phonon_fractions": [
+     0.0,
+     0.988,
+     0.012,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.0311184707798954e-39,
+    "ratio": 0.28405467514597665,
+    "log10_ratio": -0.5465980584430825,
+    "phonon_fractions": [
+     0.0,
+     0.996,
+     0.004,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3H4 migration",
+   "family": "germanate",
+   "published_cm6_s": 8.16e-39,
+   "kind": "overlap",
+   "src": "X. Wen et al., Sci. Rep. 6, 20344 (2016), doi:10.1038/srep20344 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 3.540147340057734e-39,
+    "ratio": 0.43384158579138893,
+    "log10_ratio": -0.3626688211228711,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 3.4237776921460313e-39,
+    "ratio": 0.4195805995276999,
+    "log10_ratio": -0.37718460082369387,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3F4 migration",
+   "family": "tellurite",
+   "published_cm6_s": 8.98e-39,
+   "kind": "overlap",
+   "src": "J. Yuan et al., Crystals 11(2), 190 (2021), doi:10.3390/cryst11020190 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 1.4187701529222776e-38,
+    "ratio": 1.5799222192898414,
+    "log10_ratio": 0.19863570685017765,
+    "phonon_fractions": [
+     0.996,
+     0.002,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.4175295359798733e-38,
+    "ratio": 1.5785406859464068,
+    "log10_ratio": 0.19825578005421068,
+    "phonon_fractions": [
+     0.994,
+     0.003,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm->Ho 3F4->5I7",
+   "family": "tellurite",
+   "published_cm6_s": 6.22e-39,
+   "kind": "overlap",
+   "src": "J. Yuan et al., Crystals 11(2), 190 (2021), doi:10.3390/cryst11020190 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 5.136480393711231e-39,
+    "ratio": 0.8258007063844424,
+    "log10_ratio": -0.08312474996854093,
+    "phonon_fractions": [
+     0.711,
+     0.289,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 5.417469478449903e-39,
+    "ratio": 0.8709758003938751,
+    "log10_ratio": -0.05999391146926784,
+    "phonon_fractions": [
+     0.672,
+     0.328,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Ho->Tm back transfer 5I7->3F4",
+   "family": "tellurite",
+   "published_cm6_s": 3.16e-40,
+   "kind": "overlap",
+   "src": "J. Yuan et al., Crystals 11(2), 190 (2021), doi:10.3390/cryst11020190 [agent]",
+   "paper Omega": {
+    "model_cm6_s": 2.5277617770498825e-40,
+    "ratio": 0.7999246129904691,
+    "log10_ratio": -0.09695094013925352,
+    "phonon_fractions": [
+     0.664,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.687845745833326e-40,
+    "ratio": 0.8505840967826981,
+    "log10_ratio": -0.07028274147161319,
+    "phonon_fractions": [
+     0.623,
      0.0,
      0.0,
      0.0

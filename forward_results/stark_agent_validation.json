@@ -1,0 +1,159 @@
+{
+ "summary": {
+  "n_E0": 8,
+  "E0_median_abs_err_cm1": 65.4,
+  "n_split": 7,
+  "split_ratio_median": 0.91,
+  "split_within_25pct": 0.7142857142857143,
+  "skipped": [
+   "Er3+ 4I15/2 crystal:LiNbO3",
+   "Er3+ 4I15/2 crystal:LiNbO3",
+   "Er3+ 4I15/2 crystal:LiNbO3",
+   "Er3+ 4I15/2 crystal:ErPO4-like crystallites in germanosilicate preform",
+   "Er3+ 4I13/2 crystal:ErPO4-like crystallites in germanosilicate preform",
+   "Tm3+ 3F4 crystal:YAlO3",
+   "Tm3+ 3H4 crystal:YAlO3",
+   "Er3+ 4I15/2 crystal:Y2O3",
+   "Er3+ 4I15/2 crystal:Y2O3",
+   "Tm3+ 3H4 crystal:Y3Ga5O12"
+  ]
+ },
+ "rows": [
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "multiplet": "3H4",
+   "src": "B. Faure, W. Blanc, B. Dussardier, G. Monnom, arXiv:1003.0166 (journal version not verified)",
+   "T_K": "RT (77 K absorption also measured)",
+   "E0_meas": 12720.0,
+   "E0_model": 12647.0,
+   "E0_err": -73.0
+  },
+  {
+   "ion": "Tm3+",
+   "family": "phosphosilicate",
+   "multiplet": "3H4",
+   "src": "B. Faure, W. Blanc, B. Dussardier, G. Monnom, arXiv:1003.0166 (journal version not verified)",
+   "T_K": "RT/77 K",
+   "E0_meas": 12670.0,
+   "E0_model": 12627.9,
+   "E0_err": -42.1
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanosilicate",
+   "multiplet": "3H4",
+   "src": "B. Faure, W. Blanc, B. Dussardier, G. Monnom, arXiv:1003.0166 (journal version not verified)",
+   "T_K": "RT/77 K",
+   "E0_meas": 12760.0,
+   "E0_model": 12631.8,
+   "E0_err": -128.2
+  },
+  {
+   "ion": "Tm3+",
+   "family": "silica",
+   "multiplet": "3H6",
+   "src": "A. Pearson, J.R. Lincoln, W.S. Brocklesby, J.N. Carter, MRS Proc. 244, 197 (1991)",
+   "T_K": "low T",
+   "split_meas": 600.0,
+   "split_model": 641.5,
+   "split_ratio": 1.07
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanate",
+   "multiplet": "3F4",
+   "src": "B.M. Walsh, N.P. Barnes, D.J. Reichle, S. Jiang, 'Optical properties of Tm3+ ions in alkali germanate glass', NASA NTRS ",
+   "T_K": 295,
+   "E0_meas": 5655.0,
+   "E0_model": 5724.2,
+   "E0_err": 69.2
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "multiplet": "2F7/2",
+   "src": "L. Wang, H. Zeng, B. Yang, F. Ye, J. Chen, G. Chen, A.T. Smith, L. Sun, Materials 10, 241 (2017), doi:10.3390/ma10030241",
+   "T_K": "RT (paper states all measurements at RT)",
+   "split_meas": 781.0,
+   "split_model": 707.3,
+   "split_ratio": 0.91
+  },
+  {
+   "ion": "Er3+",
+   "family": "germanosilicate",
+   "multiplet": "4I13/2",
+   "src": "M.U. Staudt et al., 'Investigations of optical coherence properties in an erbium-doped silicate fiber for quantum state ",
+   "T_K": 4,
+   "E0_meas": 6527.0,
+   "E0_model": 6546.1,
+   "E0_err": 19.1
+  },
+  {
+   "ion": "Er3+",
+   "family": "aluminosilicate",
+   "multiplet": "4I13/2",
+   "src": "R. Peretti, B. Jacquier, D. Boivin, E. Burov, A.-M. Jurdyc, 'Inhomogeneous gain saturation in EDF: experiment and modeli",
+   "T_K": 77,
+   "E0_meas": 6534.6,
+   "E0_model": 6550.0,
+   "E0_err": 15.4
+  },
+  {
+   "ion": "Er3+",
+   "family": "chalcogenide",
+   "multiplet": "4I15/2",
+   "src": "Z.G. Ivanova, R. Ganesan, K.V. Adarsh, V.S. Vassilev, Z. Aneva, Z. Cernosek, E.S.R. Gopal, J. Optoelectron. Adv. Mater. ",
+   "T_K": 4.2,
+   "split_meas": 161.0,
+   "split_model": 79.8,
+   "split_ratio": 0.5
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "multiplet": "2F7/2",
+   "src": "M.A. Melkumov, I.A. Bufetov, K.S. Kravtsov, A.V. Shubin, E.M. Dianov, 'Absorption and emission cross section of Yb3+ ion",
+   "T_K": 77,
+   "split_meas": 740.0,
+   "split_model": 707.3,
+   "split_ratio": 0.96
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "multiplet": "2F5/2",
+   "src": "Melkumov et al., arXiv:1502.02885, Table 5",
+   "T_K": 77,
+   "E0_meas": 10260.0,
+   "E0_model": 10321.6,
+   "E0_err": 61.6,
+   "split_meas": 670.0,
+   "split_model": 592.9,
+   "split_ratio": 0.88
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "multiplet": "2F7/2",
+   "src": "Melkumov et al., arXiv:1502.02885, Table 5",
+   "T_K": 77,
+   "split_meas": 1210.0,
+   "split_model": 830.0,
+   "split_ratio": 0.69
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "multiplet": "2F5/2",
+   "src": "Melkumov et al., arXiv:1502.02885, Table 5",
+   "T_K": 77,
+   "E0_meas": 10245.0,
+   "E0_model": 10336.8,
+   "E0_err": 91.8,
+   "split_meas": 695.0,
+   "split_model": 693.4,
+   "split_ratio": 1.0
+  }
+ ]
+}

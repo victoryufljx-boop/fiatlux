@@ -50,6 +50,18 @@ CASES = [
     ("Nd self-quenching 4F3/2+4I9/2 -> 4I15/2+4I15/2", "phosphate", "Nd3+", ("4F3/2", "4I15/2"), "Nd3+", ("4I15/2", "4I9/2"),
      5.5e-42, "decay fit", SONT, dict(n=1.552), None),
 ]
+# + records collected by extraction agents from open-access papers (gainmat/refs/data/et_records.jsonl)
+from gainmat.refs.oa_agent_data import load_et
+_FLAG = ("Wei T", "Cai M", "Librantz", "Huang F, Liu X, Ma Y")   # ambiguous labels / swapped values (agent notes)
+for r in load_et():
+    ovD = {k: v for k, v in (("n", r.get("n_refr")), ("hw_max", r.get("hw_cm1")),
+                             ("omegas", tuple(r["omegas_donor"]) if r.get("omegas_donor") else None)) if v}
+    ovA = {k: v for k, v in (("n", r.get("n_refr")), ("hw_max", r.get("hw_cm1")),
+                             ("omegas", tuple(r["omegas_acceptor"]) if r.get("omegas_acceptor") else None)) if v}
+    kind = r["kind"] if r["kind"] in ("overlap", "decay fit") else "overlap"
+    lab = r["process"] + (" [flagged]" if str(r.get("src", "")).startswith(_FLAG) else "")
+    CASES.append((lab, r["family"], r["donor_ion"], tuple(r["donor_transition"]), r["acceptor_ion"],
+                  tuple(r["acceptor_transition"]), r["C_cm6_s"], kind, str(r.get("src")) + " [agent]", ovD or None, ovA or None))
 _sp = {}
 
 
@@ -64,15 +76,23 @@ rows = []
 for lab, fam, iD, pD, iA, pA, meas, kind, src, ovD, ovA in CASES:
     out = dict(process=lab, family=fam, published_cm6_s=meas, kind=kind, src=src)
     for variant, oD, oA in (("paper Omega", ovD, ovA if iA != iD else ovD), ("model defaults", None, None)):
-        r = c_da(iD, fam, pD, pA, spec=spec(iD, fam, oD), spec_acceptor=spec(iA, fam, oA), ion_acceptor=iA, overrides=oD)
+        try:
+            r = c_da(iD, fam, pD, pA, spec=spec(iD, fam, oD), spec_acceptor=spec(iA, fam, oA), ion_acceptor=iA, overrides=oD)
+        except Exception as e:
+            print("skip", lab, repr(e)[:80]); r = None
+        if r is None:
+            break
         out[variant] = dict(model_cm6_s=r["total"], ratio=r["total"] / meas, log10_ratio=float(np.log10(r["total"] / meas)),
                             phonon_fractions=[round(f, 3) for f in r["fractions"]])
+    if "model defaults" not in out or "paper Omega" not in out:
+        continue
     rows.append(out)
     print(f"{lab:42s} {fam:10s} {kind:9s} pub {meas:.2e} | paper-Omega x{out['paper Omega']['ratio']:.2f} | defaults x{out['model defaults']['ratio']:.2f}", flush=True)
 summ = {}
-for kind in ("overlap", "decay fit"):
+for kind in ("overlap", "decay fit", "overlap (unflagged)"):
     for variant in ("paper Omega", "model defaults"):
-        v = [abs(r[variant]["log10_ratio"]) for r in rows if r["kind"] == kind]
+        v = [abs(r[variant]["log10_ratio"]) for r in rows
+             if (r["kind"] == kind) or (kind == "overlap (unflagged)" and r["kind"] == "overlap" and "[flagged]" not in r["process"])]
         summ[f"{kind} / {variant}"] = dict(n=len(v), median_abs_dex=float(np.median(v)), rms_dex=float(np.sqrt(np.mean(np.square(v)))),
                                            within_2x=float(np.mean(np.array(v) <= np.log10(2))))
 print(json.dumps(summ, indent=1))
