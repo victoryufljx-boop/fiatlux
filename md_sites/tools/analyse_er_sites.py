@@ -157,7 +157,7 @@ summary = {
     "R_mean": float(Rall.mean()), "R_std": float(Rall.std()),
     "nbo_fraction": nbo_n / o_n, "first_shell_O_tag_counts": tagcount,
     "er_er_nn": {"mean": float(np.mean(ernn)), "min": float(np.min(ernn)),
-                  "per_er_last_frame": [round(x, 3) for x in ernn[9::10]],
+                  "per_er_last_frame": {f"{st['replica']}:Er{st['er_index']}": round(x, 3) for st, x in zip(sites, ernn) if st["frame"] == 9},
                   "fraction_below_5A": float(np.mean(np.array(ernn) < 5.0))},
     "sanity": {
         "SiO_rdf_peak": float(round(p_sio, 3)), "SiO_rdf_min": float(round(m_sio, 3)),
