@@ -114,3 +114,17 @@ def test_judd_ofelt_fit_round_trip():
     om, info = fit_omegas("Tm3+", "silica", {p: (lam, s["sigma_abs"][p]) for p in pairs}, n_sites=8)
     assert info["rank"] == 3
     assert np.allclose(om, om_true, rtol=0.08)
+
+
+def test_level_anchor_matches_measured_levels():
+    """Measured-level mode: the site-mean Stark levels equal the anchors, scatter is kept."""
+    from gainmat.forward.glass import spm_for
+    from gainmat.forward.spectra import ensemble_spectra, random_sites
+    sites = random_sites(20, "O", 6.0, 2.26, 0.08, 13, seed=3)
+    anc = {"2F7/2": dict(levels=[0, 425, 530, 865]), "2F5/2": dict(levels=[0, 630], E0=10235.0)}
+    sp = ensemble_spectra("Yb3+", sites, {"O": spm_for("Yb3+", "O")}, (1.0, 1.0, 1.0), 1.45,
+                          pairs=[("2F5/2", "2F7/2")], level_anchor=anc)
+    lo7, hi7 = sp["edges"]["2F7/2"]; lo5, hi5 = sp["edges"]["2F5/2"]
+    assert abs((hi7 - lo7) - 865) < 5.0      # per-site map: mean of mapped != map of mean (few cm^-1)
+    assert abs((lo5 - lo7) - 10235) < 5.0
+    assert sp["split"]["2F7/2"] > 0

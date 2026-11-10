@@ -27,7 +27,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | aluminosilicate | 3F4 (tau_rad) | 6 | 5.74 | 0.96 | Agger & Povlsen 2006 (FL from measured sigma_e) |
 | Tm3+ | silica | 3F4 (tau_rad) | 4.56 | 5 | 1.10 | Walsh & Barnes 2004 (JO) |
 | Tm3+ | silica | 3H4 (tau_rad) | 0.67 | 0.829 | 1.24 | Walsh & Barnes 2004 (JO) |
-| Yb3+ | germanosilicate | 2F5/2 (tau_rad) | 0.84 | 1.05 | 1.25 | Pask et al., JSTQE 1, 2 (1995) |
+| Yb3+ | germanosilicate | 2F5/2 (tau_rad) | 0.84 | 0.978 | 1.16 | Pask et al., JSTQE 1, 2 (1995) |
 | Pr3+ | ZBLAN | 1G4 (tau_rad) | 3.24 | 2.34 | 0.72 | Ohishi 1991 (JO) |
 | Ho3+ | ZBLAN | 5I7 (tau_rad) | 12.7 | 13.3 | 1.05 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 | Ho3+ | ZBLAN | 5I6 (tau_rad) | 5.87 | 6.2 | 1.06 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
@@ -37,11 +37,11 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | ZBLAN | 3H4 (tau_rad) | 1.32 | 1.28 | 0.97 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 | Nd3+ | ZBLAN | 4F3/2 (tau_rad) | 0.44 | 0.443 | 1.01 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 
-## Peak cross sections: 18 checks, 56% within 30 %, 89% within 2x, rms 0.18 decades
+## Peak cross sections: 18 checks, 56% within 30 %, 89% within 2x, rms 0.17 decades
 
 | ion | host | item | measured | model | x | source |
 |---|---|---|---|---|---|---|
-| Er3+ | aluminosilicate | 4I13/2->4I15/2 em (em) | 5e-21 | 5.28e-21 | 1.06 | Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised) |
+| Er3+ | aluminosilicate | 4I13/2->4I15/2 em (em) | 5e-21 | 4.26e-21 | 0.85 | Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised) |
 | Tm3+ | aluminosilicate | 3F4->3H6 em (em) | 5.5e-21 | 4.69e-21 | 0.85 | Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised) |
 | Ho3+ | aluminosilicate | 5I7->5I8 em (em) | 7e-21 | 3.2e-21 | 0.46 | Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised) |
 | Er3+ | ZBLAN | 4I11/2->4I13/2 em (em) | 5.6e-21 | 5.68e-21 | 1.01 | Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised) |
@@ -53,7 +53,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | silica | 3F4->3H6 abs (abs) | 4.47e-21 | 5.47e-21 | 1.22 | Jackson & King 1999 Fig. 3 |
 | Ho3+ | aluminosilicate | 5I7->5I8 abs (abs) | 4.3e-21 | 3.65e-21 | 0.85 | Le Gouet et al. 2020 |
 | Ho3+ | aluminosilicate | 5I7->5I8 em (em) | 6e-21 | 3.2e-21 | 0.53 | Le Gouet et al. 2020 |
-| Yb3+ | germanosilicate | 2F5/2->2F7/2 em (em) | 2.5e-20 | 1.47e-20 | 0.59 | Pask et al. 1995 |
+| Yb3+ | germanosilicate | 2F5/2->2F7/2 em (em) | 2.5e-20 | 1.63e-20 | 0.65 | Pask et al. 1995 |
 | Pr3+ | ZBLAN | 1G4->3H5 em (em) | 3.48e-21 | 8.61e-21 | 2.47 | Ohishi et al. 1991 |
 | Ho3+ | ZBLAN | 5I7->5I8 em (em) | 5.6e-21 | 5.66e-21 | 1.01 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) |
 | Er3+ | ZBLAN | 4I13/2->4I15/2 em (em) | 4.2e-21 | 5.87e-21 | 1.40 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) |
@@ -65,12 +65,12 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | ion | host | item | measured | model | diff |
 |---|---|---|---|---|---|
 | Er3+ | aluminosilicate | 4I13/2 lo | 6544 | 6553 | +9 |
-| Er3+ | aluminosilicate | 4I15/2 split | 268 | 456 | +188 |
-| Er3+ | silica | 4I15/2 split | 445 | 379 | -66 |
-| Er3+ | silica | 4I13/2 split | 330 | 264 | -66 |
-| Yb3+ | germanosilicate | 2F7/2 split | 1490 | 742 | -748 |
-| Yb3+ | germanosilicate | 2F5/2 split | 1370 | 610 | -760 |
-| Yb3+ | germanosilicate | 2F5/2 lo | 10260 | 10340 | +80 |
+| Er3+ | aluminosilicate | 4I15/2 split | 268 | 434 | +166 |
+| Er3+ | silica | 4I15/2 split | 445 | 430 | -15 |
+| Er3+ | silica | 4I13/2 split | 330 | 330 | +0 |
+| Yb3+ | germanosilicate | 2F7/2 split | 1490 | 864 | -626 |
+| Yb3+ | germanosilicate | 2F5/2 split | 1370 | 1530 | +160 |
+| Yb3+ | germanosilicate | 2F5/2 lo | 10260 | 10245 | -15 |
 | Tm3+ | aluminosilicate | 3H4 lo | 12710 | 12657 | -53 |
 | Tm3+ | aluminosilicate | 3H5 hi | 9090 | 8943 | -147 |
 
@@ -98,11 +98,11 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm:Al-silica em (Agger 2006) | 1.00 | 1.24 | 0.14 | 1800/1825 | 200/275 |
 | Ho:Al-silica abs (Le Gouet 2020) | 0.88 | 0.85 | 0.06 | 1940/1946 | 100/50 |
 | Ho:Al-silica em (Le Gouet 2020) | 0.56 | 0.53 | 0.08 | 1946/1950 | 140/150 |
-| Yb:Ge-silica abs (Pask 1995) | 0.49 | 0.42 | 0.24 | 970/974 | 20/0 |
-| Yb:Ge-silica em (Pask 1995) | 0.62 | 0.47 | 0.24 | 970/974 | 20/4 |
+| Yb:Ge-silica abs (Pask 1995) | 0.48 | 0.51 | 0.12 | 974/974 | 6/0 |
+| Yb:Ge-silica em (Pask 1995) | 0.70 | 0.58 | 0.14 | 974/974 | 46/4 |
 | Ho:alumi 5I7 em (Jackson 2012) | 0.46 | 0.44 | 0.31 | 2000/2020 | 140/100 |
 | Tm:alumi 3F4 em (Jackson 2012) | 0.58 | 0.84 | 0.19 | 1800/1800 | 200/320 |
-| Er:alumi 4I13/2 em (Jackson 2012) | 0.62 | 0.84 | 0.18 | 1540/1520 | 20/40 |
+| Er:alumi 4I13/2 em (Jackson 2012) | 0.63 | 0.65 | 0.12 | 1540/1520 | 40/40 |
 | Er:ZBLAN 4I11/2 em (Jackson 2012) | 0.79 | 0.99 | 0.16 | 2720/2720 | 80/120 |
 | Ho:ZBLAN 5I6 em (Jackson 2012) | 1.18 | 1.78 | 0.14 | 2840/2860 | 60/100 |
 | Dy:ZBLAN 6H13/2 em (Jackson 2012) | 1.18 | 1.36 | 0.08 | 2820/2880 | 220/220 |
@@ -114,19 +114,27 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Pr:ZBLAN amplifier (Ohishi et al. 1991) | single-ion | net gain at 1310 nm, 180 mW | 20.4 | 5.2 |
 | Pr:ZBLAN amplifier (Ohishi et al. 1991) | observed | net gain at 1310 nm, 180 mW | 11.0 | 5.2 |
 | Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014) | single-ion | slope vs launched 1973 nm power; output at 2.4 W | slope 0.29 | slope 0.25 |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | single-ion | slope (launched) / threshold W | slope 0.21, thr 1.51 W | slope 0.46, thr 5.24 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | observed | slope (launched) / threshold W | slope 0.21, thr 9.53 W | slope 0.46, thr 5.24 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | observed+CR | slope (launched) / threshold W | slope 0.25, thr 8.01 W | slope 0.46, thr 5.24 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | single-ion | slope (launched) / threshold W | slope 0.21, thr 1.76 W | slope 0.41, thr 5.99 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | observed | slope (launched) / threshold W | slope 0.20, thr 10.8 W | slope 0.41, thr 5.99 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | observed+CR | slope (launched) / threshold W | slope 0.24, thr 9.47 W | slope 0.41, thr 5.99 W |
-| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | single-ion | slope (launched) / threshold W | slope 0.17, thr 1.85 W | slope 0.21, thr 7.41 W |
+| Er:ZBLAN 3.5 um dual-pump laser (Henderson-Sapir et al. 2014) | +ETU | slope vs launched 1973 nm power; output at 2.4 W | slope 0.33 | slope 0.25 |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | single-ion | slope (launched) / threshold W | slope 0.21, thr 1.47 W | slope 0.46, thr 5.24 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | observed | slope (launched) / threshold W | slope 0.21, thr 9.52 W | slope 0.46, thr 5.24 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | observed+CR | slope (launched) / threshold W | slope 0.25, thr 8 W | slope 0.46, thr 5.24 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | ML-L3 | slope (launched) / threshold W | slope 0.20, thr 11.9 W | slope 0.46, thr 5.24 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 4 | ML-L3+CR | slope (launched) / threshold W | slope 0.25, thr 10 W | slope 0.46, thr 5.24 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | single-ion | slope (launched) / threshold W | slope 0.21, thr 1.74 W | slope 0.41, thr 5.99 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | observed | slope (launched) / threshold W | slope 0.21, thr 10.9 W | slope 0.41, thr 5.99 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | observed+CR | slope (launched) / threshold W | slope 0.24, thr 9.48 W | slope 0.41, thr 5.99 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | ML-L3 | slope (launched) / threshold W | slope 0.20, thr 13.6 W | slope 0.41, thr 5.99 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 3 | ML-L3+CR | slope (launched) / threshold W | slope 0.24, thr 11.8 W | slope 0.41, thr 5.99 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | single-ion | slope (launched) / threshold W | slope 0.17, thr 1.8 W | slope 0.21, thr 7.41 W |
 | Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | observed | slope (launched) / threshold W | slope 0.17, thr 11.8 W | slope 0.21, thr 7.41 W |
 | Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | observed+CR | slope (launched) / threshold W | slope 0.18, thr 11.3 W | slope 0.21, thr 7.41 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | ML-L3 | slope (launched) / threshold W | slope 0.17, thr 14.8 W | slope 0.21, thr 7.41 W |
+| Tm:silica cladding-pumped laser, Jackson & Mossman 2003 fibre 1 | ML-L3+CR | slope (launched) / threshold W | slope 0.18, thr 14.1 W | slope 0.21, thr 7.41 W |
 | Ho:silica cladding-pumped laser (Le Gouet et al. 2020) | single-ion | slope (coupled) / threshold W | slope 0.56, thr 1.27 W | slope 0.49, thr 13 W |
 | Ho:silica cladding-pumped laser (Le Gouet et al. 2020) | observed | slope (coupled) / threshold W | slope 0.56, thr 9.66 W | slope 0.49, thr 13 W |
+| Ho:silica cladding-pumped laser (Le Gouet et al. 2020) | ML-L3 | slope (coupled) / threshold W | slope 0.56, thr 12.6 W | slope 0.49, thr 13 W |
 | Yb:germanosilicate 1102 nm laser (Pask et al. 1995) | single-ion | slope (launched) / threshold W | no lasing | slope 0.90, thr 0.03 W |
-| Yb:germanosilicate free-running laser, 5 m (Pask et al. 1995 Fig. 4) | single-ion | threshold W (launched) | no lasing | , thr 0.045 W |
+| Yb:germanosilicate free-running laser, 5 m (Pask et al. 1995 Fig. 4) | single-ion | threshold W (launched) | slope 0.40, thr 0.0543 W | , thr 0.045 W |
 
 ## Er,Pr:ZBLAN energy transfer (Golding 2000)
 
@@ -144,17 +152,17 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | case | model | measured |
 |---|---|---|
 | Ge-silicate (Fig. 2a): alpha shape rms (peak-normalised) | 0.124 | 0.0 |
-| Ge-silicate (Fig. 2a): g* shape rms (peak-normalised) | 0.165 | 0.0 |
-| Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1531 nm | 1.13 | 0.92 |
-| Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1550 nm | 1.59 | 1.2 |
-| Ge-silicate (Fig. 2a): sigma_e/sigma_a rms log10 over 1471-1569 nm | 0.134 | 0.0 |
-| Ge-silicate (Fig. 2a): absorption peak nm | 1530.0 | 1534.0 |
-| Al:Ge-silicate (Fig. 2b): alpha shape rms (peak-normalised) | 0.127 | 0.0 |
-| Al:Ge-silicate (Fig. 2b): g* shape rms (peak-normalised) | 0.144 | 0.0 |
-| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1531 nm | 1.14 | 0.91 |
-| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1550 nm | 1.61 | 1.1 |
-| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a rms log10 over 1471-1569 nm | 0.162 | 0.0 |
-| Al:Ge-silicate (Fig. 2b): absorption peak nm | 1530.0 | 1533.0 |
+| Ge-silicate (Fig. 2a): g* shape rms (peak-normalised) | 0.166 | 0.0 |
+| Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1531 nm | 1.04 | 0.92 |
+| Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1550 nm | 1.54 | 1.2 |
+| Ge-silicate (Fig. 2a): sigma_e/sigma_a rms log10 over 1471-1569 nm | 0.104 | 0.0 |
+| Ge-silicate (Fig. 2a): absorption peak nm | 1528.0 | 1534.0 |
+| Al:Ge-silicate (Fig. 2b): alpha shape rms (peak-normalised) | 0.096 | 0.0 |
+| Al:Ge-silicate (Fig. 2b): g* shape rms (peak-normalised) | 0.12 | 0.0 |
+| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1531 nm | 1.05 | 0.91 |
+| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1550 nm | 1.57 | 1.1 |
+| Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a rms log10 over 1471-1569 nm | 0.133 | 0.0 |
+| Al:Ge-silicate (Fig. 2b): absorption peak nm | 1528.0 | 1533.0 |
 
 ## Commercial fibre cross sections (nLIGHT LIEKKI, metrics only)
 

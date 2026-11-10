@@ -6,57 +6,57 @@
  },
  {
   "case": "Ge-silicate (Fig. 2a): g* shape rms (peak-normalised)",
-  "model": 0.165,
+  "model": 0.166,
   "measured": 0.0
  },
  {
   "case": "Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1531 nm",
-  "model": 1.13,
+  "model": 1.04,
   "measured": 0.92
  },
  {
   "case": "Ge-silicate (Fig. 2a): sigma_e/sigma_a at 1550 nm",
-  "model": 1.59,
+  "model": 1.54,
   "measured": 1.2
  },
  {
   "case": "Ge-silicate (Fig. 2a): sigma_e/sigma_a rms log10 over 1471-1569 nm",
-  "model": 0.134,
+  "model": 0.104,
   "measured": 0.0
  },
  {
   "case": "Ge-silicate (Fig. 2a): absorption peak nm",
-  "model": 1530.0,
+  "model": 1528.0,
   "measured": 1534.0
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): alpha shape rms (peak-normalised)",
-  "model": 0.127,
+  "model": 0.096,
   "measured": 0.0
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): g* shape rms (peak-normalised)",
-  "model": 0.144,
+  "model": 0.12,
   "measured": 0.0
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1531 nm",
-  "model": 1.14,
+  "model": 1.05,
   "measured": 0.91
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a at 1550 nm",
-  "model": 1.61,
+  "model": 1.57,
   "measured": 1.1
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): sigma_e/sigma_a rms log10 over 1471-1569 nm",
-  "model": 0.162,
+  "model": 0.133,
   "measured": 0.0
  },
  {
   "case": "Al:Ge-silicate (Fig. 2b): absorption peak nm",
-  "model": 1530.0,
+  "model": 1528.0,
   "measured": 1533.0
  }
 ]

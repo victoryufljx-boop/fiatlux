@@ -228,6 +228,14 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                    ang_std=fam["ang_std"] * th["disorder"], neph_std=th["neph_std"], gamma_h=th["gamma_h"])
     elif USE_ML and cf_family_scale(family):
         fam["cf_scale"] = cf_family_scale(family)
+    if LEVEL_ANCHORS and "level_anchor" not in (overrides or {}):
+        try:
+            from ..refs.stark_anchor_refs import ANCHORS as _ANC
+            _a = _ANC.get(ion)
+            if _a and _a.get("auto", True) and family in _a["families"]:
+                fam["level_anchor"] = _a["levels"]
+        except ImportError:
+            pass
     fam.update(overrides or {})
     om, om_src = omegas_for(ion, family) if "omegas" not in fam else (fam["omegas"], "override")
     lig = fam["ligand"]
@@ -245,7 +253,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
                             hw_max=fam["hw_max"], seed=seed,
                             intensity=fam.get("intensity", INTENSITY),
                             energy_scale=fam.get("energy_scale", 1.0),
-                            lineshape=fam.get("lineshape", "gauss"))
+                            lineshape=fam.get("lineshape", "gauss"),
+                            level_anchor=fam.get("level_anchor"))
     if fam.get("measured_absorption"):
         apply_measured_absorption(spec, fam["measured_absorption"], T=fam.get("T", 295.0))
     N = fam.get("N_cm3", N_DEFAULT[ion])
@@ -400,6 +409,11 @@ ION_SPM_SCALE = {}
 # Er), so a Tm-O factor is an unmeasured handbook input, set from one Tm band (see
 # gainmat/ml/tm_cf.py) and tested on other bands, glasses and devices.
 ION_LIG_SCALE = {}
+
+# Measured-level mode: anchor the Stark pattern to measured levels where gainmat.refs.stark_anchor_refs
+# has them for this (ion, family) (Yb, Er in the silica family).  Validated on independent spectra and
+# devices in scripts/validate_level_anchor.py.  Set False (or GAINMAT_ANCHORS=0) for the pure model.
+LEVEL_ANCHORS = os.environ.get("GAINMAT_ANCHORS", "1") != "0"
 ION_LIG_RANK = {}          # "Tm:O" -> (r2, r4, r6), rank multipliers for one ion-ligand pair
 
 # Rank-resolved correction to the handbook intrinsic parameters, per ligand: B_k -> r_k B_k.

@@ -253,9 +253,9 @@
   "item": "2F5/2",
   "kind": "tau_rad",
   "measured": 0.84,
-  "model": 1.0504595230896137,
+  "model": 0.9776060313191098,
   "unit": "ms",
-  "ratio": 1.2505470512971593,
+  "ratio": 1.1638167039513212,
   "src": "Pask et al., JSTQE 1, 2 (1995)",
   "note": ""
  },
@@ -370,11 +370,11 @@
   "item": "4I13/2->4I15/2 em",
   "kind": "em",
   "measured": 5e-21,
-  "model": 5.283764899909379e-21,
+  "model": 4.257835613105023e-21,
   "unit": "cm2",
-  "ratio": 1.0567529799818758,
+  "ratio": 0.8515671226210046,
   "peak_meas_nm": 1533,
-  "peak_model_nm": 1531.4,
+  "peak_model_nm": 1530.0,
   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
  },
  {
@@ -538,11 +538,11 @@
   "item": "2F5/2->2F7/2 em",
   "kind": "em",
   "measured": 2.5e-20,
-  "model": 1.4741381866254687e-20,
+  "model": 1.633823435230668e-20,
   "unit": "cm2",
-  "ratio": 0.5896552746501875,
+  "ratio": 0.6535293740922672,
   "peak_meas_nm": 975,
-  "peak_model_nm": 966.9,
+  "peak_model_nm": 976.0,
   "src": "Pask et al. 1995"
  },
  {
@@ -634,9 +634,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 268,
-  "model": 456.21349349202166,
+  "model": 433.5362373979045,
   "unit": "cm-1",
-  "diff": 188.21349349202166,
+  "diff": 165.53623739790447,
   "src": "Desurvire & Simpson 1990 (lower bound: 5 of 8 levels)"
  },
  {
@@ -646,9 +646,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 445,
-  "model": 378.586374606947,
+  "model": 430.36816136718625,
   "unit": "cm-1",
-  "diff": -66.413625393053,
+  "diff": -14.631838632813754,
   "src": "Desurvire 1990 Table 1, silicate glasses 395-500"
  },
  {
@@ -658,9 +658,9 @@
   "item": "4I13/2 split",
   "kind": "split",
   "measured": 330,
-  "model": 263.79266800353173,
+  "model": 330.00000000003166,
   "unit": "cm-1",
-  "diff": -66.20733199646827,
+  "diff": 3.1661784305470064e-11,
   "src": "Desurvire 1990 Table 1, silicate glasses 305-357"
  },
  {
@@ -670,9 +670,9 @@
   "item": "2F7/2 split",
   "kind": "split",
   "measured": 1490,
-  "model": 741.8099426746244,
+  "model": 864.4251870364715,
   "unit": "cm-1",
-  "diff": -748.1900573253756,
+  "diff": -625.5748129635285,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -682,9 +682,9 @@
   "item": "2F5/2 split",
   "kind": "split",
   "measured": 1370,
-  "model": 609.6362543668703,
+  "model": 1530.2223164235184,
   "unit": "cm-1",
-  "diff": -760.3637456331297,
+  "diff": 160.22231642351835,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -694,9 +694,9 @@
   "item": "2F5/2 lo",
   "kind": "lo",
   "measured": 10260,
-  "model": 10340.074554148312,
+  "model": 10244.63376464331,
   "unit": "cm-1",
-  "diff": 80.07455414831202,
+  "diff": -15.366235356690595,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -736,7 +736,7 @@
   "windows": [
    [
     1442.6,
-    1632.4
+    1631.3
    ]
   ],
   "src": "Jackson 2012 Table B1: Y. Jeong et al., IEEE JSTQE 13, 573-579 (2007) (Er:Yb large-core, 297 W CW)"

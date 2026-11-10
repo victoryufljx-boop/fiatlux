@@ -202,11 +202,54 @@ def aniso_S(Uw, B, scale):
     return sum(np.abs(m) ** 2 for m in M)
 
 
+def _apply_level_anchor(m, diags, anchor):
+    """See ensemble_spectra(level_anchor=...)."""
+    kramers = (m.N % 2 == 1) if hasattr(m, "N") else None
+    out = [(E.copy(), W, par) for E, W, par in diags]
+    for label, a in anchor.items():
+        im = m.mult_index(label)
+        rel = []
+        for E, W, par in diags:
+            e = np.sort(E[par == im]); rel.append(e - e[0])
+        rel = np.array(rel)
+        n = rel.shape[1]
+        kr = kramers if kramers is not None else (n % 2 == 0 and np.allclose(rel[:, 0::2], rel[:, 1::2], atol=1e-3))
+        mean_lv = rel.mean(0)[::2] if kr else rel.mean(0)
+        meas = list(a.get("levels") or [])
+        xs, ys = [0.0], [0.0]
+        for i, v in enumerate(meas[1:], start=1):
+            if v is not None and i < len(mean_lv) and mean_lv[i] > xs[-1]:
+                xs.append(float(mean_lv[i])); ys.append(float(v))
+        xs, ys = np.array(xs), np.array(ys)
+        slope = ys[-1] / xs[-1] if len(xs) > 1 else 1.0
+
+        def fmap(x):
+            return np.where(x <= xs[-1], np.interp(x, xs, ys), ys[-1] + slope * (x - xs[-1]))
+        lows = []
+        for k, (E, W, par) in enumerate(out):
+            sel = par == im; e = E[sel]; e0 = e.min()
+            E[sel] = e0 + fmap(e - e0)
+            lows.append(e0 - E[par == 0].min())
+        if a.get("E0") is not None:
+            d = float(a["E0"]) - float(np.mean(lows))
+            for E, W, par in out:
+                E[par == im] += d
+    return out
+
+
 def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=None,
                      T: float = 295.0, gamma_h: float = 20.0, nu=None, emax: float = 27000.0,
                      lineshape: str = "gauss", neph_std: float = 0.0, sideband_S: float = 0.0,
-                     hw_max: float = 1000.0, seed: int = 0, intensity=None, energy_scale: float = 1.0):
-    """intensity: None (isotropic Judd-Ofelt per Stark component) or dict(ratio={2:..,4:..,6:..},
+                     hw_max: float = 1000.0, seed: int = 0, intensity=None, energy_scale: float = 1.0,
+                     level_anchor=None):
+    """level_anchor: {multiplet label: dict(levels=[0, 425, None, 865], E0=None)}: measured Stark
+    levels (cm^-1 above the multiplet's lowest level; one entry per Kramers doublet for odd-electron
+    ions; None = not measured) and optionally E0, the measured lowest level of the multiplet above
+    the lowest ground level.  Each site's levels of that multiplet go through one monotone map,
+    piecewise linear through (site-mean model level, measured level) and proportional beyond the
+    last measured level, so the ensemble mean matches the measurement while the site-to-site
+    scatter and the crystal-field eigenvectors (intensities) are kept.
+    intensity: None (isotropic Judd-Ofelt per Stark component) or dict(ratio={2:..,4:..,6:..},
     tau=None, R0=2.3) for Stark-resolved intensities from the odd-rank crystal field (aniso_S).
     neph_std: per-site fractional scatter of all multiplet energies (first-order
     nephelauxetic variation, E -> E (1 + eps), eps ~ N(0, neph_std)); an inhomogeneous
@@ -237,8 +280,11 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
         Bs = [intensity_B(lig, intensity.get("ratio"), intensity.get("tau"), intensity.get("R0", 2.3)) for lig in sites]
         oms = [site_omegas(b) for b in Bs]
         iscale = {lam: O[i] / max(np.mean([o[lam] for o in oms]), 1e-300) for i, lam in enumerate((2, 4, 6))}
+    diags = [m.stark(spm_bkq(lig, spm)) for lig in sites]
+    if level_anchor:
+        diags = _apply_level_anchor(m, diags, level_anchor)
     for isite, lig in enumerate(sites):
-        E, W, par = m.stark(spm_bkq(lig, spm))
+        E, W, par = diags[isite]
         if neph_std > 0:
             E = E + rng_n.normal(0.0, neph_std) * e_free[par]
         if energy_scale != 1.0:                       # mean shift of all multiplets, E -> E (1 + d)
