@@ -673,3 +673,25 @@ observations:
 
 For devices, the physics value is a lower bound. A cluster fraction (or the Al:Tm-dependent factor)
 is the missing input, and it is a glass-processing property, not a spectroscopic one.
+
+**Update: 5 more published values (Cao 2016 Er→Ho in Ba-fluorosilicate; Balaji 2016 Yb→Ho in
+tellurite; Sontakke Nd in Ba-Al metaphosphate).** Full table in `forward_results/transfer_validation.json`.
+
+| process | glass | published (cm⁶/s) | kind | model (defaults) |
+|---|---|---|---|---|
+| Er ⁴I₁₃/₂ → Ho ⁵I₇ | Ba-fluorosilicate | 5.5e-40 | overlap | 0.78× |
+| Er ⁴I₁₁/₂ → Ho ⁵I₆ | Ba-fluorosilicate | 6.6e-41 | overlap | **0.29×** |
+| Yb ²F₅/₂ → Ho ⁵I₆ | tellurite | 1.4e-40 | overlap | **2.24×** |
+| Nd ⁴F₃/₂ migration | Ba-Al metaphosphate | 3.2–3.8e-39 | overlap | 1.26× |
+| Nd self-quenching ⁴F₃/₂,⁴I₉/₂ → ⁴I₁₅/₂,⁴I₁₅/₂ | Ba-Al metaphosphate | 3–8e-42 | decay fit | 4.5× |
+
+**Totals.**
+- **Published overlap values: 9 of 11 within 2×** (median 0.05 dex, rms 0.21 dex), fully
+  predictive.
+- **The two misses** are the strongly non-resonant, multi-phonon-assisted processes (Er ⁴I₁₁/₂ →
+  Ho ⁵I₆; Yb → Ho ⁵I₆). There the overlap sits in band tails that a Gaussian-line model does not
+  get right.
+- **Against decay-fitted values: both about 4.5× off, in opposite directions** (Tm 0.22×, Nd 4.5×).
+  Decay-fit microparameters depend on the fitting model (Sontakke's range from different models
+  is 3–8e-42). Treat predictions as ±0.3 dex for resonant and near-resonant processes and as
+  roughly ±0.5 dex otherwise.

@@ -1,27 +1,27 @@
 {
  "summary": {
   "overlap / paper Omega": {
-   "n": 7,
-   "median_abs_dex": 0.08818822564350857,
-   "rms_dex": 0.16829549773429497,
-   "within_2x": 1.0
+   "n": 11,
+   "median_abs_dex": 0.2374346916619428,
+   "rms_dex": 0.3469940540835414,
+   "within_2x": 0.7272727272727273
   },
   "overlap / model defaults": {
-   "n": 7,
-   "median_abs_dex": 0.04632648387111467,
-   "rms_dex": 0.07925694293326065,
-   "within_2x": 1.0
+   "n": 11,
+   "median_abs_dex": 0.04927112238445946,
+   "rms_dex": 0.20772514138412557,
+   "within_2x": 0.8181818181818182
   },
   "decay fit / paper Omega": {
-   "n": 1,
-   "median_abs_dex": 0.6496931011781629,
-   "rms_dex": 0.6496931011781629,
+   "n": 2,
+   "median_abs_dex": 0.6518196902262283,
+   "rms_dex": 0.6518231592599297,
    "within_2x": 0.0
   },
   "decay fit / model defaults": {
-   "n": 1,
-   "median_abs_dex": 0.6258882637686215,
-   "rms_dex": 0.6258882637686215,
+   "n": 2,
+   "median_abs_dex": 0.6382675534146782,
+   "rms_dex": 0.6383875911655081,
    "within_2x": 0.0
   }
  },
@@ -254,6 +254,151 @@
      0.0,
      0.947,
      0.053,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 -> Ho 5I7",
+   "family": "aluminosilicate",
+   "published_cm6_s": 5.52e-40,
+   "kind": "overlap",
+   "src": "Cao et al., Sci. Rep. 6, 37873 (2016) (Er/Ho Ba-fluorosilicate, n = 1.60, phonon 952 cm^-1), text",
+   "paper Omega": {
+    "model_cm6_s": 2.13949891718831e-40,
+    "ratio": 0.38759038354860686,
+    "log10_ratio": -0.41162700670792035,
+    "phonon_fractions": [
+     0.0,
+     0.988,
+     0.012,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 4.32490938627973e-40,
+    "ratio": 0.7834980772245888,
+    "log10_ratio": -0.10596206499216923,
+    "phonon_fractions": [
+     0.0,
+     1.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I11/2 -> Ho 5I6",
+   "family": "aluminosilicate",
+   "published_cm6_s": 6.6e-41,
+   "kind": "overlap",
+   "src": "Cao et al., Sci. Rep. 6, 37873 (2016) (Er/Ho Ba-fluorosilicate, n = 1.60, phonon 952 cm^-1), text",
+   "paper Omega": {
+    "model_cm6_s": 8.163932768877106e-42,
+    "ratio": 0.1236959510435925,
+    "log10_ratio": -0.9076445159586283,
+    "phonon_fractions": [
+     0.0,
+     0.846,
+     0.154,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.9215524670557253e-41,
+    "ratio": 0.2911443131902614,
+    "log10_ratio": -0.5358916883799617,
+    "phonon_fractions": [
+     0.0,
+     0.999,
+     0.001,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Yb 2F5/2 -> Ho 5I6",
+   "family": "tellurite",
+   "published_cm6_s": 1.38e-40,
+   "kind": "overlap",
+   "src": "Balaji et al., Sci. Rep. 6, 29203 (2016) (80TeO2-15(BaF2+BaO)-3La2O3), text",
+   "paper Omega": {
+    "model_cm6_s": 3.088296821255798e-40,
+    "ratio": 2.2378962472868102,
+    "log10_ratio": 0.34983994802105495,
+    "phonon_fractions": [
+     0.003,
+     0.633,
+     0.363,
+     0.001
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 3.088296821255798e-40,
+    "ratio": 2.2378962472868102,
+    "log10_ratio": 0.34983994802105495,
+    "phonon_fractions": [
+     0.003,
+     0.633,
+     0.363,
+     0.001
+    ]
+   }
+  },
+  {
+   "process": "Nd 4F3/2 migration",
+   "family": "phosphate",
+   "published_cm6_s": 3.5e-39,
+   "kind": "overlap",
+   "src": "Sontakke, Biswas, Mandal & Annapurna (CGCRI), Nd Ba-Al-metaphosphate, Table 3 (CORE 228425814)",
+   "paper Omega": {
+    "model_cm6_s": 4.433685368215789e-39,
+    "ratio": 1.2667672480616539,
+    "log10_ratio": 0.10269682627394087,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 4.400116296488856e-39,
+    "ratio": 1.2571760847111018,
+    "log10_ratio": 0.09939611083043724,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Nd self-quenching 4F3/2+4I9/2 -> 4I15/2+4I15/2",
+   "family": "phosphate",
+   "published_cm6_s": 5.5e-42,
+   "kind": "decay fit",
+   "src": "Sontakke, Biswas, Mandal & Annapurna (CGCRI), Nd Ba-Al-metaphosphate, Table 3 (CORE 228425814)",
+   "paper Omega": {
+    "model_cm6_s": 2.4791851893750584e-41,
+    "ratio": 4.507609435227379,
+    "log10_ratio": 0.6539462792742938,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 2.460421608625766e-41,
+    "ratio": 4.473493833865029,
+    "log10_ratio": 0.6506468430607348,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
      0.0
     ]
    }

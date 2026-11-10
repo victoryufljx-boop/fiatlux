@@ -17,6 +17,9 @@ g.load_refs(); g.apply_site_refs(); g.calibrate_spm(370.0, g.CARNALL_ER_LAF3_BKQ
 HUANG = "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), Table 4"
 HAN = "Han et al., Sci. Rep. 6, 31207 (2016), Table 4 (BGN, bismuth germanate)"
 GEB = "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)"
+CAO = "Cao et al., Sci. Rep. 6, 37873 (2016) (Er/Ho Ba-fluorosilicate, n = 1.60, phonon 952 cm^-1), text"
+BALAJI = "Balaji et al., Sci. Rep. 6, 29203 (2016) (80TeO2-15(BaF2+BaO)-3La2O3), text"
+SONT = "Sontakke, Biswas, Mandal & Annapurna (CGCRI), Nd Ba-Al-metaphosphate, Table 3 (CORE 228425814)"
 CASES = [
     # (label, family, donor ion, donor (u,l) emission, acceptor ion, acceptor (u,l) absorption, published cm6/s, kind, src,
     #  paper overrides donor, paper overrides acceptor)
@@ -36,6 +39,16 @@ CASES = [
      dict(n=1.98), dict(omegas=(4.94, 2.15, 1.62), n=1.98)),
     ("Tm cross-relaxation 3H4,3H6->3F4,3F4", "tellurite", "Tm3+", ("3H4", "3F4"), "Tm3+", ("3F4", "3H6"), 4.93e-39, "decay fit", GEB,
      dict(omegas=(4.94, 2.15, 1.62), n=1.98), None),
+    ("Er 4I13/2 -> Ho 5I7", "aluminosilicate", "Er3+", ("4I13/2", "4I15/2"), "Ho3+", ("5I7", "5I8"), 5.52e-40, "overlap", CAO,
+     dict(n=1.60, hw_max=952), dict(n=1.60, hw_max=952)),
+    ("Er 4I11/2 -> Ho 5I6", "aluminosilicate", "Er3+", ("4I11/2", "4I15/2"), "Ho3+", ("5I6", "5I8"), 0.66e-40, "overlap", CAO,
+     dict(n=1.60, hw_max=952), dict(n=1.60, hw_max=952)),
+    ("Yb 2F5/2 -> Ho 5I6", "tellurite", "Yb3+", ("2F5/2", "2F7/2"), "Ho3+", ("5I6", "5I8"), 1.38e-40, "overlap", BALAJI,
+     None, None),
+    ("Nd 4F3/2 migration", "phosphate", "Nd3+", ("4F3/2", "4I9/2"), "Nd3+", ("4F3/2", "4I9/2"), 3.5e-39, "overlap", SONT,
+     dict(n=1.552), None),
+    ("Nd self-quenching 4F3/2+4I9/2 -> 4I15/2+4I15/2", "phosphate", "Nd3+", ("4F3/2", "4I15/2"), "Nd3+", ("4I15/2", "4I9/2"),
+     5.5e-42, "decay fit", SONT, dict(n=1.552), None),
 ]
 _sp = {}
 

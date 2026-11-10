@@ -35,7 +35,7 @@ def c_da(ion, family, donor, acceptor, S0=0.31, hw=None, m_max=3, T=295.0, n_sit
         spec_acceptor = spec if ia == ion else g.run(ia, family, n_sites=n_sites, pumps=[], overrides=overrides)["_spec"]
     F = g.FAMILIES[family]
     n = (overrides or {}).get("n", F["n"])
-    hw = hw if hw is not None else F["hw_max"]
+    hw = hw if hw is not None else (overrides or {}).get("hw_max", F["hw_max"])
     nu = spec["nu"]; se = spec["sigma_em"][donor]
     nuA = spec_acceptor["nu"]; sa = spec_acceptor["sigma_abs"][acceptor]
     nbar = 1.0 / (math.exp(hw / (KB_CM * T)) - 1.0)
