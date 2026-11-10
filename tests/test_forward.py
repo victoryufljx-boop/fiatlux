@@ -138,3 +138,13 @@ def test_predict_returns_bands_uncertainty_and_provenance():
     assert b["uncertainty"]["sigma_peak_log10"] is not None
     assert p["provenance"]["stark"].startswith("measured levels")
     assert any(l["level"] == "4I13/2" and 5 < l["tau_rad_ms"] < 20 for l in p["levels"])
+
+
+def test_composition_front_end_families():
+    from gainmat.forward.composition import family_for
+    assert family_for({"SiO2": 92, "Al2O3": 6, "Yb2O3": 2})[0] == "aluminosilicate"
+    assert family_for("70TeO2-15K2O-15Nb2O5")[0] == "tellurite"
+    assert family_for("53ZrF4-20BaF2-4LaF3-3AlF3-20NaF")[0] == "ZBLAN"
+    assert family_for("60GeO2-15Ga2O3-10BaO-15Na2O")[0] == "germanate"
+    assert family_for("40P2O5-20Al2O3-35Na2O-5K2O")[0] == "phosphate"
+    assert family_for({"SiO2": 99.0, "GeO2": 1.0})[0] == "germanosilicate"

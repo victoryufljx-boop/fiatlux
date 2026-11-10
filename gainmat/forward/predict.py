@@ -32,13 +32,18 @@ MAIN = {
     "Dy3+": [("6H13/2", "6H15/2")],
 }
 KNOWN_BIAS = [
+    dict(ion="*", families=("*",), pair=None,
+         text="external open-access benchmark (forward_results/oa_benchmark.md): emission peaks typically "
+              "2-8 nm off for Er/Nd/Ho/Yb (Tm 3F4 up to ~90 nm); emission widths ~20 nm; peak cross "
+              "sections ~0.19 dex (0.14 dex given the glass's measured Omegas); radiative lifetimes 0.12 dex "
+              "(0.015 dex given measured Omegas).  Supplying measured Omegas is the single largest improvement."),
     dict(ion="Tm3+", families=("silica", "aluminosilicate", "germanosilicate", "phosphosilicate"),
          pair=("3F4", "3H6"),
          text="3H6->3F4 absorption peak is ~60-150 nm too long and its composition trend is not "
               "reproduced (measured 1578-1670 nm in silicate fibres); emission peak within ~25 nm. "
               "Use measured_absorption= if a measured band is available (ml_results/RESULTS.md, round 3-4)."),
     dict(ion="Yb3+", families=("silica", "aluminosilicate", "germanosilicate"), pair=("2F5/2", "2F7/2"),
-         text="band strength ~0.5-0.7x Pask 1995 (radiative lifetime 1.16x long); emission beyond "
+         text="peak cross section ~0.8x Pask 1995 (radiative lifetime 0.92x); emission beyond "
               "~1080 nm underestimated (no vibronic sideband)."),
     dict(ion="Er3+", families=("silica", "aluminosilicate", "germanosilicate"), pair=("4I13/2", "4I15/2"),
          text="sigma_e/sigma_a about +0.1 dex high across 1500-1565 nm (Giles); absorption peak ~3-5 nm short."),
@@ -119,8 +124,17 @@ def _fwhm_local(nu, y):
     return float(1e7 / nu[lo] - 1e7 / nu[hi])
 
 
-def predict(ion, family, N_cm3=None, ml=None, n_sites=60, measured_absorption=None, pairs=None):
+def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorption=None, pairs=None,
+            composition=None, omegas=None):
+    """family: one of glass.FAMILIES, or give composition= (dict of mol%, or a formula such as
+    '70TeO2-15K2O-15Nb2O5'); the family is then chosen by gainmat.forward.composition.family_for."""
     _setup()
+    fam_rule = None
+    if family is None:
+        from .composition import family_for
+        family, fam_rule = family_for(composition)
+        if family is None:
+            raise ValueError(f"no model glass family for this composition ({fam_rule})")
     from .fiber import LocalModel
     from .spectra import fwhm_nm
     old_ml = g.USE_ML
@@ -132,6 +146,8 @@ def predict(ion, family, N_cm3=None, ml=None, n_sites=60, measured_absorption=No
             ov["N_cm3"] = N_cm3
         if measured_absorption:
             ov["measured_absorption"] = measured_absorption
+        if omegas is not None:
+            ov["omegas"] = tuple(float(x) for x in omegas)
         r = g.run(ion, family, n_sites=n_sites, overrides=ov or None)
     finally:
         g.USE_ML = old_ml
@@ -145,7 +161,7 @@ def predict(ion, family, N_cm3=None, ml=None, n_sites=60, measured_absorption=No
     prov = dict(
         stark=("measured levels: " + anc["src"]) if anchored else
         "crystal-field model (handbook superposition parameters x Er-calibrated O/F scale, random sites)",
-        omegas=dict(values=list(map(float, r["omegas"])), source=r["omega_src"]),
+        omegas=dict(values=list(map(float, r["omegas"])), source="supplied by user" if omegas is not None else r["omega_src"]),
         ml_layer=bool(g.USE_ML if ml is None else ml),
         measured_absorption=bool(measured_absorption),
         refractive_index=fam["n"], max_phonon_cm1=fam["hw_max"])
@@ -171,7 +187,11 @@ def predict(ion, family, N_cm3=None, ml=None, n_sites=60, measured_absorption=No
         tot = A + float(lm.W[i])
         levels.append(dict(level=lab, tau_rad_ms=1e3 / A, tau_ms=1e3 / tot, quantum_efficiency=A / tot,
                            uncertainty=dict(tau_rad_log10=_u("tau_rad", ion), tau_log10=_u("tau", ion))))
+    if fam_rule:
+        prov["family_from_composition"] = fam_rule
+    general = [k["text"] for k in KNOWN_BIAS if k["ion"] == "*"]
     return dict(ion=ion, family=family, N_cm3=r["N_cm3"], provenance=prov, bands=bands, levels=levels[:8],
+                accuracy=general,
                 gain_windows=[{k: float(v) for k, v in w.items()} for w in r["windows"]],
                 note="uncertainties are rms errors of this model against independent measurements "
                      "(forward_results/); 'known_bias' lists systematic errors found in validation")
