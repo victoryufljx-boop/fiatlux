@@ -101,7 +101,7 @@ def first_peak_min(g, lo=1.0, hi=4.0):
 
 p_sio, m_sio = first_peak_min(rdf["Si-O"], 1.2, 2.6)
 p_ero, r_min = first_peak_min(rdf["Er-O"], 1.8, 3.6)
-r_min = float(round(r_min, 3))
+r_min = float(os.environ.get("RMIN", round(r_min, 3)))
 
 sites, CN, Rall, nbo_n, o_n, ernn, tagcount = [], [], [], 0, 0, [], {}
 for r in reps:
@@ -173,6 +173,16 @@ summary = {
     "rdf": {"r": [round(x, 3) for x in rc[::2]],
             **{k: [round(float(x), 3) for x in v[::2]] for k, v in rdf.items()}},
 }
+# CN sensitivity to the shell cutoff (Er-O RDF has no deep first minimum)
+sens = {}
+for rcut in (2.6, 2.8, 3.0, 3.2):
+    cns = []
+    for r in reps:
+        for step, ids, typ, X, L in frames_by_rep[r]:
+            _, R = dists(X[typ == 3], X[typ == 1], L)
+            cns += list((R < rcut).sum(1))
+    sens[str(rcut)] = {"CN_mean": float(np.mean(cns)), "CN_std": float(np.std(cns))}
+summary["CN_vs_cutoff"] = sens
 # O-Er-O angles in the first shell (angular distortion)
 oeo = []
 for s in sites:

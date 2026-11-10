@@ -13,8 +13,10 @@ A = json.load(open(f"{work}/all.analysis.json"))
 timing = {}
 for r in reps:
     log = open(f"{work}/{r}/run.log").read()
+    if os.path.exists(f"{work}/{r}/run_resume.log"):  # resumed after a container restart
+        log += open(f"{work}/{r}/run_resume.log").read()
     loops = [float(x) for x in re.findall(r"Loop time of ([0-9.]+)", log)]
-    timing[r] = {"wall_s_total": round(sum(loops), 1), "stages_wall_s": [round(x, 1) for x in loops],
+    timing[r] = {"resumed_after_container_restart": os.path.exists(f"{work}/{r}/run_resume.log"), "wall_s_total": round(sum(loops), 1), "stages_wall_s": [round(x, 1) for x in loops],
                  "seed": int(re.search(r"velocity all create 6000 (\d+)", log).group(1))}
     # final temperature of production
     th = re.findall(r"^\s+(\d+)\s+([0-9.]+)\s+([0-9.]+)\s+(-?[0-9.]+)", log, re.M)
@@ -61,6 +63,16 @@ out = {
                    "linear cool 3500 -> 300 K at 10 K/ps (320 ps)", "300 K 50 ps (sites from last 20 ps, 10 frames every 2 ps)"],
         "quench_rate_K_per_ps": 10.0, "replicas": len(reps), "n_atoms": 3020,
         "replica_timing": timing,
+    },
+    "dsf_vs_ewald_check": {
+        "what": "Replica rep3 final 300 K DSF structure: single-point comparison with PPPM/Ewald (1e-6), then 19 ps NVT 300 K re-equilibration with PPPM 1e-5 (10 frames over the last 9 ps) and the same site analysis",
+        "single_point": {"pressure_bar_DSF": -32166, "pressure_bar_Ewald": -30622,
+                         "rms_force_Ewald_eV_A": {"O": 1.345, "Si": 1.616, "Er": 1.336},
+                         "rms_force_difference_eV_A": {"O": 0.247, "Si": 0.496, "Er": 0.356}},
+        "Er_shell_at_fixed_cutoff_3.0A": {"DSF": {"CN_mean": 4.94, "R_mean": 2.341, "R_std": 0.232, "nbo_fraction": 0.608},
+                                          "PPPM_relaxed": {"CN_mean": 4.99, "R_mean": 2.353, "R_std": 0.248, "nbo_fraction": 0.602}},
+        "Er_shell_at_fixed_cutoff_2.8A": {"DSF": {"CN_mean": 4.64, "R_mean": 2.306}, "PPPM_relaxed": {"CN_mean": 4.61, "R_mean": 2.309}},
+        "conclusion": "instantaneous DSF forces differ noticeably from Ewald, but the relaxed Er first shell is statistically unchanged",
     },
     "er_sites": A["sites"],
     "summary": A["summary"],
