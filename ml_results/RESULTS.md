@@ -653,3 +653,23 @@ fitted to measured decay curves.
   channels and diffusion, so this is the honest number for device use. Use it as a lower bound on
   the cross-relaxation rate until more decay-fitted data are collected.
 - **Now part of `predict()`:** a standard process set per ion, with this uncertainty attached.
+
+**Cross-relaxation in silica fibres: the physics sets a floor, and the excess points to clustering.**
+The model's Tm C_DA (cross-relaxation) and C_DD (³H₄ migration) go into the Burshtein hopping
+model, k = π(2π/3)^{5/2} √(C_DA C_DD) N, at N = 4.5e20 cm⁻³:
+
+| quantity | cm³/s |
+|---|---|
+| model k, Al-silica / silica | 1.3e-17 / 2.2e-17 |
+| Jackson & King literature value | 1.8e-16 (8–14× more) |
+| value the Jackson & Mossman laser fits needed (round 2) | 1.44e-15 (65–110× more) |
+
+A uniform random distribution of ions underestimates real silica fibres by one to two orders of
+magnitude. That is the signature of Tm clustering in silica, and it agrees with three earlier
+observations:
+- the learned cross-relaxation depends on the Al:Tm ratio (Al disperses rare-earth ions);
+- the decay-fitted tellurite value is 4.5× above the overlap value;
+- the L3 quenching rule, which is concentration-independent, points to the same host effect.
+
+For devices, the physics value is a lower bound. A cluster fraction (or the Al:Tm-dependent factor)
+is the missing input, and it is a glass-processing property, not a spectroscopic one.
