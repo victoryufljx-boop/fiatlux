@@ -190,8 +190,16 @@ def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorpti
     if fam_rule:
         prov["family_from_composition"] = fam_rule
     general = [k["text"] for k in KNOWN_BIAS if k["ion"] == "*"]
+    from .transfer import standard_parameters
+    et = standard_parameters(ion, family, spec=spec, overrides=dict(n=fam["n"]))
+    tv = _load("transfer_validation.json")
+    et_unc = (dict(rms_log10=round(tv["summary"]["overlap / model defaults"]["rms_dex"], 3),
+                   n_checks=tv["summary"]["overlap / model defaults"]["n"],
+                   note="vs published Forster-Dexter overlaps of measured spectra (all 7 within 2x); a decay-fitted "
+                        "Tm cross-relaxation value is 4x higher than predicted")
+              if tv else None)
     return dict(ion=ion, family=family, N_cm3=r["N_cm3"], provenance=prov, bands=bands, levels=levels[:8],
-                accuracy=general,
+                accuracy=general, energy_transfer=dict(parameters=et, uncertainty=et_unc),
                 gain_windows=[{k: float(v) for k, v in w.items()} for w in r["windows"]],
                 note="uncertainties are rms errors of this model against independent measurements "
                      "(forward_results/); 'known_bias' lists systematic errors found in validation")

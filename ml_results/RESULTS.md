@@ -622,3 +622,34 @@ Yb now borrows only Yb data from the nearest family.
 - a larger open-access dataset (about 6 records per paper; extraction works);
 - measured Tm Stark levels;
 - published widths to make the hybrid testable.
+
+### 6. New capability: energy-transfer microparameters from the model's own spectra (`gainmat/forward/transfer.py`, `scripts/validate_transfer.py`)
+
+**Method.** The Förster–Dexter dipole–dipole C_DA, with phonon assistance (standard Kushida /
+Tarelho form, Huang–Rhys S0 = 0.31, the family's maximum phonon energy). It is computed from the
+model's predicted donor emission and acceptor absorption cross sections, so cross-relaxation,
+migration, upconversion and Tm↔Ho transfer can be predicted for a glass nobody has measured.
+
+**Tests.** Published values for real glasses, in 3 papers, never used. "Overlap" means the
+authors' Förster–Dexter overlap of their own measured spectra; "decay fit" means a microparameter
+fitted to measured decay curves.
+
+| process | glass | published (cm⁶/s) | kind | model, paper's Ω | model, defaults |
+|---|---|---|---|---|---|
+| Er ⁴I₁₃/₂ migration | ZBLAN | 4.5e-39 | overlap (Huang 2014) | 1.73× | 0.99× |
+| Er ⁴I₁₃/₂ migration | ZBYA | 4.0e-39 | overlap (Huang 2014) | 1.76× | 1.12× |
+| Tm ³H₄ migration | Bi-germanate | 3.5e-39 | overlap (Han 2016) | 1.84× | 0.97× |
+| Tm cross-relaxation ³H₄,³H₆→³F₄,³F₄ | Bi-germanate | 1.6e-39 | overlap (Han 2016) | 0.82× | 0.64× |
+| Tm ³F₄ migration | tellurite | 1.27e-38 | overlap (Gebavi 2012) | 1.03× | 1.11× |
+| Tm ³F₄ → Ho ⁵I₇ | tellurite | 5.7e-39 | overlap (Gebavi 2012) | 0.94× | 0.95× |
+| Ho ⁵I₇ → Tm ³F₄ | tellurite | 1.5e-40 | overlap (Gebavi 2012) | 1.13× | 1.12× |
+| Tm cross-relaxation | tellurite | 4.9e-39 | **decay fit** (Gebavi 2012) | 0.22× | 0.24× |
+
+**Results.**
+- **Against the published overlap calculations: all 7 within 2×.** Fully predictive, the median
+  error is 0.05 dex (rms 0.08). Given the paper's Ω, it is 0.09 dex (rms 0.17). The phonon-assisted
+  share also matches: Tm cross-relaxation is mostly one-phonon, as Han reports (84 %).
+- **Against the one decay-fitted value: 4.5× low.** A fitted decay folds in other quenching
+  channels and diffusion, so this is the honest number for device use. Use it as a lower bound on
+  the cross-relaxation rate until more decay-fitted data are collected.
+- **Now part of `predict()`:** a standard process set per ion, with this uncertainty attached.

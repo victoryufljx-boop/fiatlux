@@ -148,3 +148,13 @@ def test_composition_front_end_families():
     assert family_for("60GeO2-15Ga2O3-10BaO-15Na2O")[0] == "germanate"
     assert family_for("40P2O5-20Al2O3-35Na2O-5K2O")[0] == "phosphate"
     assert family_for({"SiO2": 99.0, "GeO2": 1.0})[0] == "germanosilicate"
+
+
+def test_transfer_microparameter_order_of_magnitude():
+    """Forster-Dexter C_DA from model spectra: Tm 3F4 migration in tellurite ~1e-38 cm^6/s
+    (Gebavi 2012 overlap of measured spectra: 1.27e-38); phonon-assisted CR dominated by m >= 1."""
+    from gainmat.forward.transfer import c_da
+    r = c_da("Tm3+", "tellurite", ("3F4", "3H6"), ("3F4", "3H6"), n_sites=12)
+    assert 3e-39 < r["total"] < 5e-38
+    cr = c_da("Tm3+", "germanate", ("3H4", "3F4"), ("3F4", "3H6"), n_sites=12)
+    assert cr["fractions"][0] < 0.5 and 1e-41 < cr["total"] < 1e-37

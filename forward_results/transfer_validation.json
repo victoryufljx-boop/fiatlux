@@ -1,0 +1,262 @@
+{
+ "summary": {
+  "overlap / paper Omega": {
+   "n": 7,
+   "median_abs_dex": 0.08818822564350857,
+   "rms_dex": 0.16829549773429497,
+   "within_2x": 1.0
+  },
+  "overlap / model defaults": {
+   "n": 7,
+   "median_abs_dex": 0.04632648387111467,
+   "rms_dex": 0.07925694293326065,
+   "within_2x": 1.0
+  },
+  "decay fit / paper Omega": {
+   "n": 1,
+   "median_abs_dex": 0.6496931011781629,
+   "rms_dex": 0.6496931011781629,
+   "within_2x": 0.0
+  },
+  "decay fit / model defaults": {
+   "n": 1,
+   "median_abs_dex": 0.6258882637686215,
+   "rms_dex": 0.6258882637686215,
+   "within_2x": 0.0
+  }
+ },
+ "rows": [
+  {
+   "process": "Er 4I13/2 migration",
+   "family": "ZBLAN",
+   "published_cm6_s": 4.53e-39,
+   "kind": "overlap",
+   "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), Table 4",
+   "paper Omega": {
+    "model_cm6_s": 7.825874763771292e-39,
+    "ratio": 1.727566173017945,
+    "log10_ratio": 0.2374346916619428,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 4.469346418432859e-39,
+    "ratio": 0.9866106883957745,
+    "log10_ratio": -0.005854183941624168,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Er 4I13/2 migration (ZBYA)",
+   "family": "ZBLAN",
+   "published_cm6_s": 3.99e-39,
+   "kind": "overlap",
+   "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), Table 4",
+   "paper Omega": {
+    "model_cm6_s": 7.040762871043224e-39,
+    "ratio": 1.7646022233191037,
+    "log10_ratio": 0.2466468220824901,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 4.469346418432859e-39,
+    "ratio": 1.1201369469756537,
+    "log10_ratio": 0.04927112238445946,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3H4 migration",
+   "family": "germanate",
+   "published_cm6_s": 3.54e-39,
+   "kind": "overlap",
+   "src": "Han et al., Sci. Rep. 6, 31207 (2016), Table 4 (BGN, bismuth germanate)",
+   "paper Omega": {
+    "model_cm6_s": 6.504682551778006e-39,
+    "ratio": 1.8374809468299451,
+    "log10_ratio": 0.2642228445020729,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 3.4233989628296034e-39,
+    "ratio": 0.9670618539066675,
+    "log10_ratio": -0.014545747270410813,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm cross-relaxation 3H4,3H6->3F4,3F4",
+   "family": "germanate",
+   "published_cm6_s": 1.6e-39,
+   "kind": "overlap",
+   "src": "Han et al., Sci. Rep. 6, 31207 (2016), Table 4 (BGN, bismuth germanate)",
+   "paper Omega": {
+    "model_cm6_s": 1.3059656587206984e-39,
+    "ratio": 0.8162285367004366,
+    "log10_ratio": -0.08818822564350857,
+    "phonon_fractions": [
+     0.0,
+     0.996,
+     0.004,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.0311184707798954e-39,
+    "ratio": 0.6444490442374347,
+    "log10_ratio": -0.1908114160628947,
+    "phonon_fractions": [
+     0.0,
+     0.996,
+     0.004,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3F4 migration",
+   "family": "tellurite",
+   "published_cm6_s": 1.27e-38,
+   "kind": "overlap",
+   "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
+   "paper Omega": {
+    "model_cm6_s": 1.3080566645716653e-38,
+    "ratio": 1.0299658776154845,
+    "log10_ratio": 0.012822836929659185,
+    "phonon_fractions": [
+     0.997,
+     0.003,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.4129610977355536e-38,
+    "ratio": 1.112567793492562,
+    "log10_ratio": 0.04632648387111467,
+    "phonon_fractions": [
+     0.997,
+     0.003,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm 3F4 -> Ho 5I7",
+   "family": "tellurite",
+   "published_cm6_s": 5.7e-39,
+   "kind": "overlap",
+   "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
+   "paper Omega": {
+    "model_cm6_s": 5.384078191007011e-39,
+    "ratio": 0.9445751212293002,
+    "log10_ratio": -0.024763497310155858,
+    "phonon_fractions": [
+     0.683,
+     0.317,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 5.4172145945301904e-39,
+    "ratio": 0.9503885253561738,
+    "log10_ratio": -0.022098815844130752,
+    "phonon_fractions": [
+     0.672,
+     0.328,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Ho 5I7 -> Tm 3F4 (back)",
+   "family": "tellurite",
+   "published_cm6_s": 1.5e-40,
+   "kind": "overlap",
+   "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
+   "paper Omega": {
+    "model_cm6_s": 1.6900914681093062e-40,
+    "ratio": 1.126727645406204,
+    "log10_ratio": 0.05181895030366338,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.6733023236919775e-40,
+    "ratio": 1.1155348824613183,
+    "log10_ratio": 0.04748315509821306,
+    "phonon_fractions": [
+     1.0,
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  },
+  {
+   "process": "Tm cross-relaxation 3H4,3H6->3F4,3F4",
+   "family": "tellurite",
+   "published_cm6_s": 4.93e-39,
+   "kind": "decay fit",
+   "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
+   "paper Omega": {
+    "model_cm6_s": 1.1044697309104144e-39,
+    "ratio": 0.22403037138142282,
+    "log10_ratio": -0.6496931011781629,
+    "phonon_fractions": [
+     0.0,
+     0.948,
+     0.051,
+     0.0
+    ]
+   },
+   "model defaults": {
+    "model_cm6_s": 1.1666985429948822e-39,
+    "ratio": 0.23665284847766374,
+    "log10_ratio": -0.6258882637686215,
+    "phonon_fractions": [
+     0.0,
+     0.947,
+     0.053,
+     0.0
+    ]
+   }
+  }
+ ]
+}
