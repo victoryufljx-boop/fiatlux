@@ -49,8 +49,33 @@ _MODELS: dict = {}
 def get_ion(ion: str, emax_basis: float = 32000.0) -> "IonModel":
     key = (ion, emax_basis)
     if key not in _MODELS:
-        _MODELS[key] = IonModel(ion, emax_basis)
+        _MODELS[key] = _cached_model(ion, emax_basis)
     return _MODELS[key]
+
+
+def _cached_model(ion, emax_basis):
+    """IonModel from a disk cache (~/.cache/gainmat, or $GAINMAT_CACHE; '0' disables) keyed by the
+    free-ion parameters: building the 4f^9 (Dy) model peaks at ~2.8 GB and 30 s, the cached one does not."""
+    import hashlib, json, os, pickle
+    root = os.environ.get("GAINMAT_CACHE", os.path.join(os.path.expanduser("~"), ".cache", "gainmat"))
+    if root == "0":
+        return IonModel(ion, emax_basis)
+    h = hashlib.sha1(json.dumps([ion, emax_basis, ion_params(ion)], sort_keys=True, default=str).encode()).hexdigest()[:16]
+    path = os.path.join(root, f"ion_{ion.replace('+', 'p')}_{h}.pkl")
+    try:
+        with open(path, "rb") as f:
+            return pickle.load(f)
+    except (OSError, pickle.UnpicklingError, EOFError, AttributeError):
+        pass
+    m = IonModel(ion, emax_basis)
+    try:
+        os.makedirs(root, exist_ok=True)
+        with open(path + ".tmp", "wb") as f:
+            pickle.dump(m, f, protocol=pickle.HIGHEST_PROTOCOL)
+        os.replace(path + ".tmp", path)
+    except OSError:
+        pass
+    return m
 
 
 class IonModel:

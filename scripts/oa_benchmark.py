@@ -17,10 +17,15 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 import numpy as np
 from gainmat.forward import glass as g
 from gainmat.forward.fiber import LocalModel
-from gainmat.refs.oa_benchmark_refs import RECORDS
+from gainmat.refs.oa_benchmark_refs import RECORDS as _HAND
+from gainmat.refs.oa_agent_data import load_oa
+import re as _re
+_AG, _REJ = load_oa([m for r in _HAND for m in _re.findall(r"doi:(10\.\S+?)(?:\)|,|$| )", r["src"])])
+RECORDS = sorted(list(_HAND) + _AG, key=lambda r: (r["ion"], r["family"]))   # grouped: cache reuse
+print(f"records: {len(_HAND)} hand-collected + {len(_AG)} agent-collected (rejected {_REJ})", flush=True)
 
 g.load_refs(); g.apply_site_refs(); g.calibrate_spm(370.0, g.CARNALL_ER_LAF3_BKQ, verbose=False)
-LOG = {"sigma_em_cm2", "sigma_abs_cm2", "tau_rad_ms", "tau_ms"}
+LOG = {"sigma_em_cm2", "sigma_abs_cm2", "tau_rad_ms", "tau_ms"}   # n_refr, peaks, widths: linear errors
 _cache = {}
 
 
@@ -32,6 +37,11 @@ def model_vals(ion, fam, omegas=None):
     r = g.run(ion, fam, n_sites=60, pumps=[], overrides=ov)
     F = g.FAMILIES[fam]
     lm = LocalModel(ion, r["_spec"], r["omegas"], F["n"], F["hw_max"], F.get("gap_family"), emax=g.EMAX[ion])
+    # keep only what the benchmark reads (full run dicts for ~150 (ion, glass, Omega) keys exhaust memory)
+    r = dict(_spec=r["_spec"], omegas=r["omegas"])
+    if len(_cache) >= 4:
+        _cache.pop(next(iter(_cache)))
+    import gc; gc.collect()
     _cache[key] = (r, lm)
     return r, lm
 
@@ -44,13 +54,19 @@ def fwhm_local(nu, y):
 
 
 def predict_q(ion, fam, pair, q, omegas=None):
+    if q == "n_refr":
+        return float(g.FAMILIES[fam]["n"])
     r, lm = model_vals(ion, fam, omegas)
     sp = r["_spec"]; nu = sp["nu"]
     if q in ("tau_rad_ms", "tau_ms"):
+        if pair[0] not in lm.labels:
+            return None
         i = lm.labels.index(pair[0]); A = float(lm.A[i].sum())
         return 1e3 / A if q == "tau_rad_ms" else 1e3 / (A + float(lm.W[i]))
     if q == "omegas":
         return tuple(map(float, r["omegas"]))
+    if q == "n_refr":
+        return float(g.FAMILIES[fam]["n"])
     if pair not in sp["sigma_abs"]:
         return None
     y = sp["sigma_em" if q.startswith(("em", "sigma_em")) else "sigma_abs"][pair]
@@ -131,15 +147,25 @@ def hybrid_q(rec, omegas=None):
 rows = []
 for rec in RECORDS:
     q = rec["q"]
-    m = predict_q(rec["ion"], rec["family"], rec["pair"], q)
+    try:
+        m = predict_q(rec["ion"], rec["family"], rec["pair"], q)
+    except Exception as e:
+        print("skip", rec["ion"], rec["family"], rec["pair"], q, repr(e)[:80]); continue
     om = paper_omegas(rec) if q != "omegas" else None
-    mo = predict_q(rec["ion"], rec["family"], rec["pair"], q, om) if om else None
+    try:
+        mo = predict_q(rec["ion"], rec["family"], rec["pair"], q, om) if om else None
+    except Exception:
+        mo = None
     lk, scope = lookup(rec)
-    hy = hybrid_q(rec)
-    hyo = hybrid_q(rec, om) if om else None
+    try:
+        hy = hybrid_q(rec)
+        hyo = hybrid_q(rec, om) if om else None
+    except Exception:
+        hy = hyo = None
     row = dict(ion=rec["ion"], family=rec["family"], proxy=rec["proxy"], pair=rec["pair"], q=q, measured=rec["value"],
                model=m, model_paper_omega=mo, lookup=lk, lookup_scope=scope, src=rec["src"], note=rec["note"],
                err_model=err(q, m, rec["value"]), err_model_paper_omega=err(q, mo, rec["value"]),
+               agent=bool(rec.get("agent")),
                err_lookup=err(q, lk, rec["value"]), hybrid=hy, hybrid_paper_omega=hyo,
                err_hybrid=err(q, hy, rec["value"]), err_hybrid_paper_omega=err(q, hyo, rec["value"]))
     rows.append(row)
@@ -155,7 +181,7 @@ for q in sorted({r["q"] for r in rows}):
         return dict(n=len(v), median_abs=float(np.median(v)) if v else None, rms=float(np.sqrt(np.mean(np.square(v)))) if v else None)
     both = [r for r in R if r["err_lookup"] is not None and r["err_model"] is not None]
     hyb = [r for r in R if r["err_hybrid"] is not None and r["err_lookup"] is not None]
-    summ[q] = dict(unit="dex" if (q in LOG or q == "omegas") else "nm",
+    summ[q] = dict(unit="dex" if (q in LOG or q == "omegas") else ("-" if q == "n_refr" else "nm"),
                    all=dict(model=stat("err_model", R), model_paper_omega=stat("err_model_paper_omega", R)),
                    paired_with_lookup=dict(model=stat("err_model", both), model_paper_omega=stat("err_model_paper_omega", both),
                                            lookup=stat("err_lookup", both)),
@@ -163,7 +189,25 @@ for q in sorted({r["q"] for r in rows}):
                    hybrid_vs_lookup=dict(hybrid=stat("err_hybrid", hyb), lookup=stat("err_lookup", hyb), model=stat("err_model", hyb),
                                          hybrid_paper_omega=stat("err_hybrid_paper_omega", hyb),
                                          hybrid_beats_lookup=sum(abs(r["err_hybrid"]) < abs(r["err_lookup"]) for r in hyb), n=len(hyb)))
-json.dump(dict(summary=summ, rows=rows), open("forward_results/oa_benchmark.json", "w"), indent=1, default=float)
+def _med(sub, key):
+    v = [abs(r[key]) for r in sub if r[key] is not None]
+    return (float(np.median(v)), len(v)) if v else (None, 0)
+by_ion = {}
+for q in sorted({r["q"] for r in rows}):
+    for ion in sorted({r["ion"] for r in rows if r["q"] == q}):
+        sub = [r for r in rows if r["q"] == q and r["ion"] == ion]
+        both = [r for r in sub if r["err_lookup"] is not None and r["err_model"] is not None]
+        by_ion[f"{q}|{ion}"] = dict(model=_med(sub, "err_model"), model_paper_omega=_med(sub, "err_model_paper_omega"),
+                                    lookup=_med(both, "err_lookup"), model_on_paired=_med(both, "err_model"),
+                                    model_beats_lookup=sum(abs(r["err_model"]) < abs(r["err_lookup"]) for r in both), n_paired=len(both))
+no_tm = {}
+for q in sorted({r["q"] for r in rows}):
+    sub = [r for r in rows if r["q"] == q and r["ion"] != "Tm3+"]
+    both = [r for r in sub if r["err_lookup"] is not None and r["err_model"] is not None]
+    no_tm[q] = dict(model=_med(sub, "err_model"), lookup=_med(both, "err_lookup"), model_on_paired=_med(both, "err_model"),
+                    model_beats_lookup=sum(abs(r["err_model"]) < abs(r["err_lookup"]) for r in both), n_paired=len(both))
+json.dump(dict(summary=summ, by_ion=by_ion, without_tm=no_tm, n_hand=len(_HAND), n_agent=len(_AG), rejected=_REJ, rows=rows),
+          open("forward_results/oa_benchmark.json", "w"), indent=1, default=float)
 md = ["# External benchmark: open-access literature", "",
       "`scripts/oa_benchmark.py`, data in `gainmat/refs/oa_benchmark_refs.py` (never used to build the model).", "",
       "| quantity | unit | n | model (own Omega) median abs err | model + paper's Omega | lookup (other papers) | model beats lookup |",
@@ -181,5 +225,11 @@ for q, s in summ.items():
     if h["n"]:
         f = lambda d: "—" if d["median_abs"] is None else f"{d['median_abs']:.3g}"
         md.append(f"| {q} | {h['n']} | {f(h['model'])} | {f(h['hybrid'])} | {f(h['hybrid_paper_omega'])} | {f(h['lookup'])} | {h['hybrid_beats_lookup']}/{h['n']} |")
+md += ["", "Without Tm (median abs error; paired = rows where a lookup exists):", "",
+       "| quantity | model (all) | model (paired) | lookup (paired) | model beats lookup |", "|---|---|---|---|---|"]
+for q, v in no_tm.items():
+    f = lambda t: "—" if t[0] is None else f"{t[0]:.3g} (n={t[1]})"
+    md.append(f"| {q} | {f(v['model'])} | {f(v['model_on_paired'])} | {f(v['lookup'])} | {v['model_beats_lookup']}/{v['n_paired']} |")
+md += ["", f"Records: {len(_HAND)} hand-collected + {len(_AG)} collected by extraction agents (rejected by checks: {_REJ})."]
 open("forward_results/oa_benchmark.md", "w").write("\n".join(md) + "\n")
 print("\n".join(md))

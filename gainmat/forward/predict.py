@@ -193,13 +193,27 @@ def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorpti
     from .transfer import standard_parameters
     et = standard_parameters(ion, family, spec=spec, overrides=dict(n=fam["n"]))
     tv = _load("transfer_validation.json")
-    et_unc = (dict(rms_log10=round(tv["summary"]["overlap / model defaults"]["rms_dex"], 3),
-                   n_checks=tv["summary"]["overlap / model defaults"]["n"],
-                   note="vs published Forster-Dexter overlaps of measured spectra (all 7 within 2x); a decay-fitted "
-                        "Tm cross-relaxation value is 4x higher than predicted")
-              if tv else None)
+    _s = (tv or {}).get("summary", {})
+    _o, _d = _s.get("overlap / model defaults"), _s.get("decay fit / model defaults")
+    et_unc = (dict(rms_log10=round(_o["rms_dex"], 3), n_checks=_o["n"],
+                   note=f"vs published Forster-Dexter overlaps of measured spectra ({_o['within_2x']:.0%} within 2x)"
+                        + (f"; vs microparameters fitted to measured decays: {_d['within_2x']:.0%} of {_d['n']} within 2x "
+                           f"(median {_d['median_abs_dex']:.2f} dex) - real glasses quench faster (clustering)" if _d else ""))
+              if _o else None)
+    from .quenching import SELF_QUENCH, lifetime_vs_N
+    quench = []
+    for lev in SELF_QUENCH.get(ion, {}):
+        try:
+            q = lifetime_vs_N(ion, family, [r["N_cm3"]], level=lev, spec=spec, lm=lm, overrides=dict(n=fam["n"]))
+        except (KeyError, ValueError):
+            continue
+        p0 = q["points"][0]
+        quench.append(dict(level=lev, N_cm3=p0["N_cm3"], tau_low_conc_ms=q["tau0_ms"], tau_ms=p0["tau_mean_ms"],
+                           C_CR_cm6_s=q["C_CR_cm6_s"], C_mig_cm6_s=q["C_mig_cm6_s"],
+                           note="cross-relaxation self-quenching (Inokuti-Hirayama + Burshtein) from the model's "
+                                "spectra; a floor - clustering and OH quenching not included"))
     return dict(ion=ion, family=family, N_cm3=r["N_cm3"], provenance=prov, bands=bands, levels=levels[:8],
-                accuracy=general, energy_transfer=dict(parameters=et, uncertainty=et_unc),
+                accuracy=general, energy_transfer=dict(parameters=et, uncertainty=et_unc, self_quenching=quench),
                 gain_windows=[{k: float(v) for k, v in w.items()} for w in r["windows"]],
                 note="uncertainties are rms errors of this model against independent measurements "
                      "(forward_results/); 'known_bias' lists systematic errors found in validation")

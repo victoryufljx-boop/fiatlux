@@ -158,3 +158,14 @@ def test_transfer_microparameter_order_of_magnitude():
     assert 3e-39 < r["total"] < 5e-38
     cr = c_da("Tm3+", "germanate", ("3H4", "3F4"), ("3F4", "3H6"), n_sites=12)
     assert cr["fractions"][0] < 0.5 and 1e-41 < cr["total"] < 1e-37
+
+
+def test_self_quenching_lifetime_falls_with_concentration():
+    """Tm 3H4 cross-relaxation self-quenching: lifetime -> tau0 at low N, falls monotonically, and the
+    decay integral reduces to tau0 when the microparameters vanish."""
+    from gainmat.forward.quenching import lifetime_vs_N, decay_lifetimes
+    m, te = decay_lifetimes(1e-3, 0.0, 0.0)
+    assert abs(m - 1e-3) / 1e-3 < 2e-3 and abs(te - 1e-3) / 1e-3 < 2e-3
+    q = lifetime_vs_N("Tm3+", "tellurite", [1e18, 1e20, 5e20], n_sites=12)
+    t = [p["tau_mean_ms"] for p in q["points"]]
+    assert abs(t[0] - q["tau0_ms"]) / q["tau0_ms"] < 0.02 and t[0] > t[1] > t[2]
