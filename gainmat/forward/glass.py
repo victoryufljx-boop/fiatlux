@@ -229,6 +229,19 @@ def omegas_for(ion, family):
     return (3.0, 1.5, 1.0), "generic default"
 
 
+# Homogeneous linewidth vs temperature.  gamma_h is set at room temperature (295 K); the two-phonon (Raman)
+# dephasing of 4f lines in glasses grows ~T^2 (e.g. Er3+ and Eu3+ hole burning / photon echo in silicates),
+# so gamma_h(T) = gamma_h(295 K) (T/295)^GAMMA_T_EXP, floored at GAMMA_H_MIN, is available; default 0
+# (temperature-independent): the T^2 law overshoots the Turri 2008 slopes (scripts/validate_temperature.py).
+GAMMA_T_EXP = float(os.environ.get("GAINMAT_GAMMA_T_EXP", "0"))
+GAMMA_H_MIN = 1.0
+
+
+def _gamma_h_at(fam):
+    g0 = fam.get("gamma_h", 20.0); T = fam.get("T", 295.0)
+    return max(GAMMA_H_MIN, g0 * (T / 295.0) ** GAMMA_T_EXP)
+
+
 def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_dB_m=0.1,
         lam=(400.0, 5000.0), dnu=2.0, intensities=I_PUMP):
     """Forward model for one (ion, glass): spectra, lifetimes, efficiencies, gain windows."""
@@ -260,7 +273,7 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
         spm[sub] = dict(spm[lig], **{f"B{k}": spm[lig][f"B{k}"] * f for k in (2, 4, 6)})
     emax = fam.get("emax", EMAX[ion])
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
-                            emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0),
+                            emax=emax, T=fam.get("T", 295.0), gamma_h=_gamma_h_at(fam),
                             neph_std=fam.get("neph_std", NEPH_STD), sideband_S=fam.get("sideband_S", SIDEBAND_S),
                             hw_max=fam["hw_max"], seed=seed,
                             intensity=fam.get("intensity", INTENSITY),

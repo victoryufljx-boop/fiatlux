@@ -768,3 +768,28 @@ cross sections worse. So a uniform sideband is not the missing piece for widths.
   Yang's full phosphate pattern does worse. Yb levels vary with composition within a family (Wang's
   is a Ba phosphosilicate, Yang's a borophosphate), so the per-family Yang anchors are kept opt-in
   (`auto=False`).
+
+### 5.3 Temperature dependence (Turri 2008; `scripts/validate_temperature.py`)
+
+Turri gives linear fits over 100–300 K of the Tm ³F₄→³H₆ peak emission cross section and peak
+wavelength in germanate, Al-silica and borophosphate. The model was run at 100, 200 and 300 K with
+each glass's measured Ω. Compared: slope of the peak cross section (%/K).
+
+| homogeneous width vs T | germanate (meas −0.153) | silica (meas −0.064) | phosphate (meas −0.083) | mean slope error |
+|---|---|---|---|---|
+| constant (default) | −0.033 | −0.034 | −0.032 | 0.45 dex |
+| ∝ T | −0.073 | −0.104 | −0.102 | 0.21 dex |
+| ∝ T² (Raman theory) | −0.230 | −0.318 | −0.310 | 0.48 dex |
+
+- **Room-temperature values:**
+  - silica: σ 3.77e-21 vs 3.61e-21, peak 1796 vs 1808 nm;
+  - germanate: σ 5.1 vs 4.0e-21, peak 1779 vs 1870 nm (the known Tm position error);
+  - phosphate: σ 3.75 vs 3.12e-21, peak 1782 vs 1836 nm.
+- **Peak-wavelength slopes:** silica −0.29 vs −0.21 nm/K; phosphate and germanate too steep.
+- **Reading:**
+  - with a constant width, the cross section changes 2–5× too little with temperature;
+  - scaling the whole room-temperature width as T² overshoots, because that width is an effective
+    one that also absorbs static broadening;
+  - T¹ fits best, but that was chosen after seeing the data.
+- **Not adopted.** The default stays a constant width (`GAINMAT_GAMMA_T_EXP` switches the law). The
+  physically right fix is a two-part width: a static part plus a dynamic part ∝ T².

@@ -1,0 +1,71 @@
+{
+ "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), Sec. III.C fits and Table I",
+ "rows": [
+  {
+   "glass": "germanate",
+   "family": "germanate",
+   "model_sigma": [
+    5.5207741994718225e-21,
+    5.068617022438005e-21,
+    5.184125419960721e-21
+   ],
+   "model_lam": [
+    1816.860465116279,
+    1802.451333813987,
+    1777.4617845716316
+   ],
+   "model_rel_slope_pct_per_K": -0.0330727793500881,
+   "meas_rel_slope_pct_per_K": -0.15346534653465346,
+   "model_sigma_300K": 5.089514490867963e-21,
+   "meas_sigma_300K": 4.04e-21,
+   "model_lam_slope_nm_per_K": -0.19699340272324284,
+   "meas_lam_slope_nm_per_K": 0.0,
+   "model_lam_300K": 1779.2251875616416,
+   "meas_lam_300K": 1870.0
+  },
+  {
+   "glass": "silica",
+   "family": "aluminosilicate",
+   "model_sigma": [
+    4.068504919482912e-21,
+    3.809987315882723e-21,
+    3.8128594011167874e-21
+   ],
+   "model_lam": [
+    1864.2803877703207,
+    1806.35838150289,
+    1805.7060310581437
+   ],
+   "model_rel_slope_pct_per_K": -0.03391158763998467,
+   "meas_rel_slope_pct_per_K": -0.06371191135734074,
+   "model_sigma_300K": 3.7692944529777444e-21,
+   "meas_sigma_300K": 3.61e-21,
+   "model_lam_slope_nm_per_K": -0.2928717835608865,
+   "meas_lam_slope_nm_per_K": -0.21,
+   "model_lam_300K": 1796.1610884210293,
+   "meas_lam_300K": 1808.0
+  },
+  {
+   "glass": "phosphate",
+   "family": "phosphate",
+   "model_sigma": [
+    4.014736145572515e-21,
+    3.802164020404413e-21,
+    3.777857667247304e-21
+   ],
+   "model_lam": [
+    1841.6206261510129,
+    1792.1146953405018,
+    1790.1897601145722
+   ],
+   "model_rel_slope_pct_per_K": -0.03161347129652259,
+   "meas_rel_slope_pct_per_K": -0.08333333333333333,
+   "model_sigma_300K": 3.746480038578805e-21,
+   "meas_sigma_300K": 3.12e-21,
+   "model_lam_slope_nm_per_K": -0.2571543301822074,
+   "meas_lam_slope_nm_per_K": -0.07,
+   "model_lam_300K": 1782.2595941838085,
+   "meas_lam_300K": 1836.0
+  }
+ ]
+}
