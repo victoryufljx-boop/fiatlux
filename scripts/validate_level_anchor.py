@@ -30,7 +30,7 @@ res = dict(sideband_S=a.sideband, yb=[], er=[], tm=[], devices=[])
 
 def ov_for(ion, anchored):
     if not anchored:
-        return {}
+        return dict(level_anchor=None)          # anchors are on by default in glass.run; switch them off
     o = dict(level_anchor={k: v for k, v in ANCHORS[ion]["levels"].items()})
     if a.sideband:
         o["sideband_S"] = a.sideband
@@ -82,7 +82,7 @@ for fam, meas in (("germanosilicate", 1578.5), ("aluminosilicate", 1632.5)):
 # ---------------- Pask lasers (never used to set anything)
 N = 550e-6 * 2.2e22
 for anchored in (False, True):
-    lm = local_model_for("Yb3+", "germanosilicate", n_sites=30, overrides=ov_for("Yb3+", anchored) or None)
+    lm = local_model_for("Yb3+", "germanosilicate", n_sites=30, overrides=ov_for("Yb3+", anchored))
     t0 = time.time()
     s, th, cv = slope_and_threshold(lm, 90, 3.75, 0.17, N, 1047, [0.05, 0.1, 0.2, 0.3], 1102,
                                     R1=0.98, R2=0.04, alpha_bg_dB_m=0.005, nz=60)

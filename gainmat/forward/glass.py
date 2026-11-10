@@ -206,6 +206,17 @@ def omegas_for(ion, family):
             "fluoroindate": "ZBLAN", "germanate": "tellurite", "tellurite": "germanate",
             "phosphate": "silica", "chalcogenide": "tellurite", "silica": "aluminosilicate",
             "ZBLAN": "fluoroindate"}
+    if ion == "Yb3+":
+        # Yb has one transition: its 'Omegas' are a line-strength normalisation (yb_omega_from_lifetime),
+        # so other ions' Omegas mean nothing for it.  Borrow Yb from the chemically nearest family.
+        near_yb = {"phosphate": "phosphosilicate", "germanate": "germanosilicate", "tellurite": "germanosilicate",
+                   "silica": "aluminosilicate", "germanosilicate": "aluminosilicate"}
+        f2 = near_yb.get(family)
+        if f2 and (ion, f2) in OMEGA:
+            return OMEGA[(ion, f2)], f"borrowed from {ion}:{f2}"
+        allv = [v for (i, f), v in OMEGA.items() if i == ion]
+        if allv:
+            return tuple(np.mean(allv, axis=0)), f"mean of {ion} over families"
     f2 = near.get(family)
     if f2 and (ion, f2) in OMEGA:
         return OMEGA[(ion, f2)], f"borrowed from {ion}:{f2}"
@@ -231,9 +242,10 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     if LEVEL_ANCHORS and "level_anchor" not in (overrides or {}):
         try:
             from ..refs.stark_anchor_refs import ANCHORS as _ANC
-            _a = _ANC.get(ion)
-            if _a and _a.get("auto", True) and family in _a["families"]:
-                fam["level_anchor"] = _a["levels"]
+            for _a in [v for k, v in _ANC.items() if k == ion or v.get("ion") == ion]:
+                if _a.get("auto", True) and family in _a["families"]:
+                    fam["level_anchor"] = _a["levels"]
+                    break
         except ImportError:
             pass
     fam.update(overrides or {})

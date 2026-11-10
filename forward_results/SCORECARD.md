@@ -27,7 +27,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | aluminosilicate | 3F4 (tau_rad) | 6 | 5.74 | 0.96 | Agger & Povlsen 2006 (FL from measured sigma_e) |
 | Tm3+ | silica | 3F4 (tau_rad) | 4.56 | 5 | 1.10 | Walsh & Barnes 2004 (JO) |
 | Tm3+ | silica | 3H4 (tau_rad) | 0.67 | 0.829 | 1.24 | Walsh & Barnes 2004 (JO) |
-| Yb3+ | germanosilicate | 2F5/2 (tau_rad) | 0.84 | 0.978 | 1.16 | Pask et al., JSTQE 1, 2 (1995) |
+| Yb3+ | germanosilicate | 2F5/2 (tau_rad) | 0.84 | 0.769 | 0.92 | Pask et al., JSTQE 1, 2 (1995) |
 | Pr3+ | ZBLAN | 1G4 (tau_rad) | 3.24 | 2.34 | 0.72 | Ohishi 1991 (JO) |
 | Ho3+ | ZBLAN | 5I7 (tau_rad) | 12.7 | 13.3 | 1.05 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 | Ho3+ | ZBLAN | 5I6 (tau_rad) | 5.87 | 6.2 | 1.06 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
@@ -37,7 +37,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | ZBLAN | 3H4 (tau_rad) | 1.32 | 1.28 | 0.97 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 | Nd3+ | ZBLAN | 4F3/2 (tau_rad) | 0.44 | 0.443 | 1.01 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) (JO |
 
-## Peak cross sections: 18 checks, 56% within 30 %, 89% within 2x, rms 0.17 decades
+## Peak cross sections: 18 checks, 61% within 30 %, 89% within 2x, rms 0.17 decades
 
 | ion | host | item | measured | model | x | source |
 |---|---|---|---|---|---|---|
@@ -53,7 +53,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm3+ | silica | 3F4->3H6 abs (abs) | 4.47e-21 | 5.47e-21 | 1.22 | Jackson & King 1999 Fig. 3 |
 | Ho3+ | aluminosilicate | 5I7->5I8 abs (abs) | 4.3e-21 | 3.65e-21 | 0.85 | Le Gouet et al. 2020 |
 | Ho3+ | aluminosilicate | 5I7->5I8 em (em) | 6e-21 | 3.2e-21 | 0.53 | Le Gouet et al. 2020 |
-| Yb3+ | germanosilicate | 2F5/2->2F7/2 em (em) | 2.5e-20 | 1.63e-20 | 0.65 | Pask et al. 1995 |
+| Yb3+ | germanosilicate | 2F5/2->2F7/2 em (em) | 2.5e-20 | 2.07e-20 | 0.83 | Pask et al. 1995 |
 | Pr3+ | ZBLAN | 1G4->3H5 em (em) | 3.48e-21 | 8.61e-21 | 2.47 | Ohishi et al. 1991 |
 | Ho3+ | ZBLAN | 5I7->5I8 em (em) | 5.6e-21 | 5.66e-21 | 1.01 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) |
 | Er3+ | ZBLAN | 4I13/2->4I15/2 em (em) | 4.2e-21 | 5.87e-21 | 1.40 | Wetenkamp et al., JNCS 140, 35 (1992) Table 2 (0.1 mol%) |
@@ -98,8 +98,8 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Tm:Al-silica em (Agger 2006) | 1.00 | 1.24 | 0.14 | 1800/1825 | 200/275 |
 | Ho:Al-silica abs (Le Gouet 2020) | 0.88 | 0.85 | 0.06 | 1940/1946 | 100/50 |
 | Ho:Al-silica em (Le Gouet 2020) | 0.56 | 0.53 | 0.08 | 1946/1950 | 140/150 |
-| Yb:Ge-silica abs (Pask 1995) | 0.48 | 0.51 | 0.12 | 974/974 | 6/0 |
-| Yb:Ge-silica em (Pask 1995) | 0.70 | 0.58 | 0.14 | 974/974 | 46/4 |
+| Yb:Ge-silica abs (Pask 1995) | 0.62 | 0.65 | 0.12 | 974/974 | 6/0 |
+| Yb:Ge-silica em (Pask 1995) | 0.90 | 0.74 | 0.14 | 974/974 | 46/4 |
 | Ho:alumi 5I7 em (Jackson 2012) | 0.46 | 0.44 | 0.31 | 2000/2020 | 140/100 |
 | Tm:alumi 3F4 em (Jackson 2012) | 0.58 | 0.84 | 0.19 | 1800/1800 | 200/320 |
 | Er:alumi 4I13/2 em (Jackson 2012) | 0.63 | 0.65 | 0.12 | 1540/1520 | 40/40 |
@@ -134,7 +134,7 @@ Model vs measurement, every check in one place.  `x` = model / measured.  Genera
 | Ho:silica cladding-pumped laser (Le Gouet et al. 2020) | observed | slope (coupled) / threshold W | slope 0.56, thr 9.66 W | slope 0.49, thr 13 W |
 | Ho:silica cladding-pumped laser (Le Gouet et al. 2020) | ML-L3 | slope (coupled) / threshold W | slope 0.56, thr 12.6 W | slope 0.49, thr 13 W |
 | Yb:germanosilicate 1102 nm laser (Pask et al. 1995) | single-ion | slope (launched) / threshold W | no lasing | slope 0.90, thr 0.03 W |
-| Yb:germanosilicate free-running laser, 5 m (Pask et al. 1995 Fig. 4) | single-ion | threshold W (launched) | slope 0.40, thr 0.0543 W | , thr 0.045 W |
+| Yb:germanosilicate free-running laser, 5 m (Pask et al. 1995 Fig. 4) | single-ion | threshold W (launched) | slope 0.40, thr 0.0559 W | , thr 0.045 W |
 
 ## Er,Pr:ZBLAN energy transfer (Golding 2000)
 

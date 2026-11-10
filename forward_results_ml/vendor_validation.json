@@ -4,66 +4,66 @@
    "curve": "Er 1.5 um band abs",
    "ion": "Er3+",
    "host": "aluminosilicate",
-   "integrated_ratio": 0.5141970867466091,
-   "peak_ratio": 0.6714251833866537,
+   "integrated_ratio": 0.515572328842733,
+   "peak_ratio": 0.689330240399119,
    "peak_shift_nm": 0.0,
-   "shape_rms": 0.10498695840593333,
+   "shape_rms": 0.10923069287331913,
    "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
   },
   {
    "curve": "Er 1.5 um band em",
    "ion": "Er3+",
    "host": "aluminosilicate",
-   "integrated_ratio": 0.6335539096886478,
-   "peak_ratio": 0.806866640926948,
+   "integrated_ratio": 0.6394280741101611,
+   "peak_ratio": 0.8239995659149764,
    "peak_shift_nm": 0.0,
-   "shape_rms": 0.11886768734207896,
+   "shape_rms": 0.12011082805869436,
    "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
   },
   {
    "curve": "Er 1.5 um band sigma_e/sigma_a",
    "ion": "Er3+",
    "host": "aluminosilicate",
-   "rms_log10": 0.08634980841479509,
-   "mean_log10": 0.08412369693519571,
+   "rms_log10": 0.08402875779927885,
+   "mean_log10": 0.08168755086819965,
    "src": "nLIGHT LIEKKI cross sections"
   },
   {
    "curve": "Er 980 nm band abs",
    "ion": "Er3+",
    "host": "aluminosilicate",
-   "integrated_ratio": 0.44460103820958063,
-   "peak_ratio": 0.47493614724457384,
-   "peak_shift_nm": -2.0,
-   "shape_rms": 0.1269006394918678,
+   "integrated_ratio": 0.4588831629881992,
+   "peak_ratio": 0.4902590179602099,
+   "peak_shift_nm": 0.0,
+   "shape_rms": 0.11581957771628214,
    "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
   },
   {
    "curve": "Yb abs",
    "ion": "Yb3+",
    "host": "aluminosilicate",
-   "integrated_ratio": 0.65454121364251,
-   "peak_ratio": 0.7318244363773572,
+   "integrated_ratio": 0.654535136542874,
+   "peak_ratio": 0.7412247348202633,
    "peak_shift_nm": -9.0,
-   "shape_rms": 0.37306412969958697,
+   "shape_rms": 0.36852410127179447,
    "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
   },
   {
    "curve": "Yb em",
    "ion": "Yb3+",
    "host": "aluminosilicate",
-   "integrated_ratio": 0.9209645049847732,
-   "peak_ratio": 0.7683607726885364,
+   "integrated_ratio": 0.9186873515306123,
+   "peak_ratio": 0.7787726452400848,
    "peak_shift_nm": -10.0,
-   "shape_rms": 0.362890806703409,
+   "shape_rms": 0.3587696947468677,
    "src": "nLIGHT LIEKKI cross sections (Application Designer v4.0), via Optiwave"
   },
   {
    "curve": "Yb sigma_e/sigma_a",
    "ion": "Yb3+",
    "host": "aluminosilicate",
-   "rms_log10": 0.23610978262691423,
-   "mean_log10": 0.22996204440647322,
+   "rms_log10": 0.2322273676961863,
+   "mean_log10": 0.22626525147632137,
    "src": "nLIGHT LIEKKI cross sections"
   }
  ],
@@ -78,12 +78,9 @@
    },
    "target_nm": 2940.0,
    "description": "41 W CW laser at 2.94 \u00b5m",
-   "reproduced": true,
-   "pumps_that_work": [
-    "976.0",
-    "985+1973"
-   ],
-   "nearest_window_edge_nm": null,
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 46.5,
    "out_of_model_range": false,
    "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
   },
@@ -99,6 +96,7 @@
    "description": "5.6 W CW at 3.55 \u00b5m",
    "reproduced": true,
    "pumps_that_work": [
+    "976.0",
     "985+1973"
    ],
    "nearest_window_edge_nm": null,
@@ -156,11 +154,9 @@
    },
    "target_nm": 520.0,
    "description": "Visible emission at 491, 520, 535 and 620 nm",
-   "reproduced": true,
-   "pumps_that_work": [
-    "444.0"
-   ],
-   "nearest_window_edge_nm": null,
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 11.200000000000045,
    "out_of_model_range": false,
    "src": "e338ef70-LVF-RE-doped-double-cladding-fibers-Datasheet-2024.pdf, p.1, 'Examples of some applications'"
   },
@@ -310,11 +306,9 @@
    },
    "target_nm": 3400.0,
    "description": "Tunable laser from 2.8 up to 3.4 \u00b5m",
-   "reproduced": true,
-   "pumps_that_work": [
-    "1100.0"
-   ],
-   "nearest_window_edge_nm": null,
+   "reproduced": false,
+   "pumps_that_work": [],
+   "nearest_window_edge_nm": 142.69999999999982,
    "out_of_model_range": false,
    "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
   },
@@ -330,7 +324,7 @@
    "description": "Emission at 4.3\u00b5m",
    "reproduced": false,
    "pumps_that_work": [],
-   "nearest_window_edge_nm": 907.9000000000001,
+   "nearest_window_edge_nm": 1042.6999999999998,
    "out_of_model_range": false,
    "src": "d290e305-LVF-RE-doped-single-mode-fibers-Datasheet-2022.pdf, p.1, 'Examples of some applications'"
   },

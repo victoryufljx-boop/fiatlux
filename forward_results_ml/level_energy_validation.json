@@ -1,0 +1,540 @@
+{
+ "summary": {
+  "n": 65,
+  "median_abs_cm1": 56.5,
+  "median_abs_pct": 0.36,
+  "within_1pct": 0.7846153846153846,
+  "within_2pct": 0.9230769230769231,
+  "per_ion_mean_pct": {
+   "Dy3+": 0.32666666666666666,
+   "Er3+": -0.22100000000000009,
+   "Ho3+": 0.18999999999999997,
+   "Nd3+": 0.20642857142857143,
+   "Pr3+": 1.122,
+   "Tm3+": -0.7585714285714287
+  }
+ },
+ "rows": [
+  {
+   "ion": "Pr3+",
+   "level": "3H5",
+   "measured_cm1": 2150,
+   "model_cm1": 2297.0,
+   "diff_cm1": 147.0,
+   "diff_pct": 6.84
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3H6",
+   "measured_cm1": 4300,
+   "model_cm1": 4460.2,
+   "diff_cm1": 160.2,
+   "diff_pct": 3.73
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3F2",
+   "measured_cm1": 5200,
+   "model_cm1": 5138.9,
+   "diff_cm1": -61.1,
+   "diff_pct": -1.18
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3F3",
+   "measured_cm1": 6350,
+   "model_cm1": 6522.4,
+   "diff_cm1": 172.4,
+   "diff_pct": 2.72
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3F4",
+   "measured_cm1": 7100,
+   "model_cm1": 6956.2,
+   "diff_cm1": -143.8,
+   "diff_pct": -2.02
+  },
+  {
+   "ion": "Pr3+",
+   "level": "1G4",
+   "measured_cm1": 9850,
+   "model_cm1": 9957.2,
+   "diff_cm1": 107.2,
+   "diff_pct": 1.09
+  },
+  {
+   "ion": "Pr3+",
+   "level": "1D2",
+   "measured_cm1": 17100,
+   "model_cm1": 17030.9,
+   "diff_cm1": -69.1,
+   "diff_pct": -0.4
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3P0",
+   "measured_cm1": 20800,
+   "model_cm1": 20864.2,
+   "diff_cm1": 64.2,
+   "diff_pct": 0.31
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3P1",
+   "measured_cm1": 21500,
+   "model_cm1": 21520.3,
+   "diff_cm1": 20.3,
+   "diff_pct": 0.09
+  },
+  {
+   "ion": "Pr3+",
+   "level": "3P2",
+   "measured_cm1": 22700,
+   "model_cm1": 22708.3,
+   "diff_cm1": 8.3,
+   "diff_pct": 0.04
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4I11/2",
+   "measured_cm1": 2000,
+   "model_cm1": 2023.0,
+   "diff_cm1": 23.0,
+   "diff_pct": 1.15
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4I13/2",
+   "measured_cm1": 4050,
+   "model_cm1": 4008.6,
+   "diff_cm1": -41.4,
+   "diff_pct": -1.02
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4I15/2",
+   "measured_cm1": 5900,
+   "model_cm1": 6063.4,
+   "diff_cm1": 163.4,
+   "diff_pct": 2.77
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4F3/2",
+   "measured_cm1": 11650,
+   "model_cm1": 11541.4,
+   "diff_cm1": -108.6,
+   "diff_pct": -0.93
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4F5/2",
+   "measured_cm1": 12650,
+   "model_cm1": 12567.9,
+   "diff_cm1": -82.1,
+   "diff_pct": -0.65
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4F7/2",
+   "measured_cm1": 13450,
+   "model_cm1": 13553.2,
+   "diff_cm1": 103.2,
+   "diff_pct": 0.77
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4F9/2",
+   "measured_cm1": 14750,
+   "model_cm1": 14828.1,
+   "diff_cm1": 78.1,
+   "diff_pct": 0.53
+  },
+  {
+   "ion": "Nd3+",
+   "level": "2H11/2",
+   "measured_cm1": 16050,
+   "model_cm1": 16024.1,
+   "diff_cm1": -25.9,
+   "diff_pct": -0.16
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4G5/2",
+   "measured_cm1": 17400,
+   "model_cm1": 17343.5,
+   "diff_cm1": -56.5,
+   "diff_pct": -0.32
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4G7/2",
+   "measured_cm1": 19000,
+   "model_cm1": 19180.9,
+   "diff_cm1": 180.9,
+   "diff_pct": 0.95
+  },
+  {
+   "ion": "Nd3+",
+   "level": "4G9/2",
+   "measured_cm1": 19650,
+   "model_cm1": 19644.1,
+   "diff_cm1": -5.9,
+   "diff_pct": -0.03
+  },
+  {
+   "ion": "Nd3+",
+   "level": "2P1/2",
+   "measured_cm1": 23500,
+   "model_cm1": 23400.0,
+   "diff_cm1": -100.0,
+   "diff_pct": -0.43
+  },
+  {
+   "ion": "Nd3+",
+   "level": "2D5/2",
+   "measured_cm1": 23950,
+   "model_cm1": 23959.7,
+   "diff_cm1": 9.7,
+   "diff_pct": 0.04
+  },
+  {
+   "ion": "Nd3+",
+   "level": "2P3/2",
+   "measured_cm1": 26300,
+   "model_cm1": 26358.2,
+   "diff_cm1": 58.2,
+   "diff_pct": 0.22
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6H13/2",
+   "measured_cm1": 3650,
+   "model_cm1": 3657.7,
+   "diff_cm1": 7.7,
+   "diff_pct": 0.21
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6H11/2",
+   "measured_cm1": 5950,
+   "model_cm1": 5985.9,
+   "diff_cm1": 35.9,
+   "diff_pct": 0.6
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F11/2",
+   "measured_cm1": 7800,
+   "model_cm1": 7922.6,
+   "diff_cm1": 122.6,
+   "diff_pct": 1.57
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F9/2",
+   "measured_cm1": 9150,
+   "model_cm1": 9179.3,
+   "diff_cm1": 29.3,
+   "diff_pct": 0.32
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6H5/2",
+   "measured_cm1": 10350,
+   "model_cm1": 10321.2,
+   "diff_cm1": -28.8,
+   "diff_pct": -0.28
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F7/2",
+   "measured_cm1": 11100,
+   "model_cm1": 11138.2,
+   "diff_cm1": 38.2,
+   "diff_pct": 0.34
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F5/2",
+   "measured_cm1": 12550,
+   "model_cm1": 12536.4,
+   "diff_cm1": -13.6,
+   "diff_pct": -0.11
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F3/2",
+   "measured_cm1": 13300,
+   "model_cm1": 13334.7,
+   "diff_cm1": 34.7,
+   "diff_pct": 0.26
+  },
+  {
+   "ion": "Dy3+",
+   "level": "6F1/2",
+   "measured_cm1": 13850,
+   "model_cm1": 13884.5,
+   "diff_cm1": 34.5,
+   "diff_pct": 0.25
+  },
+  {
+   "ion": "Dy3+",
+   "level": "4F9/2",
+   "measured_cm1": 21200,
+   "model_cm1": 21223.8,
+   "diff_cm1": 23.8,
+   "diff_pct": 0.11
+  },
+  {
+   "ion": "Dy3+",
+   "level": "4I15/2",
+   "measured_cm1": 22200,
+   "model_cm1": 22259.0,
+   "diff_cm1": 59.0,
+   "diff_pct": 0.27
+  },
+  {
+   "ion": "Dy3+",
+   "level": "4G11/2",
+   "measured_cm1": 23500,
+   "model_cm1": 23589.7,
+   "diff_cm1": 89.7,
+   "diff_pct": 0.38
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5I7",
+   "measured_cm1": 5200,
+   "model_cm1": 5209.1,
+   "diff_cm1": 9.1,
+   "diff_pct": 0.18
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5I6",
+   "measured_cm1": 8750,
+   "model_cm1": 8718.7,
+   "diff_cm1": -31.3,
+   "diff_pct": -0.36
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5I5",
+   "measured_cm1": 11300,
+   "model_cm1": 11281.4,
+   "diff_cm1": -18.6,
+   "diff_pct": -0.16
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5I4",
+   "measured_cm1": 13300,
+   "model_cm1": 13347.9,
+   "diff_cm1": 47.9,
+   "diff_pct": 0.36
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5F5",
+   "measured_cm1": 15600,
+   "model_cm1": 15609.8,
+   "diff_cm1": 9.8,
+   "diff_pct": 0.06
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5F4,5S2",
+   "measured_cm1": 18600,
+   "model_cm1": 18618.8,
+   "diff_cm1": 18.8,
+   "diff_pct": 0.1
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5F3",
+   "measured_cm1": 20600,
+   "model_cm1": 20747.2,
+   "diff_cm1": 147.2,
+   "diff_pct": 0.71
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5F2,3K8",
+   "measured_cm1": 21200,
+   "model_cm1": 21331.4,
+   "diff_cm1": 131.4,
+   "diff_pct": 0.62
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5G6",
+   "measured_cm1": 22300,
+   "model_cm1": 22302.6,
+   "diff_cm1": 2.6,
+   "diff_pct": 0.01
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5G5",
+   "measured_cm1": 24150,
+   "model_cm1": 24133.4,
+   "diff_cm1": -16.6,
+   "diff_pct": -0.07
+  },
+  {
+   "ion": "Ho3+",
+   "level": "5G4",
+   "measured_cm1": 26050,
+   "model_cm1": 26025.6,
+   "diff_cm1": -24.4,
+   "diff_pct": -0.09
+  },
+  {
+   "ion": "Ho3+",
+   "level": "3H6",
+   "measured_cm1": 27700,
+   "model_cm1": 27955.0,
+   "diff_cm1": 255.0,
+   "diff_pct": 0.92
+  },
+  {
+   "ion": "Er3+",
+   "level": "4I13/2",
+   "measured_cm1": 6650,
+   "model_cm1": 6643.7,
+   "diff_cm1": -6.3,
+   "diff_pct": -0.09
+  },
+  {
+   "ion": "Er3+",
+   "level": "4I11/2",
+   "measured_cm1": 10400,
+   "model_cm1": 10289.0,
+   "diff_cm1": -111.0,
+   "diff_pct": -1.07
+  },
+  {
+   "ion": "Er3+",
+   "level": "4I9/2",
+   "measured_cm1": 12650,
+   "model_cm1": 12533.1,
+   "diff_cm1": -116.9,
+   "diff_pct": -0.92
+  },
+  {
+   "ion": "Er3+",
+   "level": "4F9/2",
+   "measured_cm1": 15400,
+   "model_cm1": 15388.8,
+   "diff_cm1": -11.2,
+   "diff_pct": -0.07
+  },
+  {
+   "ion": "Er3+",
+   "level": "4S3/2",
+   "measured_cm1": 18550,
+   "model_cm1": 18505.4,
+   "diff_cm1": -44.6,
+   "diff_pct": -0.24
+  },
+  {
+   "ion": "Er3+",
+   "level": "2H11/2",
+   "measured_cm1": 19300,
+   "model_cm1": 19267.4,
+   "diff_cm1": -32.6,
+   "diff_pct": -0.17
+  },
+  {
+   "ion": "Er3+",
+   "level": "4F7/2",
+   "measured_cm1": 20600,
+   "model_cm1": 20640.5,
+   "diff_cm1": 40.5,
+   "diff_pct": 0.2
+  },
+  {
+   "ion": "Er3+",
+   "level": "4F5/2",
+   "measured_cm1": 22300,
+   "model_cm1": 22311.0,
+   "diff_cm1": 11.0,
+   "diff_pct": 0.05
+  },
+  {
+   "ion": "Er3+",
+   "level": "4F3/2",
+   "measured_cm1": 22750,
+   "model_cm1": 22652.8,
+   "diff_cm1": -97.2,
+   "diff_pct": -0.43
+  },
+  {
+   "ion": "Er3+",
+   "level": "4G11/2",
+   "measured_cm1": 26400,
+   "model_cm1": 26539.9,
+   "diff_cm1": 139.9,
+   "diff_pct": 0.53
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F4",
+   "measured_cm1": 5900,
+   "model_cm1": 5814.0,
+   "diff_cm1": -86.0,
+   "diff_pct": -1.46
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3H5",
+   "measured_cm1": 8550,
+   "model_cm1": 8416.2,
+   "diff_cm1": -133.8,
+   "diff_pct": -1.56
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3H4",
+   "measured_cm1": 12800,
+   "model_cm1": 12729.3,
+   "diff_cm1": -70.7,
+   "diff_pct": -0.55
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F3",
+   "measured_cm1": 14650,
+   "model_cm1": 14558.2,
+   "diff_cm1": -91.8,
+   "diff_pct": -0.63
+  },
+  {
+   "ion": "Tm3+",
+   "level": "3F2",
+   "measured_cm1": 15200,
+   "model_cm1": 15188.3,
+   "diff_cm1": -11.7,
+   "diff_pct": -0.08
+  },
+  {
+   "ion": "Tm3+",
+   "level": "1G4",
+   "measured_cm1": 21600,
+   "model_cm1": 21332.5,
+   "diff_cm1": -267.5,
+   "diff_pct": -1.24
+  },
+  {
+   "ion": "Tm3+",
+   "level": "1D2",
+   "measured_cm1": 28000,
+   "model_cm1": 28058.8,
+   "diff_cm1": 58.8,
+   "diff_pct": 0.21
+  }
+ ],
+ "src": "Wetenkamp, West & Toebben, JNCS 140, 35 (1992) Fig. 1 (digitised)"
+}

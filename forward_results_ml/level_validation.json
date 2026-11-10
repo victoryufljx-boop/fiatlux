@@ -253,9 +253,9 @@
   "item": "2F5/2",
   "kind": "tau_rad",
   "measured": 0.84,
-  "model": 1.0504595230896137,
+  "model": 0.9776060313191098,
   "unit": "ms",
-  "ratio": 1.2505470512971593,
+  "ratio": 1.1638167039513212,
   "src": "Pask et al., JSTQE 1, 2 (1995)",
   "note": ""
  },
@@ -370,11 +370,11 @@
   "item": "4I13/2->4I15/2 em",
   "kind": "em",
   "measured": 5e-21,
-  "model": 5.1637323275128535e-21,
+  "model": 4.250607631229262e-21,
   "unit": "cm2",
-  "ratio": 1.0327464655025707,
+  "ratio": 0.8501215262458525,
   "peak_meas_nm": 1533,
-  "peak_model_nm": 1530.9,
+  "peak_model_nm": 1530.0,
   "src": "Jackson, Nat. Photon. 6, 423 (2012) Fig. 4 (digitised)"
  },
  {
@@ -538,11 +538,11 @@
   "item": "2F5/2->2F7/2 em",
   "kind": "em",
   "measured": 2.5e-20,
-  "model": 1.4741381866254687e-20,
+  "model": 1.633823435230668e-20,
   "unit": "cm2",
-  "ratio": 0.5896552746501875,
+  "ratio": 0.6535293740922672,
   "peak_meas_nm": 975,
-  "peak_model_nm": 966.9,
+  "peak_model_nm": 976.0,
   "src": "Pask et al. 1995"
  },
  {
@@ -634,9 +634,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 268,
-  "model": 475.7071544268618,
+  "model": 433.544657240066,
   "unit": "cm-1",
-  "diff": 207.7071544268618,
+  "diff": 165.544657240066,
   "src": "Desurvire & Simpson 1990 (lower bound: 5 of 8 levels)"
  },
  {
@@ -646,9 +646,9 @@
   "item": "4I15/2 split",
   "kind": "split",
   "measured": 445,
-  "model": 424.3989366527225,
+  "model": 430.3823533406577,
   "unit": "cm-1",
-  "diff": -20.60106334727749,
+  "diff": -14.617646659342313,
   "src": "Desurvire 1990 Table 1, silicate glasses 395-500"
  },
  {
@@ -658,9 +658,9 @@
   "item": "4I13/2 split",
   "kind": "split",
   "measured": 330,
-  "model": 296.2428130127737,
+  "model": 330.0000000000304,
   "unit": "cm-1",
-  "diff": -33.757186987226305,
+  "diff": 3.041122909053229e-11,
   "src": "Desurvire 1990 Table 1, silicate glasses 305-357"
  },
  {
@@ -670,9 +670,9 @@
   "item": "2F7/2 split",
   "kind": "split",
   "measured": 1490,
-  "model": 741.8099426746244,
+  "model": 864.4251870364715,
   "unit": "cm-1",
-  "diff": -748.1900573253756,
+  "diff": -625.5748129635285,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -682,9 +682,9 @@
   "item": "2F5/2 split",
   "kind": "split",
   "measured": 1370,
-  "model": 609.6362543668703,
+  "model": 1530.2223164235184,
   "unit": "cm-1",
-  "diff": -760.3637456331297,
+  "diff": 160.22231642351835,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -694,9 +694,9 @@
   "item": "2F5/2 lo",
   "kind": "lo",
   "measured": 10260,
-  "model": 10340.074554148312,
+  "model": 10244.63376464331,
   "unit": "cm-1",
-  "diff": 80.07455414831202,
+  "diff": -15.366235356690595,
   "src": "Pask et al. 1995 Fig. 1(a)"
  },
  {
@@ -735,8 +735,8 @@
   "error": null,
   "windows": [
    [
-    1439.7,
-    1631.9
+    1442.2,
+    1629.7
    ]
   ],
   "src": "Jackson 2012 Table B1: Y. Jeong et al., IEEE JSTQE 13, 573-579 (2007) (Er:Yb large-core, 297 W CW)"
@@ -784,11 +784,11 @@
   "windows": [
    [
     798.6,
-    853.5
+    853.7
    ],
    [
-    1601.5,
-    2364.1
+    1620.2,
+    2375.3
    ]
   ],
   "src": "Jackson 2012 Table B1: T. Ehrenreich et al., '1 kW, all-glass Tm:fiber laser', SPIE Photonics West 2010, conf. 7850"

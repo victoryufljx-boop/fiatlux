@@ -1,0 +1,242 @@
+[
+ {
+  "case": "Ho:silica laser (Le Gouet 2020)",
+  "variant": "model only",
+  "model_slope": 0.5624767620248955,
+  "measured_slope": 0.49,
+  "model_threshold_W": 1.266455915792364,
+  "measured_threshold_W": 13,
+  "curve": [
+   [
+    50,
+    27.41149251136019
+   ],
+   [
+    100,
+    55.53531794048948
+   ],
+   [
+    150,
+    83.65915546081538
+   ],
+   [
+    200,
+    111.78300700873413
+   ]
+  ],
+  "seconds": 12.040100574493408
+ },
+ {
+  "case": "Ho:silica laser (Le Gouet 2020)",
+  "variant": "measured absorption",
+  "model_slope": 0.6069580092687222,
+  "measured_slope": 0.49,
+  "model_threshold_W": 1.0972011366312315,
+  "measured_threshold_W": 13,
+  "curve": [
+   [
+    50,
+    29.681945656205848
+   ],
+   [
+    100,
+    60.02984558825682
+   ],
+   [
+    150,
+    90.37774638328756
+   ],
+   [
+    200,
+    120.72564693598264
+   ]
+  ],
+  "seconds": 5.450893402099609
+ },
+ {
+  "case": "Ho:silica laser (Le Gouet 2020)",
+  "variant": "measured absorption + emission",
+  "model_slope": 0.5947936601564043,
+  "measured_slope": 0.49,
+  "model_threshold_W": 1.026885553394701,
+  "measured_threshold_W": 13,
+  "curve": [
+   [
+    50,
+    29.13463819464733
+   ],
+   [
+    100,
+    58.865708013014824
+   ],
+   [
+    150,
+    88.59678936703841
+   ],
+   [
+    200,
+    118.3565544360402
+   ]
+  ],
+  "seconds": 5.296285390853882
+ },
+ {
+  "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
+  "variant": "model only",
+  "model_slope": null,
+  "measured_slope": 0.9,
+  "model_threshold_W": null,
+  "measured_threshold_W": 0.03,
+  "curve": [
+   [
+    0.05,
+    0.0
+   ],
+   [
+    0.1,
+    0.0
+   ],
+   [
+    0.2,
+    0.0
+   ],
+   [
+    0.3,
+    0.0
+   ]
+  ],
+  "seconds": 0.23349356651306152
+ },
+ {
+  "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
+  "variant": "model only",
+  "model_slope": null,
+  "model_threshold_W": null,
+  "measured_threshold_W": 0.045,
+  "curve": [
+   [
+    0.08,
+    0.0
+   ],
+   [
+    0.15,
+    0.0
+   ],
+   [
+    0.25,
+    0.0
+   ],
+   [
+    0.35,
+    0.0
+   ]
+  ],
+  "seconds": 0.15839123725891113
+ },
+ {
+  "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
+  "variant": "measured absorption",
+  "model_slope": null,
+  "measured_slope": 0.9,
+  "model_threshold_W": null,
+  "measured_threshold_W": 0.03,
+  "curve": [
+   [
+    0.05,
+    0.0
+   ],
+   [
+    0.1,
+    0.0
+   ],
+   [
+    0.2,
+    0.0
+   ],
+   [
+    0.3,
+    0.0
+   ]
+  ],
+  "seconds": 0.25586795806884766
+ },
+ {
+  "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
+  "variant": "measured absorption",
+  "model_slope": null,
+  "model_threshold_W": null,
+  "measured_threshold_W": 0.045,
+  "curve": [
+   [
+    0.08,
+    0.0
+   ],
+   [
+    0.15,
+    0.0
+   ],
+   [
+    0.25,
+    0.0
+   ],
+   [
+    0.35,
+    0.0
+   ]
+  ],
+  "seconds": 0.15564632415771484
+ },
+ {
+  "case": "Yb:germanosilicate 1102 nm laser (Pask 1995)",
+  "variant": "measured absorption + emission",
+  "model_slope": 0.8446415825738272,
+  "measured_slope": 0.9,
+  "model_threshold_W": 0.05056374751730551,
+  "measured_threshold_W": 0.03,
+  "curve": [
+   [
+    0.05,
+    0.0
+   ],
+   [
+    0.1,
+    0.04174459721538136
+   ],
+   [
+    0.2,
+    0.12624270742712734
+   ],
+   [
+    0.3,
+    0.21067291373014685
+   ]
+  ],
+  "seconds": 1.0574004650115967
+ },
+ {
+  "case": "Yb:germanosilicate free-running 5 m (Pask 1995)",
+  "variant": "measured absorption + emission",
+  "model_slope": null,
+  "model_threshold_W": null,
+  "measured_threshold_W": 0.045,
+  "curve": [
+   [
+    0.08,
+    0.0
+   ],
+   [
+    0.15,
+    0.0
+   ],
+   [
+    0.25,
+    0.0
+   ],
+   [
+    0.35,
+    0.0
+   ]
+  ],
+  "seconds": 0.17271947860717773
+ }
+]

@@ -9,6 +9,14 @@ ANCHORS = {
         families=("silica", "aluminosilicate", "germanosilicate"),
         src="Newell, Peterson, Gavrielides & Sharma, Opt. Commun. 273, 256 (2007): 77 K emission lines "
             "977, 1020, 1032, 1069 nm; 2F5/2 gap 630 cm^-1 (Yb silica fibre, composition not stated)"),
+    # Zero-phonon line only (no level pattern: the 2F7/2 splitting differs by host, e.g. phosphate
+    # ~590 vs silica ~870 cm^-1, Yang 2014 / Zhang 2015): Yb 2F5/2 lowest level at 977 nm (Newell),
+    # applied to the other oxide families.  Held-out check: Wang et al. 2017 phosphate, 975 nm.
+    "Yb3+:zpl": dict(
+        ion="Yb3+", levels={"2F5/2": dict(levels=[0], E0=1e7 / 977.0)},
+        families=("phosphosilicate", "phosphate", "germanate", "tellurite"),
+        src="Newell et al., Opt. Commun. 273, 256 (2007): Yb zero-phonon line 977 nm (level pattern not "
+            "transferred to non-silicate hosts)"),
     "Er3+": dict(
         levels={"4I15/2": dict(levels=[0, 30, 55, 129, 234, None, None, 420]),
                 "4I13/2": dict(levels=[0, None, None, None, None, None, 330])},

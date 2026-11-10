@@ -14,28 +14,24 @@
   ],
   "window_model_nm": [
    [
-    926.1,
-    1088.9
+    933.0,
+    1098.2
    ],
    [
-    1094.8,
-    1110.4
-   ],
-   [
-    1111.6,
-    1127.9
+    1103.8,
+    1136.6
    ]
   ],
   "band_reproduced": true,
-  "model_abs_peak_nm": 966.7,
-  "model_sigma_abs": 1.8004021267410557e-20,
-  "model_em_peak_nm": 966.9,
-  "model_sigma_em": 1.9395664065982062e-20,
-  "model_fwhm_em_nm": 9.3,
+  "model_abs_peak_nm": 976.6,
+  "model_sigma_abs": 1.725001229972213e-20,
+  "model_em_peak_nm": 976.8,
+  "model_sigma_em": 2.033986214657044e-20,
+  "model_fwhm_em_nm": 53.9,
   "exp_sigma_abs": 2.7e-20,
   "exp_sigma_em": 3e-20,
   "exp_fwhm_nm": 7.7,
-  "model_tau_ms": 0.825216614827787,
+  "model_tau_ms": 0.7886862745300952,
   "exp_tau_ms": 0.83,
   "exp_lambda_abs_peak_nm": 976,
   "exp_lambda_em_peak_nm": 976
@@ -77,20 +73,20 @@
   ],
   "window_model_nm": [
    [
-    1436.4,
-    1630.3
+    1438.4,
+    1629.7
    ]
   ],
   "band_reproduced": true,
-  "model_abs_peak_nm": 1529.1,
-  "model_sigma_abs": 4.5907175745804924e-21,
-  "model_em_peak_nm": 1530.9,
-  "model_sigma_em": 5.1637323275128535e-21,
-  "model_fwhm_em_nm": 34.3,
+  "model_abs_peak_nm": 1527.7,
+  "model_sigma_abs": 4.1737147343834035e-21,
+  "model_em_peak_nm": 1530.0,
+  "model_sigma_em": 4.250607631229262e-21,
+  "model_fwhm_em_nm": 46.9,
   "exp_sigma_abs": null,
   "exp_sigma_em": null,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 12.874371608602162,
+  "model_tau_ms": 12.963227921362982,
   "exp_tau_ms": 10.0,
   "exp_lambda_abs_peak_nm": 1530,
   "exp_lambda_em_peak_nm": null
@@ -185,8 +181,8 @@
   ],
   "window_model_nm": [
    [
-    1571.3,
-    2369.7
+    1572.3,
+    2385.5
    ]
   ],
   "band_reproduced": true,
@@ -201,7 +197,7 @@
    6e-21
   ],
   "exp_fwhm_nm": null,
-  "model_tau_ms": 0.6577073609589345,
+  "model_tau_ms": 0.51493735561364,
   "exp_tau_ms": 0.65,
   "exp_lambda_abs_peak_nm": null,
   "exp_lambda_em_peak_nm": null
@@ -331,8 +327,8 @@
   ],
   "window_model_nm": [
    [
-    1781.3,
-    2175.8
+    1787.6,
+    2174.9
    ]
   ],
   "band_reproduced": true,
@@ -344,7 +340,7 @@
   "exp_sigma_abs": 4.3e-21,
   "exp_sigma_em": 6e-21,
   "exp_fwhm_nm": null,
-  "model_tau_ms": 0.5604282488812095,
+  "model_tau_ms": 0.45332960434794894,
   "exp_tau_ms": 0.7,
   "exp_lambda_abs_peak_nm": 1946,
   "exp_lambda_em_peak_nm": null

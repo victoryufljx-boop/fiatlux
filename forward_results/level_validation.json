@@ -253,9 +253,9 @@
   "item": "2F5/2",
   "kind": "tau_rad",
   "measured": 0.84,
-  "model": 0.9776060313191098,
+  "model": 0.768600603933645,
   "unit": "ms",
-  "ratio": 1.1638167039513212,
+  "ratio": 0.9150007189686251,
   "src": "Pask et al., JSTQE 1, 2 (1995)",
   "note": ""
  },
@@ -538,9 +538,9 @@
   "item": "2F5/2->2F7/2 em",
   "kind": "em",
   "measured": 2.5e-20,
-  "model": 1.633823435230668e-20,
+  "model": 2.0683848763017946e-20,
   "unit": "cm2",
-  "ratio": 0.6535293740922672,
+  "ratio": 0.8273539505207179,
   "peak_meas_nm": 975,
   "peak_model_nm": 976.0,
   "src": "Pask et al. 1995"

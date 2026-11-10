@@ -1,0 +1,419 @@
+{
+ "n": 26,
+ "rms_log10_all": 0.6130220117437567,
+ "rms_log10_layne": 0.40301156667976534,
+ "rows": [
+  {
+   "ion": "Er3+",
+   "glass": "phosphate",
+   "level": "4F9/2",
+   "dE": 2600,
+   "W_meas": 47000000.0,
+   "W_law": 26626567.92598348,
+   "ratio": 0.5665227218294357,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "phosphate",
+   "level": "4S3/2",
+   "dE": 2800,
+   "W_meas": 2760000.0,
+   "W_law": 10401078.591953559,
+   "ratio": 3.7685067362150577,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "phosphate",
+   "level": "4I11/2",
+   "dE": 3300,
+   "W_meas": 1030000.0,
+   "W_law": 991942.1514526997,
+   "ratio": 0.9630506324783492,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "phosphate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 130000.0,
+   "W_law": 94600.69195033384,
+   "ratio": 0.7276976303871834,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Nd3+",
+   "glass": "silicate",
+   "level": "4G7/2",
+   "dE": 1400,
+   "W_meas": 90000000.0,
+   "W_law": 1942989012.7703004,
+   "ratio": 21.588766808558894,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Nd3+",
+   "glass": "silicate",
+   "level": "2P3/2",
+   "dE": 2200,
+   "W_meas": 26900000.0,
+   "W_law": 45240051.724621125,
+   "ratio": 1.6817863094654693,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "silicate",
+   "level": "4F9/2",
+   "dE": 2600,
+   "W_meas": 17600000.0,
+   "W_law": 6903184.277106828,
+   "ratio": 0.3922263793810698,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "silicate",
+   "level": "4S3/2",
+   "dE": 2800,
+   "W_meas": 1610000.0,
+   "W_law": 2696575.931247219,
+   "ratio": 1.6748918827622479,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "silicate",
+   "level": "4I11/2",
+   "dE": 3300,
+   "W_meas": 120000.0,
+   "W_law": 257170.18741366288,
+   "ratio": 2.1430848951138572,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "silicate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 29200.0,
+   "W_law": 24526.10532045692,
+   "ratio": 0.8399351137142781,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Nd3+",
+   "glass": "germanate",
+   "level": "4G7/2",
+   "dE": 1400,
+   "W_meas": 92000000.0,
+   "W_law": 313699935.6290905,
+   "ratio": 3.409781909011853,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Nd3+",
+   "glass": "germanate",
+   "level": "2P3/2",
+   "dE": 2200,
+   "W_meas": 4870000.0,
+   "W_law": 6742541.358392048,
+   "ratio": 1.3845054124008311,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "germanate",
+   "level": "4F9/2",
+   "dE": 2600,
+   "W_meas": 1450000.0,
+   "W_law": 988503.5055921027,
+   "ratio": 0.6817265555807605,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "germanate",
+   "level": "4S3/2",
+   "dE": 2800,
+   "W_meas": 117000.0,
+   "W_law": 378490.9600526751,
+   "ratio": 3.2349654705356845,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "germanate",
+   "level": "4I11/2",
+   "dE": 3300,
+   "W_meas": 15200.0,
+   "W_law": 34335.92523452352,
+   "ratio": 2.2589424496397053,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "germanate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 6100.0,
+   "W_law": 3114.884861574264,
+   "ratio": 0.510636862553158,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Nd3+",
+   "glass": "tellurite",
+   "level": "4G7/2",
+   "dE": 1400,
+   "W_meas": 93000000.0,
+   "W_law": 87434505.57466352,
+   "ratio": 0.9401559739211132,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "tellurite",
+   "level": "4F9/2",
+   "dE": 2600,
+   "W_meas": 665000.0,
+   "W_law": 310643.29246980726,
+   "ratio": 0.4671327706312891,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "tellurite",
+   "level": "4S3/2",
+   "dE": 2800,
+   "W_meas": 46000.0,
+   "W_law": 121345.91690612485,
+   "ratio": 2.6379547153505403,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Er3+",
+   "glass": "tellurite",
+   "level": "4I11/2",
+   "dE": 3300,
+   "W_meas": 10100.0,
+   "W_law": 11572.65843361483,
+   "ratio": 1.1458077657044385,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "tellurite",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 1890.0,
+   "W_law": 1103.6747394205615,
+   "ratio": 0.5839548885823077,
+   "src": "[LLW77] Fig. 6 p. 17 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "phosphate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 133000.0,
+   "W_law": 94600.69195033384,
+   "ratio": 0.7112833981228108,
+   "src": "[LLW77] Fig. 9 p. 19 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "silicate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 29500.0,
+   "W_law": 24526.10532045692,
+   "ratio": 0.831393400693455,
+   "src": "[LLW77] Fig. 9 p. 19 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "germanate",
+   "level": "3H4",
+   "dE": 3800,
+   "W_meas": 7560.0,
+   "W_law": 3114.884861574264,
+   "ratio": 0.41202180708654285,
+   "src": "[LLW77] Fig. 9 p. 19 (digitized)"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "silica",
+   "level": "3F4",
+   "dE": 5414.185165132648,
+   "W_meas": 2161.6541353383454,
+   "W_law": 12.43883055956504,
+   "ratio": 0.005754311180598785,
+   "src": "[WB04] Tables 1, 3, 4"
+  },
+  {
+   "ion": "Tm3+",
+   "glass": "silica",
+   "level": "3H4",
+   "dE": 4118.616144975288,
+   "W_meas": 46126.510305614785,
+   "W_law": 5486.234804005341,
+   "ratio": 0.11893886547358266,
+   "src": "[WB04] Tables 1, 3, 4; text p. 331 (21 us main component)"
+  }
+ ],
+ "temperature": [
+  {
+   "glass": "phosphate",
+   "T": 374,
+   "ratio_meas": 1.1654135338345866,
+   "ratio_model": 1.021656811681216
+  },
+  {
+   "glass": "phosphate",
+   "T": 472,
+   "ratio_meas": 1.2857142857142858,
+   "ratio_model": 1.0753916292297747
+  },
+  {
+   "glass": "phosphate",
+   "T": 523,
+   "ratio_meas": 1.3984962406015038,
+   "ratio_model": 1.1149562926016552
+  },
+  {
+   "glass": "phosphate",
+   "T": 573,
+   "ratio_meas": 1.3759398496240602,
+   "ratio_model": 1.1612646814138605
+  },
+  {
+   "glass": "phosphate",
+   "T": 623,
+   "ratio_meas": 1.4511278195488722,
+   "ratio_model": 1.2148209173834732
+  },
+  {
+   "glass": "silicate",
+   "T": 374,
+   "ratio_meas": 1.0983050847457627,
+   "ratio_model": 1.0333834591633442
+  },
+  {
+   "glass": "silicate",
+   "T": 423,
+   "ratio_meas": 1.1084745762711865,
+   "ratio_model": 1.0673804941241027
+  },
+  {
+   "glass": "silicate",
+   "T": 471,
+   "ratio_meas": 1.2,
+   "ratio_model": 1.1100296078995033
+  },
+  {
+   "glass": "silicate",
+   "T": 523,
+   "ratio_meas": 1.2881355932203389,
+   "ratio_model": 1.166541032166807
+  },
+  {
+   "glass": "silicate",
+   "T": 573,
+   "ratio_meas": 1.3423728813559321,
+   "ratio_model": 1.2308138610911783
+  },
+  {
+   "glass": "silicate",
+   "T": 623,
+   "ratio_meas": 1.5186440677966102,
+   "ratio_model": 1.3046878004072642
+  },
+  {
+   "glass": "silicate",
+   "T": 673,
+   "ratio_meas": 1.6542372881355931,
+   "ratio_model": 1.388091365213843
+  },
+  {
+   "glass": "germanate",
+   "T": 373,
+   "ratio_meas": 1.097883597883598,
+   "ratio_model": 1.081280769803525
+  },
+  {
+   "glass": "germanate",
+   "T": 421,
+   "ratio_meas": 1.1441798941798942,
+   "ratio_model": 1.1553494879358637
+  },
+  {
+   "glass": "germanate",
+   "T": 471,
+   "ratio_meas": 1.1388888888888888,
+   "ratio_model": 1.251116178690788
+  },
+  {
+   "glass": "germanate",
+   "T": 523,
+   "ratio_meas": 1.335978835978836,
+   "ratio_model": 1.3712772728950202
+  },
+  {
+   "glass": "germanate",
+   "T": 572,
+   "ratio_meas": 1.4417989417989419,
+   "ratio_model": 1.5043098783378446
+  },
+  {
+   "glass": "germanate",
+   "T": 623,
+   "ratio_meas": 1.6666666666666667,
+   "ratio_model": 1.6640647355455378
+  },
+  {
+   "glass": "germanate",
+   "T": 672,
+   "ratio_meas": 1.9576719576719577,
+   "ratio_model": 1.8390539316421686
+  },
+  {
+   "glass": "germanate",
+   "T": 723,
+   "ratio_meas": 2.1560846560846563,
+   "ratio_model": 2.0448536263104002
+  },
+  {
+   "glass": "tellurite",
+   "T": 373,
+   "ratio_meas": 1.046468401486989,
+   "ratio_model": 1.168537833363446
+  },
+  {
+   "glass": "tellurite",
+   "T": 471,
+   "ratio_meas": 1.0613382899628252,
+   "ratio_model": 1.5822710798890889
+  },
+  {
+   "glass": "tellurite",
+   "T": 522,
+   "ratio_meas": 1.1152416356877324,
+   "ratio_model": 1.8776807718711754
+  },
+  {
+   "glass": "tellurite",
+   "T": 572,
+   "ratio_meas": 1.2509293680297398,
+   "ratio_model": 2.230420827724221
+  },
+  {
+   "glass": "tellurite",
+   "T": 621,
+   "ratio_meas": 1.4052044609665428,
+   "ratio_model": 2.645396407367239
+  }
+ ]
+}

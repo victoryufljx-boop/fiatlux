@@ -139,8 +139,9 @@ def predict(ion, family, N_cm3=None, ml=None, n_sites=60, measured_absorption=No
     fam = g.FAMILIES[family]
     lm = LocalModel(ion, spec, r["omegas"], fam["n"], fam["hw_max"], fam.get("gap_family"), emax=g.EMAX[ion])
     from ..refs.stark_anchor_refs import ANCHORS
-    anc = ANCHORS.get(ion)
-    anchored = bool(g.LEVEL_ANCHORS and anc and anc.get("auto", True) and family in anc["families"])
+    anc = next((v for k, v in ANCHORS.items() if (k == ion or v.get("ion") == ion)
+                and v.get("auto", True) and family in v["families"]), None)
+    anchored = bool(g.LEVEL_ANCHORS and anc)
     prov = dict(
         stark=("measured levels: " + anc["src"]) if anchored else
         "crystal-field model (handbook superposition parameters x Er-calibrated O/F scale, random sites)",

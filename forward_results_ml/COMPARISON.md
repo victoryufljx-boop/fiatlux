@@ -4,26 +4,21 @@ Residual = log10(model / measured).  ML layer = learned ZBLAN host microstructur
 
 | check | subset | n | changed by ML | rms dex: explicit | rms dex: +ML | within 30 %: explicit | +ML | within 2x: explicit | +ML |
 |---|---|---|---|---|---|---|---|---|---|
-| Stark splitting | independent | 9 | 3 | 0.177 | 0.176 | 67% | 67% | 78% | 78% |
-| integrated cross section | independent | 14 | 2 | 0.223 | 0.225 | 29% | 29% | 79% | 79% |
+| Stark splitting | independent | 9 | 0 | 0.107 | 0.107 | 78% | 78% | 100% | 100% |
+| integrated cross section | independent | 14 | 0 | 0.220 | 0.220 | 29% | 29% | 79% | 79% |
 | integrated cross section | same source as L2 widths | 3 | 2 | 0.083 | 0.085 | 100% | 67% | 100% | 100% |
 | lifetime | independent | 24 | 14 | 0.389 | 0.384 | 62% | 71% | 88% | 88% |
-| lifetime | in-sample (trained L3) | 4 | 3 | 0.610 | 0.389 | 25% | 75% | 25% | 75% |
-| peak cross section | independent | 11 | 10 | 0.197 | 0.182 | 64% | 64% | 82% | 91% |
+| lifetime | in-sample (trained L3) | 4 | 3 | 0.611 | 0.401 | 25% | 50% | 25% | 75% |
+| peak cross section | independent | 11 | 9 | 0.194 | 0.179 | 64% | 64% | 82% | 91% |
 | peak cross section | same source as L2 widths | 7 | 7 | 0.140 | 0.092 | 43% | 57% | 100% | 100% |
-| radiative lifetime | independent | 12 | 1 | 0.065 | 0.065 | 92% | 92% | 100% | 100% |
+| radiative lifetime | independent | 12 | 1 | 0.062 | 0.062 | 92% | 92% | 100% | 100% |
 
 ## Rows the ML layer changed
 
 | check | ion | host | item | measured | x explicit | x +ML | subset |
 |---|---|---|---|---|---|---|---|
-| Stark splitting | Er3+ | aluminosilicate | 4I15/2 split | 268 | 1.70 | 1.78 | independent |
-| Stark splitting | Er3+ | silica | 4I15/2 split | 445 | 0.85 | 0.95 | independent |
-| Stark splitting | Er3+ | silica | 4I13/2 split | 330 | 0.80 | 0.90 | independent |
 | integrated cross section | Dy3+ | ZBLAN | Dy:ZBLAN 6H13/2 em (Jackson 2012) | 1.0 | 1.18 | 1.15 | same source as L2 widths |
 | integrated cross section | Er3+ | ZBLAN | Er:ZBLAN 4I11/2 em (Jackson 2012) | 1.0 | 0.79 | 0.77 | same source as L2 widths |
-| integrated cross section | Er3+ | aluminosilicate | Er:alumi 4I13/2 em (Jackson 2012) | 1.0 | 0.62 | 0.62 | independent |
-| integrated cross section | Er3+ | aluminosilicate | Er 980 nm band abs | 1.0 | 0.46 | 0.44 | independent |
 | lifetime | Dy3+ | ZBLAN | ['6H13/2', '6H15/2'] | 0.65 | 6.03 | 4.03 | independent |
 | lifetime | Er3+ | ZBLAN | ['4I11/2', '4I13/2'] | 6.8999999999999995 | 0.96 | 0.92 | independent |
 | lifetime | Er3+ | ZBLAN | ['4F9/2', '4I9/2'] | 0.177 | 1.32 | 1.14 | independent |
@@ -34,17 +29,16 @@ Residual = log10(model / measured).  ML layer = learned ZBLAN host microstructur
 | lifetime | Ho3+ | ZBLAN | 5F5 | 0.29 | 0.03 | 0.02 | independent |
 | lifetime | Ho3+ | ZBLAN | 5S2 | 0.3 | 0.98 | 0.93 | independent |
 | lifetime | Ho3+ | aluminosilicate | 5I7 | 1.9 | 2.81 | 2.69 | independent |
-| lifetime | Ho3+ | silica | ['5I7', '5I8'] | 0.7 | 3.05 | 0.80 | in-sample (trained L3) |
+| lifetime | Ho3+ | silica | ['5I7', '5I8'] | 0.7 | 3.05 | 0.65 | in-sample (trained L3) |
 | lifetime | Pr3+ | ZBLAN | ['1G4', '3H5'] | 0.11 | 1.95 | 1.31 | independent |
 | lifetime | Pr3+ | ZBLAN | 1G4 | 0.11 | 1.95 | 1.31 | independent |
-| lifetime | Tm3+ | aluminosilicate | ['3F4', '3H6'] | 0.65 | 6.15 | 1.01 | in-sample (trained L3) |
+| lifetime | Tm3+ | aluminosilicate | ['3F4', '3H6'] | 0.65 | 6.15 | 0.79 | in-sample (trained L3) |
 | lifetime | Tm3+ | aluminosilicate | 3H4 | 0.037 | 1.13 | 0.97 | independent |
 | lifetime | Tm3+ | aluminosilicate | 3F4 | 0.65 | 6.15 | 5.82 | in-sample (trained L3) |
 | lifetime | Tm3+ | silica | 3H4 | 0.014 | 1.59 | 1.15 | independent |
 | peak cross section | Dy3+ | ZBLAN | 6H13/2->6H15/2 em | 2.95e-21 | 1.38 | 1.06 | same source as L2 widths |
 | peak cross section | Er3+ | ZBLAN | 4I11/2->4I13/2 em | 5.6e-21 | 1.01 | 0.76 | same source as L2 widths |
 | peak cross section | Er3+ | ZBLAN | 4I13/2->4I15/2 em | 4.2e-21 | 1.40 | 1.02 | same source as L2 widths |
-| peak cross section | Er3+ | aluminosilicate | 4I13/2->4I15/2 em | 5e-21 | 1.06 | 1.03 | independent |
 | peak cross section | Ho3+ | ZBLAN | 5I6->5I7 em | 5.2e-21 | 1.83 | 1.22 | same source as L2 widths |
 | peak cross section | Ho3+ | ZBLAN | 5I7->5I8 em | 5.6e-21 | 1.01 | 0.76 | same source as L2 widths |
 | peak cross section | Ho3+ | aluminosilicate | 5I7->5I8 em | 7e-21 | 0.46 | 0.44 | independent |
