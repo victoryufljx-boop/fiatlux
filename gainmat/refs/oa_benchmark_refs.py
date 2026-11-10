@@ -22,6 +22,10 @@ CHANTHIMA2019 = "Chanthima et al., J. Met. Mater. Miner. 29 (2019), doi:10.14456
 BELL2014 = "Bell et al., JOSA B 31, 1590 (2014), doi:10.1364/JOSAB.31.001590"
 MOREIRA2016 = "Moreira et al., Opt. Mater. (2016), doi:10.1016/j.optmat.2016.05.024 (open-access copy, UNESP)"
 DANTAS2013 = "Dantas et al., Braz. J. Phys. (2013), doi:10.1007/s13538-013-0145-y"
+KUMI2022 = "Kumi-Barimah, Chen, Sharma & Jha, Opt. Mater. X 16, 100201 (2022), doi:10.1016/j.omx.2022.100201"
+YUAN2021 = "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a"
+LIBRANTZ2007 = "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)"
+_TF = "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number"
 
 
 def _r(ion, family, pair, q, value, src, proxy=False, note=""):
@@ -71,6 +75,26 @@ RECORDS = [
     _r("Tm3+", "aluminosilicate", TM_F4, "tau_rad_ms", 7.0, TURRI2008),
     _r("Tm3+", "phosphate", TM_F4, "omegas", (3.6, 0.7, 1.0), TURRI2008, note="Kigre borophosphate"),
     _r("Tm3+", "phosphate", TM_F4, "tau_rad_ms", 8.3, TURRI2008),
+    _r("Tm3+", "aluminosilicate", TM_F4, "em_peak_nm", 1871 - 0.21 * 295, TURRI2008, note=_TF),
+    _r("Tm3+", "aluminosilicate", TM_F4, "sigma_em_cm2", 4.3e-21 - 2.3e-24 * 295, TURRI2008, note=_TF),
+    _r("Tm3+", "phosphate", TM_F4, "em_peak_nm", 1857 - 0.07 * 295, TURRI2008, note=_TF),
+    _r("Tm3+", "phosphate", TM_F4, "sigma_em_cm2", 3.9e-21 - 2.6e-24 * 295, TURRI2008, note=_TF),
+    _r("Tm3+", "germanate", TM_F4, "sigma_em_cm2", 5.9e-21 - 6.2e-24 * 295, TURRI2008, note=_TF),
+    # ---- Ho fluorotellurite (Kumi-Barimah 2022, Ho singly doped sample HYTBZ2) and Ho ZBLAN (Librantz 2007)
+    _r("Ho3+", "tellurite", HO, "omegas", (3.562, 4.666, 2.260), KUMI2022, note="70TeO2-10ZnO-10BaF2-0.5Ho2O3, n = 2.007"),
+    _r("Ho3+", "tellurite", HO, "tau_rad_ms", 7.98, KUMI2022),
+    _r("Ho3+", "tellurite", ("5I6", "5I8"), "tau_rad_ms", 3.39, KUMI2022, note="5I6 total radiative lifetime"),
+    _r("Ho3+", "ZBLAN", HO, "tau_rad_ms", 12.6, LIBRANTZ2007),
+    _r("Ho3+", "ZBLAN", ("5I6", "5I8"), "tau_rad_ms", 5.9, LIBRANTZ2007, note="5I6 total radiative lifetime"),
+    _r("Ho3+", "ZBLAN", HO, "abs_peak_nm", 1950, LIBRANTZ2007),
+    _r("Ho3+", "ZBLAN", HO, "em_peak_nm", 2000, LIBRANTZ2007, note="'around 2 um' in text"),
+    # ---- Er tungsten tellurite (Yuan 2021)
+    _r("Er3+", "tellurite", ER_13, "omegas", (6.89, 1.85, 1.14), YUAN2021, note="60TeO2-30WO3-3ZnO-6La2O3-1Er2O3"),
+    _r("Er3+", "tellurite", ER_13, "em_peak_nm", 1536, YUAN2021, note="TWYE-1 (Yb co-doped)"),
+    _r("Er3+", "tellurite", ER_13, "sigma_em_cm2", 1.06e-20, YUAN2021, note="TWYE-1 (Yb co-doped)"),
+    _r("Er3+", "tellurite", ER_13, "em_fwhm_nm", 64, YUAN2021, note="TWYE-1 (Yb co-doped)"),
+    _r("Er3+", "tellurite", ("4I11/2", "4I15/2"), "abs_peak_nm", 978, YUAN2021),
+    _r("Er3+", "tellurite", ("4I11/2", "4I15/2"), "sigma_abs_cm2", 3.45e-21, YUAN2021),
     # ---- Er fluorides (Huang 2014 a, b)
     _r("Er3+", "ZBLAN", ER_13, "omegas", (3.27, 1.3, 1.75), HUANG2014A, note="ZBLAN, 1 mol% ErF3"),
     _r("Er3+", "ZBLAN", ER_13, "tau_rad_ms", 6.44, HUANG2014A),

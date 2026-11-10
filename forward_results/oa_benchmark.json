@@ -4,14 +4,14 @@
    "unit": "nm",
    "all": {
     "model": {
-     "n": 6,
-     "median_abs": 1.1133762919450305,
-     "rms": 3.4181690750339873
+     "n": 8,
+     "median_abs": 0.8772541980022766,
+     "rms": 2.9702061781555678
     },
     "model_paper_omega": {
-     "n": 1,
-     "median_abs": 0.763877906057246,
-     "rms": 0.763877906057246
+     "n": 2,
+     "median_abs": 0.5230072371217602,
+     "rms": 0.5758083441868185
     }
    },
    "paired_with_lookup": {
@@ -38,9 +38,9 @@
    "unit": "nm",
    "all": {
     "model": {
-     "n": 6,
-     "median_abs": 20.111568256431838,
-     "rms": 31.985149295490952
+     "n": 7,
+     "median_abs": 27.252763604180245,
+     "rms": 31.35285764327074
     },
     "model_paper_omega": {
      "n": 5,
@@ -72,9 +72,9 @@
    "unit": "nm",
    "all": {
     "model": {
-     "n": 14,
-     "median_abs": 19.459044987281686,
-     "rms": 48.369233295404875
+     "n": 18,
+     "median_abs": 12.672018969095802,
+     "rms": 44.006382511655865
     },
     "model_paper_omega": {
      "n": 9,
@@ -84,9 +84,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 13,
-     "median_abs": 20.74822501365361,
-     "rms": 50.15567262670701
+     "n": 18,
+     "median_abs": 12.672018969095802,
+     "rms": 44.006382511655865
     },
     "model_paper_omega": {
      "n": 9,
@@ -94,21 +94,21 @@
      "rms": 52.302644374744666
     },
     "lookup": {
-     "n": 13,
-     "median_abs": 2.0,
-     "rms": 26.443052825554084
+     "n": 18,
+     "median_abs": 1.5,
+     "rms": 22.630377404751385
     }
    },
-   "model_beats_lookup": 2,
-   "n_paired": 13
+   "model_beats_lookup": 3,
+   "n_paired": 18
   },
   "omegas": {
    "unit": "dex",
    "all": {
     "model": {
-     "n": 14,
+     "n": 16,
      "median_abs": 0.08655365780095214,
-     "rms": 0.13355431069017182
+     "rms": 0.13380051436090948
     },
     "model_paper_omega": {
      "n": 0,
@@ -118,9 +118,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 14,
-     "median_abs": 0.08655365780095214,
-     "rms": 0.13355431069017182
+     "n": 15,
+     "median_abs": 0.0861698216416319,
+     "rms": 0.12998325763491192
     },
     "model_paper_omega": {
      "n": 0,
@@ -128,26 +128,26 @@
      "rms": null
     },
     "lookup": {
-     "n": 14,
-     "median_abs": 0.08159038006032826,
-     "rms": 0.08678739767156486
+     "n": 15,
+     "median_abs": 0.09180850996735207,
+     "rms": 0.09511394542632103
     }
    },
-   "model_beats_lookup": 6,
-   "n_paired": 14
+   "model_beats_lookup": 7,
+   "n_paired": 15
   },
   "sigma_abs_cm2": {
    "unit": "dex",
    "all": {
     "model": {
-     "n": 6,
-     "median_abs": 0.1102889310300312,
-     "rms": 0.11370677745977167
+     "n": 7,
+     "median_abs": 0.07938535604093012,
+     "rms": 0.10530313952851542
     },
     "model_paper_omega": {
-     "n": 0,
-     "median_abs": null,
-     "rms": null
+     "n": 1,
+     "median_abs": 0.006737895207962577,
+     "rms": 0.006737895207962577
     }
    },
    "paired_with_lookup": {
@@ -174,9 +174,9 @@
    "unit": "dex",
    "all": {
     "model": {
-     "n": 17,
+     "n": 21,
      "median_abs": 0.18548922337665608,
-     "rms": 0.18897863771597742
+     "rms": 0.18160836011608997
     },
     "model_paper_omega": {
      "n": 10,
@@ -186,9 +186,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 13,
-     "median_abs": 0.1909809089881159,
-     "rms": 0.2147280403813905
+     "n": 17,
+     "median_abs": 0.1875399613065582,
+     "rms": 0.20071922139892007
     },
     "model_paper_omega": {
      "n": 10,
@@ -196,13 +196,13 @@
      "rms": 0.1434757055209044
     },
     "lookup": {
-     "n": 13,
-     "median_abs": 0.09437761863126416,
-     "rms": 0.20623023582650468
+     "n": 17,
+     "median_abs": 0.12370137746696995,
+     "rms": 0.16333840137858957
     }
    },
-   "model_beats_lookup": 3,
-   "n_paired": 13
+   "model_beats_lookup": 5,
+   "n_paired": 17
   },
   "tau_ms": {
    "unit": "dex",
@@ -242,35 +242,35 @@
    "unit": "dex",
    "all": {
     "model": {
-     "n": 16,
-     "median_abs": 0.11770721333937911,
-     "rms": 0.12796159365364215
+     "n": 20,
+     "median_abs": 0.1123829534840319,
+     "rms": 0.12158793687231904
     },
     "model_paper_omega": {
-     "n": 13,
-     "median_abs": 0.015336051810361979,
-     "rms": 0.08240783526285148
+     "n": 14,
+     "median_abs": 0.018098342161066174,
+     "rms": 0.11408845682731442
     }
    },
    "paired_with_lookup": {
     "model": {
-     "n": 15,
-     "median_abs": 0.11269199399561591,
-     "rms": 0.1275064545642101
+     "n": 20,
+     "median_abs": 0.1123829534840319,
+     "rms": 0.12158793687231904
     },
     "model_paper_omega": {
-     "n": 13,
-     "median_abs": 0.015336051810361979,
-     "rms": 0.08240783526285148
+     "n": 14,
+     "median_abs": 0.018098342161066174,
+     "rms": 0.11408845682731442
     },
     "lookup": {
-     "n": 15,
-     "median_abs": 0.1609361120314228,
-     "rms": 0.272154501198178
+     "n": 20,
+     "median_abs": 0.15876173769472857,
+     "rms": 0.2521391213505561
     }
    },
-   "model_beats_lookup": 11,
-   "n_paired": 15
+   "model_beats_lookup": 14,
+   "n_paired": 20
   }
  },
  "rows": [
@@ -338,13 +338,13 @@
    "measured": 5.61e-21,
    "model": 9.016978419328936e-21,
    "model_paper_omega": 6.447213461998797e-21,
-   "lookup": 4.015345564207394e-21,
+   "lookup": 3.753178053570189e-21,
    "lookup_scope": "any family",
    "src": "Cankaya et al., Appl. Sci. 8, 333 (2018), doi:10.3390/app8030333",
    "note": "TeO2-K2O-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.20609816900691835,
    "err_model_paper_omega": 0.060409188330383626,
-   "err_lookup": -0.14523993426403567
+   "err_lookup": -0.17456369309974148
   },
   {
    "ion": "Tm3+",
@@ -358,13 +358,13 @@
    "measured": 1860,
    "model": 1776.8301350390902,
    "model_paper_omega": 1776.1989342806394,
-   "lookup": 1850.0,
+   "lookup": 1840.8999999999999,
    "lookup_scope": "any family",
    "src": "Cankaya et al., Appl. Sci. 8, 333 (2018), doi:10.3390/app8030333",
    "note": "TeO2-K2O-Nb2O5",
    "err_model": -83.16986496090976,
    "err_model_paper_omega": -83.80106571936062,
-   "err_lookup": -10.0
+   "err_lookup": -19.100000000000136
   },
   {
    "ion": "Tm3+",
@@ -450,13 +450,13 @@
    "measured": 5.48e-21,
    "model": 9.016978419328936e-21,
    "model_paper_omega": 6.0547903831769364e-21,
-   "lookup": 4.015345564207394e-21,
+   "lookup": 3.753178053570189e-21,
    "lookup_scope": "any family",
    "src": "Cankaya et al., Appl. Sci. 8, 333 (2018), doi:10.3390/app8030333",
    "note": "TeO2-ZnO; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.2162804717787106,
    "err_model_paper_omega": 0.043318553981427685,
-   "err_lookup": -0.13505763149224342
+   "err_lookup": -0.1643813903279492
   },
   {
    "ion": "Tm3+",
@@ -542,13 +542,13 @@
    "measured": 4.99e-21,
    "model": 9.016978419328936e-21,
    "model_paper_omega": 5.889809019163032e-21,
-   "lookup": 4.015345564207394e-21,
+   "lookup": 3.753178053570189e-21,
    "lookup_scope": "any family",
    "src": "Cankaya et al., Appl. Sci. 8, 333 (2018), doi:10.3390/app8030333",
    "note": "TeO2-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.25696048463968985,
    "err_model_paper_omega": 0.07200066711475545,
-   "err_lookup": -0.09437761863126416
+   "err_lookup": -0.12370137746696995
   },
   {
    "ion": "Tm3+",
@@ -562,13 +562,13 @@
    "measured": 1795,
    "model": 1776.8301350390902,
    "model_paper_omega": 1776.1989342806394,
-   "lookup": 1850.0,
+   "lookup": 1840.8999999999999,
    "lookup_scope": "any family",
    "src": "Cankaya et al., Appl. Sci. 8, 333 (2018), doi:10.3390/app8030333",
    "note": "TeO2-Nb2O5",
    "err_model": -18.169864960909763,
    "err_model_paper_omega": -18.801065719360622,
-   "err_lookup": 55.0
+   "err_lookup": 45.899999999999864
   },
   {
    "ion": "Tm3+",
@@ -714,13 +714,13 @@
    "measured": 2.3e-21,
    "model": 6.337656213156691e-21,
    "model_paper_omega": null,
-   "lookup": 7.010000000000021e-21,
+   "lookup": 5.342069823579607e-21,
    "lookup_scope": "same family",
    "src": "Choudhary, Kannan, Mackenzie, Feng & Shepherd, 'An ion-exchanged Tm3+:glass channel waveguide laser' (Southampton eprint 350893)",
    "note": "McCumber; 1 mol% Tm2O3",
    "err_model": 0.4402008411247209,
    "err_model_paper_omega": null,
-   "err_lookup": 0.4839901819490671
+   "err_lookup": 0.36598172415543506
   },
   {
    "ion": "Tm3+",
@@ -886,13 +886,13 @@
    "measured": 7.01e-21,
    "model": 6.337656213156691e-21,
    "model_paper_omega": 6.437563898443499e-21,
-   "lookup": 2.299999999999993e-21,
+   "lookup": 3.059950979999521e-21,
    "lookup_scope": "same family",
    "src": "Han et al., Sci. Rep. 6, 31207 (2016), doi:10.1038/srep31207",
    "note": "bismuth germanate",
    "err_model": -0.043789340824344804,
    "err_model_paper_omega": -0.036996465144022765,
-   "err_lookup": -0.4839901819490671
+   "err_lookup": -0.36000354876816176
   },
   {
    "ion": "Tm3+",
@@ -1019,6 +1019,386 @@
    "err_lookup": -0.5166868663906166
   },
   {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "em_peak_nm",
+   "measured": 1809.05,
+   "model": 1805.0541516245487,
+   "model_paper_omega": null,
+   "lookup": 1837.0,
+   "lookup_scope": "any family",
+   "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), doi:10.1063/1.2912952 (open-access copy, core.ac.uk 236316474)",
+   "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
+   "err_model": -3.99584837545126,
+   "err_model_paper_omega": null,
+   "err_lookup": 27.950000000000045
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 3.621499999999999e-21,
+   "model": 4.740948569232149e-21,
+   "model_paper_omega": null,
+   "lookup": 4.7715333527715046e-21,
+   "lookup_scope": "any family",
+   "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), doi:10.1063/1.2912952 (open-access copy, core.ac.uk 236316474)",
+   "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
+   "err_model": 0.11697675449350026,
+   "err_model_paper_omega": null,
+   "err_lookup": 0.11976947433290051
+  },
+  {
+   "ion": "Tm3+",
+   "family": "phosphate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "em_peak_nm",
+   "measured": 1836.35,
+   "model": 1790.8309455587394,
+   "model_paper_omega": null,
+   "lookup": 1837.0,
+   "lookup_scope": "any family",
+   "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), doi:10.1063/1.2912952 (open-access copy, core.ac.uk 236316474)",
+   "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
+   "err_model": -45.51905444126055,
+   "err_model_paper_omega": null,
+   "err_lookup": 0.650000000000091
+  },
+  {
+   "ion": "Tm3+",
+   "family": "phosphate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 3.133e-21,
+   "model": 4.814177261112095e-21,
+   "model_paper_omega": null,
+   "lookup": 4.7715333527715046e-21,
+   "lookup_scope": "any family",
+   "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), doi:10.1063/1.2912952 (open-access copy, core.ac.uk 236316474)",
+   "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
+   "err_model": 0.18656168235467416,
+   "err_model_paper_omega": null,
+   "err_lookup": 0.18269756898792983
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 4.071e-21,
+   "model": 6.337656213156691e-21,
+   "model_paper_omega": null,
+   "lookup": 4.015345564207394e-21,
+   "lookup_scope": "same family",
+   "src": "Turri et al., J. Appl. Phys. 103, 093104 (2008), doi:10.1063/1.2912952 (open-access copy, core.ac.uk 236316474)",
+   "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
+   "err_model": 0.19222757476291427,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.00597817538727382
+  },
+  {
+   "ion": "Ho3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "omegas",
+   "measured": [
+    3.562,
+    4.666,
+    2.26
+   ],
+   "model": [
+    4.315,
+    1.67,
+    1.486
+   ],
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Kumi-Barimah, Chen, Sharma & Jha, Opt. Mater. X 16, 100201 (2022), doi:10.1016/j.omx.2022.100201",
+   "note": "70TeO2-10ZnO-10BaF2-0.5Ho2O3, n = 2.007",
+   "err_model": -0.18167700270299705,
+   "err_model_paper_omega": null,
+   "err_lookup": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 7.98,
+   "model": 5.691137916330107,
+   "model_paper_omega": 3.9400524169725384,
+   "lookup": 11.039947513060023,
+   "lookup_scope": "any family",
+   "src": "Kumi-Barimah, Chen, Sharma & Jha, Opt. Mater. X 16, 100201 (2022), doi:10.1016/j.omx.2022.100201",
+   "note": "",
+   "err_model": -0.14680378112891387,
+   "err_model_paper_omega": -0.3065008917966004,
+   "err_lookup": 0.14096411729221603
+  },
+  {
+   "ion": "Ho3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "5I6",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 3.39,
+   "model": 2.6604983942962046,
+   "model_paper_omega": null,
+   "lookup": 5.9,
+   "lookup_scope": "any family",
+   "src": "Kumi-Barimah, Chen, Sharma & Jha, Opt. Mater. X 16, 100201 (2022), doi:10.1016/j.omx.2022.100201",
+   "note": "5I6 total radiative lifetime",
+   "err_model": -0.10523669705416515,
+   "err_model_paper_omega": null,
+   "err_lookup": 0.24065231343906207
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 12.6,
+   "model": 13.309045685640475,
+   "model_paper_omega": null,
+   "lookup": 8.78583781004271,
+   "lookup_scope": "any family",
+   "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
+   "note": "",
+   "err_model": 0.023776370738854337,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.1565873633580343
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I6",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 5.9,
+   "model": 6.209932157193325,
+   "model_paper_omega": null,
+   "lookup": 3.3900000000000006,
+   "lookup_scope": "any family",
+   "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
+   "note": "5I6 total radiative lifetime",
+   "err_model": 0.022234843942242833,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.240652313439062
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1950,
+   "model": 1949.317738791423,
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
+   "note": "",
+   "err_model": -0.6822612085770743,
+   "err_model_paper_omega": null,
+   "err_lookup": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "em_peak_nm",
+   "measured": 2000,
+   "model": 2002.4028834601522,
+   "model_paper_omega": null,
+   "lookup": 2000.0,
+   "lookup_scope": "any family",
+   "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
+   "note": "'around 2 um' in text",
+   "err_model": 2.402883460152225,
+   "err_model_paper_omega": null,
+   "err_lookup": 0.0
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "omegas",
+   "measured": [
+    6.89,
+    1.85,
+    1.14
+   ],
+   "model": [
+    5.39,
+    1.45,
+    1.22
+   ],
+   "model_paper_omega": null,
+   "lookup": [
+    2.537468459369213,
+    1.254211088249793,
+    1.373214247714954
+   ],
+   "lookup_scope": "any family",
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "60TeO2-30WO3-3ZnO-6La2O3-1Er2O3",
+   "err_model": -0.06099306785021682,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.1739287374012265
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "em_peak_nm",
+   "measured": 1536,
+   "model": 1532.8019619865113,
+   "model_paper_omega": null,
+   "lookup": 1535.6666666666667,
+   "lookup_scope": "any family",
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "TWYE-1 (Yb co-doped)",
+   "err_model": -3.1980380134887127,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.33333333333325754
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 1.06e-20,
+   "model": 1.0422922442614091e-20,
+   "model_paper_omega": null,
+   "lookup": 7.496159016456383e-21,
+   "lookup_scope": "any family",
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "TWYE-1 (Yb co-doped)",
+   "err_model": -0.007316359089054743,
+   "err_model_paper_omega": null,
+   "err_lookup": -0.15046707457327585
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "em_fwhm_nm",
+   "measured": 64,
+   "model": 36.747236395819755,
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "TWYE-1 (Yb co-doped)",
+   "err_model": -27.252763604180245,
+   "err_model_paper_omega": null,
+   "err_lookup": null
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I11/2",
+    "4I15/2"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 978,
+   "model": 978.0907668231612,
+   "model_paper_omega": 978.2821365681863,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "",
+   "err_model": 0.09076682316117513,
+   "err_model_paper_omega": 0.2821365681862744,
+   "err_lookup": null
+  },
+  {
+   "ion": "Er3+",
+   "family": "tellurite",
+   "proxy": false,
+   "pair": [
+    "4I11/2",
+    "4I15/2"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 3.45e-21,
+   "model": 3.396614722166455e-21,
+   "model_paper_omega": 3.503942657625306e-21,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Yuan et al., RSC Adv. (2021), doi:10.1039/d1ra05269a",
+   "note": "",
+   "err_model": -0.006772807410348894,
+   "err_model_paper_omega": 0.006737895207962577,
+   "err_lookup": null
+  },
+  {
    "ion": "Er3+",
    "family": "ZBLAN",
    "proxy": false,
@@ -1122,13 +1502,13 @@
    "measured": 7.26e-21,
    "model": 5.9722134663399125e-21,
    "model_paper_omega": null,
-   "lookup": 7.740000000000025e-21,
+   "lookup": 9.057814305890819e-21,
    "lookup_scope": "any family",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), doi:10.1038/srep05053",
    "note": "Table 3 alignment uncertain (extraction note)",
    "err_model": -0.0848012982719139,
    "err_model_paper_omega": null,
-   "err_lookup": 0.02780433998280024
+   "err_lookup": 0.0960867922737387
   },
   {
    "ion": "Er3+",
@@ -1478,13 +1858,13 @@
    "measured": 7.74e-21,
    "model": 5.049539075500065e-21,
    "model_paper_omega": null,
-   "lookup": 7.26000000000002e-21,
+   "lookup": 8.772456896445847e-21,
    "lookup_scope": "any family",
    "src": "Zmojda, Dorosz, Kochanowicz & Dorosz, Photonics Lett. Pol. 2, 2 (2010), doi:10.4302/plp.2010.2.08",
    "note": "antimony-phosphate",
    "err_model": -0.18548922337665608,
    "err_model_paper_omega": null,
-   "err_lookup": -0.02780433998279765
+   "err_lookup": 0.05438028229954022
   },
   {
    "ion": "Er3+",
@@ -1718,13 +2098,13 @@
    "measured": 2000,
    "model": 1992.8258270227182,
    "model_paper_omega": null,
-   "lookup": null,
-   "lookup_scope": null,
+   "lookup": 2000.0,
+   "lookup_scope": "any family",
    "src": "Cai et al., Opt. Mater. Express 5, 1431 (2015), doi:10.1364/OME.5.001431",
    "note": "'centred at about 2 um'",
    "err_model": -7.174172977281842,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": 0.0
   },
   {
    "ion": "Ho3+",
@@ -1778,13 +2158,13 @@
    "measured": 9.673050880247631,
    "model": 13.187655767509886,
    "model_paper_omega": null,
-   "lookup": null,
-   "lookup_scope": null,
+   "lookup": 10.02736256450319,
+   "lookup_scope": "any family",
    "src": "Cai et al., Opt. Mater. Express 5, 1431 (2015), doi:10.1364/OME.5.001431",
    "note": "from A_rad = 103.38 s^-1",
    "err_model": 0.13460413022286027,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": 0.015623246065818164
   },
   {
    "ion": "Nd3+",
