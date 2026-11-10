@@ -18,12 +18,16 @@ Branch `md2/Er-SiO2`. Data: `Er-SiO2.json`. Final structures: `Er-SiO2_<rep>_fin
   4. 300 K for 50 ps.
   * Nose-Hoover NVT, Tdamp 0.1 ps, timestep 1 fs.
   * Sites come from the last 20 ps: 10 frames, 2 ps apart.
-* **Replicas:** 2 independent random starts, 160 site-frames, **16 distinct Er ions**.
+* **Replicas:** 4 independent random starts, 320 site-frames, **32 distinct Er ions**.
 
 | replica | velocity seed | wall time (min) | mean T in 300 K stage (K) | resumed after container restart |
 |---|---|---|---|---|
+| rep1 | 1137 | 63 | 300.5 | yes |
 | rep2 | 1274 | 106 | 299.5 | yes |
 | rep3 | 1411 | 56 | 300.9 | no |
+| rep4 | 1548 | 65 | 299.5 | yes |
+
+Wall times are the sum of the completed LAMMPS run segments. They leave out the work lost in the container restart, and they include slowdown from running 3-4 jobs on 2 cores. Total elapsed time from setup to final push was about 2 h 45 min.
 
 ## Deviations from the requested protocol (please read)
 
@@ -33,7 +37,7 @@ Branch `md2/Er-SiO2`. Data: `Er-SiO2.json`. Final structures: `Er-SiO2_<rep>_fin
      * Single point: instantaneous forces differ noticeably from Ewald. The rms force difference is {'O': 0.247, 'Si': 0.496, 'Er': 0.356} eV/A, against rms forces of {'O': 1.345, 'Si': 1.616, 'Er': 1.336} eV/A.
      * Pressure: -32166 bar (DSF) vs -30622 bar (Ewald).
      * PPPM relaxation: I re-equilibrated the final structure for 19 ps at 300 K with PPPM. The Er shell did not change. At a 3.0 A cutoff: CN 4.94 -> 4.99, R 2.341 -> 2.353 A.
-3. **Fewer replicas than hoped: 2 replicas, 16 distinct Er (target was >= 60).**
+3. **Fewer replicas than hoped: 4 replicas, 32 distinct Er (target was >= 60).**
    * The cloud container restarted at about 01:25 UTC and killed the running jobs. Replica rep2 was resumed from its end-of-quench restart file. rep1 and rep4 had to restart their quench from the end of the 3500 K stage, which cost about 40 min of compute.
    * A planned fifth replica was dropped to stay inside the 3 h 15 min budget.
    * The 10 frames per Er are correlated snapshots of the same ion, not independent sites.
@@ -44,18 +48,18 @@ Branch `md2/Er-SiO2`. Data: `Er-SiO2.json`. Final structures: `Er-SiO2_<rep>_fin
 | quantity | result | target |
 |---|---|---|
 | Si-O first peak | 1.61 A | ~1.61 A |
-| Si coordination | 3.996 (99.6% four-fold) | 4 |
+| Si coordination | 3.997 (99.6% four-fold) | 4 |
 | O-Si-O angle | mean 109.4, std 6.5 deg | ~109.5 deg |
-| Si-O-Si angle | mean 153.4, std 12.3 deg, mode 153 deg | ~145-150 deg |
+| Si-O-Si angle | mean 153.2, std 12.3 deg, mode 153 deg | ~145-150 deg |
 | Er-O RDF first peak | 2.17 A | EXAFS ~2.25 A |
-| Er-O first minimum r_min | 2.79 A | 2.9-3.2 A expected |
-| Er CN (O within r_min) | 4.38 +- 0.89 (CN3: 21, CN4: 79, CN5: 41, CN6: 17, CN7: 2) | ~6 (EXAFS) |
-| mean Er-O within r_min | 2.279 +- 0.175 A | ~2.25 A |
-| NBO fraction in the first shell | 0.71 | |
-| O-Er-O mean angle | 104.9 deg | |
+| Er-O first minimum r_min | 2.83 A | 2.9-3.2 A expected |
+| Er CN (O within r_min) | 4.28 +- 0.86 (CN3: 56, CN4: 144, CN5: 100, CN6: 15, CN7: 5) | ~6 (EXAFS) |
+| mean Er-O within r_min | 2.281 +- 0.179 A | ~2.25 A |
+| NBO fraction in the first shell | 0.72 | |
+| O-Er-O mean angle | 105.8 deg | |
 
-* **Er CN depends on the cutoff.** 2.6 A: 4.03 +- 0.67, 2.8 A: 4.39 +- 0.89, 3.0 A: 4.69 +- 1.11, 3.2 A: 5.08 +- 1.30.
-* **Er-Er nearest neighbours:** mean 10.14 A, minimum 3.29 A. In 12% of Er-frames the nearest Er is closer than 5 A, i.e. Er-O-Er pairs, a clustering signature. Per-Er values for the last frame are in the JSON.
+* **Er CN depends on the cutoff.** 2.6 A: 3.92 +- 0.69, 2.8 A: 4.21 +- 0.82, 3.0 A: 4.53 +- 1.01, 3.2 A: 4.91 +- 1.24.
+* **Er-Er nearest neighbours:** mean 10.24 A, minimum 3.29 A. In 10% of Er-frames the nearest Er is closer than 5 A, i.e. Er-O-Er pairs, a clustering signature. Per-Er values for the last frame are in the JSON.
 
 ### Assessment
 

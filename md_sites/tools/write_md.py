@@ -37,6 +37,8 @@ Branch `md2/Er-SiO2`. Data: `Er-SiO2.json`. Final structures: `Er-SiO2_<rep>_fin
 |---|---|---|---|---|
 {rows}
 
+Wall times are the sum of the completed LAMMPS run segments. They leave out the work lost in the container restart, and they include slowdown from running 3-4 jobs on 2 cores. Total elapsed time from setup to final push was about 2 h 45 min.
+
 ## Deviations from the requested protocol (please read)
 
 1. **Quench rate 10 K/ps, not 5 K/ps.** The machine had only 2 cores, and the speed I measured was about 120 steps/s per core. At 5 K/ps one replica would take about 1.8 h, so I used the 10 K/ps fallback.
