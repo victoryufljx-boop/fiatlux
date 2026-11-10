@@ -738,3 +738,33 @@ cross sections worse. So a uniform sideband is not the missing piece for widths.
 - **Conclusion:** the band position comes from where the Stark levels sit within the ground ³H₆
   multiplet, and that is set by the glass site, not by the ion's parameters. Practical route:
   measured-absorption anchoring for Tm.
+
+### 5.2 Yb level patterns in eight glasses (Yang 2014; `scripts/validate_yb_yang.py`, `refs/yang2014_yb_refs.py`)
+
+- **Shape of the pattern** (³F₇/₂ levels relative to the top level d), random-polyhedron crystal
+  field, before any per-glass scale:
+
+  | glass (family) | b/d, model vs measured | c/d, model vs measured | rms after scaling to d |
+  |---|---|---|---|
+  | tellurite | 0.41 vs 0.40 | 0.71 vs 0.70 | 6 cm⁻¹ |
+  | fluorozirconate | 0.39 vs 0.41 | 0.71 vs 0.73 | 9 cm⁻¹ |
+  | bismuthate (germanate proxy) | 0.38 vs 0.39 | 0.70 vs 0.67 | 10 cm⁻¹ |
+  | germanate | 0.38 vs 0.35 | 0.70 vs 0.56 | 61 cm⁻¹ |
+  | lead aluminosilicate | 0.36 vs 0.30 | 0.66 vs 0.56 | 52 cm⁻¹ |
+  | phosphate | 0.36 vs 0.35 | 0.67 vs 0.52 | 47 cm⁻¹ |
+
+  The crystal-field shape is right in 3 of 6 glasses; in the other 3 the c level sits too high.
+  What varies most between glasses is the overall strength: fluorozirconate needs about 1.5×
+  (414 vs 624 cm⁻¹).
+- **As anchors** (tested on Wang 2017 phosphate, 1005/975 nm cross-section ratios, measured
+  emission 0.59 and absorption 0.14):
+
+  | anchor | emission ratio | absorption ratio |
+  |---|---|---|
+  | none | 1.48 | 0.28 |
+  | zero-phonon line only (default) | 0.38 | 0.10 |
+  | Yang phosphate levels | 0.29 | 0.07 |
+
+  Yang's full phosphate pattern does worse. Yb levels vary with composition within a family (Wang's
+  is a Ba phosphosilicate, Yang's a borophosphate), so the per-family Yang anchors are kept opt-in
+  (`auto=False`).

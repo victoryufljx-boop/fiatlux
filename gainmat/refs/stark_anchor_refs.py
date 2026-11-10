@@ -29,3 +29,16 @@ ANCHORS = {
         src="Lincoln et al., J. Lumin. 50, 297 (1991): 9 K FLN in Ge-silica, ground 3H6 components "
             "~0, ~250, ~430 cm^-1 (more above ~500, not resolved)"),
 }
+
+# Yb3+ full level patterns per glass family from Yang et al., Opt. Lett. 39, 1772 (2014), Fig. 2 (room-
+# temperature Lorentzian decomposition; one glass per family).  Held-out checks: Wang et al. 2017 phosphate
+# cross sections at 975 and 1005 nm, and the open-access benchmark.
+from .yang2014_yb_refs import YANG2014 as _Y, SRC as _YSRC
+for _k, _fam in (("Te", "tellurite"), ("Ge", "germanate"), ("P", "phosphate"), ("F", "ZBLAN")):
+    _v = _Y[_k]
+    ANCHORS[f"Yb3+:{_fam}"] = dict(
+        ion="Yb3+", families=(_fam,), auto=False,   # held-out test (Wang 2017 phosphate 1005/975 nm) worse than ZPL-only
+
+        levels={"2F7/2": dict(levels=list(_v["f72"])),
+                "2F5/2": dict(levels=[0, _v["f52"][1] - _v["f52"][0], _v["f52"][2] - _v["f52"][0]], E0=float(_v["f52"][0]))},
+        src=f"{_YSRC}; glass {_v['comp']}")
