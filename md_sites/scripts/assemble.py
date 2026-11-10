@@ -26,6 +26,8 @@ pot = {
     'note_on_coulomb': ('PPPM (rc 11 A, 1e-5) was benchmarked at 25 ms/step on one core; with only 2 cores available '
                         'the tabulated DSF form (8.5-10 ms/step) was used to fit the time budget.'),
 }
+FAST = os.environ.get('FAST', '').split()
+reps = reps + FAST
 timing = {}
 for r in reps:
     try:
@@ -43,13 +45,23 @@ for r in reps:
             rows.append([float(x) for x in p])
     rows = np.array(rows)
     # last 25 thermo lines = last 50 ps (300 K stage)
-    Tfin[r] = round(float(rows[-25:, 1].mean()), 1)
+    nl = 15 if r in FAST else 25
+    Tfin[r] = round(float(rows[-nl:, 1].mean()), 1)
 summ = ana['summary']
 summ['final_stage_mean_T_K'] = Tfin
 sites = ana['sites']
 import numpy as _np
 for rc in (2.5, 2.6, 2.8):
     summ[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in sites])), 3)
+FSITES, FSUMM = [], None
+if FAST:
+    fa = json.load(open(os.environ['FASTANA']))
+    FSITES = fa['sites']; FSUMM = fa['summary']
+    FSUMM['note'] = 'replicas ' + ', '.join(FAST) + ': shortened protocol 6000 K 20 ps, 3500 K 20 ps, 3500->300 K at 20 K/ps (160 ps), 300 K 30 ps'
+    FSUMM['final_stage_mean_T_K'] = {r: Tfin[r] for r in FAST}
+    for rc in (2.5, 2.6, 2.8):
+        FSUMM[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in FSITES])), 3)
+    summ['final_stage_mean_T_K'] = {r: Tfin[r] for r in reps if r not in FAST}
 SEEDS = {'rep1': 11, 'rep2': 22, 'rep3': 33, 'rep4': 44, 'rep5': 55, 'rep6': 66}
 doc = {
     'glass': 'Er-Ge10-SiO2',
@@ -71,11 +83,13 @@ doc = {
             {'T_K': 300, 'time_ps': 50}],
         'quench_rate_K_per_ps': 10,
         'quench_rate_note': '10 K/ps instead of 5 K/ps: only 2 CPU cores available (see .md)',
-        'replicas': len(reps), 'seeds': {r: SEEDS.get(os.path.basename(r)) for r in reps}, 'replica_wall_minutes': timing,
+        'replicas': len(reps), 'replicas_main_10Kps': [r for r in reps if r not in FAST], 'seeds': {r: SEEDS.get(os.path.basename(r)) for r in reps}, 'replica_wall_minutes': timing,
+        'fast_replicas': {'replicas': FAST, 'stages': [{'T_K': 6000, 'time_ps': 20}, {'T_K': 3500, 'time_ps': 20}, {'T_K': '3500->300 linear', 'time_ps': 160, 'quench_rate_K_per_ps': 20}, {'T_K': 300, 'time_ps': 30}], 'note': 'added at the end of the budget for more distinct sites; sites tagged quench_rate_K_per_ps=20, statistics in summary_fast_quench_replicas'} if FAST else None,
         'sampling': '10 frames every 2 ps over the last 20 ps (300 K), per replica',
     },
-    'er_sites': ana['sites'],
+    'er_sites': [dict(x, quench_rate_K_per_ps=10) for x in ana['sites']] + [dict(x, quench_rate_K_per_ps=20) for x in FSITES],
     'summary': summ,
+    'summary_fast_quench_replicas': FSUMM,
     'rdf': {'r_A': ana['rdf_r'], **ana['rdfs']},
 }
 json.dump(doc, open(out, 'w'), separators=(',', ':'))
