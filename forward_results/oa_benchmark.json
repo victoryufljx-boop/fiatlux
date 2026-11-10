@@ -4,9 +4,9 @@
    "unit": "nm",
    "all": {
     "model": {
-     "n": 46,
-     "median_abs": 2.5285343690893,
-     "rms": 38.85190338365141
+     "n": 59,
+     "median_abs": 2.8776541961577777,
+     "rms": 42.08180527829817
     },
     "model_paper_omega": {
      "n": 14,
@@ -16,9 +16,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 37,
-     "median_abs": 3.236122093942754,
-     "rms": 30.60146446228582
+     "n": 50,
+     "median_abs": 3.744274639204434,
+     "rms": 37.3349219258883
     },
     "model_paper_omega": {
      "n": 9,
@@ -26,28 +26,28 @@
      "rms": 8.785920633388207
     },
     "lookup": {
-     "n": 37,
-     "median_abs": 2.477777777777874,
-     "rms": 20.482746239370698
+     "n": 50,
+     "median_abs": 1.9499999999999886,
+     "rms": 12.73480079458559
     }
    },
    "model_beats_lookup": 17,
-   "n_paired": 37,
+   "n_paired": 50,
    "hybrid_vs_lookup": {
     "hybrid": {
-     "n": 37,
-     "median_abs": 4.282442748091626,
-     "rms": 40.52527886858795
+     "n": 50,
+     "median_abs": 4.474708171206203,
+     "rms": 45.12191895201085
     },
     "lookup": {
-     "n": 37,
-     "median_abs": 2.477777777777874,
-     "rms": 20.482746239370698
+     "n": 50,
+     "median_abs": 1.9499999999999886,
+     "rms": 12.73480079458559
     },
     "model": {
-     "n": 37,
-     "median_abs": 3.236122093942754,
-     "rms": 30.60146446228582
+     "n": 50,
+     "median_abs": 3.744274639204434,
+     "rms": 37.3349219258883
     },
     "hybrid_paper_omega": {
      "n": 9,
@@ -55,7 +55,7 @@
      "rms": 25.01810502653132
     },
     "hybrid_beats_lookup": 14,
-    "n": 37
+    "n": 50
    }
   },
   "em_fwhm_nm": {
@@ -120,93 +120,93 @@
    "unit": "nm",
    "all": {
     "model": {
-     "n": 68,
-     "median_abs": 12.302535878483354,
-     "rms": 32.74832341877937
+     "n": 72,
+     "median_abs": 12.029966112150532,
+     "rms": 32.567993329475335
     },
     "model_paper_omega": {
-     "n": 29,
+     "n": 31,
      "median_abs": 12.405304045003959,
-     "rms": 32.34502532836885
+     "rms": 32.96450389754151
     }
    },
    "paired_with_lookup": {
     "model": {
-     "n": 62,
-     "median_abs": 12.302535878483354,
-     "rms": 33.80674061158848
+     "n": 65,
+     "median_abs": 12.405304045003959,
+     "rms": 33.86540578671119
     },
     "model_paper_omega": {
-     "n": 26,
+     "n": 28,
      "median_abs": 15.75763324759987,
-     "rms": 34.08503245254633
+     "rms": 34.61684156685856
     },
     "lookup": {
-     "n": 62,
-     "median_abs": 13.25,
-     "rms": 20.08072039793436
+     "n": 65,
+     "median_abs": 13.5,
+     "rms": 22.57494886795506
     }
    },
-   "model_beats_lookup": 27,
-   "n_paired": 62,
+   "model_beats_lookup": 30,
+   "n_paired": 65,
    "hybrid_vs_lookup": {
     "hybrid": {
-     "n": 62,
-     "median_abs": 11.388856040524388,
-     "rms": 24.969082109877448
+     "n": 65,
+     "median_abs": 12.405304045003959,
+     "rms": 26.64155129754365
     },
     "lookup": {
-     "n": 62,
-     "median_abs": 13.25,
-     "rms": 20.08072039793436
+     "n": 65,
+     "median_abs": 13.5,
+     "rms": 22.57494886795506
     },
     "model": {
-     "n": 62,
-     "median_abs": 12.302535878483354,
-     "rms": 33.80674061158848
+     "n": 65,
+     "median_abs": 12.405304045003959,
+     "rms": 33.86540578671119
     },
     "hybrid_paper_omega": {
-     "n": 26,
-     "median_abs": 11.644947520282585,
-     "rms": 18.41299715248993
+     "n": 28,
+     "median_abs": 11.701227521077499,
+     "rms": 21.159207213773897
     },
-    "hybrid_beats_lookup": 33,
-    "n": 62
+    "hybrid_beats_lookup": 35,
+    "n": 65
    }
   },
   "n_refr": {
    "unit": "-",
    "all": {
     "model": {
-     "n": 18,
-     "median_abs": 0.07299999999999995,
-     "rms": 0.17665732836954906
+     "n": 19,
+     "median_abs": 0.06999999999999984,
+     "rms": 0.17194577021473034
     },
     "model_paper_omega": {
-     "n": 10,
-     "median_abs": 0.09500000000000008,
-     "rms": 0.22941042696442548
+     "n": 11,
+     "median_abs": 0.08000000000000007,
+     "rms": 0.2187344675005
     }
    },
    "paired_with_lookup": {
     "model": {
-     "n": 12,
-     "median_abs": 0.07499999999999996,
-     "rms": 0.17989780663847277
+     "n": 13,
+     "median_abs": 0.06999999999999984,
+     "rms": 0.17284044443002697
     },
     "model_paper_omega": {
-     "n": 7,
-     "median_abs": 0.1100000000000001,
-     "rms": 0.22693814135133833
+     "n": 8,
+     "median_abs": 0.09500000000000008,
+     "rms": 0.21228148765259777
     },
     "lookup": {
-     "n": 12,
-     "median_abs": 0.1511,
-     "rms": 0.33171018035327166
+     "n": 13,
+     "median_abs": 0.1311,
+     "rms": 0.31650715388682527
     }
    },
-   "model_beats_lookup": 8,
-   "n_paired": 12,
+   "model_beats_lookup": 9,
+   "n_paired": 13,
    "hybrid_vs_lookup": {
     "hybrid": {
      "n": 0,
@@ -236,9 +236,9 @@
    "unit": "dex",
    "all": {
     "model": {
-     "n": 38,
-     "median_abs": 0.126674801560524,
-     "rms": 0.2830251712802329
+     "n": 41,
+     "median_abs": 0.11910436871529896,
+     "rms": 0.2743252109744519
     },
     "model_paper_omega": {
      "n": 0,
@@ -248,9 +248,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 38,
-     "median_abs": 0.126674801560524,
-     "rms": 0.2830251712802329
+     "n": 41,
+     "median_abs": 0.11910436871529896,
+     "rms": 0.2743252109744519
     },
     "model_paper_omega": {
      "n": 0,
@@ -258,13 +258,13 @@
      "rms": null
     },
     "lookup": {
-     "n": 38,
-     "median_abs": 0.07348244671421078,
-     "rms": 0.24515361251778062
+     "n": 41,
+     "median_abs": 0.07360483776498541,
+     "rms": 0.23916542244470756
     }
    },
-   "model_beats_lookup": 14,
-   "n_paired": 38,
+   "model_beats_lookup": 16,
+   "n_paired": 41,
    "hybrid_vs_lookup": {
     "hybrid": {
      "n": 0,
@@ -294,9 +294,9 @@
    "unit": "dex",
    "all": {
     "model": {
-     "n": 19,
-     "median_abs": 0.1411925060191323,
-     "rms": 0.22615718927032596
+     "n": 24,
+     "median_abs": 0.1124283130997559,
+     "rms": 0.20756633046338002
     },
     "model_paper_omega": {
      "n": 7,
@@ -306,9 +306,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 16,
-     "median_abs": 0.14394076089129326,
-     "rms": 0.23194829538994202
+     "n": 21,
+     "median_abs": 0.11508341311456607,
+     "rms": 0.20965010917775811
     },
     "model_paper_omega": {
      "n": 6,
@@ -316,28 +316,28 @@
      "rms": 0.24851240949271455
     },
     "lookup": {
-     "n": 16,
-     "median_abs": 0.21654910678016914,
-     "rms": 0.2564977239406368
+     "n": 21,
+     "median_abs": 0.17313324199075059,
+     "rms": 0.190749410650106
     }
    },
    "model_beats_lookup": 10,
-   "n_paired": 16,
+   "n_paired": 21,
    "hybrid_vs_lookup": {
     "hybrid": {
-     "n": 16,
-     "median_abs": 0.14394076089129326,
-     "rms": 0.2638948703600963
+     "n": 21,
+     "median_abs": 0.11508432119416041,
+     "rms": 0.23668994375710664
     },
     "lookup": {
-     "n": 16,
-     "median_abs": 0.21654910678016914,
-     "rms": 0.2564977239406368
+     "n": 21,
+     "median_abs": 0.17313324199075059,
+     "rms": 0.190749410650106
     },
     "model": {
-     "n": 16,
-     "median_abs": 0.14394076089129326,
-     "rms": 0.23194829538994202
+     "n": 21,
+     "median_abs": 0.11508341311456607,
+     "rms": 0.20965010917775811
     },
     "hybrid_paper_omega": {
      "n": 6,
@@ -345,16 +345,16 @@
      "rms": 0.2987953199621188
     },
     "hybrid_beats_lookup": 10,
-    "n": 16
+    "n": 21
    }
   },
   "sigma_em_cm2": {
    "unit": "dex",
    "all": {
     "model": {
-     "n": 36,
-     "median_abs": 0.18926043514733704,
-     "rms": 0.24944150849304222
+     "n": 41,
+     "median_abs": 0.1875399613065582,
+     "rms": 0.2510654265890566
     },
     "model_paper_omega": {
      "n": 20,
@@ -364,9 +364,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 33,
-     "median_abs": 0.18656168235467416,
-     "rms": 0.2410092952321496
+     "n": 38,
+     "median_abs": 0.18602545286566513,
+     "rms": 0.2439397173506149
     },
     "model_paper_omega": {
      "n": 18,
@@ -374,45 +374,45 @@
      "rms": 0.19824610503827128
     },
     "lookup": {
-     "n": 33,
-     "median_abs": 0.09409903567422648,
-     "rms": 0.16124737745886558
+     "n": 38,
+     "median_abs": 0.07165886046244115,
+     "rms": 0.1699591718309459
     }
    },
-   "model_beats_lookup": 14,
-   "n_paired": 33,
+   "model_beats_lookup": 15,
+   "n_paired": 38,
    "hybrid_vs_lookup": {
     "hybrid": {
-     "n": 33,
-     "median_abs": 0.18656168235467416,
-     "rms": 0.26600879607462463
+     "n": 38,
+     "median_abs": 0.18386342540940262,
+     "rms": 0.2655448737818869
     },
     "lookup": {
-     "n": 33,
-     "median_abs": 0.09409903567422648,
-     "rms": 0.16124737745886558
+     "n": 38,
+     "median_abs": 0.07165886046244115,
+     "rms": 0.1699591718309459
     },
     "model": {
-     "n": 33,
-     "median_abs": 0.18656168235467416,
-     "rms": 0.2410092952321496
+     "n": 38,
+     "median_abs": 0.18602545286566513,
+     "rms": 0.2439397173506149
     },
     "hybrid_paper_omega": {
      "n": 18,
      "median_abs": 0.12883278087184039,
      "rms": 0.23369638599915799
     },
-    "hybrid_beats_lookup": 11,
-    "n": 33
+    "hybrid_beats_lookup": 12,
+    "n": 38
    }
   },
   "tau_ms": {
    "unit": "dex",
    "all": {
     "model": {
-     "n": 70,
-     "median_abs": 0.3218501810209554,
-     "rms": 0.6980188442851366
+     "n": 93,
+     "median_abs": 0.3178623212547579,
+     "rms": 0.6733632193468031
     },
     "model_paper_omega": {
      "n": 18,
@@ -422,9 +422,9 @@
    },
    "paired_with_lookup": {
     "model": {
-     "n": 63,
-     "median_abs": 0.3258380407871529,
-     "rms": 0.5235323059539808
+     "n": 87,
+     "median_abs": 0.3178623212547579,
+     "rms": 0.5398172012404092
     },
     "model_paper_omega": {
      "n": 16,
@@ -432,13 +432,13 @@
      "rms": 0.23601498763894607
     },
     "lookup": {
-     "n": 63,
-     "median_abs": 0.16380990764314943,
-     "rms": 0.5713937173404595
+     "n": 87,
+     "median_abs": 0.16728917388226022,
+     "rms": 0.505784707846324
     }
    },
-   "model_beats_lookup": 24,
-   "n_paired": 63,
+   "model_beats_lookup": 30,
+   "n_paired": 87,
    "hybrid_vs_lookup": {
     "hybrid": {
      "n": 0,
@@ -468,35 +468,35 @@
    "unit": "dex",
    "all": {
     "model": {
-     "n": 59,
-     "median_abs": 0.14680378112891387,
-     "rms": 0.289669380140469
+     "n": 64,
+     "median_abs": 0.134693139015931,
+     "rms": 0.2782273371410132
     },
     "model_paper_omega": {
-     "n": 47,
-     "median_abs": 0.057571662022133,
-     "rms": 0.2510492508797862
+     "n": 51,
+     "median_abs": 0.046978531214204665,
+     "rms": 0.24122133246226268
     }
    },
    "paired_with_lookup": {
     "model": {
-     "n": 51,
-     "median_abs": 0.13478214780900175,
-     "rms": 0.24336596539227218
+     "n": 54,
+     "median_abs": 0.1286632814530013,
+     "rms": 0.23654441980705707
     },
     "model_paper_omega": {
-     "n": 40,
-     "median_abs": 0.03855055234076342,
-     "rms": 0.10588102929724443
+     "n": 43,
+     "median_abs": 0.03331287999375221,
+     "rms": 0.10260744550690688
     },
     "lookup": {
-     "n": 51,
-     "median_abs": 0.157035017296193,
-     "rms": 0.2429500426526974
+     "n": 54,
+     "median_abs": 0.12165258478262049,
+     "rms": 0.23318518013434866
     }
    },
-   "model_beats_lookup": 27,
-   "n_paired": 51,
+   "model_beats_lookup": 29,
+   "n_paired": 54,
    "hybrid_vs_lookup": {
     "hybrid": {
      "n": 0,
@@ -566,23 +566,23 @@
   },
   "abs_peak_nm|Ho3+": {
    "model": [
-    6.620169220214848,
-    7
+    4.474708171206203,
+    9
    ],
    "model_paper_omega": [
     10.245855270212473,
     2
    ],
    "lookup": [
-    2.6666666666666288,
-    6
+    3.6000000000000227,
+    8
    ],
    "model_on_paired": [
-    6.872584610107424,
-    6
+    5.547438695710525,
+    8
    ],
    "model_beats_lookup": 3,
-   "n_paired": 6
+   "n_paired": 8
   },
   "abs_peak_nm|Pr3+": {
    "model": [
@@ -606,43 +606,43 @@
   },
   "abs_peak_nm|Tm3+": {
    "model": [
-    2.5398276084856093,
-    18
+    4.07434085619235,
+    26
    ],
    "model_paper_omega": [
     0.763877906057246,
     1
    ],
    "lookup": [
-    3.2000000000000455,
-    17
+    2.0,
+    25
    ],
    "model_on_paired": [
-    1.8435331230284646,
-    17
+    3.236122093942754,
+    25
    ],
-   "model_beats_lookup": 9,
-   "n_paired": 17
+   "model_beats_lookup": 7,
+   "n_paired": 25
   },
   "abs_peak_nm|Yb3+": {
    "model": [
     0.9906304899473071,
-    4
+    7
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.16666666666668561,
-    4
+    0.75,
+    7
    ],
    "model_on_paired": [
     0.9906304899473071,
-    4
+    7
    ],
-   "model_beats_lookup": 1,
-   "n_paired": 4
+   "model_beats_lookup": 3,
+   "n_paired": 7
   },
   "em_fwhm_nm|Er3+": {
    "model": [
@@ -807,22 +807,22 @@
   "em_peak_nm|Ho3+": {
    "model": [
     15.759817871371524,
-    9
+    11
    ],
    "model_paper_omega": [
-    23.592107806401486,
-    2
+    23.68836816205237,
+    4
    ],
    "lookup": [
     30.0,
-    7
+    10
    ],
    "model_on_paired": [
-    16.79937548789985,
-    7
+    16.279596679635688,
+    10
    ],
-   "model_beats_lookup": 4,
-   "n_paired": 7
+   "model_beats_lookup": 7,
+   "n_paired": 10
   },
   "em_peak_nm|Nd3+": {
    "model": [
@@ -884,6 +884,26 @@
    "model_beats_lookup": 11,
    "n_paired": 25
   },
+  "em_peak_nm|Yb3+": {
+   "model": [
+    1.2172256751630925,
+    2
+   ],
+   "model_paper_omega": [
+    null,
+    0
+   ],
+   "lookup": [
+    null,
+    0
+   ],
+   "model_on_paired": [
+    null,
+    0
+   ],
+   "model_beats_lookup": 0,
+   "n_paired": 0
+  },
   "n_refr|Dy3+": {
    "model": [
     0.04500000000000004,
@@ -926,23 +946,23 @@
   },
   "n_refr|Ho3+": {
    "model": [
-    0.07655,
-    2
+    0.0020000000000000018,
+    3
    ],
    "model_paper_omega": [
-    null,
-    0
+    0.0009999999999998899,
+    1
    ],
    "lookup": [
-    0.1511,
-    2
+    0.09555000000000002,
+    3
    ],
    "model_on_paired": [
-    0.07655,
-    2
+    0.0020000000000000018,
+    3
    ],
-   "model_beats_lookup": 1,
-   "n_paired": 2
+   "model_beats_lookup": 2,
+   "n_paired": 3
   },
   "n_refr|Nd3+": {
    "model": [
@@ -1026,43 +1046,43 @@
   },
   "omegas|Er3+": {
    "model": [
-    0.11910436871529896,
-    17
+    0.10263709517846542,
+    18
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.06142875183862137,
-    17
+    0.05425681415335901,
+    18
    ],
    "model_on_paired": [
-    0.11910436871529896,
-    17
+    0.10263709517846542,
+    18
    ],
-   "model_beats_lookup": 6,
-   "n_paired": 17
+   "model_beats_lookup": 7,
+   "n_paired": 18
   },
   "omegas|Ho3+": {
    "model": [
     0.11549459631887364,
-    3
+    5
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.16775212741203246,
-    3
+    0.19816568805677284,
+    5
    ],
    "model_on_paired": [
     0.11549459631887364,
-    3
+    5
    ],
-   "model_beats_lookup": 1,
-   "n_paired": 3
+   "model_beats_lookup": 2,
+   "n_paired": 5
   },
   "omegas|Nd3+": {
    "model": [
@@ -1146,23 +1166,23 @@
   },
   "sigma_abs_cm2|Ho3+": {
    "model": [
-    0.1788973115641676,
-    4
+    0.10853468061515295,
+    6
    ],
    "model_paper_omega": [
     0.11413357614089868,
     1
    ],
    "lookup": [
-    0.31326445208099196,
-    2
+    0.1252921109918117,
+    4
    ],
    "model_on_paired": [
-    0.1610808204663991,
-    2
+    0.09119702221656573,
+    4
    ],
-   "model_beats_lookup": 2,
-   "n_paired": 2
+   "model_beats_lookup": 1,
+   "n_paired": 4
   },
   "sigma_abs_cm2|Tm3+": {
    "model": [
@@ -1186,23 +1206,23 @@
   },
   "sigma_abs_cm2|Yb3+": {
    "model": [
-    0.09457928456293793,
-    4
+    0.10492426929072733,
+    7
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.391586287307456,
-    4
+    0.27308236357285626,
+    7
    ],
    "model_on_paired": [
-    0.09457928456293793,
-    4
+    0.10492426929072733,
+    7
    ],
-   "model_beats_lookup": 4,
-   "n_paired": 4
+   "model_beats_lookup": 5,
+   "n_paired": 7
   },
   "sigma_em_cm2|Dy3+": {
    "model": [
@@ -1246,23 +1266,23 @@
   },
   "sigma_em_cm2|Ho3+": {
    "model": [
-    0.2383834174545601,
-    5
+    0.25297761201830116,
+    6
    ],
    "model_paper_omega": [
     0.11278494739016136,
     2
    ],
    "lookup": [
-    0.11083011552550068,
-    3
+    0.06619676146476286,
+    4
    ],
    "model_on_paired": [
-    0.027806988761116928,
-    3
+    0.1330952031078385,
+    4
    ],
    "model_beats_lookup": 2,
-   "n_paired": 3
+   "n_paired": 4
   },
   "sigma_em_cm2|Nd3+": {
    "model": [
@@ -1306,23 +1326,23 @@
   },
   "sigma_em_cm2|Yb3+": {
    "model": [
-    0.055637206150508656,
-    4
+    0.10783571708022972,
+    8
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.20911079775725827,
-    4
+    0.1063565039991333,
+    8
    ],
    "model_on_paired": [
-    0.055637206150508656,
-    4
+    0.10783571708022972,
+    8
    ],
-   "model_beats_lookup": 3,
-   "n_paired": 4
+   "model_beats_lookup": 4,
+   "n_paired": 8
   },
   "tau_ms|Dy3+": {
    "model": [
@@ -1366,23 +1386,23 @@
   },
   "tau_ms|Ho3+": {
    "model": [
-    0.5382709710990896,
-    8
+    0.5451216099377836,
+    9
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.07328696766163217,
-    7
+    0.3548771971788989,
+    8
    ],
    "model_on_paired": [
-    0.5451216099377836,
-    7
+    0.5692812304171067,
+    8
    ],
    "model_beats_lookup": 3,
-   "n_paired": 7
+   "n_paired": 8
   },
   "tau_ms|Nd3+": {
    "model": [
@@ -1426,43 +1446,43 @@
   },
   "tau_ms|Tm3+": {
    "model": [
-    0.19310637259020325,
-    18
+    0.24133631982764694,
+    35
    ],
    "model_paper_omega": [
     0.16293006565328444,
     3
    ],
    "lookup": [
-    0.24001595253304817,
-    16
+    0.09745521980416666,
+    34
    ],
    "model_on_paired": [
-    0.21450659663151095,
-    16
+    0.24428992422526552,
+    34
    ],
-   "model_beats_lookup": 8,
-   "n_paired": 16
+   "model_beats_lookup": 11,
+   "n_paired": 34
   },
   "tau_ms|Yb3+": {
    "model": [
-    0.27657120442571587,
-    7
+    0.15364911715083582,
+    12
    ],
    "model_paper_omega": [
     null,
     0
    ],
    "lookup": [
-    0.11613065463299992,
-    7
+    0.1644018423853791,
+    12
    ],
    "model_on_paired": [
-    0.27657120442571587,
-    7
+    0.15364911715083582,
+    12
    ],
-   "model_beats_lookup": 4,
-   "n_paired": 7
+   "model_beats_lookup": 7,
+   "n_paired": 12
   },
   "tau_rad_ms|Dy3+": {
    "model": [
@@ -1486,43 +1506,43 @@
   },
   "tau_rad_ms|Er3+": {
    "model": [
-    0.21064042558781432,
-    24
+    0.21040520680783314,
+    25
    ],
    "model_paper_omega": [
-    0.06363725535118779,
-    23
+    0.060604458686660395,
+    24
    ],
    "lookup": [
-    0.10692395834028494,
-    24
+    0.08849950567988994,
+    25
    ],
    "model_on_paired": [
-    0.21064042558781432,
-    24
+    0.21040520680783314,
+    25
    ],
-   "model_beats_lookup": 10,
-   "n_paired": 24
+   "model_beats_lookup": 13,
+   "n_paired": 25
   },
   "tau_rad_ms|Ho3+": {
    "model": [
-    0.08511608766504139,
-    8
+    0.05114777785518819,
+    11
    ],
    "model_paper_omega": [
-    0.046978531214204665,
-    3
+    0.039924515517292196,
+    6
    ],
    "lookup": [
-    0.17122061568434027,
-    8
+    0.05253918173170091,
+    10
    ],
    "model_on_paired": [
-    0.08511608766504139,
-    8
+    0.044706156415672035,
+    10
    ],
-   "model_beats_lookup": 5,
-   "n_paired": 8
+   "model_beats_lookup": 4,
+   "n_paired": 10
   },
   "tau_rad_ms|Nd3+": {
    "model": [
@@ -1583,24 +1603,44 @@
    ],
    "model_beats_lookup": 8,
    "n_paired": 12
+  },
+  "tau_rad_ms|Yb3+": {
+   "model": [
+    0.012673241705865075,
+    1
+   ],
+   "model_paper_omega": [
+    null,
+    0
+   ],
+   "lookup": [
+    null,
+    0
+   ],
+   "model_on_paired": [
+    null,
+    0
+   ],
+   "model_beats_lookup": 0,
+   "n_paired": 0
   }
  },
  "without_tm": {
   "abs_peak_nm": {
    "model": [
-    2.5285343690893,
-    28
+    2.1794145420208224,
+    33
    ],
    "lookup": [
-    2.033333333333303,
-    20
+    1.8999999999999773,
+    25
    ],
    "model_on_paired": [
-    5.367172180954412,
-    20
+    4.252427184466114,
+    25
    ],
-   "model_beats_lookup": 8,
-   "n_paired": 20
+   "model_beats_lookup": 10,
+   "n_paired": 25
   },
   "em_fwhm_nm": {
    "model": [
@@ -1621,120 +1661,121 @@
   "em_peak_nm": {
    "model": [
     8.4738054116292,
-    43
+    47
    ],
    "lookup": [
-    6.5,
-    37
+    10.0625,
+    40
    ],
    "model_on_paired": [
-    7.174172977281842,
-    37
+    9.679198203595206,
+    40
    ],
-   "model_beats_lookup": 16,
-   "n_paired": 37
+   "model_beats_lookup": 19,
+   "n_paired": 40
   },
   "n_refr": {
    "model": [
-    0.08300000000000007,
-    14
+    0.08000000000000007,
+    15
    ],
    "lookup": [
-    0.21629999999999994,
-    8
+    0.1382500000000002,
+    9
    ],
    "model_on_paired": [
-    0.13055000000000005,
-    8
+    0.1100000000000001,
+    9
    ],
-   "model_beats_lookup": 6,
-   "n_paired": 8
+   "model_beats_lookup": 7,
+   "n_paired": 9
   },
   "omegas": {
    "model": [
-    0.126674801560524,
-    30
+    0.11910436871529896,
+    33
    ],
    "lookup": [
-    0.0664156135617196,
-    30
+    0.06435270928759194,
+    33
    ],
    "model_on_paired": [
-    0.126674801560524,
-    30
+    0.11910436871529896,
+    33
    ],
-   "model_beats_lookup": 12,
-   "n_paired": 30
+   "model_beats_lookup": 14,
+   "n_paired": 33
   },
   "sigma_abs_cm2": {
    "model": [
-    0.1411925060191323,
-    17
+    0.1124283130997559,
+    22
    ],
    "lookup": [
-    0.24551266781414982,
-    14
+    0.1453473972135144,
+    19
    ],
    "model_on_paired": [
-    0.15517570529850722,
-    14
+    0.11508341311456607,
+    19
    ],
    "model_beats_lookup": 8,
-   "n_paired": 14
+   "n_paired": 19
   },
   "sigma_em_cm2": {
    "model": [
-    0.1727408224125654,
-    26
+    0.15999242144847473,
+    31
    ],
    "lookup": [
-    0.10246457559986358,
-    24
+    0.07800669398852766,
+    29
    ],
    "model_on_paired": [
-    0.12712708169257114,
-    24
+    0.157510227806797,
+    29
    ],
-   "model_beats_lookup": 11,
-   "n_paired": 24
+   "model_beats_lookup": 12,
+   "n_paired": 29
   },
   "tau_ms": {
    "model": [
-    0.39329948809230175,
-    52
+    0.37411836188462216,
+    58
    ],
    "lookup": [
-    0.16380990764314943,
-    47
+    0.16749108729376372,
+    53
    ],
    "model_on_paired": [
-    0.392244684420614,
-    47
+    0.3644769907296702,
+    53
    ],
-   "model_beats_lookup": 16,
-   "n_paired": 47
+   "model_beats_lookup": 19,
+   "n_paired": 53
   },
   "tau_rad_ms": {
    "model": [
-    0.21040520680783314,
-    47
+    0.15779699733774613,
+    52
    ],
    "lookup": [
-    0.14837827118864888,
-    39
+    0.09921141117677676,
+    42
    ],
    "model_on_paired": [
-    0.16797305469568313,
-    39
+    0.1472123605543615,
+    42
    ],
-   "model_beats_lookup": 19,
-   "n_paired": 39
+   "model_beats_lookup": 21,
+   "n_paired": 42
   }
  },
  "n_hand": 99,
- "n_agent": 282,
+ "n_agent": 341,
  "rejected": {
-  "abstract only": 4
+  "abstract only": 4,
+  "duplicate paper": 10
  },
  "rows": [
   {
@@ -2208,9 +2249,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    2.0523157651784483,
-    1.3594116374373142,
-    1.1131037687475502
+    2.2598501479986846,
+    1.3889608022023638,
+    1.0704560317749952
    ],
    "lookup_scope": "same family",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), doi:10.1038/srep05053",
@@ -2218,7 +2259,7 @@
    "err_model": -0.0861698216416319,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.12646611192220578,
+   "err_lookup": -0.11506356283708213,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2236,14 +2277,14 @@
    "measured": 6.44,
    "model": 9.047046184002841,
    "model_paper_omega": 6.657242865886537,
-   "lookup": 8.92098649253545,
+   "lookup": 9.08656540309799,
    "lookup_scope": "same family",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), doi:10.1038/srep05053",
    "note": "",
    "err_model": 0.14762093997980913,
    "err_model_paper_omega": 0.014408533574192379,
    "agent": false,
-   "err_lookup": 0.14152701443510873,
+   "err_lookup": 0.14951388953060943,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2420,9 +2461,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    2.0523157651784483,
-    1.3594116374373142,
-    1.1131037687475502
+    2.2598501479986846,
+    1.3889608022023638,
+    1.0704560317749952
    ],
    "lookup_scope": "same family",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), doi:10.1038/srep05053",
@@ -2430,7 +2471,7 @@
    "err_model": -0.031075959872730607,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.07137225015330444,
+   "err_lookup": -0.05996970106818083,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2448,14 +2489,14 @@
    "measured": 6.82,
    "model": 9.047046184002841,
    "model_paper_omega": 7.047330283111543,
-   "lookup": 8.92098649253545,
+   "lookup": 9.08656540309799,
    "lookup_scope": "same family",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), doi:10.1038/srep05053",
    "note": "ZBYA",
    "err_model": 0.1227224326831423,
    "err_model_paper_omega": 0.01424025114354138,
    "agent": false,
-   "err_lookup": 0.11662850713844194,
+   "err_lookup": 0.12461538223394257,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2507,9 +2548,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    3.1373077630350514,
-    1.1571516754514077,
-    1.6941074346097416
+    2.998851338025799,
+    1.2475257724564193,
+    1.4163557949172063
    ],
    "lookup_scope": "same family",
    "src": "Huang et al., Sci. Rep. 4, 3607 (2014), doi:10.1038/srep03607",
@@ -2517,7 +2558,7 @@
    "err_model": -0.03851178815415129,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.020111102603029934,
+   "err_lookup": -0.0014594086577648334,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2535,14 +2576,14 @@
    "measured": 8.29,
    "model": 9.047046184002841,
    "model_paper_omega": 8.568515190526748,
-   "lookup": 6.627276967201538,
+   "lookup": 7.453288229695885,
    "lookup_scope": "same family",
    "src": "Huang et al., Sci. Rep. 4, 3607 (2014), doi:10.1038/srep03607",
    "note": "",
    "err_model": 0.037952276789347705,
    "err_model_paper_omega": 0.01435104044770084,
    "agent": false,
-   "err_lookup": -0.09721940954212793,
+   "err_lookup": -0.0462066141843687,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2644,9 +2685,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    3.1373077630350514,
-    1.1571516754514077,
-    1.6941074346097416
+    2.998851338025799,
+    1.2475257724564193,
+    1.4163557949172063
    ],
    "lookup_scope": "same family",
    "src": "Huang et al., Sci. Rep. 4, 3607 (2014), doi:10.1038/srep03607",
@@ -2654,7 +2695,7 @@
    "err_model": 0.11910436871529896,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.17772725947248016,
+   "err_lookup": 0.15615674821168543,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2672,14 +2713,14 @@
    "measured": 9.6,
    "model": 9.047046184002841,
    "model_paper_omega": 9.535174337079372,
-   "lookup": 6.627276967201538,
+   "lookup": 7.453288229695885,
    "lookup_scope": "same family",
    "src": "Huang et al., Sci. Rep. 4, 3607 (2014), doi:10.1038/srep03607",
    "note": "AYF3",
    "err_model": -0.025764425699947153,
    "err_model_paper_omega": -0.0029425951290279356,
    "agent": false,
-   "err_lookup": -0.1609361120314228,
+   "err_lookup": -0.10992331667366356,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2709,6 +2750,68 @@
    "hybrid_paper_omega": 5.4270706651300826e-21,
    "err_hybrid": -0.18757743704973312,
    "err_hybrid_paper_omega": -0.20991719564600936
+  },
+  {
+   "ion": "Er3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "omegas",
+   "measured": [
+    2.74,
+    1.45,
+    0.99
+   ],
+   "model": [
+    2.91,
+    1.27,
+    1.11
+   ],
+   "model_paper_omega": null,
+   "lookup": [
+    2.537468459369213,
+    1.254211088249793,
+    1.373214247714954
+   ],
+   "lookup_scope": "same family",
+   "src": "Egolin V.A., Savikin A.P., Kurashkin S.V., Marugin A.V., 'Luminescent properties investigation of ZBLAN:Er3+/Ho3+ fluoride glass under laser excitation at a wavelength of 1.94 um', Optics and Spectroscopy 133(6) (2025), doi:10.61011/EOS.2025.06.61665.6868-25 [https://journals.ioffe.ru/articles/viewPDF/61665]",
+   "note": "ZBLAN 53ZrF4-20BaF2-4LaF3-3AlF3-20NaF + 1 mol% Er3+ (n_Er ~1.77e20 cm^-3), bulk 10 mm; Table 2: JO parameters for Er3+, RMS 0.04e-20",
+   "err_model": 0.006088643025202951,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.015251943263506642,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Er3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "4I13/2",
+    "4I15/2"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 9.427,
+   "model": 9.047046184002841,
+   "model_paper_omega": 9.620973978427724,
+   "lookup": 7.689073306107585,
+   "lookup_scope": "same family",
+   "src": "Egolin V.A., Savikin A.P., Kurashkin S.V., Marugin A.V., 'Luminescent properties investigation of ZBLAN:Er3+/Ho3+ fluoride glass under laser excitation at a wavelength of 1.94 um', Optics and Spectroscopy 133(6) (2025), doi:10.61011/EOS.2025.06.61665.6868-25 [https://journals.ioffe.ru/articles/viewPDF/61665]",
+   "note": "ZBLAN 53ZrF4-20BaF2-4LaF3-3AlF3-20NaF + 1 mol% Er3+ (n_Er ~1.77e20 cm^-3), bulk 10 mm; Table 4: calculated radiative lifetime 4I13/2 9427 us (transition listed at 1530 nm)",
+   "err_model": -0.017866699741801922,
+   "err_model_paper_omega": 0.008845532944443658,
+   "agent": true,
+   "err_lookup": -0.08849950567988994,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -2906,9 +3009,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    3.8891625721859606,
-    1.4878615003730196,
-    1.2122931919752786
+    3.8098573345662334,
+    1.4856072356268226,
+    1.1979337894100173
    ],
    "lookup_scope": "any family",
    "src": "Ravagli A., Boetti N.G., Guzman Cruz F.A., Alzaidy G.A., Pugliese D., Milanese D., Hewak D.W., RSC Adv. 8, 27556 (2018), doi:10.1039/C8RA04795B [https://pubs.rsc.org/en/content/articlehtml/2018/ra/c8ra04795b]",
@@ -2916,7 +3019,7 @@
    "err_model": 0.589445533453311,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.5208151068247714,
+   "err_lookup": 0.5158881948560429,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -2934,14 +3037,14 @@
    "measured": 3.37,
    "model": 1.4559716239448521,
    "model_paper_omega": 1.8877467269342754,
-   "lookup": 5.90695703778117,
+   "lookup": 6.107514471242,
    "lookup_scope": "any family",
    "src": "Ravagli A., Boetti N.G., Guzman Cruz F.A., Alzaidy G.A., Pugliese D., Milanese D., Hewak D.W., RSC Adv. 8, 27556 (2018), doi:10.1039/C8RA04795B [https://pubs.rsc.org/en/content/articlehtml/2018/ra/c8ra04795b]",
    "note": "Se-GLS: Ga2S3 38.35 / Ga2Se3 25.06 / La2S3 35.26 wt% + 1.33 wt% Er2O3 (1Er2O3, 1.79e20 cm-3); 1Er2O3, JO radiative lifetime (Table 2)",
    "err_model": -0.36447698996317857,
    "err_model_paper_omega": -0.2516861749312046,
    "agent": true,
-   "err_lookup": 0.24373391130649957,
+   "err_lookup": 0.25823460379961277,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -3168,9 +3271,9 @@
    ],
    "model_paper_omega": null,
    "lookup": [
-    3.4555832527370387,
-    1.4435535077783033,
-    1.1679103866719973
+    3.4087383492399814,
+    1.4439319185939663,
+    1.1566114880273104
    ],
    "lookup_scope": "any family",
    "src": "Pisarski W.A., Pisarska J., Kuwik M., Kochanowicz M., Zmojda J., Miluski P., Baranowska A., Dorosz J., Lesniak M., Dorosz D. et al., Sci. Rep. 10, 21105 (2020), doi:10.1038/s41598-020-77943-w [https://www.nature.com/articles/s41598-020-77943-w]",
@@ -3178,7 +3281,7 @@
    "err_model": 0.07431645606103883,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.06372759369536544,
+   "err_lookup": 0.0603822994191262,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -3271,14 +3374,14 @@
    "measured": 8.62,
    "model": 8.34271325920067,
    "model_paper_omega": 6.887792603829341,
-   "lookup": 5.4952648717707335,
+   "lookup": 5.711239954373968,
    "lookup_scope": "any family",
    "src": "Pisarski W.A., Pisarska J., Kuwik M., Kochanowicz M., Zmojda J., Miluski P., Baranowska A., Dorosz J., Lesniak M., Dorosz D. et al., Sci. Rep. 10, 21105 (2020), doi:10.1038/s41598-020-77943-w [https://www.nature.com/articles/s41598-020-77943-w]",
    "note": "37.9InF3-20ZnF2-20SrF2-16BaF2-4GaF3-2LaF3-0.1ErF3 (mol%), sample 0.1Er; 0.1Er, JO (text)",
    "err_model": -0.014199948776540027,
    "err_model_paper_omega": -0.09742720408766861,
    "agent": true,
-   "err_lookup": -0.19551863556636495,
+   "err_lookup": -0.17877685865043086,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5528,14 +5631,14 @@
    "measured": 12.6,
    "model": 13.309045685640475,
    "model_paper_omega": null,
-   "lookup": 6.277765085711265,
-   "lookup_scope": "any family",
+   "lookup": 12.857760302634361,
+   "lookup_scope": "same family",
    "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
    "note": "",
    "err_model": 0.023776370738854337,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.30256548477108114,
+   "err_lookup": 0.008794780164377061,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5578,17 +5681,17 @@
    "measured": 1950,
    "model": 1949.317738791423,
    "model_paper_omega": null,
-   "lookup": 1948.6666666666667,
+   "lookup": 1948.4,
    "lookup_scope": "any family",
    "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
    "note": "",
    "err_model": -0.6822612085770743,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -1.3333333333332575,
-   "hybrid": 1949.317738791423,
+   "err_lookup": -1.599999999999909,
+   "hybrid": 2004.0080160320642,
    "hybrid_paper_omega": null,
-   "err_hybrid": -0.6822612085770743,
+   "err_hybrid": 54.00801603206423,
    "err_hybrid_paper_omega": null
   },
   {
@@ -5603,17 +5706,17 @@
    "measured": 2000,
    "model": 2002.4028834601522,
    "model_paper_omega": null,
-   "lookup": 2032.5,
-   "lookup_scope": "any family",
+   "lookup": 2060.0,
+   "lookup_scope": "same family",
    "src": "Librantz et al., J. Appl. Phys. 101, 123111 (2007), doi:10.1063/1.2749285 (open-access copy, UNESP)",
    "note": "'around 2 um' in text",
    "err_model": 2.402883460152225,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 32.5,
-   "hybrid": 2002.4028834601522,
+   "err_lookup": 60.0,
+   "hybrid": 2059.308072487644,
    "hybrid_paper_omega": null,
-   "err_hybrid": 2.402883460152225,
+   "err_hybrid": 59.30807248764404,
    "err_hybrid_paper_omega": null
   },
   {
@@ -5643,6 +5746,230 @@
   },
   {
    "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "omegas",
+   "measured": [
+    0.374,
+    2.77,
+    2.14
+   ],
+   "model": [
+    2.3,
+    2.3,
+    1.71
+   ],
+   "model_paper_omega": null,
+   "lookup": [
+    2.39,
+    2.12,
+    1.72
+   ],
+   "lookup_scope": "same family",
+   "src": "Chen M., Li W., Jia S., Lin X., Zhan X., Xu H., Cai Z., 'Study on fluorescence characteristics of the Ho3+:ZBLAN fiber under ~640 nm excitation', Opt. Mater. 97, 109351 (2019), doi:10.1016/j.optmat.2019.109351 [https://core.ac.uk/download/343508826.pdf]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) fibre, 0.5 mol% Ho3+ (Le Verre Fluore), 7.5/125 um; Section 3 JO parameters: O2=3.74e-21, O4=2.77e-20, O6=2.14e-20 cm^2 (parsed from garbled PDF text extraction; O2 order of magnitude worth verifying)",
+   "err_model": 0.20356221260440666,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.19816568805677284,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 13.1,
+   "model": 13.309045685640475,
+   "model_paper_omega": 11.401083129738291,
+   "lookup": 12.609996034892317,
+   "lookup_scope": "same family",
+   "src": "Chen M., Li W., Jia S., Lin X., Zhan X., Xu H., Cai Z., 'Study on fluorescence characteristics of the Ho3+:ZBLAN fiber under ~640 nm excitation', Opt. Mater. 97, 109351 (2019), doi:10.1016/j.optmat.2019.109351 [https://core.ac.uk/download/343508826.pdf]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) fibre, 0.5 mol% Ho3+ (Le Verre Fluore), 7.5/125 um; Table 1: calculated radiative lifetime of 5I7 13.10 ms (A=76.28 s^-1, beta=100%)",
+   "err_model": 0.0068756202006529646,
+   "err_model_paper_omega": -0.060325183361099266,
+   "agent": true,
+   "err_lookup": -0.016556345642925106,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I6",
+    "5I7"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 5.52,
+   "model": 6.209932157193325,
+   "model_paper_omega": 5.117626397925946,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Chen M., Li W., Jia S., Lin X., Zhan X., Xu H., Cai Z., 'Study on fluorescence characteristics of the Ho3+:ZBLAN fiber under ~640 nm excitation', Opt. Mater. 97, 109351 (2019), doi:10.1016/j.optmat.2019.109351 [https://core.ac.uk/download/343508826.pdf]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) fibre, 0.5 mol% Ho3+ (Le Verre Fluore), 7.5/125 um; Table 1: calculated radiative lifetime of 5I6 5.52 ms (5I6->5I7 beta 15.30%)",
+   "err_model": 0.05114777785518819,
+   "err_model_paper_omega": -0.03287049982037973,
+   "agent": true,
+   "err_lookup": null,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "em_peak_nm",
+   "measured": 2060.0,
+   "model": 2002.4028834601522,
+   "model_paper_omega": 2003.2051282051282,
+   "lookup": 2000.0,
+   "lookup_scope": "same family",
+   "src": "Chen M., Li W., Jia S., Lin X., Zhan X., Xu H., Cai Z., 'Study on fluorescence characteristics of the Ho3+:ZBLAN fiber under ~640 nm excitation', Opt. Mater. 97, 109351 (2019), doi:10.1016/j.optmat.2019.109351 [https://core.ac.uk/download/343508826.pdf]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) fibre, 0.5 mol% Ho3+ (Le Verre Fluore), 7.5/125 um; approximate: Section 2/Fig 1(b) '~2060 nm' (Table 1 lists 2.06 um transition wavelength)",
+   "err_model": -57.597116539847775,
+   "err_model_paper_omega": -56.794871794871824,
+   "agent": true,
+   "err_lookup": -60.0,
+   "hybrid": 2000.0,
+   "hybrid_paper_omega": 2000.0,
+   "err_hybrid": -60.0,
+   "err_hybrid_paper_omega": -60.0
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I6",
+    "5I7"
+   ],
+   "q": "em_peak_nm",
+   "measured": 2860.0,
+   "model": 2849.002849002849,
+   "model_paper_omega": 2849.002849002849,
+   "lookup": 2830.0,
+   "lookup_scope": "any family",
+   "src": "Chen M., Li W., Jia S., Lin X., Zhan X., Xu H., Cai Z., 'Study on fluorescence characteristics of the Ho3+:ZBLAN fiber under ~640 nm excitation', Opt. Mater. 97, 109351 (2019), doi:10.1016/j.optmat.2019.109351 [https://core.ac.uk/download/343508826.pdf]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) fibre, 0.5 mol% Ho3+ (Le Verre Fluore), 7.5/125 um; approximate: '~2860 nm' (Table 1 2.86 um)",
+   "err_model": -10.997150997151039,
+   "err_model_paper_omega": -10.997150997151039,
+   "agent": true,
+   "err_lookup": -30.0,
+   "hybrid": 2849.002849002849,
+   "hybrid_paper_omega": 2849.002849002849,
+   "err_hybrid": -10.997150997151039,
+   "err_hybrid_paper_omega": -10.997150997151039
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "omegas",
+   "measured": [
+    2.39,
+    2.12,
+    1.72
+   ],
+   "model": [
+    2.3,
+    2.3,
+    1.71
+   ],
+   "model_paper_omega": null,
+   "lookup": [
+    0.374,
+    2.77,
+    2.14
+   ],
+   "lookup_scope": "same family",
+   "src": "Egolin V.A., Savikin A.P., Kurashkin S.V., Marugin A.V., 'Luminescent properties investigation of ZBLAN:Er3+/Ho3+ fluoride glass under laser excitation at a wavelength of 1.94 um', Optics and Spectroscopy 133(6) (2025), doi:10.61011/EOS.2025.06.61665.6868-25 [https://journals.ioffe.ru/articles/viewPDF/61665]",
+   "note": "ZBLAN 53ZrF4-20BaF2-4LaF3-3AlF3-20NaF + 1 mol% Ho3+ (n_Ho ~1.77e20 cm^-3), bulk 2 mm; Table 2: JO parameters for Ho3+, RMS 0.09e-20",
+   "err_model": 0.0053965245476338105,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.19816568805677284,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 12.62,
+   "model": 13.309045685640475,
+   "model_paper_omega": 13.331459051970548,
+   "lookup": 12.847567863218314,
+   "lookup_scope": "same family",
+   "src": "Egolin V.A., Savikin A.P., Kurashkin S.V., Marugin A.V., 'Luminescent properties investigation of ZBLAN:Er3+/Ho3+ fluoride glass under laser excitation at a wavelength of 1.94 um', Optics and Spectroscopy 133(6) (2025), doi:10.61011/EOS.2025.06.61665.6868-25 [https://journals.ioffe.ru/articles/viewPDF/61665]",
+   "note": "ZBLAN 53ZrF4-20BaF2-4LaF3-3AlF3-20NaF + 1 mol% Ho3+ (n_Ho ~1.77e20 cm^-3), bulk 2 mm; Table 3: calculated radiative lifetime 5I7 12620 us (transition listed at 1946 nm)",
+   "err_model": 0.023087560948301784,
+   "err_model_paper_omega": 0.023818328154897452,
+   "agent": true,
+   "err_lookup": 0.007761565478548133,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "n_refr",
+   "measured": 1.5,
+   "model": 1.499,
+   "model_paper_omega": 1.499,
+   "lookup": 1.53555,
+   "lookup_scope": "any family",
+   "src": "Egolin V.A., Savikin A.P., Kurashkin S.V., Marugin A.V., 'Luminescent properties investigation of ZBLAN:Er3+/Ho3+ fluoride glass under laser excitation at a wavelength of 1.94 um', Optics and Spectroscopy 133(6) (2025), doi:10.61011/EOS.2025.06.61665.6868-25 [https://journals.ioffe.ru/articles/viewPDF/61665]",
+   "note": "ZBLAN 53ZrF4-20BaF2-4LaF3-3AlF3-20NaF + 1 mol% Ho3+ (n_Ho ~1.77e20 cm^-3), bulk 2 mm; text: 'refractive index of ZBLAN n = 1.5' (nominal value used in JO; wavelength not given)",
+   "err_model": -0.0009999999999998899,
+   "err_model_paper_omega": -0.0009999999999998899,
+   "agent": true,
+   "err_lookup": 0.03554999999999997,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
    "family": "aluminosilicate",
    "proxy": false,
    "pair": [
@@ -5653,14 +5980,14 @@
    "measured": 1.61,
    "model": 5.473261626661045,
    "model_paper_omega": null,
-   "lookup": 1.36,
-   "lookup_scope": "any family",
+   "lookup": 0.7,
+   "lookup_scope": "same family",
    "src": "Kamradek, Kasik, Aubrecht, Varak, Podrazky, Barton, Pokorny, Peterka, Honzatko, 'Nanoparticle doping as a way to enhance holmium fiber lasers efficiency', arXiv:2412.10593 (2024) [https://www.arxiv.org/pdf/2412.10593v1]",
    "note": "SiO2 fibre core + 10.4 mol% Al2O3, 1300 mol ppm Ho (Fiber_4, Al/Ho=160); fluorescence lifetime 1610 us (level not named in text; 5I7 context, 1150 nm excitation)",
    "err_model": 0.5314203322603955,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.07328696766163217,
+   "err_lookup": -0.36172783601759295,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5678,14 +6005,14 @@
    "measured": 1.56,
    "model": 5.473261626661045,
    "model_paper_omega": null,
-   "lookup": 1.36,
-   "lookup_scope": "any family",
+   "lookup": 0.7,
+   "lookup_scope": "same family",
    "src": "Kamradek, Kasik, Aubrecht, Varak, Podrazky, Barton, Pokorny, Peterka, Honzatko, 'Nanoparticle doping as a way to enhance holmium fiber lasers efficiency', arXiv:2412.10593 (2024) [https://www.arxiv.org/pdf/2412.10593v1]",
    "note": "SiO2 fibre core + 10.3 mol% Al2O3, 1300 mol ppm Ho (Fiber_7); fluorescence lifetime 1560 us",
    "err_model": 0.5451216099377836,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.05958568998424408,
+   "err_lookup": -0.3480265583402048,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5703,14 +6030,14 @@
    "measured": 1.19,
    "model": 5.473261626661045,
    "model_paper_omega": null,
-   "lookup": 1.36,
-   "lookup_scope": "any family",
+   "lookup": 0.7,
+   "lookup_scope": "same family",
    "src": "Kamradek, Kasik, Aubrecht, Varak, Podrazky, Barton, Pokorny, Peterka, Honzatko, 'Nanoparticle doping as a way to enhance holmium fiber lasers efficiency', arXiv:2412.10593 (2024) [https://www.arxiv.org/pdf/2412.10593v1]",
    "note": "SiO2 fibre core + 8.8 mol% Al2O3, 6143 mol ppm Ho (Fiber_2, Al/Ho=29); fluorescence lifetime 1190 us, high-Ho fibre (quenched)",
    "err_model": 0.6626992468997145,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.057991946977686816,
+   "err_lookup": -0.2304489213782739,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5728,14 +6055,14 @@
    "measured": 1950.0,
    "model": 1941.7475728155339,
    "model_paper_omega": null,
-   "lookup": 1948.6666666666667,
-   "lookup_scope": "any family",
+   "lookup": 1946.0,
+   "lookup_scope": "same family",
    "src": "Kamradek, Kasik, Aubrecht, Varak, Podrazky, Barton, Pokorny, Peterka, Honzatko, 'Nanoparticle doping as a way to enhance holmium fiber lasers efficiency', arXiv:2412.10593 (2024) [https://www.arxiv.org/pdf/2412.10593v1]",
    "note": "Ho-doped aluminosilicate fibre cores (8.8-10.6 mol% Al2O3); main 5I8->5I7 absorption peak used for concentration determination",
    "err_model": -8.252427184466114,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -1.3333333333332575,
+   "err_lookup": -4.0,
    "hybrid": 2034.1741253051262,
    "hybrid_paper_omega": null,
    "err_hybrid": 84.17412530512615,
@@ -5753,14 +6080,14 @@
    "measured": 5.61e-21,
    "model": 3.2402568977394645e-21,
    "model_paper_omega": null,
-   "lookup": 5.910752913123683e-21,
-   "lookup_scope": "any family",
+   "lookup": 6.000000000000007e-21,
+   "lookup_scope": "same family",
    "src": "Cao, Lu, Tian, Huang, Guo, Xu, ..., Zhang, Sci. Rep. 6, 37873 (2016), doi:10.1038/srep37873 [https://www.nature.com/articles/srep37873]",
    "note": "54.5SiO2-5Al2O3-7CaO-3CaF2-13BaCO3-15BaF2-1La2O3-1Er2O3-0.5Ho2O3 (mol%) (SEH0.5); oxyfluoride barium aluminosilicate (55% SiO2), Er co-doped 1 mol%; Ho 0.93e20 cm-3; FL peak emission cross section at 2.04 um, SEH0.5",
    "err_model": -0.2383834174545601,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.02267994368402883,
+   "err_lookup": 0.02918838912748279,
    "hybrid": 3.2402568977394645e-21,
    "hybrid_paper_omega": null,
    "err_hybrid": -0.2383834174545601,
@@ -5778,14 +6105,14 @@
    "measured": 2040.0,
    "model": 1947.0404984423676,
    "model_paper_omega": null,
-   "lookup": 2022.5,
+   "lookup": 2030.0,
    "lookup_scope": "any family",
    "src": "Cao, Lu, Tian, Huang, Guo, Xu, ..., Zhang, Sci. Rep. 6, 37873 (2016), doi:10.1038/srep37873 [https://www.nature.com/articles/srep37873]",
    "note": "54.5SiO2-5Al2O3-7CaO-3CaF2-13BaCO3-15BaF2-1La2O3-1Er2O3-0.5Ho2O3 (mol%) (SEH0.5); oxyfluoride barium aluminosilicate (55% SiO2), Er co-doped 1 mol%; Ho 0.93e20 cm-3; emission cross-section peak at 2.04 um (strongest Gaussian component 2026 nm)",
    "err_model": -92.9595015576324,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -17.5,
+   "err_lookup": -10.0,
    "hybrid": 1947.0404984423676,
    "hybrid_paper_omega": null,
    "err_hybrid": -92.9595015576324,
@@ -5803,14 +6130,14 @@
    "measured": 3.74,
    "model": 18.492768008627554,
    "model_paper_omega": null,
-   "lookup": 8.505107281504431,
+   "lookup": 9.761314506065192,
    "lookup_scope": "any family",
    "src": "Cao, Lu, Tian, Huang, Guo, Xu, ..., Zhang, Sci. Rep. 6, 37873 (2016), doi:10.1038/srep37873 [https://www.nature.com/articles/srep37873]",
    "note": "54.5SiO2-5Al2O3-7CaO-3CaF2-13BaCO3-15BaF2-1La2O3-1Er2O3-0.5Ho2O3 (mol%) (SEH0.5); oxyfluoride barium aluminosilicate (55% SiO2), Er co-doped 1 mol%; Ho 0.93e20 cm-3; JO radiative lifetime (printed '3.74 s' once; ms intended), SEH0.5",
    "err_model": 0.6941303192832187,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.3568081938752722,
+   "err_lookup": 0.4166367036106679,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -5828,17 +6155,142 @@
    "measured": 1.6111,
    "model": 1.46,
    "model_paper_omega": null,
-   "lookup": 1.46,
+   "lookup": 1.48,
    "lookup_scope": "any family",
    "src": "Cao, Lu, Tian, Huang, Guo, Xu, ..., Zhang, Sci. Rep. 6, 37873 (2016), doi:10.1038/srep37873 [https://www.nature.com/articles/srep37873]",
    "note": "54.5SiO2-5Al2O3-7CaO-3CaF2-13BaCO3-15BaF2-1La2O3-1Er2O3-0.5Ho2O3 (mol%) (SEH0.5); oxyfluoride barium aluminosilicate (55% SiO2), Er co-doped 1 mol%; Ho 0.93e20 cm-3; host n at 633 nm (1.5995 at 1539 nm)",
    "err_model": -0.1511,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.1511,
+   "err_lookup": -0.1311,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1946.0,
+   "model": 1941.7475728155339,
+   "model_paper_omega": null,
+   "lookup": 1950.0,
+   "lookup_scope": "same family",
+   "src": "Le Gouet J., Gustave F., Bourdon P., Robin T., Laurent A., Cadier B., 'Realization and simulation of high power holmium doped fiber laser for long-range transmission', OSA open-access (2021), arXiv:2003.14188 [https://arxiv.org/pdf/2003.14188]",
+   "note": "MCVD solution-doped (Ho + Al) silica fibre #1, [Ho]=(3.7\u00b10.6)e19 cm^-3, 8 um core, NA 0.17 (iXblue); Sec 2.2: absorption peak wavelength lambda0 = 1946 nm (fibre #1, 57 dB/m)",
+   "err_model": -4.252427184466114,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 4.0,
+   "hybrid": 2034.1741253051262,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 88.17412530512615,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 4.8e-21,
+   "model": 3.682627774179615e-21,
+   "model_paper_omega": null,
+   "lookup": 4.015968127363551e-21,
+   "lookup_scope": "any family",
+   "src": "Le Gouet J., Gustave F., Bourdon P., Robin T., Laurent A., Cadier B., 'Realization and simulation of high power holmium doped fiber laser for long-range transmission', OSA open-access (2021), arXiv:2003.14188 [https://arxiv.org/pdf/2003.14188]",
+   "note": "MCVD solution-doped (Ho + Al) silica fibre #1, [Ho]=(3.7\u00b10.6)e19 cm^-3, 8 um core, NA 0.17 (iXblue); fibre #1: sigma_abs(1946 nm) = (4.8\u00b10.8)e-25 m^2",
+   "err_model": -0.11508341311456607,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.07745097999287279,
+   "hybrid": 3.6826200740687944e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.11508432119416041,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 6e-21,
+   "model": 3.2402568977394645e-21,
+   "model_paper_omega": null,
+   "lookup": 5.61000000000001e-21,
+   "lookup_scope": "same family",
+   "src": "Le Gouet J., Gustave F., Bourdon P., Robin T., Laurent A., Cadier B., 'Realization and simulation of high power holmium doped fiber laser for long-range transmission', OSA open-access (2021), arXiv:2003.14188 [https://arxiv.org/pdf/2003.14188]",
+   "note": "MCVD solution-doped (Ho + Al) silica fibre #1, [Ho]=(3.7\u00b10.6)e19 cm^-3, 8 um core, NA 0.17 (iXblue); peak emission cross-section (6.0\u00b10.4)e-25 m^2 (McCumber/gain-derived); peak wavelength not stated; ratio sigma_em/sigma_abs peak = 1.40",
+   "err_model": -0.26757180658204227,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.02918838912748148,
+   "hybrid": 3.2402121528101272e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.26757780382568414,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "tau_ms",
+   "measured": 0.7,
+   "model": 5.473261626661045,
+   "model_paper_omega": null,
+   "lookup": 1.4404531752697287,
+   "lookup_scope": "same family",
+   "src": "Le Gouet J., Gustave F., Bourdon P., Robin T., Laurent A., Cadier B., 'Realization and simulation of high power holmium doped fiber laser for long-range transmission', OSA open-access (2021), arXiv:2003.14188 [https://arxiv.org/pdf/2003.14188]",
+   "note": "MCVD solution-doped (Ho + Al) silica fibre #1, [Ho]=(3.7\u00b10.6)e19 cm^-3, 8 um core, NA 0.17 (iXblue); fibre #1, 10 cm sample: single-exp fit of initial decay 0.7\u00b10.1 ms; Forster fit gives tau0=1.9 ms (energy transfer onset); Al co-doped, Ho 3.7e19 cm^-3 moderate concentration, pairs 2k=15%",
+   "err_model": 0.8931481682779885,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.31340110524535725,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 4.3e-21,
+   "model": 3.682627774179615e-21,
+   "model_paper_omega": null,
+   "lookup": 4.015968127363551e-21,
+   "lookup_scope": "any family",
+   "src": "Le Gouet J., Gustave F., Bourdon P., Robin T., Laurent A., Cadier B., 'Realization and simulation of high power holmium doped fiber laser for long-range transmission', OSA open-access (2021), arXiv:2003.14188 [https://arxiv.org/pdf/2003.14188]",
+   "note": "MCVD solution-doped (Ho + Al) silica fibre #2, [Ho]=(27\u00b11)e19 cm^-3 by WDS, 8 um core, NA 0.21; fibre #2: sigma_abs(1946 nm) = (4.3\u00b10.2)e-25 m^2 (narrowed estimate using WDS concentration)",
+   "err_model": -0.06731063131856536,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.029678198196872087,
+   "hybrid": 3.6826200740687944e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.06731153939815972,
    "err_hybrid_paper_omega": null
   },
   {
@@ -6028,14 +6480,14 @@
    "measured": 2000,
    "model": 1992.8258270227182,
    "model_paper_omega": null,
-   "lookup": 2032.5,
+   "lookup": 2038.0,
    "lookup_scope": "any family",
    "src": "Cai et al., Opt. Mater. Express 5, 1431 (2015), doi:10.1364/OME.5.001431",
    "note": "'centred at about 2 um'",
    "err_model": -7.174172977281842,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 32.5,
+   "err_lookup": 38.0,
    "hybrid": 1992.8258270227182,
    "hybrid_paper_omega": null,
    "err_hybrid": -7.174172977281842,
@@ -6053,14 +6505,14 @@
    "measured": 4.9e-21,
    "model": 4.596095999160555e-21,
    "model_paper_omega": null,
-   "lookup": 6.324499980235604e-21,
+   "lookup": 6.2144287606503444e-21,
    "lookup_scope": "any family",
    "src": "Cai et al., Opt. Mater. Express 5, 1431 (2015), doi:10.1364/OME.5.001431",
    "note": "",
    "err_model": -0.027806988761116928,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.11083011552550068,
+   "err_lookup": 0.10320513380204292,
    "hybrid": 4.596095999160555e-21,
    "hybrid_paper_omega": null,
    "err_hybrid": -0.027806988761116928,
@@ -6103,14 +6555,14 @@
    "measured": 9.673050880247631,
    "model": 13.187655767509886,
    "model_paper_omega": null,
-   "lookup": 6.706668317790473,
+   "lookup": 8.331560023619566,
    "lookup_scope": "any family",
    "src": "Cai et al., Opt. Mater. Express 5, 1431 (2015), doi:10.1364/OME.5.001431",
    "note": "from A_rad = 103.38 s^-1",
    "err_model": 0.13460413022286027,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.15905664358453753,
+   "err_lookup": -0.06483714468515424,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -6128,14 +6580,14 @@
    "measured": 1.36,
    "model": 2.125055048835002,
    "model_paper_omega": null,
-   "lookup": 1.4404531752697287,
+   "lookup": 1.2026766215747782,
    "lookup_scope": "any family",
    "src": "Barmenkov, Muniz-Canovas, Cruz, Andres, Photonics 11, 1043 (2024), doi:10.3390/photonics11111043 [https://www.mdpi.com/2304-6732/11/11/1043]",
    "note": "commercial Ho-doped silica fibre (iXblue IXF-HDF-8-125), N0=4.05e19 cm-3, core composition not given; silica-based fibre, co-dopants unknown (likely Al); 5I7 lifetime from pair-induced-quenching fit extrapolated to alpha0*L=0 (Forster fit 1.33 ms)",
    "err_model": 0.19383127641405032,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.02496023688939647,
+   "err_lookup": -0.053390039421942814,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -6178,14 +6630,14 @@
    "measured": 2.8e-21,
    "model": 5.046226109790493e-21,
    "model_paper_omega": null,
-   "lookup": 5.759999999999993e-21,
+   "lookup": 4.9171190748438346e-21,
    "lookup_scope": "any family",
    "src": "Barmenkov, Muniz-Canovas, Cruz, Andres, Photonics 11, 1043 (2024), doi:10.3390/photonics11111043 [https://www.mdpi.com/2304-6732/11/11/1043]",
    "note": "commercial Ho-doped silica fibre (iXblue IXF-HDF-8-125), N0=4.05e19 cm-3, core composition not given; silica-based fibre, co-dopants unknown (likely Al); peak absorption cross section at 1950 nm derived via overlap factors / saturation",
    "err_model": 0.2558086750125954,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.3132644520809923,
+   "err_lookup": 0.2445526941172423,
    "hybrid": 5.046226109790493e-21,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.2558086750125954,
@@ -6203,14 +6655,14 @@
    "measured": 1950.0,
    "model": 1945.5252918287938,
    "model_paper_omega": null,
-   "lookup": 1948.6666666666667,
-   "lookup_scope": "any family",
+   "lookup": 1950.0,
+   "lookup_scope": "same family",
    "src": "Barmenkov, Muniz-Canovas, Cruz, Andres, Photonics 11, 1043 (2024), doi:10.3390/photonics11111043 [https://www.mdpi.com/2304-6732/11/11/1043]",
    "note": "commercial Ho-doped silica fibre (iXblue IXF-HDF-8-125), N0=4.05e19 cm-3, core composition not given; silica-based fibre, co-dopants unknown (likely Al); 5I8->5I7 absorption peak, 39 dB/m",
    "err_model": -4.474708171206203,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -1.3333333333332575,
+   "err_lookup": 0.0,
    "hybrid": 1945.5252918287938,
    "hybrid_paper_omega": null,
    "err_hybrid": -4.474708171206203,
@@ -6278,17 +6730,42 @@
    "measured": 1.46,
    "model": 1.458,
    "model_paper_omega": null,
-   "lookup": 1.6111,
+   "lookup": 1.55555,
    "lookup_scope": "any family",
    "src": "Barmenkov, Muniz-Canovas, Cruz, Andres, Photonics 11, 1043 (2024), doi:10.3390/photonics11111043 [https://www.mdpi.com/2304-6732/11/11/1043]",
    "note": "commercial Ho-doped silica fibre (iXblue IXF-HDF-8-125), N0=4.05e19 cm-3, core composition not given; silica-based fibre, co-dopants unknown (likely Al); fibre refractive index used in calculation",
    "err_model": -0.0020000000000000018,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.1511,
+   "err_lookup": 0.09555000000000002,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Ho3+",
+   "family": "silica",
+   "proxy": true,
+   "pair": [
+    "5I7",
+    "5I8"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1950.0,
+   "model": 1945.5252918287938,
+   "model_paper_omega": null,
+   "lookup": 1950.0,
+   "lookup_scope": "same family",
+   "src": "Simakov N., PhD thesis 'Development of components and fibres for the power scaling of pulsed holmium-doped fibre sources', University of Southampton (2017) [https://eprints.soton.ac.uk/415254/1/Final_Thesis.pdf]",
+   "note": "MCVD Ho-doped silica fibre, ~0.2 wt% Ho (Fig 4.8, Sec 4.7); co-dopants not stated in text read (likely aluminosilicate); Sec 4.7: 'peak absorption of 27 dB/m at 1950 nm' (~0.2 wt% Ho); also Table 4.2 uses 1.95 um peak absorption; proxy=true because host co-dopants unspecified",
+   "err_model": -4.474708171206203,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.0,
+   "hybrid": 1945.5252918287938,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -4.474708171206203,
    "err_hybrid_paper_omega": null
   },
   {
@@ -6390,14 +6867,14 @@
    "measured": 2830.0,
    "model": 2845.7598178713715,
    "model_paper_omega": null,
-   "lookup": null,
-   "lookup_scope": null,
+   "lookup": 2860.0,
+   "lookup_scope": "any family",
    "src": "Zhang, Lu, Cai et al., Sci. Rep. 7, 16794 (2017), doi:10.1038/s41598-017-16937-7 [https://link.springer.com/10.1038/s41598-017-16937-7]",
    "note": "65TeO2-10Nb2O5-12YF3-10GeO2 + 0.5HoF3 (+0.5ErF3/2YbF3 co-dopants) (mol%); fluorotellurite-germanate, Er/Yb co-doped (lifetimes skipped); approximate (text): Ho 5I6->5I7 emission ~2.83 um",
    "err_model": 15.759817871371524,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": null,
+   "err_lookup": 30.0,
    "hybrid": 2845.7598178713715,
    "hybrid_paper_omega": null,
    "err_hybrid": 15.759817871371524,
@@ -6477,14 +6954,14 @@
    "measured": 5.76e-21,
    "model": 6.710817823891641e-21,
    "model_paper_omega": 7.491280511546397e-21,
-   "lookup": 2.8000000000000076e-21,
+   "lookup": 3.866243843315038e-21,
    "lookup_scope": "any family",
    "src": "Wang, Zhang, Dong, Liu, Wen, Yao, Li, Wang, RSC Adv. 9 (2019), doi:10.1039/c8ra09971e [https://pubs.rsc.org/en/content/articlehtml/2019/ra/c8ra09971e]",
    "note": "99(67TeO2-17B2O3-16BaO) + 1Tm2O3 + xHo2O3 (mol%) (TBB3 host); tellurite-borate-barium host; peak 5I8->5I7 absorption cross section at 1944 nm (Tm co-doped sample TBBTH1.0)",
    "err_model": 0.06635296592020276,
    "err_model_paper_omega": 0.11413357614089868,
    "agent": true,
-   "err_lookup": -0.31326445208099163,
+   "err_lookup": -0.17313324199075059,
    "hybrid": 6.710135241934516e-21,
    "hybrid_paper_omega": 7.490867473135918e-21,
    "err_hybrid": 0.06630878998482355,
@@ -6502,14 +6979,14 @@
    "measured": 1946.0,
    "model": 1953.125,
    "model_paper_omega": 1952.362358453729,
-   "lookup": 1950.0,
+   "lookup": 1949.2,
    "lookup_scope": "any family",
    "src": "Wang, Zhang, Dong, Liu, Wen, Yao, Li, Wang, RSC Adv. 9 (2019), doi:10.1039/c8ra09971e [https://pubs.rsc.org/en/content/articlehtml/2019/ra/c8ra09971e]",
    "note": "99(67TeO2-17B2O3-16BaO) + 1Tm2O3 + xHo2O3 (mol%) (TBB3 host); tellurite-borate-barium host; 5I8->5I7 absorption band of Ho single-doped glass (1944 nm in cross-section discussion)",
    "err_model": 7.125,
    "err_model_paper_omega": 6.36235845372903,
    "agent": true,
-   "err_lookup": 4.0,
+   "err_lookup": 3.2000000000000455,
    "hybrid": 2017.7562550443906,
    "hybrid_paper_omega": 2016.1290322580646,
    "err_hybrid": 71.75625504439063,
@@ -6527,14 +7004,14 @@
    "measured": 7.13e-21,
    "model": 7.208929965385094e-21,
    "model_paper_omega": 8.095312724254494e-21,
-   "lookup": 5.242995327100728e-21,
+   "lookup": 5.484075147362929e-21,
    "lookup_scope": "any family",
    "src": "Wang, Zhang, Dong, Liu, Wen, Yao, Li, Wang, RSC Adv. 9 (2019), doi:10.1039/c8ra09971e [https://pubs.rsc.org/en/content/articlehtml/2019/ra/c8ra09971e]",
    "note": "99(67TeO2-17B2O3-16BaO) + 1Tm2O3 + xHo2O3 (mol%) (TBB3 host); tellurite-borate-barium host; peak emission cross section (McCumber) at 2030 nm, TBBTH1.0",
    "err_model": 0.004781276529716309,
    "err_model_paper_omega": 0.05514410048209468,
    "agent": true,
-   "err_lookup": -0.13351005920952747,
+   "err_lookup": -0.11398613262909414,
    "hybrid": 7.208473300561662e-21,
    "hybrid_paper_omega": 8.0946703283802e-21,
    "err_hybrid": 0.004753764361359169,
@@ -8509,14 +8986,14 @@
    "measured": 6.4,
    "model": 8.158305773644512,
    "model_paper_omega": null,
-   "lookup": 1.0500111215017616,
+   "lookup": 0.7083154988036672,
    "lookup_scope": "any family",
    "src": "Smart, Carter, Tropper, Hanna, 'Fluoride fiber lasers', Proc. SPIE 1373, 158-165 (1990) [https://eprints.soton.ac.uk/77500/1/177P.pdf]",
    "note": "standard ZBLANP fluorozirconate fibre, 740 ppm (wt) Tm; paper uses OLD labels (3F4 old = modern 3H4 at ~12600 cm-1; 3H4 old = modern 3F4); relabelled to modern; OCR text; modern 3F4 (paper's '3H4') measured lifetime 6.4 ms",
    "err_model": 0.10542000467773475,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.7849860749317908,
+   "err_lookup": -0.9559532291906276,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -8659,14 +9136,14 @@
    "measured": 790.0,
    "model": 794.912559618442,
    "model_paper_omega": null,
-   "lookup": 790.5272727272727,
+   "lookup": 789.3199999999999,
    "lookup_scope": "any family",
    "src": "Smart, Carter, Tropper, Hanna, 'Fluoride fiber lasers', Proc. SPIE 1373, 158-165 (1990) [https://eprints.soton.ac.uk/77500/1/177P.pdf]",
    "note": "standard ZBLANP fluorozirconate fibre, 740 ppm (wt) Tm; paper uses OLD labels (3F4 old = modern 3H4 at ~12600 cm-1; 3H4 old = modern 3F4); relabelled to modern; OCR text; approximate (text): strong ground-state absorption near 790 nm",
    "err_model": 4.912559618441946,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.5272727272727025,
+   "err_lookup": -0.6800000000000637,
    "hybrid": 794.912559618442,
    "hybrid_paper_omega": null,
    "err_hybrid": 4.912559618441946,
@@ -8871,14 +9348,14 @@
    "measured": 0.406,
    "model": 4.193547304054467,
    "model_paper_omega": null,
-   "lookup": 0.515,
+   "lookup": 0.4591527090722369,
    "lookup_scope": "same family",
    "src": "Buckthorpe, Svejkar, Clarkson, Jackson, Opt. Mater. Express 16, 294 (2026), doi:10.1364/OME.581022 [https://eprints.soton.ac.uk/509501/1/ome-16-2-294.pdf]",
    "note": "Tm-doped aluminosilicate fibre core (SiO2 balance); fibre 1: 0.03 mol% Tm2O3, 1.9 mol% Al2O3; fibre 1 (0.4 wt% Tm, 0.03 mol% Tm2O3, 1.9 mol% Al2O3): tau3F4 = 406+-8 us (intrinsic = measured, no ETU in this fibre)",
    "err_model": 1.0140555127327537,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.10328119546399687,
+   "err_lookup": 0.05343111748822006,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -8921,14 +9398,14 @@
    "measured": 0.498,
    "model": 4.193547304054467,
    "model_paper_omega": null,
-   "lookup": 0.515,
+   "lookup": 0.4591527090722369,
    "lookup_scope": "same family",
    "src": "Buckthorpe, Svejkar, Clarkson, Jackson, Opt. Mater. Express 16, 294 (2026), doi:10.1364/OME.581022 [https://eprints.soton.ac.uk/509501/1/ome-16-2-294.pdf]",
    "note": "Tm-doped aluminosilicate fibre core; fibre 2: 0.09 mol% Tm2O3, 3.2 mol% Al2O3; fibre 2 (1.1 wt% Tm): intrinsic tau3F4 = 498 us from fit (measured 371 us)",
    "err_model": 0.9253522035502303,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.014577886281473466,
+   "err_lookup": -0.03527219169430337,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -8946,14 +9423,14 @@
    "measured": 0.57,
    "model": 4.193547304054467,
    "model_paper_omega": null,
-   "lookup": 0.515,
+   "lookup": 0.4591527090722369,
    "lookup_scope": "same family",
    "src": "Buckthorpe, Svejkar, Clarkson, Jackson, Opt. Mater. Express 16, 294 (2026), doi:10.1364/OME.581022 [https://eprints.soton.ac.uk/509501/1/ome-16-2-294.pdf]",
    "note": "Tm-doped aluminosilicate fibre core; fibre 3: 0.19 mol% Tm2O3, 4.4 mol% Al2O3; fibre 3 (2.3 wt% Tm): intrinsic tau3F4 = 570 us from fit (measured 284 us); higher Al",
    "err_model": 0.8667066906374564,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.044067626631300316,
+   "err_lookup": -0.09391770460707716,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -8971,14 +9448,14 @@
    "measured": 1650.0,
    "model": 1709.986320109439,
    "model_paper_omega": null,
-   "lookup": 1645.0,
+   "lookup": 1644.875,
    "lookup_scope": "same family",
    "src": "Chen, Jung, Alam, Richardson, Sidharthan, Ho, Yoo, Daniel, Opt. Express 27, 36699 (2019), doi:10.1364/OE.27.036699 [https://eprints.soton.ac.uk/433801/2/oe_27_25_36699.pdf]",
    "note": "Al/Tm co-doped silica fibre (OFS TmDF200), composition not given; approximate (text): Al/Tm peak absorption cross section 'located around 1650 nm' (3H6->3F4)",
    "err_model": 59.98632010943902,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -5.0,
+   "err_lookup": -5.125,
    "hybrid": 1696.6406515100102,
    "hybrid_paper_omega": null,
    "err_hybrid": 46.64065151001023,
@@ -9021,14 +9498,14 @@
    "measured": 786.8,
    "model": 788.6435331230284,
    "model_paper_omega": null,
-   "lookup": 790.0,
+   "lookup": 788.0,
    "lookup_scope": "same family",
    "src": "Faure, Blanc, Dussardier, Monnom, 'Improvement of the Tm3+:3H4 level lifetime in silica optical fibres by lowering the local phonon energy', arXiv:1003.0166 (author version; published J. Non-Cryst. Solids 353, 2767 (2007) - journal ref not printed in the arXiv text) [https://www.arxiv.org/pdf/1003.0166]",
    "note": "SiO2 fibre core + AlO3/2 5.6-17.4 mol% (Tm(Al) series, 30-80 mol ppm Tm); 3H6->3H4 peak stated as 12710 cm-1 (Table 2), converted to nm; text gives lowest Stark level 12720 cm-1 (786 nm)",
    "err_model": 1.8435331230284646,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 3.2000000000000455,
+   "err_lookup": 1.2000000000000455,
    "hybrid": 788.6435331230284,
    "hybrid_paper_omega": null,
    "err_hybrid": 1.8435331230284646,
@@ -9046,14 +9523,14 @@
    "measured": 1645.0,
    "model": 1709.986320109439,
    "model_paper_omega": null,
-   "lookup": 1650.0,
+   "lookup": 1646.125,
    "lookup_scope": "same family",
    "src": "Cajzl, Peterka, Kowalczyk, Tarka, Sobon, Sotor, Aubrecht, Honzatko, Kasik, Fibers 6, 66 (2018), doi:10.3390/fib6030066 [https://www.mdpi.com/2079-6439/6/3/66/htm]",
    "note": "Tm-doped Al2O3-SiO2 fibre core (solution doped, fibre SG1290, ~3000 ppm Tm; exact Al2O3 mol% only in image table); approximate (text): 3F4 absorption maximum ~114 dB/m at about 1645 nm, selected SD fibre",
    "err_model": 64.98632010943902,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 5.0,
+   "err_lookup": 1.125,
    "hybrid": 1709.986320109439,
    "hybrid_paper_omega": null,
    "err_hybrid": 64.98632010943902,
@@ -9071,14 +9548,14 @@
    "measured": 790.0,
    "model": 788.6435331230284,
    "model_paper_omega": null,
-   "lookup": 786.8,
+   "lookup": 787.2,
    "lookup_scope": "same family",
    "src": "Cajzl, Peterka, Kowalczyk, Tarka, Sobon, Sotor, Aubrecht, Honzatko, Kasik, Fibers 6, 66 (2018), doi:10.3390/fib6030066 [https://www.mdpi.com/2079-6439/6/3/66/htm]",
    "note": "Tm-doped Al2O3-SiO2 fibre core (solution doped, fibre SG1290, ~3000 ppm Tm; exact Al2O3 mol% only in image table); approximate (text): maximum absorption 265 dB/m at about 790 nm",
    "err_model": -1.3564668769715809,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -3.2000000000000455,
+   "err_lookup": -2.7999999999999545,
    "hybrid": 788.6435331230284,
    "hybrid_paper_omega": null,
    "err_hybrid": -1.3564668769715809,
@@ -9121,14 +9598,14 @@
    "measured": 0.515,
    "model": 4.193547304054467,
    "model_paper_omega": null,
-   "lookup": 0.4866425479592424,
+   "lookup": 0.4619000626466985,
    "lookup_scope": "same family",
    "src": "Cajzl, Peterka, Kowalczyk, Tarka, Sobon, Sotor, Aubrecht, Honzatko, Kasik, Fibers 6, 66 (2018), doi:10.3390/fib6030066 [https://www.mdpi.com/2079-6439/6/3/66/htm]",
    "note": "Tm-doped Al2O3-SiO2 fibre core (solution doped, fibre SG1290, ~3000 ppm Tm; exact Al2O3 mol% only in image table); SD fibre 3F4 lifetime 515 us extrapolated to zero pump power and length; best highly-Al nanoparticle fibre reached 756 us (composition up to 11.7 mol% Al2O3)",
    "err_model": 0.9107743172687568,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.02459715170472334,
+   "err_lookup": -0.04725920789203852,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -9211,6 +9688,556 @@
   },
   {
    "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.475,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.46639454324987706,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., Baxter G.W., Collins S.F., Gibbs W.E.K., Blanc W., Dussardier B., Monnom G., 'Energy transfer up-conversion in Tm3+-doped silica fibre', arXiv:1004.1013 (journal ref not stated in preprint) [https://arxiv.org/pdf/1004.1013]",
+   "note": "MCVD aluminosilicate fibre, 35 ppm mol Tm2O3, 4.8 mol% Al2O3 (no Ge/P/F); Table 1: 3F4 decay under 1586 nm pump, 475\u00b13 us, sample 35 ppm mol Tm2O3",
+   "err_model": 0.9458879366850812,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.007940149028134516,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0283,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.02707546899969366,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., Baxter G.W., Collins S.F., Gibbs W.E.K., Blanc W., Dussardier B., Monnom G., 'Energy transfer up-conversion in Tm3+-doped silica fibre', arXiv:1004.1013 (journal ref not stated in preprint) [https://arxiv.org/pdf/1004.1013]",
+   "note": "MCVD aluminosilicate fibre, 35 ppm mol Tm2O3, 4.8 mol% Al2O3 (no Ge/P/F); Table 1: 3H4 decay under 786 nm pump, 28.3\u00b10.7 us, sample 35 ppm mol (multiphonon-limited)",
+   "err_model": 0.19627089999678196,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.019210447338110125,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.459,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.46639454324987706,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., Baxter G.W., Collins S.F., Gibbs W.E.K., Blanc W., Dussardier B., Monnom G., 'Energy transfer up-conversion in Tm3+-doped silica fibre', arXiv:1004.1013 (journal ref not stated in preprint) [https://arxiv.org/pdf/1004.1013]",
+   "note": "MCVD aluminosilicate fibre, 105 ppm mol Tm2O3, 4.5 mol% Al2O3; Table 1: 3F4 decay 459\u00b12 us, sample 105 ppm mol Tm2O3",
+   "err_model": 0.9607688607726865,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.00694077505947081,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0282,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.02707546899969366,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., Baxter G.W., Collins S.F., Gibbs W.E.K., Blanc W., Dussardier B., Monnom G., 'Energy transfer up-conversion in Tm3+-doped silica fibre', arXiv:1004.1013 (journal ref not stated in preprint) [https://arxiv.org/pdf/1004.1013]",
+   "note": "MCVD aluminosilicate fibre, 105 ppm mol Tm2O3, 4.5 mol% Al2O3; Table 1: 3H4 decay 28.2\u00b10.6 us, sample 105 ppm mol",
+   "err_model": 0.19780822720171107,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.017673120133180963,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.036,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.026407094526733607,
+   "lookup_scope": "same family",
+   "src": "Blanc W., Sebastian T.L., Dussardier B., Michel C., Faure B., Ude M., Monnom G., 'Thulium environment in a silica doped optical fibre', J. Non-Cryst. Solids 354, 435-439 (2008) [ref as cited in arXiv:1209.3223], arXiv:0808.3949 [https://arxiv.org/pdf/0808.3949]",
+   "note": "MCVD aluminosilicate fibre core, 4 mol% Al2O3, ~50 ppm mol Tm; 3H4 decay (1/e time) 36\u00b13 us; 785 nm pump; non-exponential",
+   "err_model": 0.09175483475378494,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.13458188071983407,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0168,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.03592870049912302,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-1: 100 ppm Tm2O3, 1.9 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3H4 16.8\u00b10.2 us, sample Al-1",
+   "err_model": 0.42274805379520936,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.330132227817606,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.384,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.48453366780122,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-1: 100 ppm Tm2O3, 1.9 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3F4 384\u00b12 us, sample Al-1",
+   "err_model": 1.038250321942417,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.10099273500125618,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.02,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.03592870049912302,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-2: 240 ppm Tm2O3, 3.4 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3H4 20.0\u00b10.1 us, sample Al-2",
+   "err_model": 0.34702733985709094,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.2544115138794876,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.417,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.48453366780122,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-2: 240 ppm Tm2O3, 3.4 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3F4 417\u00b13 us, sample Al-2",
+   "err_model": 1.0024454913361902,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.06518790439502949,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 787.0,
+   "model": 788.6435331230284,
+   "model_paper_omega": null,
+   "lookup": 788.4,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-2: 240 ppm Tm2O3, 3.4 mol% Al2O3; Table 4.2: 3H4 absorption peak 787 nm (FWHM 18-19 nm), sample Al-2",
+   "err_model": 1.6435331230284191,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 1.3999999999999773,
+   "hybrid": 788.6435331230284,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 1.6435331230284191,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1632.5,
+   "model": 1709.986320109439,
+   "model_paper_omega": null,
+   "lookup": 1647.5,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-2: 240 ppm Tm2O3, 3.4 mol% Al2O3; Table 4.2-4.4: 3F4 absorption peak 1632.5 nm (FWHM ~180 nm), sample Al-2",
+   "err_model": 77.48632010943902,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 15.0,
+   "hybrid": 1696.6406515100102,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 64.14065151001023,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0207,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.03592870049912302,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-3: 450 ppm Tm2O3, 4.4 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3H4 20.7\u00b10.1 us, sample Al-3",
+   "err_model": 0.33208699006415443,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.23947116408655109,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.428,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.48453366780122,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-3: 450 ppm Tm2O3, 4.4 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3F4 428\u00b12 us, sample Al-3",
+   "err_model": 0.9911377772967758,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.053880190355615,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0226,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.03592870049912302,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-5: 220 ppm Tm2O3, 4.8 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3H4 22.6\u00b10.2 us, sample Al-5",
+   "err_model": 0.29394889637367133,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.2013330703960679,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.448,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.48453366780122,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-5: 220 ppm Tm2O3, 4.8 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3F4 448\u00b13 us, sample Al-5 (Table 5.4 elsewhere lists 367\u00b12 us for Al-5 under a different fit/excitation; ambiguous)",
+   "err_model": 0.9713035323118039,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.03404594537064299,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 787.0,
+   "model": 788.6435331230284,
+   "model_paper_omega": null,
+   "lookup": 788.4,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-5: 220 ppm Tm2O3, 4.8 mol% Al2O3; Table 4.2: 3H4 absorption peak 787 nm, sample Al-5",
+   "err_model": 1.6435331230284191,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 1.3999999999999773,
+   "hybrid": 788.6435331230284,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 1.6435331230284191,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1641.5,
+   "model": 1709.986320109439,
+   "model_paper_omega": null,
+   "lookup": 1647.5,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-5: 220 ppm Tm2O3, 4.8 mol% Al2O3; Table 4.2-4.4: 3F4 absorption peak 1641.5 nm, sample Al-5",
+   "err_model": 68.48632010943902,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 6.0,
+   "hybrid": 1696.6406515100102,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 55.14065151001023,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.0325,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.03592870049912302,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-7: 250 ppm Tm2O3, 9.0 mol% Al2O3; Table 4.5-4.7 / 5.2: 1/e lifetime 3H4 32.5\u00b10.2 us, sample Al-7",
+   "err_model": 0.13617397454219782,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.043558148564594425,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "tau_ms",
+   "measured": 0.573,
+   "model": 4.193547304054467,
+   "model_paper_omega": null,
+   "lookup": 0.48453366780122,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-7: 250 ppm Tm2O3, 9.0 mol% Al2O3; Table 4.5-4.7: 1/e lifetime 3F4 573\u00b13 us, sample Al-7",
+   "err_model": 0.8644269243425579,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.07283066259860294,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 788.0,
+   "model": 788.6435331230284,
+   "model_paper_omega": null,
+   "lookup": 788.4,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-7: 250 ppm Tm2O3, 9.0 mol% Al2O3; Table 4.2: 3H4 absorption peak 788 nm, sample Al-7",
+   "err_model": 0.6435331230284191,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.39999999999997726,
+   "hybrid": 788.6435331230284,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.6435331230284191,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1660.5,
+   "model": 1709.986320109439,
+   "model_paper_omega": null,
+   "lookup": 1647.5,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD solution-doped aluminosilicate fibre Al-7: 250 ppm Tm2O3, 9.0 mol% Al2O3; Table 4.2-4.4: 3F4 absorption peak 1660.5 nm, sample Al-7",
+   "err_model": 49.48632010943902,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -13.0,
+   "hybrid": 1696.6406515100102,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 36.14065151001023,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.058,
+   "model": 0.044468997152671136,
+   "model_paper_omega": null,
+   "lookup": 0.024878828907084632,
+   "lookup_scope": "same family",
+   "src": "Peterka P., Kasik I., Dhar A., Dussardier B., Blanc W., 'Thulium-doped silica fibers with enhanced 3H4 level lifetime: modelling the devices for 800-820 nm band', Proc. SPIE (High-Power Lasers and Applications V, Beijing 2010), doi:10.1117/12.871756; preprint arXiv:1209.3223 [https://arxiv.org/pdf/1209.3223]",
+   "note": "MCVD Tm fibre, 40 ppm mol Tm, highly alumina co-doped (Al2O3 up to 10 mol%, GeO2 up to 4 mol%), OH ~7.5 ppm; text: 3H4 lifetime 58 us (1/e time) in highly alumina-codoped fibre, 40 ppm mol Tm; Ge also present (up to 4 mol%)",
+   "err_model": -0.11537065804186508,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.36759806011494034,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
    "family": "chalcogenide",
    "proxy": false,
    "pair": [
@@ -9221,14 +10248,14 @@
    "measured": 798.0,
    "model": 798.8496564946477,
    "model_paper_omega": null,
-   "lookup": 789.8,
+   "lookup": 788.7866666666666,
    "lookup_scope": "any family",
    "src": "Li, Bian, Jiao, Liu, Dai, Lin, Sci. Rep. 6, 37577 (2016), doi:10.1038/srep37577 [https://www.nature.com/articles/srep37577]",
    "note": "65GeS2-25In2S3-10CsI + 0.1 mol% Tm; chalcohalide sulphide glass; 808 nm excitation; lifetimes = 1/e times, +-5%; approximate (text): 3H6->3H4 absorption ~798 nm, Tm singly doped",
    "err_model": 0.849656494647661,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -8.200000000000045,
+   "err_lookup": -9.213333333333367,
    "hybrid": 798.8496564946477,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.849656494647661,
@@ -9246,14 +10273,14 @@
    "measured": 1.189,
    "model": 0.6728810938953785,
    "model_paper_omega": null,
-   "lookup": 1.2958915677910177,
+   "lookup": 0.7924282555595646,
    "lookup_scope": "any family",
    "src": "Li, Bian, Jiao, Liu, Dai, Lin, Sci. Rep. 6, 37577 (2016), doi:10.1038/srep37577 [https://www.nature.com/articles/srep37577]",
    "note": "65GeS2-25In2S3-10CsI + 0.1 mol% Tm; chalcohalide sulphide glass; 808 nm excitation; lifetimes = 1/e times, +-5%; Tm singly doped, 1804 nm decay 1/e time 1189 us",
    "err_model": -0.24724352862288407,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.03738680935405411,
+   "err_lookup": -0.17622190186775238,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -9271,14 +10298,14 @@
    "measured": 0.172,
    "model": 0.12144169545509763,
    "model_paper_omega": null,
-   "lookup": null,
-   "lookup_scope": null,
+   "lookup": 0.027398232657481644,
+   "lookup_scope": "any family",
    "src": "Li, Bian, Jiao, Liu, Dai, Lin, Sci. Rep. 6, 37577 (2016), doi:10.1038/srep37577 [https://www.nature.com/articles/srep37577]",
    "note": "65GeS2-25In2S3-10CsI + 0.1 mol% Tm; chalcohalide sulphide glass; 808 nm excitation; lifetimes = 1/e times, +-5%; Tm singly doped, 1470 nm decay 172 us (3H4 level)",
    "err_model": -0.15116062510142342,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": null,
+   "err_lookup": -0.7978058976586357,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -9795,14 +10822,14 @@
    "measured": 1690.0,
    "model": 1729.5053614666206,
    "model_paper_omega": null,
-   "lookup": 1642.5,
+   "lookup": 1635.125,
    "lookup_scope": "any family",
    "src": "Kowalska, Kuwik, Pisarska, Pisarski, Materials 15, 3660 (2022), doi:10.3390/ma15103660 [https://rebus.us.edu.pl/bitstream/20.500.12128/23605/1/Kowalska_et_al_Near-IR_Luminescence.pdf]",
    "note": "xTiO2-(60-x)GeO2-30BaO-9.4Ga2O3-0.5Yb2O3-0.1Tm2O3 (mol%), x=10-50; Yb3+ co-doped (0.5 mol% Yb2O3), 0.1 mol% Tm2O3; titanate-germanate (barium gallo-germanate with TiO2), peak positions stated in text, sample within TiO2 series not specified; 3H6->3F4 absorption band",
    "err_model": 39.50536146662057,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -47.5,
+   "err_lookup": -54.875,
    "hybrid": 1798.5611510791366,
    "hybrid_paper_omega": null,
    "err_hybrid": 108.56115107913661,
@@ -9845,14 +10872,14 @@
    "measured": 1580.0,
    "model": 1724.1379310344828,
    "model_paper_omega": null,
-   "lookup": 1676.6666666666667,
-   "lookup_scope": "any family",
+   "lookup": 1576.5,
+   "lookup_scope": "same family",
    "src": "Chen, Jung, Alam, Richardson, Sidharthan, Ho, Yoo, Daniel, Opt. Express 27, 36699 (2019), doi:10.1364/OE.27.036699 [https://eprints.soton.ac.uk/433801/2/oe_27_25_36699.pdf]",
    "note": "Ge/Tm co-doped silica fibre core: ~0.12 wt% Tm, ~19 wt% Ge (EPMA), no Al; text: 'peak absorption of 20 dB/m at 1580 nm' for Ge/Tm fibre (3H6->3F4 band); stated ~70 nm shorter than Al/Tm fibre",
    "err_model": 144.1379310344828,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 96.66666666666674,
+   "err_lookup": -3.5,
    "hybrid": 1724.1379310344828,
    "hybrid_paper_omega": null,
    "err_hybrid": 144.1379310344828,
@@ -9895,17 +10922,92 @@
    "measured": 783.7,
    "model": 789.6399241945672,
    "model_paper_omega": null,
-   "lookup": 791.7777777777778,
-   "lookup_scope": "any family",
+   "lookup": 782.0,
+   "lookup_scope": "same family",
    "src": "Faure, Blanc, Dussardier, Monnom, 'Improvement of the Tm3+:3H4 level lifetime in silica optical fibres by lowering the local phonon energy', arXiv:1003.0166 (author version; published J. Non-Cryst. Solids 353, 2767 (2007) - journal ref not printed in the arXiv text) [https://www.arxiv.org/pdf/1003.0166]",
    "note": "SiO2 fibre core + 20 mol% GeO2, 70 mol ppm Tm (sample Tm(Ge)); 3H6->3H4 peak stated as 12760 cm-1 (Table 2), converted to nm",
    "err_model": 5.9399241945671974,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 8.077777777777783,
+   "err_lookup": -1.7000000000000455,
    "hybrid": 789.6399241945672,
    "hybrid_paper_omega": null,
    "err_hybrid": 5.9399241945671974,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3F4"
+   ],
+   "q": "tau_ms",
+   "measured": 0.028,
+   "model": 0.02271145535290972,
+   "model_paper_omega": null,
+   "lookup": 0.03251948894746449,
+   "lookup_scope": "any family",
+   "src": "Blanc W., Sebastian T.L., Dussardier B., Michel C., Faure B., Ude M., Monnom G., 'Thulium environment in a silica doped optical fibre', J. Non-Cryst. Solids 354, 435-439 (2008) [ref as cited in arXiv:1209.3223], arXiv:0808.3949 [https://arxiv.org/pdf/0808.3949]",
+   "note": "MCVD germanosilicate fibre core, 20 mol% GeO2, no Al, ~50 ppm mol Tm; 3H4 decay (1/e time) 28\u00b13 us; 785 nm pump, fluorescence ~805-810 nm; non-exponential",
+   "err_model": -0.09091306658587005,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.06498568057857802,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "3H4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 782.0,
+   "model": 789.6399241945672,
+   "model_paper_omega": null,
+   "lookup": 783.7,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD germanosilicate fibre Ge-1: 300 ppm Tm2O3, Ge core, Sb co-doped (SbCl4 3.9 mol/L solution); GeO2 content not given; Table 4.3: 3H4 absorption peak 782 nm (FWHM 15 nm), sample Ge-1; Sb co-doped",
+   "err_model": 7.639924194567243,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 1.7000000000000455,
+   "hybrid": 789.6399241945672,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 7.639924194567243,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Tm3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "3F4",
+    "3H6"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 1576.5,
+   "model": 1724.1379310344828,
+   "model_paper_omega": null,
+   "lookup": 1580.0,
+   "lookup_scope": "same family",
+   "src": "Simpson D.A., PhD thesis 'Spectroscopy of Thulium Doped Silica Glass', Victoria University, Melbourne (year not stated in text read) [https://vu-9.eprints-hosting.org/1470/1/da_simpson.pdf]",
+   "note": "MCVD germanosilicate fibre Ge-1: 300 ppm Tm2O3, Ge core, Sb co-doped (SbCl4 3.9 mol/L solution); GeO2 content not given; Table 4.3: 3F4 absorption peak 1576.5 nm, sample Ge-1; Sb co-doped",
+   "err_model": 147.6379310344828,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 3.5,
+   "hybrid": 1724.1379310344828,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 147.6379310344828,
    "err_hybrid_paper_omega": null
   },
   {
@@ -10057,14 +11159,14 @@
    "measured": 789.3,
    "model": 789.3905904641616,
    "model_paper_omega": null,
-   "lookup": 791.7777777777778,
+   "lookup": 790.0,
    "lookup_scope": "any family",
    "src": "Faure, Blanc, Dussardier, Monnom, 'Improvement of the Tm3+:3H4 level lifetime in silica optical fibres by lowering the local phonon energy', arXiv:1003.0166 (author version; published J. Non-Cryst. Solids 353, 2767 (2007) - journal ref not printed in the arXiv text) [https://www.arxiv.org/pdf/1003.0166]",
    "note": "SiO2 fibre core + 8 mol% PO5/2, 200 mol ppm Tm (sample Tm(P)); 3H6->3H4 peak stated as 12670 cm-1 (Table 2), converted to nm",
    "err_model": 0.09059046416166439,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 2.477777777777874,
+   "err_lookup": 0.7000000000000455,
    "hybrid": 789.3905904641616,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.09059046416166439,
@@ -10955,14 +12057,14 @@
    "measured": 1695.0,
    "model": 1734.304543877905,
    "model_paper_omega": null,
-   "lookup": 1641.25,
+   "lookup": 1634.5,
    "lookup_scope": "any family",
    "src": "Wang, Zhang, Dong, Liu, Wen, Yao, Li, Wang, RSC Adv. 9 (2019), doi:10.1039/c8ra09971e [https://pubs.rsc.org/en/content/articlehtml/2019/ra/c8ra09971e]",
    "note": "99(67TeO2-17B2O3-16BaO) + 1Tm2O3 (mol%), Tm single-doped; 3H6->3F4 absorption peak",
    "err_model": 39.30454387790496,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -53.75,
+   "err_lookup": -60.5,
    "hybrid": 1776.8301350390902,
    "hybrid_paper_omega": null,
    "err_hybrid": 81.83013503909024,
@@ -11095,6 +12197,81 @@
   },
   {
    "ion": "Yb3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 1.28e-20,
+   "model": 1.6297997203095004e-20,
+   "model_paper_omega": null,
+   "lookup": 1.4211145636772543e-20,
+   "lookup_scope": "any family",
+   "src": "Peysokhan M., Mobini E., Allahverdi A., Abaie B., Mafi A., 'Laser Cooling Characterization of Yb-Doped ZBLAN Fiber as a Platform for Radiation Balanced Lasers', arXiv:1909.13439 (2019) [https://arxiv.org/pdf/1909.13439]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) multimode fibre, 1% YbF3, Yb 1.453e20 cm^-3; Table I: sigma_abs(975 nm)=1.28e-24 (printed 'm^-2', read as m^2)",
+   "err_model": 0.10492426929072733,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.04541912050150185,
+   "hybrid": 1.6297997203095004e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.10492426929072733,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 1.28e-20,
+   "model": 1.8395864307739837e-20,
+   "model_paper_omega": null,
+   "lookup": 1.1869963200830173e-20,
+   "lookup_scope": "any family",
+   "src": "Peysokhan M., Mobini E., Allahverdi A., Abaie B., Mafi A., 'Laser Cooling Characterization of Yb-Doped ZBLAN Fiber as a Platform for Radiation Balanced Lasers', arXiv:1909.13439 (2019) [https://arxiv.org/pdf/1909.13439]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) multimode fibre, 1% YbF3, Yb 1.453e20 cm^-3; Table I: sigma_em(975 nm)=1.28e-24 (printed 'm^-2', read as m^2); equal to abs at 975 nm",
+   "err_model": 0.157510227806797,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.03276059708764682,
+   "hybrid": 1.8395864307739837e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.157510227806797,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "ZBLAN",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_ms",
+   "measured": 1.7,
+   "model": 0.9711298053187081,
+   "model_paper_omega": null,
+   "lookup": 0.9935627760555219,
+   "lookup_scope": "any family",
+   "src": "Peysokhan M., Mobini E., Allahverdi A., Abaie B., Mafi A., 'Laser Cooling Characterization of Yb-Doped ZBLAN Fiber as a Platform for Radiation Balanced Lasers', arXiv:1909.13439 (2019) [https://arxiv.org/pdf/1909.13439]",
+   "note": "ZBLAN (ZrF4-BaF2-LaF3-AlF3-NaF) multimode fibre, 1% YbF3, Yb 1.453e20 cm^-3; Table I: upper manifold lifetime 1.7 ms (not stated whether measured; EQE 99.6%); 1% YbF3; mean fluorescence wavelength 994.96 nm",
+   "err_model": -0.24317163795235677,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.23325360913404508,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
    "family": "aluminosilicate",
    "proxy": true,
    "pair": [
@@ -11105,14 +12282,14 @@
    "measured": 1.52,
    "model": 0.7876525381680171,
    "model_paper_omega": null,
-   "lookup": 1.3154312933096652,
-   "lookup_scope": "any family",
+   "lookup": 0.83,
+   "lookup_scope": "same family",
    "src": "Krishnaiah K.V., de Lima Filho E.S., Ledemi Y., Nemova G., Messaddeq Y., Kashyap R., Sci. Rep. 6, 21905 (2016), doi:10.1038/srep21905 [https://www.nature.com/articles/srep21905]",
    "note": "30SiO2-15Al2O3-27CdF2-22PbF2-4YF3-2YbF3 (mol%), SYb02 oxyfluoride silicate; SYb02, 2 mol% YbF3, measured (text); longest of series",
    "err_model": -0.28550891110912774,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.0627754186973054,
+   "err_lookup": -0.26276549556869866,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11130,17 +12307,17 @@
    "measured": 975.0,
    "model": 976.7532721234617,
    "model_paper_omega": null,
-   "lookup": 975.3333333333334,
-   "lookup_scope": "any family",
+   "lookup": 976.0,
+   "lookup_scope": "same family",
    "src": "Krishnaiah K.V., de Lima Filho E.S., Ledemi Y., Nemova G., Messaddeq Y., Kashyap R., Sci. Rep. 6, 21905 (2016), doi:10.1038/srep21905 [https://www.nature.com/articles/srep21905]",
    "note": "30SiO2-15Al2O3-27CdF2-22PbF2-4YF3-2YbF3 (mol%), SYb02 oxyfluoride silicate; SYb02, broad band centered at 975 nm (text)",
    "err_model": 1.7532721234616702,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.33333333333337123,
-   "hybrid": 976.7532721234617,
+   "err_lookup": 1.0,
+   "hybrid": 975.9906304899473,
    "hybrid_paper_omega": null,
-   "err_hybrid": 1.7532721234616702,
+   "err_hybrid": 0.9906304899473071,
    "err_hybrid_paper_omega": null
   },
   {
@@ -11155,14 +12332,164 @@
    "measured": 0.19,
    "model": 0.7876525381680171,
    "model_paper_omega": null,
-   "lookup": 1.3154312933096652,
-   "lookup_scope": "any family",
+   "lookup": 0.83,
+   "lookup_scope": "same family",
    "src": "Krishnaiah K.V., de Lima Filho E.S., Ledemi Y., Nemova G., Messaddeq Y., Kashyap R., Sci. Rep. 6, 21905 (2016), doi:10.1038/srep21905 [https://www.nature.com/articles/srep21905]",
    "note": "30SiO2-15Al2O3-9CdF2-22PbF2-4YF3-20YbF3 (mol%), SYb20; SYb20, 20 mol% YbF3, strongly concentration-quenched (text)",
    "err_model": 0.6175810758828159,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.8403145682946382,
+   "err_lookup": 0.6403244914232449,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 976.0,
+   "model": 976.7532721234617,
+   "model_paper_omega": null,
+   "lookup": 975.0,
+   "lookup_scope": "same family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD aluminosilicate fibre core: Al2O3 1-2 wt%, Yb 1-3 wt%, small GeO2 (delta n 0.00815); room-temperature absorption peak (zero-phonon line); text",
+   "err_model": 0.7532721234616702,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -1.0,
+   "hybrid": 976.7532721234617,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.7532721234616702,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "em_peak_nm",
+   "measured": 976.0,
+   "model": 976.7532721234617,
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD aluminosilicate fibre core: Al2O3 1-2 wt%, Yb 1-3 wt%, small GeO2 (delta n 0.00815); text: emission and absorption peaks coincide within 0.5 nm; main (zero-phonon) emission peak",
+   "err_model": 0.7532721234616702,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": null,
+   "hybrid": 976.7532721234617,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.7532721234616702,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 2.7e-20,
+   "model": 1.8376135616222937e-20,
+   "model_paper_omega": null,
+   "lookup": 1.2277177707639443e-20,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD aluminosilicate fibre core: Al2O3 1-2 wt%, Yb 1-3 wt%, small GeO2 (delta n 0.00815); final adopted peak value (Table 6 average of small-signal, saturation and McCumber methods), 2.7 pm^2",
+   "err_model": -0.1671095768588295,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.34226522201760856,
+   "hybrid": 1.8376135616222937e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.1671095768588295,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 3e-20,
+   "model": 2.1517546047789522e-20,
+   "model_paper_omega": null,
+   "lookup": 1.1704016399446649e-20,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD aluminosilicate fibre core: Al2O3 1-2 wt%, Yb 1-3 wt%, small GeO2 (delta n 0.00815); final adopted peak value at ~976 nm, 3.0 pm^2 (sigma_em/sigma_abs=1.1)",
+   "err_model": -0.14432851368591454,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.40878633307675905,
+   "hybrid": 2.1517546047789522e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.14432851368591454,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_ms",
+   "measured": 0.83,
+   "model": 0.7876525381680171,
+   "model_paper_omega": null,
+   "lookup": 0.5374011537017761,
+   "lookup_scope": "same family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD aluminosilicate fibre core: Al2O3 1-2 wt%, Yb 1-3 wt%, small GeO2 (delta n 0.00815); fluorescence decay, short samples low pump; Yb 1-3 wt% (not strictly low concentration; Yb weakly quenched); spread ~4% between fibres",
+   "err_model": -0.022743415540429066,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.18877949792727317,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "aluminosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_rad_ms",
+   "measured": 0.765,
+   "model": 0.7876525382112504,
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Knall J.M., Engholm M., Boilard T., Bernier M., Digonnet M.J.F., 'A Radiation-Balanced Silica Fiber Amplifier', arXiv:2103.02698 (2021) [https://arxiv.org/pdf/2103.02698]",
+   "note": "aluminosilicate fibre core, 2.52 wt% Yb (1.93e20 cm^-3), 2.00 wt% Al; 21 um core, NA 0.13; text: 'relatively short upper-state lifetime of the Yb ions (765 us)', treated as almost purely radiative (quenching lifetime 38 ms); heavily doped fibre so recorded as tau_rad not tau_ms; mean fluorescence wavelength 1003.9 nm",
+   "err_model": 0.012673241705865075,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": null,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11180,14 +12507,14 @@
    "measured": 2.25,
    "model": 0.9771954942010624,
    "model_paper_omega": null,
-   "lookup": 0.8925363644018417,
+   "lookup": 0.9685646660815003,
    "lookup_scope": "any family",
    "src": "Kochanowicz M., Zmojda J., Baranowska A., Kuwik M., Starzyk B., Lesniak M., Miluski P., Pisarski W.A., Pisarska J., Dorosz J., Ferrari M., Dorosz D., Sensors 21, 2155 (2021), doi:10.3390/s21062155 [https://www.mdpi.com/1424-8220/21/6/2155]",
    "note": "37.2InF3-20ZnF2-20SrF2-16BaF2-4GaF3-2LaF3-0.8YbF3 (mol%), singly Yb-doped (y=0 inferred from series formula); singly Yb3+-doped fluoroindate, single-exponential fit (text); YbF3 = 0.8 mol% inferred from series (x fixed at 0.8) - label not explicit; may include radiation trapping",
    "err_model": -0.36220106231520954,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.4015565986074333,
+   "err_lookup": -0.3660538964792326,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11205,14 +12532,14 @@
    "measured": 1.38,
    "model": 0.729974823863274,
    "model_paper_omega": null,
-   "lookup": 0.9260932433999907,
+   "lookup": 0.9947026843145438,
    "lookup_scope": "any family",
    "src": "Kowalska K., Pisarska J., Pisarski W.A., Materials 17, 5874 (2024), doi:10.3390/ma17235874 [https://www.mdpi.com/1996-1944/17/23/5874]",
    "note": "60GeO2-30BaO-9.5Ga2O3-0.5Yb2O3 (mol%), x=0 reference of xTiO2-(60-x)GeO2-30BaO-9.5Ga2O3-0.5Yb2O3; x=0 (no TiO2), 0.5 mol% Yb2O3, measured luminescence lifetime (text)",
    "err_model": -0.27657120442571587,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.1732243707177863,
+   "err_lookup": -0.14218579646652602,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11255,14 +12582,89 @@
    "measured": 1.21,
    "model": 0.729974823863274,
    "model_paper_omega": null,
-   "lookup": 0.9260932433999907,
+   "lookup": 0.9947026843145438,
    "lookup_scope": "any family",
    "src": "Kowalska K., Pisarska J., Pisarski W.A., Materials 17, 5874 (2024), doi:10.3390/ma17235874 [https://www.mdpi.com/1996-1944/17/23/5874]",
    "note": "10TiO2-50GeO2-30BaO-9.5Ga2O3-0.5Yb2O3 (mol%), x=10; x=10 TiO2, 0.5 mol% Yb2O3 (text: decreases 1.21 -> 0.80 ms for x=10 -> 50)",
    "err_model": -0.21947748834092945,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.11613065463299992,
+   "err_lookup": -0.08509208038173963,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_ms",
+   "measured": 0.945,
+   "model": 0.7719889118159498,
+   "model_paper_omega": null,
+   "lookup": 1.0881363165298015,
+   "lookup_scope": "any family",
+   "src": "Paschotta R., Nilsson J., Barber P.R., Caplen J.E., Tropper A.C., Hanna D.C., 'Lifetime Quenching in Yb Doped Fibres', ORC Southampton (journal not stated in the eprint text read) [https://eprints.soton.ac.uk/78060/1/1245.pdf]",
+   "note": "germanosilicate + boron fibre 1, 1200 ppm Yb, NA 0.15, cut-off 900 nm; Table 1: fibre 1, measured exponential decay 945 us (normal fluorescence); ~20% of ions quenched per text",
+   "err_model": -0.08782074596074219,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.06125149660316308,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 976.0,
+   "model": 976.3718023823471,
+   "model_paper_omega": null,
+   "lookup": 975.25,
+   "lookup_scope": "any family",
+   "src": "Paschotta R., Nilsson J., Barber P.R., Caplen J.E., Tropper A.C., Hanna D.C., 'Lifetime Quenching in Yb Doped Fibres', ORC Southampton (journal not stated in the eprint text read) [https://eprints.soton.ac.uk/78060/1/1245.pdf]",
+   "note": "germanosilicate + boron fibre 1, 1200 ppm Yb, NA 0.15, cut-off 900 nm; text: 'the main absorption peak at 976 nm' (germanosilicate)",
+   "err_model": 0.37180238234714125,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.75,
+   "hybrid": 976.3718023823471,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.37180238234714125,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "germanosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_ms",
+   "measured": 0.72,
+   "model": 0.7719889118159498,
+   "model_paper_omega": null,
+   "lookup": 1.0881363165298015,
+   "lookup_scope": "any family",
+   "src": "Paschotta R., Nilsson J., Barber P.R., Caplen J.E., Tropper A.C., Hanna D.C., 'Lifetime Quenching in Yb Doped Fibres', ORC Southampton (journal not stated in the eprint text read) [https://eprints.soton.ac.uk/78060/1/1245.pdf]",
+   "note": "germanosilicate fibre 6, 2200 ppm Yb, NA 0.31; Table 1: fibre 6, 720 us; paper attributes reduced lifetimes to quenching, use with caution",
+   "err_model": 0.030278566117252326,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.17935080868115758,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11305,14 +12707,14 @@
    "measured": 1.09e-20,
    "model": 1.1765528271172712e-20,
    "model_paper_omega": null,
-   "lookup": 2.3999999999999948e-20,
+   "lookup": 1.8459853615523043e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS9",
    "err_model": 0.03318493379280135,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.34278474377098145,
+   "err_lookup": 0.2288017548585521,
    "hybrid": 1.1765528271172712e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.03318493379280135,
@@ -11330,14 +12732,14 @@
    "measured": 1.46e-20,
    "model": 1.2440624650232631e-20,
    "model_paper_omega": null,
-   "lookup": 8.000000000000001e-21,
+   "lookup": 1.1465584125719933e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS9",
    "err_model": -0.06951066873040662,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.26126286879249344,
+   "err_lookup": -0.10495667058548874,
    "hybrid": 1.2440624650232631e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": -0.06951066873040662,
@@ -11355,14 +12757,14 @@
    "measured": 1.17,
    "model": 1.321549227637901,
    "model_paper_omega": null,
-   "lookup": 0.9953107518533628,
+   "lookup": 1.0278896651213019,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS9, 1 mol% Yb2O3",
    "err_model": 0.05289748346905437,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.0702271661813657,
+   "err_lookup": -0.05623936226264976,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
@@ -11380,14 +12782,14 @@
    "measured": 9.8e-21,
    "model": 1.1765528271172712e-20,
    "model_paper_omega": null,
-   "lookup": 2.3999999999999948e-20,
+   "lookup": 1.8459853615523043e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS16",
    "err_model": 0.07938535604093012,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.3889851660191102,
+   "err_lookup": 0.2750021771066809,
    "hybrid": 1.1765528271172712e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.07938535604093012,
@@ -11405,14 +12807,14 @@
    "measured": 1.3e-20,
    "model": 1.2440624650232631e-20,
    "model_paper_omega": null,
-   "lookup": 8.000000000000001e-21,
+   "lookup": 1.1465584125719933e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS16",
    "err_model": -0.019101165252806286,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.21085336531489315,
+   "err_lookup": -0.054547167107888414,
    "hybrid": 1.2440624650232631e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": -0.019101165252806286,
@@ -11430,14 +12832,14 @@
    "measured": 8.5e-21,
    "model": 1.1765528271172712e-20,
    "model_paper_omega": null,
-   "lookup": 2.3999999999999948e-20,
+   "lookup": 1.8459853615523043e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS26.7",
    "err_model": 0.1411925060191323,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": 0.45079231599731234,
+   "err_lookup": 0.3368093270848831,
    "hybrid": 1.1765528271172712e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.1411925060191323,
@@ -11455,14 +12857,14 @@
    "measured": 1.13e-20,
    "model": 1.2440624650232631e-20,
    "model_paper_omega": null,
-   "lookup": 8.000000000000001e-21,
+   "lookup": 1.1465584125719933e-20,
    "lookup_scope": "any family",
    "src": "Wang et al., Materials 10, 241 (2017), doi:10.3390/ma10030241",
    "note": "BPS26.7",
    "err_model": 0.0417637435706107,
    "err_model_paper_omega": null,
    "agent": false,
-   "err_lookup": -0.14998845649147613,
+   "err_lookup": 0.006317741715528586,
    "hybrid": 1.2440624650232631e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.0417637435706107,
@@ -11520,6 +12922,156 @@
   },
   {
    "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "abs_peak_nm",
+   "measured": 974.5,
+   "model": 976.1811792268645,
+   "model_paper_omega": null,
+   "lookup": 975.4,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); room-temperature absorption peak; text",
+   "err_model": 1.681179226864515,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.8999999999999773,
+   "hybrid": 976.1811792268645,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 1.681179226864515,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "em_peak_nm",
+   "measured": 974.5,
+   "model": 976.1811792268645,
+   "model_paper_omega": null,
+   "lookup": null,
+   "lookup_scope": null,
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); text: emission and absorption peaks coincide within 0.5 nm",
+   "err_model": 1.681179226864515,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": null,
+   "hybrid": 976.1811792268645,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 1.681179226864515,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_abs_cm2",
+   "measured": 1.4e-20,
+   "model": 1.1801052921538492e-20,
+   "model_paper_omega": null,
+   "lookup": 1.2277177707639443e-20,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); final adopted peak value (Table 6), 1.4 pm^2",
+   "err_model": -0.07420727772688782,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.05702949353685932,
+   "hybrid": 1.1801052921538492e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.07420727772688782,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 1.5e-20,
+   "model": 1.2727653356257916e-20,
+   "model_paper_omega": null,
+   "lookup": 1.1704016399446649e-20,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); final adopted peak value, 1.5 pm^2 (ratio 1.08)",
+   "err_model": -0.07134292047454491,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.10775633741277786,
+   "hybrid": 1.2727653356257916e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.07134292047454491,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "sigma_em_cm2",
+   "measured": 4.3e-21,
+   "model": 1.2727653356257916e-20,
+   "model_paper_omega": null,
+   "lookup": 1.1704016399446649e-20,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); Appendix 2 tabulated emission cross section at 1020 nm (0.43 pm^2)",
+   "err_model": 0.47127988300154994,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": 0.43486646606331686,
+   "hybrid": 1.2727653356257916e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.47127988300154994,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
+   "family": "phosphosilicate",
+   "proxy": false,
+   "pair": [
+    "2F5/2",
+    "2F7/2"
+   ],
+   "q": "tau_ms",
+   "measured": 1.45,
+   "model": 1.4806127416300272,
+   "model_paper_omega": null,
+   "lookup": 1.027815413279297,
+   "lookup_scope": "any family",
+   "src": "Melkumov M.A., Bufetov I.A., Kravtsov K.S., Shubin A.V., Dianov E.M., 'Absorption and emission cross section of Yb3+ ions in Al2O3 and P2O5 doped fibers', FORC Preprint No.5 (2004), arXiv:1502.02885; concise version Quantum Electron. 34(9), 843-848 (2004) [https://arxiv.org/pdf/1502.02885]",
+   "note": "MCVD phosphosilicate fibre core: P2O5 4-10 wt%, Yb 1-8 wt% (delta n 0.012-0.0166); fluorescence decay; Yb 1-8 wt% (not strictly low concentration); spread ~4%",
+   "err_model": 0.009073480212127427,
+   "err_model_paper_omega": null,
+   "agent": true,
+   "err_lookup": -0.14945287608960064,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
+  },
+  {
+   "ion": "Yb3+",
    "family": "silica",
    "proxy": false,
    "pair": [
@@ -11530,14 +13082,14 @@
    "measured": 2.4e-20,
    "model": 1.863966181812651e-20,
    "model_paper_omega": null,
-   "lookup": 9.683309946557293e-21,
+   "lookup": 1.2797610205837415e-20,
    "lookup_scope": "any family",
    "src": "Wang S., Lou F., Wang M., Yu C., Feng S., Zhou Q., Chen D., Hu L., Fibers 1, 93-100 (2013), doi:10.3390/fib1030093 [https://www.mdpi.com/2079-6439/1/3/93/htm]",
    "note": "0.1Yb2O3-1.0Al2O3-98.9SiO2 (mol%), sol-gel core glass; 0.1 mol% Yb2O3, peak at 976 nm, 2.4 pm2 (Table 1/text)",
    "err_model": -0.10977321308494573,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -0.39418740859580176,
+   "err_lookup": -0.27308236357285626,
    "hybrid": 1.863966181812651e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": -0.10977321308494573,
@@ -11555,14 +13107,14 @@
    "measured": 976.0,
    "model": 976.5625,
    "model_paper_omega": null,
-   "lookup": 975.0,
+   "lookup": 975.25,
    "lookup_scope": "any family",
    "src": "Wang S., Lou F., Wang M., Yu C., Feng S., Zhou Q., Chen D., Hu L., Fibers 1, 93-100 (2013), doi:10.3390/fib1030093 [https://www.mdpi.com/2079-6439/1/3/93/htm]",
    "note": "0.1Yb2O3-1.0Al2O3-98.9SiO2 (mol%), sol-gel core glass; 0.1 mol% Yb2O3 (text)",
    "err_model": 0.5625,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": -1.0,
+   "err_lookup": -0.75,
    "hybrid": 976.5625,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.5625,
@@ -11580,14 +13132,14 @@
    "measured": 8e-21,
    "model": 2.1734512472722403e-20,
    "model_paper_omega": null,
-   "lookup": 1.289609480572803e-20,
+   "lookup": 1.2694317901805768e-20,
    "lookup_scope": "any family",
    "src": "Wang S., Lou F., Wang M., Yu C., Feng S., Zhou Q., Chen D., Hu L., Fibers 1, 93-100 (2013), doi:10.3390/fib1030093 [https://www.mdpi.com/2079-6439/1/3/93/htm]",
    "note": "0.1Yb2O3-1.0Al2O3-98.9SiO2 (mol%), sol-gel core glass; 0.1 mol% Yb2O3, 'near 1025 nm' 0.8 pm2 (text); not the 976 nm zero-line peak",
    "err_model": 0.4340599159760862,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.20736823019962336,
+   "err_lookup": 0.2005193830905532,
    "hybrid": 2.1734512472722403e-20,
    "hybrid_paper_omega": null,
    "err_hybrid": 0.4340599159760862,
@@ -11605,14 +13157,14 @@
    "measured": 0.896,
    "model": 0.7767359022770465,
    "model_paper_omega": null,
-   "lookup": 1.0405708866038157,
+   "lookup": 1.0531272481886174,
    "lookup_scope": "any family",
    "src": "Wang S., Lou F., Wang M., Yu C., Feng S., Zhou Q., Chen D., Hu L., Fibers 1, 93-100 (2013), doi:10.3390/fib1030093 [https://www.mdpi.com/2079-6439/1/3/93/htm]",
    "note": "0.1Yb2O3-1.0Al2O3-98.9SiO2 (mol%), sol-gel core glass; 0.1 mol% Yb2O3, fluorescence lifetime at 1025 nm, 896 us (bulk core glass presumably)",
    "err_model": -0.062034630089600334,
    "err_model_paper_omega": null,
    "agent": true,
-   "err_lookup": 0.06496366125001016,
+   "err_lookup": 0.07017284001084445,
    "hybrid": null,
    "hybrid_paper_omega": null,
    "err_hybrid": null,
