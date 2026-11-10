@@ -33,10 +33,12 @@ MAIN = {
 }
 KNOWN_BIAS = [
     dict(ion="*", families=("*",), pair=None,
-         text="external open-access benchmark (forward_results/oa_benchmark.md): emission peaks typically "
-              "2-8 nm off for Er/Nd/Ho/Yb (Tm 3F4 up to ~90 nm); emission widths ~20 nm; peak cross "
-              "sections ~0.19 dex (0.14 dex given the glass's measured Omegas); radiative lifetimes 0.12 dex "
-              "(0.015 dex given measured Omegas).  Supplying measured Omegas is the single largest improvement."),
+         text="external open-access benchmark, 440 values from ~90 papers (forward_results/oa_benchmark.md; "
+              "median errors): absorption peaks 2.9 nm, emission peaks 12 nm (8.5 nm without Tm), emission FWHM "
+              "29 nm, peak cross sections 0.11 dex (abs) / 0.19 dex (em; 0.14 with library Omegas), radiative "
+              "lifetimes 0.13 dex (0.085 with library Omegas, 0.047 with the glass's own measured Omegas), "
+              "measured lifetimes 0.32 dex (concentration and OH quenching vary by sample).  Supplying measured "
+              "Omegas is the single largest improvement."),
     dict(ion="Tm3+", families=("silica", "aluminosilicate", "germanosilicate", "phosphosilicate"),
          pair=("3F4", "3H6"),
          text="3H6->3F4 absorption peak is ~60-150 nm too long and its composition trend is not "
@@ -112,6 +114,33 @@ def _setup():
         _READY = True
 
 
+_LIB = None
+
+
+def library_omegas(ion, family):
+    """Geometric-mean Judd-Ofelt Omegas of this ion in this glass family over the open-access papers in
+    refs/oa_benchmark_refs.py + refs/data/oa_records.jsonl: (omegas, n_papers) or (None, 0).  On the
+    external benchmark (leave-one-paper-out) the model with these Omegas cuts the tau_rad error from
+    0.135 to 0.085 dex and sigma_em from 0.19 to 0.14 dex (ml_results/RESULTS.md, round 5)."""
+    global _LIB
+    if _LIB is None:
+        _LIB = {}
+        try:
+            from ..refs.oa_benchmark_refs import RECORDS
+            from ..refs.oa_agent_data import load_oa
+            recs = list(RECORDS) + load_oa()[0]
+        except Exception:
+            recs = []
+        for r in recs:
+            if r.get("q") == "omegas":
+                _LIB.setdefault((r["ion"], r["family"]), {})[str(r["src"]).split(" [")[0]] = tuple(r["value"])
+    d = _LIB.get((ion, family))
+    if not d:
+        return None, 0
+    v = np.maximum(np.array(list(d.values()), float), 1e-3)
+    return tuple(float(x) for x in np.exp(np.mean(np.log(v), axis=0))), len(d)
+
+
 def _fwhm_local(nu, y):
     """FWHM (nm) of the contiguous region around the maximum that stays above half maximum."""
     i = int(np.argmax(y)); h = y[i] / 2
@@ -125,7 +154,7 @@ def _fwhm_local(nu, y):
 
 
 def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorption=None, pairs=None,
-            composition=None, omegas=None):
+            composition=None, omegas=None, use_library=True):
     """family: one of glass.FAMILIES, or give composition= (dict of mol%, or a formula such as
     '70TeO2-15K2O-15Nb2O5'); the family is then chosen by gainmat.forward.composition.family_for."""
     _setup()
@@ -146,8 +175,13 @@ def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorpti
             ov["N_cm3"] = N_cm3
         if measured_absorption:
             ov["measured_absorption"] = measured_absorption
+        lib_n = 0
         if omegas is not None:
             ov["omegas"] = tuple(float(x) for x in omegas)
+        elif use_library:
+            lo, lib_n = library_omegas(ion, family)
+            if lo:
+                ov["omegas"] = lo
         r = g.run(ion, family, n_sites=n_sites, overrides=ov or None)
     finally:
         g.USE_ML = old_ml
@@ -161,7 +195,8 @@ def predict(ion, family=None, N_cm3=None, ml=None, n_sites=60, measured_absorpti
     prov = dict(
         stark=("measured levels: " + anc["src"]) if anchored else
         "crystal-field model (handbook superposition parameters x Er-calibrated O/F scale, random sites)",
-        omegas=dict(values=list(map(float, r["omegas"])), source="supplied by user" if omegas is not None else r["omega_src"]),
+        omegas=dict(values=list(map(float, r["omegas"])), source="supplied by user" if omegas is not None else
+                    (f"open-access library: geometric mean over {lib_n} papers on {ion} in {family}" if lib_n else r["omega_src"])),
         ml_layer=bool(g.USE_ML if ml is None else ml),
         measured_absorption=bool(measured_absorption),
         refractive_index=fam["n"], max_phonon_cm1=fam["hw_max"])

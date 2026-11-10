@@ -888,3 +888,37 @@ Test: Tm ³H₄ in 75TeO₂–20ZnO–5Na₂O (Taher, PhD thesis, Swansea 2011; 
 
 Also: the ion models are now cached on disk (`ions.get_ion`): building the 4f⁹ (Dy) model peaked at
 2.8 GB and killed the benchmark twice; the cached model peaks at 0.45 GB.
+
+### 5.9 External benchmark on 440 values, and the data library as a model input (`forward_results/oa_benchmark.md`)
+
+With the agent records the open-access benchmark grows from 246 to 440 values (99 hand + 341 agent,
+~90 papers, all seven ions, ten families).  Median absolute errors; "lookup" = mean of the same
+quantity for the same ion/transition/family in OTHER papers; "library Ω" = the model given the
+geometric-mean Ω of the same ion and family from other papers (still leave-one-paper-out).
+
+| quantity | model (own Ω) | model + library Ω | model + paper's Ω | lookup |
+|---|---|---|---|---|
+| absorption peak (nm) | 2.9 | 3.7* | 4.6 (n=14) | 2.0 |
+| emission peak (nm) | 12.0 | 12.2* | 12.4 (n=31) | 13.5 |
+| emission FWHM (nm) | 29 | 28* | 19 (n=10) | 24 |
+| σ_abs peak (dex) | 0.112 | 0.115* | — | 0.173 |
+| σ_em peak (dex) | 0.188 | **0.144*** | 0.150 | 0.072 |
+| τ_rad (dex) | 0.135 | **0.085*** | **0.047** (n=51) | 0.122 |
+| τ measured (dex) | 0.318 | 0.266* | 0.20 | 0.167 |
+| refractive index | 0.070 | — | — | 0.131 |
+| Ω (dex) | 0.119 | (= lookup) | — | 0.074 |
+
+\* on the rows where a lookup exists.
+
+- The larger set is a harder test than the first 246 values: it adds many Tm fibre absorption peaks
+  (the known Tm ³F₄ band-position bias; Simpson, Chen, Cajzl: model 1710–1724 nm vs measured
+  1577–1650 nm) and Pr chalcogenide bands (+75–170 nm), which move the absorption-peak median
+  from 1.8 to 2.9 nm.
+- The model alone beats lookup on emission peak, σ_abs and n; lookup wins on σ_em and Ω.
+- **Adopted:** physics + data.  Feeding the model the library Ω makes it beat lookup on τ_rad
+  (0.085 vs 0.122 dex) and cuts σ_em and τ errors by 25% and 16%.  `predict()` now uses the
+  library Ω by default when the library has the ion in that family (provenance says how many papers),
+  the user's own Ω when given (τ_rad then 0.047 dex), and the old defaults otherwise.
+- Measured lifetimes stay the weakest quantity (0.27–0.32 dex vs 0.17 for lookup): they carry each
+  sample's concentration and OH quenching.  §5.8 covers the cross-relaxation part when N is known;
+  OH/defect quenching is not modelled.
