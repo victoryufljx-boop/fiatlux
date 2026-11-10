@@ -315,3 +315,51 @@ Numbers are in `gainmat/refs/simpson_malouf_refs.py`; none of them were used in 
       500 cm⁻¹ in Ge-silica, but not a full set.
     - The 3H4 lifetime (about 20 µs) shows no concentration dependence from 20 to 12 000 ppm,
       consistent with the corrected L3.
+
+## Round 3: MD glass sites and a crystal field learned across ions (interim, `ml_results/md_cf/`)
+
+**Sites.** Pedone-potential melt-quench MD of Er-doped silica glasses, run as four cloud sessions
+(branches `md2/*`). Quench: 10 K/ps to 300 K, about 3000 atoms, 8 Er per box. Interim site sets:
+
+| glass | site snapshots | Er–O (Å) | CN |
+|---|---|---|---|
+| pure silica | 80 | 2.34 ± 0.23 | 4.95 |
+| 3.4 % Al₂O₃ | 320 | 2.36 ± 0.24 | 5.0 |
+| 10 % GeO₂ | 160 | 2.38 ± 0.28 | 4.9 |
+
+Measured: Er–O ≈ 2.25 Å, CN ≈ 6. The glass network checks pass: Si–O 1.61 Å, O–Si–O 109°,
+Si–O–Si 153°.
+
+**The MD sites alone, with the handbook crystal field, don't fix anything**
+(`forward_results/md_sites_validation_interim.json`).
+- The Yb ²F₅/₂ gap rises from about 245 to about 370 cm⁻¹ (measured 630).
+- The Tm ³F₄ absorption peak stays at 1730–1750 nm (measured 1578–1660). The measured
+  Ge-silica peak is bluer than the Al-silica one; the model has it redder.
+
+**On the MD sites the rank balance becomes identifiable** (`gainmat/ml/md_cf_fit.py`).
+Parameters: overall scale s and multipliers r2, r6 on the handbook B2, B6. Targets:
+- Er ⁴I₁₅/₂ levels and totals (Desurvire, Zemon);
+- Yb ²F₇/₂ levels and ²F₅/₂ gap (Newell);
+- Tm ³F₄ absorption peak and width (Simpson Al 3.4 %) and emission peak (Agger).
+
+Leave-one-ion-out results (χ² of the held-out ion, handbook → fitted on the other two):
+
+| held out | fitted (s, r2, r6) | held-out χ² | held-out quantities |
+|---|---|---|---|
+| Tm | 0.76, 2.36, 1.86 | 135 → **43** | Al-silica abs 1742 → 1689 nm (1632); em 1789 → 1804 (1825); Ge-silica 1748 → 1660 (1578), now **bluer than Al-silica, as measured** |
+| Yb | 1.03, 1.80, 1.67 | 41 → **31** | ²F₅/₂ gap 384 → 497 (630); ²F₇/₂ 0/425/706/955 (0/425/530/865) |
+| Er | 1.10, 1.43, 2.86 | 22 → 73 (worse) | ⁴I₁₅/₂ total 646 (420) |
+
+- Two of three held-out ions improve. Er fails because Er is the only ion that pins B6: Yb ²F₇/₂
+  has almost no B6 sensitivity, so without Er, r6 drifts. That is a gap in what the data can
+  identify, not evidence against the rule.
+- All three ions agree on B2 being about 1.4–2.4x the handbook value relative to B4: real oxygen
+  sites in silica carry a stronger rank-2 (axial) field than the crystal-derived intrinsic
+  parameters assume.
+- Never fitted: the Er σe/σa vs Giles error (+0.12 → +0.12–0.14 dex) and the Yb zero-phonon line
+  (966–968 vs 976 nm) don't change. Those still need something else.
+- The composition trend direction comes out right in 2 of the 4 fits (minus-Tm and minus-Yb), so
+  it is fragile.
+
+Final site sets, including 9 % Al₂O₃ as another never-fitted composition, will replace these
+interim results.
