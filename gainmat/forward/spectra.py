@@ -276,7 +276,7 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
     hg = gamma_h / 2.0
     e_free = np.array([mm["energy"] for mm in m.multiplets])
     rng_n = np.random.default_rng(10007 + seed)
-    if intensity is not None:
+    if intensity is not None and intensity != "uniform":
         Bs = [intensity_B(lig, intensity.get("ratio"), intensity.get("tau"), intensity.get("R0", 2.3)) for lig in sites]
         oms = [site_omegas(b) for b in Bs]
         iscale = {lam: O[i] / max(np.mean([o[lam] for o in oms]), 1e-300) for i, lam in enumerate((2, 4, 6))}
@@ -291,9 +291,18 @@ def ensemble_spectra(ion: str, sites, spm: dict, omegas, n_index: float, pairs=N
             E = E + (energy_scale - 1.0) * e_free[par]
         Uw = {lam: [W.conj().T @ Uq @ W for Uq in m.Uq[lam]] for lam in (2, 4, 6)}
         Mw = [W.conj().T @ Mq @ W for Mq in m.MDq]
-        if intensity is None:
+        if intensity is None or intensity == "uniform":
             S_ed = sum(O[i] * sum(np.abs(X) ** 2 for X in Uw[lam])
                        for i, lam in enumerate((2, 4, 6))) * E_ESU ** 2
+            if intensity == "uniform":       # every Stark component of a multiplet pair equally strong;
+                S_ed = S_ed.copy()           # the pair's total line strength (hence tau_rad) is unchanged
+                for ia_ in range(len(m.multiplets)):
+                    a_i = np.where(par == ia_)[0]
+                    for ib_ in range(ia_):
+                        b_i = np.where(par == ib_)[0]
+                        if len(a_i) and len(b_i):
+                            blk = S_ed[np.ix_(a_i, b_i)]; S_ed[np.ix_(a_i, b_i)] = blk.mean()
+                            S_ed[np.ix_(b_i, a_i)] = blk.mean()
         else:
             S_ed = aniso_S(Uw, Bs[isite], iscale) * E_ESU ** 2
         S_md = sum(np.abs(X) ** 2 for X in Mw) * MU_B_ESU ** 2

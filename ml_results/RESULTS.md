@@ -708,3 +708,33 @@ tellurite; Sontakke Nd in Ba-Al metaphosphate).** Full table in `forward_results
 The gain with the model's own Ω only offsets Ω errors. Given measured Ω, the sideband makes peak
 cross sections worse. So a uniform sideband is not the missing piece for widths. The far tails
 (Yb > 1080 nm; multi-phonon transfer) need an ion-specific vibronic treatment.
+
+## Round 5 (Nov 10, 03:00–08:00): papers supplied by the user (Gruber 1989, Yang 2014, Turri 2008)
+
+### 5.1 Tm:YAG settles the "Tm = Er" question (`scripts/validate_tm_yag.py`, `ml_results/tm_yag/`, `refs/tm_yag_refs.py`)
+
+- **Machinery check.** Gruber's fitted B_kq go through our Tm Hamiltonian and reproduce his
+  calculated Stark patterns to a few cm⁻¹; the rms against his measured levels is 16 cm⁻¹ (his own
+  fit: 11). Our free-ion centroids of ³F₄ and ³H₄ sit about 70 cm⁻¹ above YAG's.
+- **The handbook superposition parameters (copied from Er:YAG, never fitted to Tm) on the real YAG
+  site** (8 O at 2.303 / 2.432 Å) reproduce the measured Tm:YAG multiplet splittings:
+
+  | multiplet | predicted splitting (cm⁻¹) | measured (cm⁻¹) |
+  |---|---|---|
+  | ³H₆ | 782 | 730 |
+  | ³F₄ | 679 | 677 |
+  | ³H₅ | 546 | 543 |
+  | ³H₄ | 523 | 552 |
+
+  Level rms is 55 cm⁻¹. Fitting the Tm intrinsics instead gives ratios to Er of 0.89 / 0.93 / 1.22
+  (ranks 2 / 4 / 6).
+- **So "Tm = Er" holds in an oxide.** The Tm ³F₄ error in silica is not a Tm crystal-field
+  strength problem; this withdraws the round-3 reading that "Tm needs about 2× the field".
+- **Line intensities.** For ground-state absorption into the ³F₄ components (Gruber, 15 K), neither
+  intensity rule matches the measured pattern (log correlation: isotropic per-component Judd–Ofelt
+  0.34, site-derived odd-rank 0.28). The site-derived rule does zero the symmetry-forbidden lines.
+- **An equal-strength rule** (`intensity="uniform"`, every component of a multiplet pair equally
+  strong) leaves the silica Tm ³F₄ absorption peak at 1711 nm.
+- **Conclusion:** the band position comes from where the Stark levels sit within the ground ³H₆
+  multiplet, and that is set by the glass site, not by the ion's parameters. Practical route:
+  measured-absorption anchoring for Tm.
