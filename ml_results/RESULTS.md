@@ -441,3 +441,47 @@ nothing else.
 deficit;
 (2) the composition dependence has to come from ligand chemistry (bridging vs non-bridging O,
 Al–O vs Si–O vs Ge–O), which a one-ligand superposition model cannot express.
+
+### Round 3 last test: ligand chemistry on the MD sites (`ml_results/md_nbo/`, `scripts/md_nbo_*.py`)
+
+The MD files tag each first-shell oxygen as bridging or non-bridging (NBO) and record which
+formers it bonds to. The chemistry differs a lot between glasses and lines up with Simpson's Tm
+series:
+
+| glass | NBO | O bonded to Al | Tm ³F₄ peak (measured) |
+|---|---|---|---|
+| 10 % GeO₂ | 66 % | 0 | 1578 nm |
+| 3.4 % Al₂O₃ | 50 % | 15 % | 1632 nm |
+| 9 % Al₂O₃ | 35 % | 41 % | 1660 nm |
+| SiO₂ | 72 % | 0 | — |
+
+New code: `load_md_sites_tagged` renames ligands by chemistry, and a `ligand_factors` override
+gives them separate superposition strengths. Grids run over bridging strength a and NBO strength
+b (× handbook, 60 sites per glass).
+
+- **The NBO factor cannot be learned from Er + Yb.** Fitting the pure-silica Stark levels gives
+  loss 34.3 with (a, b), against 35.8 with one oxygen type. The fit prefers a weaker NBO and
+  predicts no Tm composition trend (+5, −15 nm against measured −54, +28).
+- **Leave one glass out on Tm (a, b fitted on two glasses):** held-out errors are −93, +57, +20 nm.
+  One oxygen type gives −13, +58, −8. The extra parameter does not beat the baseline.
+- **The real obstacle is field strength.** With one oxygen type:
+
+  | O strength × handbook | 1.0 | 1.4 | 1.8 | 2.2 | 2.6 |
+  |---|---|---|---|---|---|
+  | Er ⁴I₁₅/₂ total (cm⁻¹; measured about 420) | 338 | 474 | 611 | 749 | 888 |
+  | Yb ²F₇/₂ total (cm⁻¹; measured 865) | 635 | 891 | 1147 | 1403 | 1660 |
+  | Tm ³F₄ peak, Ge / Al3 / Al9 (nm) | 1740 / 1756 / 1744 | 1722 / 1715 / 1726 | 1629 / 1694 / 1695 | 1597 / 1701 / 1674 | 1565 / 1685 / 1653 |
+
+  The Er and Yb splittings need a strength of about 1.2–1.4. At that strength the MD sites put Tm at
+  1715–1740 nm. Tm needs about 2× more field than Er and Yb on the same geometry. With the
+  handbook Tm:Er ratio of intrinsic parameters, no single oxygen field fits all three ions. That
+  explains why the leave-Tm-out folds fail, and why a geometry change (random polyhedra → MD)
+  cannot fix Tm.
+- The peak position also hops between Stark components as the field changes (Al3 at 1.8 → 2.2
+  goes 1694 → 1701 → 1685), so single-peak targets are a fragile fitting signal.
+
+**Conclusion.** The Tm problem is in the Tm crystal-field parameters (the handbook Tm:Er intrinsic
+ratio, or Tm-specific covalency, as with Yb), not in the site geometry. The direct fix is the one
+noted in round 2: measured Tm³⁺ Stark levels in a silicate glass. With those, a Tm-specific
+strength factor can be set on levels and tested on Simpson's band positions, instead of being
+fitted to them.

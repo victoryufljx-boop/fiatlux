@@ -236,6 +236,8 @@ def run(ion, family, n_sites=40, pumps=None, overrides=None, seed=0, threshold_d
     spm = {lig: spm_for(ion, lig)}
     if fam.get("cf_scale", 1.0) != 1.0:                 # host crystal-field strength multiplier
         spm[lig] = dict(spm[lig], **{f"B{k}": spm[lig][f"B{k}"] * fam["cf_scale"] for k in (2, 4, 6)})
+    for sub, f in (fam.get("ligand_factors") or {}).items():   # chemically distinct ligands, e.g. "Onb"
+        spm[sub] = dict(spm[lig], **{f"B{k}": spm[lig][f"B{k}"] * f for k in (2, 4, 6)})
     emax = fam.get("emax", EMAX[ion])
     spec = ensemble_spectra(ion, sites, spm, om, fam["n"], nu=nu_grid(lam[0], lam[1], dnu),
                             emax=emax, T=fam.get("T", 295.0), gamma_h=fam.get("gamma_h", 20.0),
@@ -330,6 +332,38 @@ def key_transitions(res, pairs):
         la, sa = peak(spec["nu"], spec["sigma_abs"][p]); le, se = peak(spec["nu"], spec["sigma_em"][p])
         out[f"{p[0]}->{p[1]}"] = dict(abs_peak_nm=round(la, 1), sigma_abs=sa, em_peak_nm=round(le, 1),
                                       sigma_em=se, fwhm_em_nm=round(fwhm_nm(spec["nu"], spec["sigma_em"][p]), 1))
+    return out
+
+
+def _md_tag(t):
+    """(bridging?, former elements) from the three ligand_tags formats on the md2/* branches."""
+    import re as _re
+    if isinstance(t, str):
+        parts = t.split("-"); kind, formers = parts[0], parts[1:]
+    else:
+        kind = t.get("type") or t.get("tag"); formers = t.get("formers", [])
+    return kind, sorted(_re.sub(r"\d+", "", f) for f in formers)
+
+
+def load_md_sites_tagged(path, label=lambda kind, formers: "O"):
+    """Like load_md_sites, but each O ligand is renamed by label(kind, formers), e.g. 'Onb' for
+    non-bridging oxygen, so spm_bkq can give chemically different O ligands different strengths."""
+    import json as _json
+    d = _json.load(open(path)); out = []
+    for s in d.get("er_sites", []):
+        if not s.get("ligands"):
+            continue
+        tags = s.get("ligand_tags") or []
+        positional = len(tags) == len(s["ligands"])      # one tag per ligand (cations included)
+        oi = 0; site = []
+        for j, l in enumerate(s["ligands"]):
+            el = l[0]
+            if el == "O":
+                t = tags[j] if positional else (tags[oi] if oi < len(tags) else None); oi += 1
+                if t is not None:
+                    el = label(*_md_tag(t))
+            site.append((el, float(l[1]), float(l[2]), float(l[3])))
+        out.append(site)
     return out
 
 
