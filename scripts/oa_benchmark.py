@@ -109,6 +109,14 @@ def lookup(rec):
     return (float(np.exp(np.mean(np.log(same)))) if rec["q"] in LOG else float(np.mean(same))), scope
 
 
+def library_omegas(rec):
+    """Geometric-mean Judd-Ofelt Omegas of the same ion and glass family from OTHER papers (None if none):
+    the 'model + library Omega' predictor, i.e. physics + the open-access data library, still blind to rec."""
+    v = [o["value"] for o in RECORDS if o["q"] == "omegas" and o["ion"] == rec["ion"] and o["family"] == rec["family"]
+         and o["src"] != rec["src"]]
+    return tuple(float(x) for x in np.exp(np.mean(np.log(np.maximum(np.array(v, float), 1e-3)), axis=0))) if v else None
+
+
 def library(rec, q):
     """Mean of q (em_peak_nm / em_fwhm_nm) for the same ion, transition and family in OTHER papers."""
     v = [o["value"] for o in RECORDS if o["ion"] == rec["ion"] and o["pair"] == rec["pair"] and o["q"] == q
@@ -157,6 +165,13 @@ for rec in RECORDS:
     except Exception:
         mo = None
     lk, scope = lookup(rec)
+    oml = library_omegas(rec) if q != "omegas" else None
+    try:
+        ml = predict_q(rec["ion"], rec["family"], rec["pair"], q, oml) if oml else m
+    except Exception:
+        ml = m
+    if q == "omegas":
+        ml = library_omegas(rec) or m
     try:
         hy = hybrid_q(rec)
         hyo = hybrid_q(rec, om) if om else None
@@ -165,7 +180,7 @@ for rec in RECORDS:
     row = dict(ion=rec["ion"], family=rec["family"], proxy=rec["proxy"], pair=rec["pair"], q=q, measured=rec["value"],
                model=m, model_paper_omega=mo, lookup=lk, lookup_scope=scope, src=rec["src"], note=rec["note"],
                err_model=err(q, m, rec["value"]), err_model_paper_omega=err(q, mo, rec["value"]),
-               agent=bool(rec.get("agent")),
+               agent=bool(rec.get("agent")), model_library_omega=ml, err_model_library_omega=err(q, ml, rec["value"]),
                err_lookup=err(q, lk, rec["value"]), hybrid=hy, hybrid_paper_omega=hyo,
                err_hybrid=err(q, hy, rec["value"]), err_hybrid_paper_omega=err(q, hyo, rec["value"]))
     rows.append(row)
@@ -186,6 +201,9 @@ for q in sorted({r["q"] for r in rows}):
                    paired_with_lookup=dict(model=stat("err_model", both), model_paper_omega=stat("err_model_paper_omega", both),
                                            lookup=stat("err_lookup", both)),
                    model_beats_lookup=sum(abs(r["err_model"]) < abs(r["err_lookup"]) for r in both), n_paired=len(both),
+                   model_library_omega=stat("err_model_library_omega", both),
+                   model_library_omega_beats_lookup=sum(abs(r["err_model_library_omega"]) < abs(r["err_lookup"]) for r in both
+                                                        if r["err_model_library_omega"] is not None),
                    hybrid_vs_lookup=dict(hybrid=stat("err_hybrid", hyb), lookup=stat("err_lookup", hyb), model=stat("err_model", hyb),
                                          hybrid_paper_omega=stat("err_hybrid_paper_omega", hyb),
                                          hybrid_beats_lookup=sum(abs(r["err_hybrid"]) < abs(r["err_lookup"]) for r in hyb), n=len(hyb)))
@@ -210,14 +228,16 @@ json.dump(dict(summary=summ, by_ion=by_ion, without_tm=no_tm, n_hand=len(_HAND),
           open("forward_results/oa_benchmark.json", "w"), indent=1, default=float)
 md = ["# External benchmark: open-access literature", "",
       "`scripts/oa_benchmark.py`, data in `gainmat/refs/oa_benchmark_refs.py` (never used to build the model).", "",
-      "| quantity | unit | n | model (own Omega) median abs err | model + paper's Omega | lookup (other papers) | model beats lookup |",
-      "|---|---|---|---|---|---|---|"]
+      "| quantity | unit | n | model (own Omega) median abs err | model + paper's Omega | lookup (other papers) | model beats lookup | model + library Omega (paired) | beats lookup |",
+      "|---|---|---|---|---|---|---|---|---|"]
 for q, s in summ.items():
     a = s["all"]; p = s["paired_with_lookup"]
     f = lambda d: "—" if d["median_abs"] is None else f"{d['median_abs']:.3g} (n={d['n']})"
     md.append(f"| {q} | {s['unit']} | {a['model']['n']} | {f(a['model'])} | {f(a['model_paper_omega'])} | {f(p['lookup'])} | "
-              f"{s['model_beats_lookup']}/{s['n_paired']} |")
-md += ["", "Hybrid = model band shifted/stretched to the emission peak and FWHM reported by OTHER papers on the same "
+              f"{s['model_beats_lookup']}/{s['n_paired']} | {f(s['model_library_omega'])} | {s['model_library_omega_beats_lookup']}/{s['n_paired']} |")
+md += ["", "model + library Omega = the model given the geometric-mean Omegas of the same ion and family from OTHER "
+       "papers in this data set (physics + data library, blind to the record; falls back to the model's own Omega).", "",
+       "Hybrid = model band shifted/stretched to the emission peak and FWHM reported by OTHER papers on the same "
        "ion and family (library), integrated strength from the model.  Rows where both hybrid and lookup exist:", "",
        "| quantity | n | model | hybrid | hybrid + paper's Omega | lookup | hybrid beats lookup |", "|---|---|---|---|---|---|---|"]
 for q, s in summ.items():
