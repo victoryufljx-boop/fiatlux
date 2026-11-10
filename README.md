@@ -4,6 +4,32 @@ First-principles optical properties of laser and fiber-amplifier gain media, bui
 generate training data for an ML layer later. See `SPEC.md` for the full input/output
 definition.
 
+## Quick start: predict an ion in a glass
+
+```python
+from gainmat.forward.predict import predict
+p = predict("Er3+", "aluminosilicate")                     # by glass family
+p = predict("Tm3+", composition="70TeO2-15K2O-15Nb2O5")    # or by composition (mol%)
+p = predict("Tm3+", "tellurite", omegas=(4.51, 0.76, 1.13))  # measured Judd-Ofelt Omegas, if you have them
+```
+`p` holds the main bands (peak wavelengths, peak cross sections, emission FWHM), level lifetimes and
+quantum efficiencies, gain windows, energy-transfer microparameters (migration, cross-relaxation,
+upconversion), an empirical uncertainty for each quantity, the provenance of every input, and the
+systematic biases found in validation. Command line: `python -m gainmat.forward.predict Er3+ aluminosilicate`.
+
+How far to trust it (held-out literature, `forward_results/oa_benchmark.md`, `transfer_validation.json`):
+
+| quantity | typical error | best input to improve it |
+|---|---|---|
+| radiative lifetimes | 0.11 dex; 0.02 dex with measured Omegas | `omegas=` |
+| band positions | 1-7 nm (Er, Nd, Ho, Yb); Tm 3F4 up to ~90 nm | `measured_absorption=` override in `glass.run` |
+| peak cross sections | 0.19 dex; 0.14 dex with measured Omegas | `omegas=`, measured absorption |
+| energy-transfer microparameters | within 2x for 9 of 11 published values | none needed; multi-phonon processes ~3x |
+
+Switches: `GAINMAT_ML=1` turns on the learned layer (ZBLAN host broadening, silica 2 um quenching);
+`GAINMAT_ANCHORS=0` turns off the measured-Stark-level mode (Yb, Er in silica fibres). Results log:
+`ml_results/RESULTS.md`; validation scorecard: `forward_results/SCORECARD.md`.
+
 ## Running on Colab (A100)
 
 1. Upload `gainmat.zip` to the Colab session (Files pane), or put it in Drive.
