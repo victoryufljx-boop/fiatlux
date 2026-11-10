@@ -1,0 +1,43 @@
+# Er-Al9-SiO2 melt-quench, Pedone 2006 potential
+# vars: data, seed, tag, thigh, nhigh, nmelt, nquench, nprod
+units metal
+atom_style charge
+boundary p p p
+read_data ${data}
+pair_style hybrid/overlay pedone 7.5 coul/long 10.0
+pair_coeff * * coul/long
+pair_coeff 1 1 pedone 0.042395 1.379316 3.618701 22.0
+pair_coeff 1 2 pedone 0.340554 2.006700 2.100000 1.0
+pair_coeff 1 3 pedone 0.361581 1.900442 2.164818 0.9
+pair_coeff 1 4 pedone 0.040448 2.294078 2.837722 3.0
+kspace_style pppm 1.0e-4
+neighbor 1.0 bin
+neigh_modify every 1 delay 0 check yes
+thermo_style custom step time temp pe etotal press
+thermo_modify flush yes
+thermo 5000
+min_style cg
+minimize 1.0e-6 1.0e-8 2000 20000
+reset_timestep 0
+timestep 0.001
+velocity all create ${thigh} ${seed} mom yes rot yes dist gaussian
+fix t all nvt temp ${thigh} ${thigh} 0.1
+run ${nhigh}
+write_restart ${tag}.high.restart
+unfix t
+fix t all nvt temp 3500 3500 0.1
+run ${nmelt}
+write_restart ${tag}.melt.restart
+unfix t
+fix t all nvt temp 3500 300 0.1
+run ${nquench}
+write_restart ${tag}.quench.restart
+unfix t
+fix t all nvt temp 300 300 0.1
+variable nfirst equal ${nprod}-20000
+run ${nfirst}
+dump d all custom 2000 ${tag}.prod.dump id type x y z
+dump_modify d sort id
+run 20000
+undump d
+write_data ${tag}.final.data
