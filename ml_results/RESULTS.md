@@ -377,3 +377,42 @@ interim results.
     - Ho shifts get worse and the Er shapes don't move.
     - Net: the learned field fixes Stark-level patterns and peak positions it was aimed at, but
       not whole line shapes across ions.
+
+### Round 3 update with all four glasses: the cross-ion result does NOT hold up (`ml_results/md_cf_v2/`)
+
+I reran the fits on the updated site sets: pure silica replicas 2 + 3 (160 snapshots, CN 4.4,
+Er–O 2.28 ± 0.18 Å), 3.4 % Al₂O₃ (320), 9 % Al₂O₃ (160, quenched at 15 K/ps) and 10 % GeO₂
+(320). All three held-out ions now get **worse**:
+
+| held out | fitted (s, r2, r6) | held-out χ², handbook → fitted |
+|---|---|---|
+| Tm | 1.52, 0.79, 0.17 | 135 → 192 |
+| Yb | 0.75, 3.11, 0.72 | 40 → 54 |
+| Er | 0.70, 2.72, 4.00 | 16 → 85 |
+| (all three, in-sample) | 0.93, 2.08, 0.78 | Er 16 → 9, Yb 40 → 27, Tm 135 → 45 |
+
+- **The interim "2 of 3 improve" was not robust.** The rank multipliers swing from 0.2 to 4
+  between folds and between site sets. The data fit all three ions jointly (in-sample), but the
+  rank balance is not identified well enough to predict a left-out ion.
+- **Not adopted.** The forward model keeps the handbook balance and the per-glass scales from
+  round 2.
+
+**What the MD sites do get right with the handbook field: the direction of the composition
+trend.** Tm ³F₄ absorption peak on the MD sites, handbook field, one Er-calibrated scale (never
+fitted to Tm):
+
+| glass | Al 3.4 % | Al 9 % | Ge 10 % |
+|---|---|---|---|
+| model, MD sites | 1742 | 1752 (+10) | 1731 (−11) |
+| measured (Simpson) | 1632 | 1660 (+28) | 1578 (−54) |
+
+The random polyhedra get the Ge vs Al direction wrong. The MD sites get both directions right,
+but with about a third of the magnitude and an absolute offset of about 100 nm. So site geometry
+carries real composition information, and the remaining Tm error is in the crystal-field and
+intensity model, not the geometry.
+
+**Other checks on the final site sets** (`forward_results/md_sites_validation.json`):
+- Yb ²F₅/₂ gap 345–400 cm⁻¹ against 630 (random sites 245–340).
+- Yb zero-phonon line 968–969 nm against 976.
+- Er σe/σa error unchanged at +0.1 dex.
+- Tm ³H₄ band too narrow by 5–8 nm.
