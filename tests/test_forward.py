@@ -128,3 +128,13 @@ def test_level_anchor_matches_measured_levels():
     assert abs((hi7 - lo7) - 865) < 5.0      # per-site map: mean of mapped != map of mean (few cm^-1)
     assert abs((lo5 - lo7) - 10235) < 5.0
     assert sp["split"]["2F7/2"] > 0
+
+
+def test_predict_returns_bands_uncertainty_and_provenance():
+    from gainmat.forward.predict import predict
+    p = predict("Er3+", "aluminosilicate", n_sites=10)
+    b = p["bands"][0]
+    assert b["transition"] == "4I13/2->4I15/2" and 1500 < b["abs_peak_nm"] < 1560
+    assert b["uncertainty"]["sigma_peak_log10"] is not None
+    assert p["provenance"]["stark"].startswith("measured levels")
+    assert any(l["level"] == "4I13/2" and 5 < l["tau_rad_ms"] < 20 for l in p["levels"])
