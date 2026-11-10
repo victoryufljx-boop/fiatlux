@@ -1,7 +1,5 @@
 # Er-Al3-SiO2 — classical-MD rare-earth sites (Pedone potential, slow quench to 300 K)
 
-> INTERIM (replicas 1-4; replicas 5-6 still running when this was pushed).
-
 Branch `md2/Er-Al3-SiO2`. Data: `Er-Al3-SiO2.json` (keys glass, composition, potential, protocol, summary, er_sites),
 final 300 K configurations `Er-Al3-SiO2_rep*_300K.extxyz`, inputs/scripts in `Er-Al3-SiO2_scripts/`.
 
@@ -32,52 +30,52 @@ final 300 K configurations `Er-Al3-SiO2_rep*_300K.extxyz`, inputs/scripts in `Er
   6000 K was stable (no lost atoms, no dangerous neighbour builds).
 * **Quench rate 10 K/ps, not 5 K/ps** — the machine had `nproc` = 2. Measured ~7 ms/step per single-core replica,
   two replicas concurrently (faster in aggregate than one 2-core run: 14.4 ms/step with 2 OpenMP threads + PPPM).
-  A 5 K/ps protocol (765k steps, ~90 min/replica) would have allowed only 4 replicas; 10 K/ps gave 4.
-* Replicas: **4** fully independent (different random placement seed and velocity seed each) -> **32 distinct Er ions**,
-  320 Er site-frames in `er_sites`. The target of >=60 distinct Er sites was **not** reached (8 Er per box,
-  composition fixed by the task). Wall time per replica: rep1 47 min, rep2 46 min, rep3 47 min, rep4 46 min.
+  A 5 K/ps protocol (765k steps, ~90 min/replica) would have allowed only 4 replicas; 10 K/ps gave 6.
+* Replicas: **6** fully independent (different random placement seed and velocity seed each) -> **48 distinct Er ions**,
+  480 Er site-frames in `er_sites`. The target of >=60 distinct Er sites was **not** reached (8 Er per box,
+  composition fixed by the task). Wall time per replica: rep1 47 min, rep2 46 min, rep3 47 min, rep4 46 min, rep5 58 min, rep6 58 min.
   The cloud container was restarted twice during the session; each time the two replicas then running (3+4, then 5+6), which were only minutes in, were killed and re-run from scratch
   with the same seeds (no partial trajectories were stitched).
 
 ## Sanity checks (all frames, all replicas)
 | quantity | result | target |
 |---|---|---|
-| Si-O RDF peak / mean first shell | 1.61 A / 1.624 +- 0.05 A | ~1.61 A |
-| Si CN (r<2.13 A) | 3.996 ({'3': 177, '4': 38454, '5': 9}) | 4 |
-| O-Si-O | 109.384 +- 6.381 deg | ~109 deg |
-| Si-O-Si | mean 152.74 +- 12.353, mode ~152.5 deg | ~145-150 deg |
-| Al-O RDF peak / mean first shell | 1.71 A / 1.778 +- 0.131 A | ~1.75 A |
-| Al CN (r<2.43 A) | 3.877 ({'3': 417, '4': 2222, '5': 80, '6': 1}) | mostly 4 |
-| O-Al-O | 110.262 +- 11.956 deg | ~109 deg |
-| O speciation (whole glass) | {'BO': 79334, 'NBO': 834, 'free': 0, 'tri': 1672} | |
+| Si-O RDF peak / mean first shell | 1.61 A / 1.625 +- 0.051 A | ~1.61 A |
+| Si CN (r<2.33 A) | 3.997 ({'3': 208, '4': 57736, '5': 16}) | 4 |
+| O-Si-O | 109.381 +- 6.403 deg | ~109 deg |
+| Si-O-Si | mean 152.776 +- 12.361, mode ~152.5 deg | ~145-150 deg |
+| Al-O RDF peak / mean first shell | 1.71 A / 1.779 +- 0.129 A | ~1.75 A |
+| Al CN (r<2.43 A) | 3.886 ({'3': 574, '4': 3398, '5': 107, '6': 1}) | mostly 4 |
+| O-Al-O | 110.198 +- 11.657 deg | ~109 deg |
+| O speciation (whole glass) | {'BO': 118830, 'NBO': 1293, 'free': 0, 'tri': 2637} | |
 | Er-O RDF peak | 2.173 A | ~2.25 A (EXAFS) |
 | Er-O first minimum r_min | 3.08 A | ~2.9-3.2 A |
-| Er CN (r<r_min) | 4.991 +- 0.871, hist {'3': 1, '4': 98, '5': 146, '6': 53, '7': 22} | ~6-7 |
-| Er-O distance (r<r_min) | 2.3635 +- 0.2404 A | ~2.2-2.35 A |
+| Er CN (r<r_min) | 5.06 +- 0.868, hist {'3': 3, '4': 121, '5': 237, '6': 82, '7': 37} | ~6-7 |
+| Er-O distance (r<r_min) | 2.3602 +- 0.2373 A | ~2.2-2.35 A |
 
-Er CN vs cutoff: r<2.5 A: 3.856, r<2.6 A: 4.191, r<2.8 A: 4.559, r<3.0 A: 4.856.
+Er CN vs cutoff: r<2.5 A: 3.967, r<2.6 A: 4.285, r<2.8 A: 4.644, r<3.0 A: 4.938.
 
 Mean pressure in the 300 K stage is about -2 GPa (tensile) at the imposed 2.22 g/cm3, i.e. this potential with DSF/8 A
 would prefer a denser glass; the task specified fixed experimental density, so the box was not relaxed.
 
 ## Er site statistics
-* Ligand O types: {'BO': 791, 'NBO': 806, 'free': 0, 'TBO': 0} -> NBO fraction in the first shell **0.5047** (NBO = O bonded to one former;
+* Ligand O types: {'BO': 1194, 'NBO': 1235, 'free': 0, 'TBO': 0} -> NBO fraction in the first shell **0.5084** (NBO = O bonded to one former;
   Si within 2.0 A, Al within 2.1 A). Almost all NBO in the glass sit on Er (whole-glass NBO count ~= Er first-shell NBO count).
-* Er-O-former linkages: 2072 Er-O-Si, 316 Er-O-Al -> Al fraction
-  **0.1323** vs 0.0658 for random
-  former choice: Er is enriched near Al (~2x), but most of its ligands still bond to Si.
-* Er-Er nearest neighbour: 9.057 +- 3.691 A, min 4.138 A; fraction of Er with another
-  Er within 5 A: 0.1688 (some clustering/O-sharing; 0.4 mol% Er2O3 is far above fibre doping levels).
-* O-Er-O angle: 103.306 +- 27.583 deg (histogram in JSON); the first shell is strongly distorted.
+* Er-O-former linkages: 3230 Er-O-Si, 393 Er-O-Al -> Al fraction
+  **0.1085** vs 0.0658 for random
+  former choice: Er is enriched near Al (1.6x), but most of its ligands still bond to Si.
+* Er-Er nearest neighbour: 9.724 +- 3.84 A, min 3.472 A; fraction of Er with another
+  Er within 5 A: 0.1542 (some clustering/O-sharing; 0.4 mol% Er2O3 is far above fibre doping levels).
+* O-Er-O angle: 103.237 +- 28.074 deg (histogram in JSON); the first shell is strongly distorted.
 * Er-O RDF (r, g) sampled to 8 A is in `summary.ErO_rdf`.
 
 ## Assessment / what did not work
 * Compared with forward/md-sites (ML potential, >1000 K, Er-O 2.49 +- 0.40 A, CN 6.6) these sites are properly quenched to 300 K
-  and have a much tighter, shorter first shell (peak 2.173 A, mean 2.3635 +- 0.2404 A).
-* **Er is under-coordinated relative to EXAFS**: CN 4.991 within r_min=3.08 A and only ~4.191 within 2.6 A,
+  and have a much tighter, shorter first shell (peak 2.173 A, mean 2.3602 +- 0.2373 A).
+* **Er is under-coordinated relative to EXAFS**: CN 5.06 within r_min=3.08 A and only ~4.285 within 2.6 A,
   versus CN ~6 at 2.25 A measured. This is a property of the Pedone Er-O pair (very shallow Morse well, D=0.04 eV), possibly
   aggravated by DSF/8 A and the -2 GPa tensile state; it is not a quench artefact. Downstream crystal-field use should keep this in mind
   (sites with CN 4-5 will give larger, more axial crystal fields than real 6-coordinated Er).
-* Al: {'3': 417, '4': 2222, '5': 80, '6': 1} — a sizeable AlO3 fraction plus O triclusters, expected because only 8 Er (charge compensators) are available for 68 Al
+* Al: {'3': 574, '4': 3398, '5': 107, '6': 1} — a sizeable AlO3 fraction plus O triclusters, expected because only 8 Er (charge compensators) are available for 68 Al
   (peraluminous, no alkali/alkaline-earth), but it may be over-represented by the potential.
-* Quench at 10 K/ps rather than 5 K/ps; DSF rather than PPPM; 32 instead of >=60 distinct Er ions; Er-O parameters single-sourced.
+* Quench at 10 K/ps rather than 5 K/ps; DSF rather than PPPM; 48 instead of >=60 distinct Er ions; Er-O parameters single-sourced.

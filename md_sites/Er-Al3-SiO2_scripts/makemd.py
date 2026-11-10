@@ -68,7 +68,7 @@ would prefer a denser glass; the task specified fixed experimental density, so t
   Si within 2.0 A, Al within 2.1 A). Almost all NBO in the glass sit on Er (whole-glass NBO count ~= Er first-shell NBO count).
 * Er-O-former linkages: {S['er_o_former_linkages']['Er-O-Si']} Er-O-Si, {S['er_o_former_linkages']['Er-O-Al']} Er-O-Al -> Al fraction
   **{S['er_o_former_linkages']['frac_Al']}** vs {S['er_o_former_linkages']['random_expectation_frac_Al_by_cation_count']} for random
-  former choice: Er is enriched near Al (~2x), but most of its ligands still bond to Si.
+  former choice: Er is enriched near Al ({S['er_o_former_linkages']['frac_Al']/S['er_o_former_linkages']['random_expectation_frac_Al_by_cation_count']:.1f}x), but most of its ligands still bond to Si.
 * Er-Er nearest neighbour: {S['er_er_nn']['mean']} +- {S['er_er_nn']['std']} A, min {S['er_er_nn']['min']} A; fraction of Er with another
   Er within 5 A: {S['er_er_nn']['frac_below_5A']} (some clustering/O-sharing; 0.4 mol% Er2O3 is far above fibre doping levels).
 * O-Er-O angle: {S['O_Er_O_angle']['mean']} +- {S['O_Er_O_angle']['std']} deg (histogram in JSON); the first shell is strongly distorted.
