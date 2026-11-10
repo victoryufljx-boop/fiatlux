@@ -1,4 +1,4 @@
-# Er-Al3-SiO2 — classical MD dopant sites (INTERIM: replicas 1-2 of planned 6)
+# Er-Al3-SiO2 — classical MD dopant sites (INTERIM: replicas 1-4 of planned 6)
 
 Interim push after the first two replicas; the final summary will replace this file.
 See `Er-Al3-SiO2.json` (summary + er_sites) and the scripts in `Er-Al3-SiO2_scripts/`.
