@@ -122,6 +122,7 @@ def main():
     ap.add_argument("--holdout", default="")
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--maxiter", type=int, default=70)
+    ap.add_argument("--offset", type=int, default=0, help="start index of the strided site subsample")
     ap.add_argument("--out", default="ml_results/md_cf")
     a = ap.parse_args()
     load_refs(); apply_site_refs(); calibrate_spm(370.0, CARNALL_ER_LAF3_BKQ, verbose=False)
@@ -130,10 +131,10 @@ def main():
         p = os.path.join(a.sites_dir, name + ".json")
         if os.path.exists(p):
             st = load_md_sites(p)
-            S[key] = st[::max(1, len(st) // a.n)][:a.n]
+            S[key] = st[a.offset % max(1, len(st) // a.n)::max(1, len(st) // a.n)][:a.n]
     ions = tuple(i for i in ("Er3+", "Yb3+", "Tm3+") if i != a.holdout)
     os.makedirs(a.out, exist_ok=True)
-    tag = "all" if not a.holdout else "minus_" + a.holdout.replace("+", "")
+    tag = ("all" if not a.holdout else "minus_" + a.holdout.replace("+", "")) + (f"_off{a.offset}" if a.offset else "")
     logf = open(os.path.join(a.out, tag + ".log"), "w")
     log = lambda s: (print(s, flush=True), logf.write(s + "\n"), logf.flush())
     t0 = time.time()

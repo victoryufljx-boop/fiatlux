@@ -378,41 +378,66 @@ interim results.
     - Net: the learned field fixes Stark-level patterns and peak positions it was aimed at, but
       not whole line shapes across ions.
 
-### Round 3 update with all four glasses: the cross-ion result does NOT hold up (`ml_results/md_cf_v2/`)
+### Round 3 final: MD sites on the final site sets, with sampling noise (`ml_results/md_cf_final/`)
 
-I reran the fits on the updated site sets: pure silica replicas 2 + 3 (160 snapshots, CN 4.4,
-Er–O 2.28 ± 0.18 Å), 3.4 % Al₂O₃ (320), 9 % Al₂O₃ (160, quenched at 15 K/ps) and 10 % GeO₂
-(320). All three held-out ions now get **worse**:
+**This replaces the interim section above and an intermediate update that claimed every held-out
+ion got worse.** The two earlier conclusions contradicted each other because each was a single
+draw of 60 sites. The final site sets (`md_sites/`, all from the md2/* branches):
 
-| held out | fitted (s, r2, r6) | held-out χ², handbook → fitted |
-|---|---|---|
-| Tm | 1.52, 0.79, 0.17 | 135 → 192 |
-| Yb | 0.75, 3.11, 0.72 | 40 → 54 |
-| Er | 0.70, 2.72, 4.00 | 16 → 85 |
-| (all three, in-sample) | 0.93, 2.08, 0.78 | Er 16 → 9, Yb 40 → 27, Tm 135 → 45 |
+| glass | sites (Er × frames) | CN | Er–O (Å) | quench |
+|---|---|---|---|---|
+| SiO₂ | 320 | 4.28 | 2.28 ± 0.18 | 10 K/ps |
+| 3.4 % Al₂O₃ | 480 | 5.06 | 2.36 ± 0.24 | 10 K/ps |
+| 9 % Al₂O₃ | 160 | 5.22 | 2.34 ± 0.19 | 15 K/ps |
+| 10 % GeO₂ | 320 | 4.54 | 2.31 ± 0.18 | 10 K/ps |
 
-- **The interim "2 of 3 improve" was not robust.** The rank multipliers swing from 0.2 to 4
-  between folds and between site sets. The data fit all three ions jointly (in-sample), but the
-  rank balance is not identified well enough to predict a left-out ion.
-- **Not adopted.** The forward model keeps the handbook balance and the per-glass scales from
-  round 2.
+Each fold was fitted on three independent 60-site subsamples (`--offset 0/1/2`). Held-out χ²,
+handbook → fitted:
 
-**What the MD sites do get right with the handbook field: the direction of the composition
-trend.** Tm ³F₄ absorption peak on the MD sites, handbook field, one Er-calibrated scale (never
-fitted to Tm):
+| held out (fitted on the other two) | subsample 0 | subsample 1 | subsample 2 | verdict |
+|---|---|---|---|---|
+| Er | 24 → 10 | 25 → 14 | 23 → 9 | **better in 3/3 (about 2×)** |
+| Tm | 125 → 115 | 183 → 167 | 126 → 165 | mixed, no real gain |
+| Yb | 42 → 38 | 38 → 60 | 37 → 33 | mixed |
+| (in-sample, all three ions) | Er 24→10, Yb 42→24, Tm 125→23 | Er 25→13, Yb 38→26, Tm 183→36 | Er 23→10, Yb 37→23, Tm 126→48 | always better |
 
-| glass | Al 3.4 % | Al 9 % | Ge 10 % |
+The all-ion fit settles at s 0.87–1.03, r2 1.6–2.1, r6 1.3–1.7, so the data consistently want a
+**stronger rank-2 field (about 2×)** than the handbook balance. That rank-2 balance, learned from
+Yb + Tm, predicts the Er Stark pattern. But Tm cannot be predicted from Er + Yb, and Yb cannot be
+predicted from Er + Tm. The folds without Tm swing to s ≈ 1.5, r2 ≈ 0.7, an alternative minimum
+for Er + Yb alone. **Not adopted:** it passes for one ion of three, and the adoption gate needs
+most folds.
+
+**Tm composition trend: not reproduced.** The ³F₄ absorption peak was computed on four disjoint
+40-site subsets per glass, with the handbook field and one Er-calibrated scale (1.175):
+
+| glass | model (nm, mean ± s.e.) | shift vs Al 3.4 % | measured shift (Simpson) |
 |---|---|---|---|
-| model, MD sites | 1742 | 1752 (+10) | 1731 (−11) |
-| measured (Simpson) | 1632 | 1660 (+28) | 1578 (−54) |
+| Al 3.4 % | 1747 ± 7 | 0 | 0 (1632) |
+| Al 9 % | 1732 ± 3 | −15 ± 7 | +28 |
+| Ge 10 % | 1734 ± 1.5 | −13 ± 7 | −54 |
+| SiO₂ | 1737 ± 3 | −10 ± 8 | — |
 
-The random polyhedra get the Ge vs Al direction wrong. The MD sites get both directions right,
-but with about a third of the magnitude and an absolute offset of about 100 nm. So site geometry
-carries real composition information, and the remaining Tm error is in the crystal-field and
-intensity model, not the geometry.
+The model's shifts are within about 2 s.e. of zero, and the Al shift has the wrong sign. (The
+"right direction" in the intermediate update was sampling noise.) With oxygen treated as one
+ligand type, the MD geometries do not separate these glasses. The Tm offset of about +100 nm is
+the same as on random polyhedra.
 
-**Other checks on the final site sets** (`forward_results/md_sites_validation.json`):
-- Yb ²F₅/₂ gap 345–400 cm⁻¹ against 630 (random sites 245–340).
-- Yb zero-phonon line 968–969 nm against 976.
-- Er σe/σa error unchanged at +0.1 dex.
-- Tm ³H₄ band too narrow by 5–8 nm.
+**Other checks** (`forward_results/md_sites_validation.json`, final sites):
+
+| quantity | MD sites | random polyhedra | measured |
+|---|---|---|---|
+| Yb ²F₅/₂ first gap (cm⁻¹) | 356–415 | 251–339 | 630 |
+| Yb ²F₇/₂ pattern rms (cm⁻¹) | 74–116 | 67–130 | — |
+| Yb ZPL error (nm) | −6 to −7 | −9 | 0 |
+| Er ⁴I₁₅/₂ lowest five rms (cm⁻¹) | 53–63 | 43–66 | — |
+| Er σe/σa vs Giles | +0.1 dex | +0.1 dex | — |
+
+MD sites close about a third of the Yb ²F₅/₂ gap deficit and slightly improve the ZPL. They change
+nothing else.
+
+**What this means.** Better geometry alone does not fix silica. The two robust signals:
+(1) the rank-2 field is too weak relative to rank 4 and 6, which is consistent with the Yb gap
+deficit;
+(2) the composition dependence has to come from ligand chemistry (bridging vs non-bridging O,
+Al–O vs Si–O vs Ge–O), which a one-ligand superposition model cannot express.
