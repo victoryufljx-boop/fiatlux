@@ -396,6 +396,12 @@ USE_HANDBOOK = True
 # 2F5/2 is then a check.  calibrate_yb_spm() recomputes it.
 ION_SPM_SCALE = {}
 
+# Ion- AND ligand-specific factor, keyed "Tm:O".  The handbook has no oxygen data for Tm (it copies
+# Er), so a Tm-O factor is an unmeasured handbook input, set from one Tm band (see
+# gainmat/ml/tm_cf.py) and tested on other bands, glasses and devices.
+ION_LIG_SCALE = {}
+ION_LIG_RANK = {}          # "Tm:O" -> (r2, r4, r6), rank multipliers for one ion-ligand pair
+
 # Rank-resolved correction to the handbook intrinsic parameters, per ligand: B_k -> r_k B_k.
 # The handbook B2:B4:B6 balance comes from crystals; one strength scale fitted to one Er number
 # constrains only one combination of the three.  Different multiplets weigh the ranks very
@@ -446,8 +452,9 @@ def spm_for(ion: str, ligand: str) -> dict:
             from ..refs.spm_handbook import SPM_FOR_MODEL as H
             if ligand in H and el in H[ligand]:
                 p = dict(H[ligand][el])
-                f = SPM_SCALE.get(ligand, 1.0) * ION_SPM_SCALE.get(el, 1.0)
+                f = SPM_SCALE.get(ligand, 1.0) * ION_SPM_SCALE.get(el, 1.0) * ION_LIG_SCALE.get(f"{el}:{ligand}", 1.0)
                 rk = RANK_SCALE.get(ligand, (1.0, 1.0, 1.0))
+                rk = tuple(a * b for a, b in zip(rk, ION_LIG_RANK.get(f"{el}:{ligand}", (1.0, 1.0, 1.0))))
                 for i, k in enumerate((2, 4, 6)):
                     p[f"B{k}"] = p[f"B{k}"] * f * rk[i]
                 p["src"] = f"Newman & Ng handbook x{f:.3f}"
