@@ -1,0 +1,6 @@
+{"hardware":"2 CPU cores (nproc=2); replicas run concurrently, 1 MPI rank each",
+ "speed_steps_per_s_per_replica":"~65 (6000 K) to ~80 (300 K)",
+ "run1_lost":"first attempt 23:54-01:19 UTC: high 20 ps ~305 s, melt 50 ps ~722 s, 10 K/ps quench reached 370 ps (~490 K) before a sandbox restart killed both processes; no dumps from it",
+ "high_6000K_20ps_s":[306.4,304.0],"melt_3500K_50ps_s":[721.8,724.4],
+ "quench_15Kps_213ps_s":[2964.5,2974.7],"anneal_300K_30ps_s":[399.1,398.0],
+ "wall_clock":"session 23:40 -> ~02:30 UTC"}
