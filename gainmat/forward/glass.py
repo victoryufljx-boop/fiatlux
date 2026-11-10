@@ -144,7 +144,7 @@ def ir_loss_dB_m(lam_nm, hw_max):
 # the crystal-field disorder alone gives 27 cm^-1.  Applied to every family (fluorides assumed).
 NEPH_STD = 0.0027
 # One-phonon vibronic sideband strength (fraction of each line).  0 = off unless calibrated.
-SIDEBAND_S = 0.0
+SIDEBAND_S = float(os.environ.get("GAINMAT_SIDEBAND", "0") or 0)
 # Learned host microstructure (ML layer L2, gainmat/ml/host_calib.py): when USE_ML is set,
 # run() applies ml_results/l2/learned_theta.json (cf_scale, disorder, neph_std, gamma_h)
 # to the families that have been calibrated.  Off by default.

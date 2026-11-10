@@ -695,3 +695,16 @@ tellurite; Sontakke Nd in Ba-Al metaphosphate).** Full table in `forward_results
   Decay-fit microparameters depend on the fitting model (Sontakke's range from different models
   is 3–8e-42). Treat predictions as ±0.3 dex for resonant and near-resonant processes and as
   roughly ±0.5 dex otherwise.
+
+### 7. Vibronic sideband: tested on the external benchmark, not adopted
+
+`GAINMAT_SIDEBAND=S` (default 0) switches the sideband on.
+
+| peak σe error, external benchmark | S = 0 | S = 0.1 | S = 0.25 |
+|---|---|---|---|
+| model, own Ω | 0.185 dex | 0.150 dex | 0.155 dex |
+| model, paper's Ω (the clean test of line shape) | 0.137 dex | 0.182 dex | 0.259 dex |
+
+The gain with the model's own Ω only offsets Ω errors. Given measured Ω, the sideband makes peak
+cross sections worse. So a uniform sideband is not the missing piece for widths. The far tails
+(Yb > 1080 nm; multi-phonon transfer) need an ion-specific vibronic treatment.
