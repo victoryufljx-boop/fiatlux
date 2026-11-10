@@ -57,7 +57,7 @@ summ = ana['summary']
 summ['final_stage_mean_T_K'] = Tfin
 sites = ana['sites']
 import numpy as _np
-for rc in (2.5, 2.6, 2.8, 3.2):
+for rc in (2.5, 2.6, 2.8):
     summ[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in sites])), 3)
 FSITES, FSUMM = [], None
 if FAST:
@@ -65,7 +65,7 @@ if FAST:
     FSITES = fa['sites']; FSUMM = fa['summary']
     FSUMM['note'] = 'replicas ' + ', '.join(FAST) + ': shortened protocol 6000 K 20 ps, 3500 K 20 ps, 3500->300 K at 20 K/ps (160 ps), 300 K 30 ps'
     FSUMM['final_stage_mean_T_K'] = {r: Tfin[r] for r in FAST}
-    for rc in (2.5, 2.6, 2.8, 3.2):
+    for rc in (2.5, 2.6, 2.8):
         FSUMM[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in FSITES])), 3)
     summ['final_stage_mean_T_K'] = {r: Tfin[r] for r in reps if r not in FAST}
 SEEDS = {'rep1': 11, 'rep2': 22, 'rep3': 33, 'rep4': 44, 'rep5': 55, 'rep6': 66}

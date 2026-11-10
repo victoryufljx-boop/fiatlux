@@ -11,6 +11,7 @@ w('Glass: germanosilicate, 900 SiO2 + 100 GeO2 + 4 Er2O3 (89.6 / 9.96 / 0.40 mol
   f"{P['n_atoms']} atoms, cubic box {P['box_A']} Å at a fixed {P['density_g_cm3']} g/cm³ (NVT).\n")
 w('Files: `Er-Ge10-SiO2.json` has the sites, statistics, RDFs and every potential parameter with its source. '
   '`Er-Ge10-SiO2_repN_final.extxyz` holds the final 300 K configurations. The scripts are in `md_sites/scripts/`.\n')
+w('Wall clock: session started 23:41 UTC on 9 Nov 2026; final push about 02:35 UTC (budget 3 h 15 min), on 2 CPU cores (Xeon 2.1 GHz).\n')
 w('## Potential\n')
 w('Pedone, Malavasi, Menziani, Cormack, Segre, J. Phys. Chem. B 110, 11780 (2006), Table 2 (binary-oxide fit). '
   'Every number below comes from that table, which I transcribed from the paper PDF in this session. '
@@ -74,9 +75,9 @@ w('## Er first shell (main replicas)\n')
 w(f"- r_min (first minimum of the pooled Er-O g(r), 0.1 Å smoothing) = **{S['r_min_ErO']} Å**. "
   f"Er-O first peak {S['ErO_first_peak']} Å.")
 w(f"- CN within r_min: **{S['CN_mean']} ± {S['CN_std']}**, histogram {S['CN_hist']}. "
-  f"CN within 2.5 / 2.6 / 2.8 / 3.2 Å: {S['CN_within_2.5A_mean']} / {S['CN_within_2.6A_mean']} / {S['CN_within_2.8A_mean']} / {S['CN_within_3.2A_mean']}. "
+  f"CN within 2.5 / 2.6 / 2.8 Å: {S['CN_within_2.5A_mean']} / {S['CN_within_2.6A_mean']} / {S['CN_within_2.8A_mean']}. "
   "The Er-O g(r) has no deep first minimum: after the 2.2 Å peak it falls to a low, flat, noisy tail from 2.6 to 3.3 Å. "
-  "r_min therefore carries an uncertainty of a few tenths of an Å. With 2 replicas it came out at 3.21 Å, with 4 at 2.85 Å. "
+  "r_min therefore carries an uncertainty of a few tenths of an Å. With 2 replicas it came out at 3.21 Å, giving CN 4.93 ± 1.09; with 4 replicas it is 2.85 Å. "
   "The O in that tail are long, weak contacts and add little to the crystal field.")
 w(f"- Er-O over all first-shell ligands: **{S['R_mean']} ± {S['R_std']} Å**. The shortest Er-O per site averages {S['R_shortest_mean']} Å.")
 w(f"- First-shell O types: {S['first_shell_O_types']}, giving an NBO fraction of **{S['nbo_fraction_first_shell']}**. "
@@ -94,6 +95,12 @@ w('**Assessment.** The run is now cold (300 K) and much better quenched than `fo
   'Er also clusters: Er pairs share NBOs at 3.5-4.2 Å. In real MCVD Ge-silica, the absence of Al/P likewise favours clustering, '
   'but downstream crystal-field use should treat these sites as an under-coordinated end member. '
   'A possible next step is to rescale the Er-O D/r0 to reach CN ~6. That would mean refitting, which I did not do because inventing parameters was ruled out.\n')
+if F:
+    w('## Fast-quench replicas (20 K/ps; separate, tagged)\n')
+    w(f"{F['n_distinct_er']} distinct Er, {F['n_sites']} snapshots. Final T {F['final_stage_mean_T_K']} K. r_min {F['r_min_ErO']} Å, "
+      f"Er-O peak {F['ErO_first_peak']} Å, CN {F['CN_mean']} ± {F['CN_std']} {F['CN_hist']}, CN within 2.6 Å {F['CN_within_2.6A_mean']}. "
+      f"R {F['R_mean']} ± {F['R_std']} Å, NBO fraction {F['nbo_fraction_first_shell']}, Er-Er nn min {F['er_er_nn']['min']} Å. "
+      "Each replica uses its own r_min, taken from that set's pooled g(r).\n")
 w('## JSON layout\n')
 w('`er_sites[i]` = {replica, frame, timestep, er_index, ligands: [["O", x, y, z], ...] relative to the Er, minimum image, Å, sorted by distance; '
   'ligand_tags: [{type: BO|NBO|free|TBO, formers: [Si/Ge...], r}], other_neighbors_within_rmin: non-O atoms within r_min (e.g. Si, Er), '
