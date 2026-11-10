@@ -87,9 +87,9 @@ rdf = {k: (v / nfr_tot) for k, v in rdf_acc.items()}
 rc = 0.5 * (bins[1:] + bins[:-1])
 
 
-def first_peak_min(g, lo=1.0, hi=4.0):
+def first_peak_min(g, lo=1.0, hi=4.0, w=5):
     m = (rc > lo) & (rc < hi)
-    gs = np.convolve(g, np.ones(5) / 5, mode="same")
+    gs = np.convolve(g, np.ones(w) / w, mode="same")
     ip = np.argmax(np.where(m, gs, -1))
     j = ip
     while j < len(gs) - 3 and not (gs[j + 1] >= gs[j] and gs[j + 2] >= gs[j]) :
@@ -100,7 +100,9 @@ def first_peak_min(g, lo=1.0, hi=4.0):
     return rc[ip], rc[jmin]
 
 p_sio, m_sio = first_peak_min(rdf["Si-O"], 1.2, 2.6)
-p_ero, r_min = first_peak_min(rdf["Er-O"], 1.8, 3.6)
+p_ero, _ = first_peak_min(rdf["Er-O"], 1.8, 3.6)
+# Er-O RDF from few Er is noisy: first minimum = minimum of 0.22 A-smoothed g(r) between the first peak and 3.4 A
+_, r_min = first_peak_min(rdf["Er-O"], 1.8, 3.4, w=11)
 r_min = float(os.environ.get("RMIN", round(r_min, 3)))
 
 sites, CN, Rall, nbo_n, o_n, ernn, tagcount = [], [], [], 0, 0, [], {}
@@ -138,7 +140,9 @@ for r in reps:
                     tags.append({"tag": "cation", "atom_id": int(ids[j])})
             CN.append(cn)
             ernn.append(float(REE[ie].min()))
-            sites.append({"replica": r, "frame": fi, "timestep": int(step), "er_index": int(ids[e]),
+            outer = np.where((R >= r_min) & (R < 3.3) & (typ == 1))[0]
+            outer = outer[np.argsort(R[outer])]
+            sites.append({"outer_O_rmin_to_3.3A": [["O"] + [round(float(x), 4) for x in d[j]] for j in outer],"replica": r, "frame": fi, "timestep": int(step), "er_index": int(ids[e]),
                           "ligands": lig, "ligand_tags": tags})
 
 CN = np.array(CN); Rall = np.array(Rall)
