@@ -93,6 +93,41 @@ def lookup(rec):
     return (float(np.exp(np.mean(np.log(same)))) if rec["q"] in LOG else float(np.mean(same))), scope
 
 
+def library(rec, q):
+    """Mean of q (em_peak_nm / em_fwhm_nm) for the same ion, transition and family in OTHER papers."""
+    v = [o["value"] for o in RECORDS if o["ion"] == rec["ion"] and o["pair"] == rec["pair"] and o["q"] == q
+         and o["family"] == rec["family"] and o["src"] != rec["src"]]
+    return float(np.mean(v)) if v else None
+
+
+def hybrid_q(rec, omegas=None):
+    """Model band moved and stretched (in energy, about its emission peak) so that its emission peak and
+    FWHM equal the library values from other papers; the model's integrated strength is kept, so the
+    peak cross sections are predictions.  Falls back to the model where the library is empty."""
+    ion, fam, pair, q = rec["ion"], rec["family"], rec["pair"], rec["q"]
+    if q not in ("em_peak_nm", "em_fwhm_nm", "sigma_em_cm2", "sigma_abs_cm2", "abs_peak_nm"):
+        return None
+    r, _ = model_vals(ion, fam, omegas)
+    sp = r["_spec"]; nu = sp["nu"]
+    if pair not in sp["sigma_em"]:
+        return None
+    se, sa = sp["sigma_em"][pair], sp["sigma_abs"][pair]
+    lp, lw = library(rec, "em_peak_nm"), library(rec, "em_fwhm_nm")
+    nu0 = nu[np.argmax(se)]
+    shift = (1e7 / lp - nu0) if lp else 0.0
+    s = 1.0
+    if lw:
+        wm = fwhm_local(nu, se); lam0 = 1e7 / nu0
+        # FWHM in energy, model vs library (library width given in nm at the library peak)
+        s = (lw / (lp or lam0) ** 2) / (wm / lam0 ** 2)
+    def tf(y):                                       # y'(nu) = y(nu0 + (nu - nu0 - shift) / s) / s
+        return np.interp(nu0 + (nu - nu0 - shift) / s, nu, y, left=0, right=0) / s
+    se2, sa2 = tf(se), tf(sa)
+    return {"em_peak_nm": lambda: float(1e7 / nu[np.argmax(se2)]), "abs_peak_nm": lambda: float(1e7 / nu[np.argmax(sa2)]),
+            "em_fwhm_nm": lambda: fwhm_local(nu, se2), "sigma_em_cm2": lambda: float(se2.max()),
+            "sigma_abs_cm2": lambda: float(sa2.max())}[q]()
+
+
 rows = []
 for rec in RECORDS:
     q = rec["q"]
@@ -100,10 +135,13 @@ for rec in RECORDS:
     om = paper_omegas(rec) if q != "omegas" else None
     mo = predict_q(rec["ion"], rec["family"], rec["pair"], q, om) if om else None
     lk, scope = lookup(rec)
+    hy = hybrid_q(rec)
+    hyo = hybrid_q(rec, om) if om else None
     row = dict(ion=rec["ion"], family=rec["family"], proxy=rec["proxy"], pair=rec["pair"], q=q, measured=rec["value"],
                model=m, model_paper_omega=mo, lookup=lk, lookup_scope=scope, src=rec["src"], note=rec["note"],
                err_model=err(q, m, rec["value"]), err_model_paper_omega=err(q, mo, rec["value"]),
-               err_lookup=err(q, lk, rec["value"]))
+               err_lookup=err(q, lk, rec["value"]), hybrid=hy, hybrid_paper_omega=hyo,
+               err_hybrid=err(q, hy, rec["value"]), err_hybrid_paper_omega=err(q, hyo, rec["value"]))
     rows.append(row)
     print(json.dumps({k: row[k] for k in ("ion", "family", "q", "measured", "model", "model_paper_omega", "lookup",
                                           "err_model", "err_model_paper_omega", "err_lookup")}, default=float), flush=True)
@@ -116,11 +154,15 @@ for q in sorted({r["q"] for r in rows}):
         v = [abs(r[key]) for r in sub if r[key] is not None]
         return dict(n=len(v), median_abs=float(np.median(v)) if v else None, rms=float(np.sqrt(np.mean(np.square(v)))) if v else None)
     both = [r for r in R if r["err_lookup"] is not None and r["err_model"] is not None]
+    hyb = [r for r in R if r["err_hybrid"] is not None and r["err_lookup"] is not None]
     summ[q] = dict(unit="dex" if (q in LOG or q == "omegas") else "nm",
                    all=dict(model=stat("err_model", R), model_paper_omega=stat("err_model_paper_omega", R)),
                    paired_with_lookup=dict(model=stat("err_model", both), model_paper_omega=stat("err_model_paper_omega", both),
                                            lookup=stat("err_lookup", both)),
-                   model_beats_lookup=sum(abs(r["err_model"]) < abs(r["err_lookup"]) for r in both), n_paired=len(both))
+                   model_beats_lookup=sum(abs(r["err_model"]) < abs(r["err_lookup"]) for r in both), n_paired=len(both),
+                   hybrid_vs_lookup=dict(hybrid=stat("err_hybrid", hyb), lookup=stat("err_lookup", hyb), model=stat("err_model", hyb),
+                                         hybrid_paper_omega=stat("err_hybrid_paper_omega", hyb),
+                                         hybrid_beats_lookup=sum(abs(r["err_hybrid"]) < abs(r["err_lookup"]) for r in hyb), n=len(hyb)))
 json.dump(dict(summary=summ, rows=rows), open("forward_results/oa_benchmark.json", "w"), indent=1, default=float)
 md = ["# External benchmark: open-access literature", "",
       "`scripts/oa_benchmark.py`, data in `gainmat/refs/oa_benchmark_refs.py` (never used to build the model).", "",
@@ -131,5 +173,13 @@ for q, s in summ.items():
     f = lambda d: "—" if d["median_abs"] is None else f"{d['median_abs']:.3g} (n={d['n']})"
     md.append(f"| {q} | {s['unit']} | {a['model']['n']} | {f(a['model'])} | {f(a['model_paper_omega'])} | {f(p['lookup'])} | "
               f"{s['model_beats_lookup']}/{s['n_paired']} |")
+md += ["", "Hybrid = model band shifted/stretched to the emission peak and FWHM reported by OTHER papers on the same "
+       "ion and family (library), integrated strength from the model.  Rows where both hybrid and lookup exist:", "",
+       "| quantity | n | model | hybrid | hybrid + paper's Omega | lookup | hybrid beats lookup |", "|---|---|---|---|---|---|---|"]
+for q, s in summ.items():
+    h = s["hybrid_vs_lookup"]
+    if h["n"]:
+        f = lambda d: "—" if d["median_abs"] is None else f"{d['median_abs']:.3g}"
+        md.append(f"| {q} | {h['n']} | {f(h['model'])} | {f(h['hybrid'])} | {f(h['hybrid_paper_omega'])} | {f(h['lookup'])} | {h['hybrid_beats_lookup']}/{h['n']} |")
 open("forward_results/oa_benchmark.md", "w").write("\n".join(md) + "\n")
 print("\n".join(md))

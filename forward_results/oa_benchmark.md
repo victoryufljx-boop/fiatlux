@@ -12,3 +12,13 @@
 | sigma_em_cm2 | dex | 21 | 0.185 (n=21) | 0.137 (n=10) | 0.124 (n=17) | 5/17 |
 | tau_ms | dex | 2 | 0.0669 (n=2) | — | — | 0/0 |
 | tau_rad_ms | dex | 20 | 0.112 (n=20) | 0.0181 (n=14) | 0.159 (n=20) | 14/20 |
+
+Hybrid = model band shifted/stretched to the emission peak and FWHM reported by OTHER papers on the same ion and family (library), integrated strength from the model.  Rows where both hybrid and lookup exist:
+
+| quantity | n | model | hybrid | hybrid + paper's Omega | lookup | hybrid beats lookup |
+|---|---|---|---|---|---|---|
+| abs_peak_nm | 4 | 1 | 1 | 0.764 | 1.5 | 4/4 |
+| em_fwhm_nm | 2 | 10.3 | 5.46 | 5.36 | 5.3 | 0/2 |
+| em_peak_nm | 18 | 12.7 | 4.97 | 6.88 | 1.5 | 7/18 |
+| sigma_abs_cm2 | 2 | 0.0897 | 0.0897 | — | 0.0698 | 1/2 |
+| sigma_em_cm2 | 17 | 0.188 | 0.188 | 0.0772 | 0.124 | 5/17 |

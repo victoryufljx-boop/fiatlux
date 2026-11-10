@@ -485,3 +485,140 @@ ratio, or Tm-specific covalency, as with Yb), not in the site geometry. The dire
 noted in round 2: measured Tm³⁺ Stark levels in a silicate glass. With those, a Tm-specific
 strength factor can be set on levels and tested on Simpson's band positions, instead of being
 fitted to them.
+
+## Round 4 (Nov 10): toward a frontier model — what helps, measured against the practical alternative
+
+"Frontier" is defined here as beating what a practitioner would do without the model: look up the
+same quantity in other papers on the same ion and glass family. Measurement scatter between labs
+sets the floor. Every change below was tested on data it never saw.
+
+### 1. Tm crystal field: two more fixes tried, neither adopted (`ml_results/tm_cf/`)
+
+- **A Tm–O field factor.** The handbook has no Tm oxide data and copies Er's values. A factor of
+  about 1.9 puts the ³F₄ band right in Al-silica (absorption 1641 nm, emission 1825 nm, matching
+  Agger). It breaks everything held out: ³H₅ moves 1209 → 1189 nm, ³H₄ moves blue, the 805 nm
+  pump absorption falls, and the ³F₄ widths double.
+- **Tm-specific rank multipliers.** Fitted to one glass's ³F₄ band, the best set (r2 = 2,
+  r4 = 0.6, r6 = 0.5) keeps that glass's ³H₄ and ³H₅ positions and widths right. The near-equally
+  good sets disagree by up to 100 nm in germanate and tellurite, and no measured data can choose
+  between them.
+- **Lincoln 1991 9 K line-narrowing levels** (³H₆ at ~0, 250, 430 cm⁻¹, Ge-silica) cannot tell
+  1× from 2× field: the model has levels near both values.
+- **Next step:** measured Tm Stark levels. Turri 2008 (8–300 K) gives none in numbers. Gruber 1989
+  (Tm:YAG) would test the "Tm = Er" handbook assumption in an oxide crystal.
+
+### 2. Measured-level mode: adopted (`spectra.ensemble_spectra(level_anchor=...)`, `refs/stark_anchor_refs.py`)
+
+Each site's Stark levels go through one monotone map, so the ensemble mean equals measured levels
+from one source. The site-to-site scatter and the crystal-field eigenvectors (intensities) are
+kept. It is on by default for Yb and Er in the silica family (`GAINMAT_ANCHORS=0` switches it
+off). For Yb in phosphosilicate, phosphate, germanate and tellurite, only the zero-phonon line is
+anchored. Tests use other sources (`scripts/validate_level_anchor.py`, full suite rerun):
+
+| held-out test | model | measured-level mode | measured |
+|---|---|---|---|
+| Pask Yb absorption shape error (rms) | 0.24 | 0.12 | — |
+| Pask Yb emission shape error (rms) | 0.24 | 0.14 | — |
+| Yb peak (Pask) | 970 nm | 974 nm | 974 nm |
+| Yb emission 1035 / 1064 nm relative to peak | 0.17 / 0.02 | 0.25 / 0.14 | 0.24 / 0.14 |
+| Pask 5 m free-running Yb laser threshold | no lasing | 54–56 mW | 45 mW |
+| Er σe/σa vs Giles, rms (Al- / Ge-silica) | 0.140 / 0.114 dex | 0.116 / 0.091 dex | — |
+| Jackson Er emission shape error / FWHM | 0.18 / 20 nm | 0.12 / 40 nm | — / 40 nm |
+| Yb zero-phonon line in phosphate (Wang 2017) | 967 nm | 975 nm | 975 nm |
+
+Not fixed:
+- The Pask 1102 nm laser still does not lase. Its emission beyond ~1080 nm needs a vibronic
+  sideband; S ≈ 0.2 would reproduce it but was not adopted, because that value is tuned on the
+  same curve.
+- The Er absorption peak is 2 nm shorter than before.
+- Tm is not anchored: three partial levels make the spectra worse.
+
+### 3. Bug fix: Yb Ω in non-silica hosts
+
+Yb has a single transition, so its "Ω" is only a line-strength normalisation. For glass families
+without Yb data, the fallback averaged other ions' Ω, making Yb in phosphate 2.5× too strong.
+Yb now borrows only Yb data from the nearest family.
+
+| check | before | after |
+|---|---|---|
+| Wang 2017 phosphate σa / σe error | 0.39–0.50 / 0.29–0.40 dex | 0.04–0.15 / under 0.07 dex |
+| Wang 2017 phosphate lifetime (measured 1.17 ms) | 0.56 ms | 1.29 ms |
+| Pask Ge-silica radiative lifetime | 1.16× | 0.92× |
+| Pask Ge-silica peak σe | 0.65× | 0.83× |
+
+### 4. External benchmark on open-access literature (`refs/oa_benchmark_refs.py`, `scripts/oa_benchmark.py`, `forward_results/oa_benchmark.md`)
+
+- **Data:** 99 records from 18 open-access papers. Tm, Er, Yb, Ho and Nd in tellurite, germanate,
+  phosphate, ZBLAN and Al-silica; mostly hosts the model had barely been tested on. Only numbers
+  stated in text or tables were used. Three Tm values were computed from a paper's stated linear
+  fits and are marked as such.
+- **Predictors** (each blind to the record):
+  - the model with its own Ω;
+  - the model given the paper's own Ω;
+  - a leave-one-paper-out lookup of the same quantity in other papers on the same ion and family.
+
+| quantity | model (own Ω) | model + paper's Ω | lookup | model beats lookup |
+|---|---|---|---|---|
+| radiative lifetime | 0.112 dex (n=20) | **0.018 dex** (n=14) | 0.159 dex | **14/20** |
+| Ω | 0.087 dex (n=16) | — | 0.092 dex | 7/15 |
+| absorption peak | 0.9 nm (n=8) | 0.5 nm | 1.5 nm | 4/4 |
+| emission peak | 12.7 nm (n=18) | — | **1.5 nm** | 3/18 |
+| emission FWHM | 27 nm (n=7) | 15 nm | **5.3 nm** | 0/2 |
+| peak σa | 0.079 dex (n=7) | — | 0.070 dex | 1/2 |
+| peak σe | 0.185 dex (n=21) | 0.137 dex (n=10) | **0.124 dex** | 5/17 |
+
+**What this says:**
+- **The radiative physics is at measurement precision once Ω is known** (0.018 dex, i.e. 4 %),
+  and beats lookup without it.
+- **The limit is Ω itself.** Neither the current defaults (0.087 dex) nor LOMS family medians
+  (0.149 vs 0.153 dex per Ω, no paper overlap) beat the scatter between publications. This repeats
+  the L1 finding.
+- **Band positions and widths are where published data beat the model.** For Er, Nd, Ho and Yb
+  the errors are small (positions 1–7 nm). Tm ³F₄ emission is 50–90 nm short outside silica.
+  Tm emission peaks also scatter by about 70 nm between papers (reabsorption in thick bulk
+  samples).
+- **Peak σe** follows from the width errors: given the paper's Ω the error is 0.137 dex, close to
+  the lookup's 0.124.
+- **Hybrid (proof of concept, not adopted):**
+  - The model band is shifted and stretched to the peak and FWHM that other papers report, and
+    the model's integrated strength is kept.
+  - It equals the lookup on positions by construction.
+  - It improves σe only where another paper reports a width (2 Nd tellurite rows, 0.137 → 0.077
+    dex median over 10 rows), too few to claim.
+- **Also tested, not adopted:**
+  - A tellurite disorder scale: shrinking it narrows Tm a lot but Nd hardly at all. No shared
+    width setting, as in silica (L2).
+  - One questionable record: the Ho fluorotellurite paper's Ω give 3.9 ms through the standard
+    formula, against its quoted 7.98 ms.
+
+### 5. Usability
+
+- **`gainmat.forward.predict.predict(ion, family | composition=..., omegas=...)`** returns, in one
+  call:
+  - main bands, lifetimes and gain windows;
+  - an empirical uncertainty for each quantity, from the validation residuals;
+  - the provenance of each input: measured levels / measured Ω / ML layer / pure model;
+  - the known biases found in validation.
+- **`gainmat.forward.composition.family_for`** maps a composition (mol%, or a formula such as
+  `70TeO2-15K2O-15Nb2O5`) to the model's glass family. It classifies 536 of 928 LOMS glasses;
+  borates, bismuthates and oxyfluorides are not covered.
+- **ML layer rerun:** with anchors on, it still helps out of sample. Lifetimes within 30 % go from
+  62 % to 71 %; peak σ error goes from 0.194 to 0.179 dex.
+
+### Where this leaves the model
+
+**Near or at frontier:**
+- radiative lifetimes, branching and quantum efficiency, given Ω or a measured absorption band;
+- device simulation with measured spectra (earlier rounds);
+- Yb and Er spectra in silica fibres;
+- absorption peak positions.
+
+**Not frontier:**
+- band positions and widths without published data, and Tm ³F₄ in particular;
+- Ω for an unmeasured glass. This is limited by the scatter between papers, so the practical
+  route is to measure Ω or absorption.
+
+**Next steps:**
+- a larger open-access dataset (about 6 records per paper; extraction works);
+- measured Tm Stark levels;
+- published widths to make the hybrid testable.

@@ -32,7 +32,31 @@
     }
    },
    "model_beats_lookup": 4,
-   "n_paired": 4
+   "n_paired": 4,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 4,
+     "median_abs": 1.0,
+     "rms": 1.8143527047381567
+    },
+    "lookup": {
+     "n": 4,
+     "median_abs": 1.5,
+     "rms": 2.0682789409984914
+    },
+    "model": {
+     "n": 4,
+     "median_abs": 1.0,
+     "rms": 1.8143527047381567
+    },
+    "hybrid_paper_omega": {
+     "n": 1,
+     "median_abs": 0.763877906057246,
+     "rms": 0.763877906057246
+    },
+    "hybrid_beats_lookup": 4,
+    "n": 4
+   }
   },
   "em_fwhm_nm": {
    "unit": "nm",
@@ -66,7 +90,31 @@
     }
    },
    "model_beats_lookup": 0,
-   "n_paired": 2
+   "n_paired": 2,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 2,
+     "median_abs": 5.464629022220743,
+     "rms": 5.464629436746714
+    },
+    "lookup": {
+     "n": 2,
+     "median_abs": 5.300000000000001,
+     "rms": 5.300000000000001
+    },
+    "model": {
+     "n": 2,
+     "median_abs": 10.319018003110022,
+     "rms": 10.653855290387078
+    },
+    "hybrid_paper_omega": {
+     "n": 2,
+     "median_abs": 5.363748081248355,
+     "rms": 5.364386812754763
+    },
+    "hybrid_beats_lookup": 0,
+    "n": 2
+   }
   },
   "em_peak_nm": {
    "unit": "nm",
@@ -100,7 +148,31 @@
     }
    },
    "model_beats_lookup": 3,
-   "n_paired": 18
+   "n_paired": 18,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 18,
+     "median_abs": 4.971930303933618,
+     "rms": 29.235273395408583
+    },
+    "lookup": {
+     "n": 18,
+     "median_abs": 1.5,
+     "rms": 22.630377404751385
+    },
+    "model": {
+     "n": 18,
+     "median_abs": 12.672018969095802,
+     "rms": 44.006382511655865
+    },
+    "hybrid_paper_omega": {
+     "n": 9,
+     "median_abs": 6.882640586797152,
+     "rms": 30.839268987038945
+    },
+    "hybrid_beats_lookup": 7,
+    "n": 18
+   }
   },
   "omegas": {
    "unit": "dex",
@@ -134,7 +206,31 @@
     }
    },
    "model_beats_lookup": 7,
-   "n_paired": 15
+   "n_paired": 15,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "lookup": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "model": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_paper_omega": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_beats_lookup": 0,
+    "n": 0
+   }
   },
   "sigma_abs_cm2": {
    "unit": "dex",
@@ -168,7 +264,31 @@
     }
    },
    "model_beats_lookup": 1,
-   "n_paired": 2
+   "n_paired": 2,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 2,
+     "median_abs": 0.08972483429125895,
+     "rms": 0.11988346083471889
+    },
+    "lookup": {
+     "n": 2,
+     "median_abs": 0.06983034897880035,
+     "rms": 0.06983034897880035
+    },
+    "model": {
+     "n": 2,
+     "median_abs": 0.08968794417832793,
+     "rms": 0.11983138519504137
+    },
+    "hybrid_paper_omega": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_beats_lookup": 1,
+    "n": 2
+   }
   },
   "sigma_em_cm2": {
    "unit": "dex",
@@ -202,7 +322,31 @@
     }
    },
    "model_beats_lookup": 5,
-   "n_paired": 17
+   "n_paired": 17,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 17,
+     "median_abs": 0.18757743704973312,
+     "rms": 0.2008887197416865
+    },
+    "lookup": {
+     "n": 17,
+     "median_abs": 0.12370137746696995,
+     "rms": 0.16333840137858957
+    },
+    "model": {
+     "n": 17,
+     "median_abs": 0.1875399613065582,
+     "rms": 0.20071922139892007
+    },
+    "hybrid_paper_omega": {
+     "n": 10,
+     "median_abs": 0.07724438004387177,
+     "rms": 0.12024729232410188
+    },
+    "hybrid_beats_lookup": 5,
+    "n": 17
+   }
   },
   "tau_ms": {
    "unit": "dex",
@@ -236,7 +380,31 @@
     }
    },
    "model_beats_lookup": 0,
-   "n_paired": 0
+   "n_paired": 0,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "lookup": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "model": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_paper_omega": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_beats_lookup": 0,
+    "n": 0
+   }
   },
   "tau_rad_ms": {
    "unit": "dex",
@@ -270,7 +438,31 @@
     }
    },
    "model_beats_lookup": 14,
-   "n_paired": 20
+   "n_paired": 20,
+   "hybrid_vs_lookup": {
+    "hybrid": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "lookup": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "model": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_paper_omega": {
+     "n": 0,
+     "median_abs": null,
+     "rms": null
+    },
+    "hybrid_beats_lookup": 0,
+    "n": 0
+   }
   }
  },
  "rows": [
@@ -304,7 +496,11 @@
    "note": "TeO2-K2O-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.2071681129904425,
    "err_model_paper_omega": null,
-   "err_lookup": -0.015417580813984434
+   "err_lookup": -0.015417580813984434,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -324,7 +520,11 @@
    "note": "TeO2-K2O-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": -0.1381750907063411,
    "err_model_paper_omega": 0.02086063251177037,
-   "err_lookup": 0.30022550669432607
+   "err_lookup": 0.30022550669432607,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -344,7 +544,11 @@
    "note": "TeO2-K2O-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.20609816900691835,
    "err_model_paper_omega": 0.060409188330383626,
-   "err_lookup": -0.17456369309974148
+   "err_lookup": -0.17456369309974148,
+   "hybrid": 9.016978419328936e-21,
+   "hybrid_paper_omega": 6.447213461998797e-21,
+   "err_hybrid": 0.20609816900691835,
+   "err_hybrid_paper_omega": 0.060409188330383626
   },
   {
    "ion": "Tm3+",
@@ -364,7 +568,11 @@
    "note": "TeO2-K2O-Nb2O5",
    "err_model": -83.16986496090976,
    "err_model_paper_omega": -83.80106571936062,
-   "err_lookup": -19.100000000000136
+   "err_lookup": -19.100000000000136,
+   "hybrid": 1776.8301350390902,
+   "hybrid_paper_omega": 1776.1989342806394,
+   "err_hybrid": -83.16986496090976,
+   "err_hybrid_paper_omega": -83.80106571936062
   },
   {
    "ion": "Tm3+",
@@ -384,7 +592,11 @@
    "note": "TeO2-K2O-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 27.254118509753653,
    "err_model_paper_omega": 22.740431642196654,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 197.25411850975365,
+   "hybrid_paper_omega": 192.74043164219665,
+   "err_hybrid": 27.254118509753653,
+   "err_hybrid_paper_omega": 22.740431642196654
   },
   {
    "ion": "Tm3+",
@@ -416,7 +628,11 @@
    "note": "TeO2-ZnO; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.1958819641016374,
    "err_model_paper_omega": null,
-   "err_lookup": -0.026703729702789492
+   "err_lookup": -0.026703729702789492,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -436,7 +652,11 @@
    "note": "TeO2-ZnO; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": -0.13478214780900175,
    "err_model_paper_omega": 0.04378822468777462,
-   "err_lookup": 0.3036184495916654
+   "err_lookup": 0.3036184495916654,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -456,7 +676,11 @@
    "note": "TeO2-ZnO; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.2162804717787106,
    "err_model_paper_omega": 0.043318553981427685,
-   "err_lookup": -0.1643813903279492
+   "err_lookup": -0.1643813903279492,
+   "hybrid": 9.016978419328936e-21,
+   "hybrid_paper_omega": 6.0547903831769364e-21,
+   "err_hybrid": 0.2162804717787106,
+   "err_hybrid_paper_omega": 0.043318553981427685
   },
   {
    "ion": "Tm3+",
@@ -476,7 +700,11 @@
    "note": "TeO2-ZnO; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 5.254118509753653,
    "err_model_paper_omega": 3.3601953601953483,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 197.25411850975365,
+   "hybrid_paper_omega": 195.36019536019535,
+   "err_hybrid": 5.254118509753653,
+   "err_hybrid_paper_omega": 3.3601953601953483
   },
   {
    "ion": "Tm3+",
@@ -508,7 +736,11 @@
    "note": "TeO2-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.23789251302741488,
    "err_model_paper_omega": null,
-   "err_lookup": 0.01530681922298792
+   "err_lookup": 0.01530681922298792,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -528,7 +760,11 @@
    "note": "TeO2-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": -0.1691510494402643,
    "err_model_paper_omega": 0.02923500798396429,
-   "err_lookup": 0.2692495479604029
+   "err_lookup": 0.2692495479604029,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -548,7 +784,11 @@
    "note": "TeO2-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": 0.25696048463968985,
    "err_model_paper_omega": 0.07200066711475545,
-   "err_lookup": -0.12370137746696995
+   "err_lookup": -0.12370137746696995,
+   "hybrid": 9.016978419328936e-21,
+   "hybrid_paper_omega": 5.889809019163032e-21,
+   "err_hybrid": 0.25696048463968985,
+   "err_hybrid_paper_omega": 0.07200066711475545
   },
   {
    "ion": "Tm3+",
@@ -568,7 +808,11 @@
    "note": "TeO2-Nb2O5",
    "err_model": -18.169864960909763,
    "err_model_paper_omega": -18.801065719360622,
-   "err_lookup": 45.899999999999864
+   "err_lookup": 45.899999999999864,
+   "hybrid": 1776.8301350390902,
+   "hybrid_paper_omega": 1776.1989342806394,
+   "err_hybrid": -18.169864960909763,
+   "err_hybrid_paper_omega": -18.801065719360622
   },
   {
    "ion": "Tm3+",
@@ -588,7 +832,11 @@
    "note": "TeO2-Nb2O5; 1 mol% Tm2O3 sample (Table 1 Omegas). Table columns for 3F4/3H4 were swapped in extraction; the 1.8 um-band values are assigned to 3F4 by physics (tau_rad 2.6 ms is 3F4, not 3H4)",
    "err_model": -39.74588149024635,
    "err_model_paper_omega": -44.259568357803346,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 197.25411850975365,
+   "hybrid_paper_omega": 192.74043164219665,
+   "err_hybrid": -39.74588149024635,
+   "err_hybrid_paper_omega": -44.259568357803346
   },
   {
    "ion": "Tm3+",
@@ -608,7 +856,11 @@
    "note": "all TeO2 glasses",
    "err_model": -3.236122093942754,
    "err_model_paper_omega": null,
-   "err_lookup": -3.3333333333333712
+   "err_lookup": -3.3333333333333712,
+   "hybrid": 790.7638779060572,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -3.236122093942754,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -640,7 +892,11 @@
    "note": "Tm germanate (composition not disclosed)",
    "err_model": 0.04726469626478108,
    "err_model_paper_omega": null,
-   "err_lookup": -0.09865695813172555
+   "err_lookup": -0.09865695813172555,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -660,7 +916,11 @@
    "note": "",
    "err_model": -0.11269199399561591,
    "err_model_paper_omega": -0.028434659996361578,
-   "err_lookup": -0.37209335148942657
+   "err_lookup": -0.37209335148942657,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -680,7 +940,11 @@
    "note": "",
    "err_model": -92.5382154283684,
    "err_model_paper_omega": -92.5382154283684,
-   "err_lookup": -26.666666666666742
+   "err_lookup": -26.666666666666742,
+   "hybrid": 1842.9782528566163,
+   "hybrid_paper_omega": 1842.9782528566163,
+   "err_hybrid": -27.021747143383664,
+   "err_hybrid_paper_omega": -27.021747143383664
   },
   {
    "ion": "Tm3+",
@@ -700,7 +964,11 @@
    "note": "65.5GeO2-12Al2O3-4.5BaO-18Na2O-1Tm2O3",
    "err_model": -87.5382154283684,
    "err_model_paper_omega": null,
-   "err_lookup": -20.0
+   "err_lookup": -20.0,
+   "hybrid": 1845.018450184502,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -19.981549815498056,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -720,7 +988,11 @@
    "note": "McCumber; 1 mol% Tm2O3",
    "err_model": 0.4402008411247209,
    "err_model_paper_omega": null,
-   "err_lookup": 0.36598172415543506
+   "err_lookup": 0.36598172415543506,
+   "hybrid": 6.3376036547348736e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.4401972394892814,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -740,7 +1012,11 @@
    "note": "",
    "err_model": 0.763877906057246,
    "err_model_paper_omega": null,
-   "err_lookup": 1.0
+   "err_lookup": 1.0,
+   "hybrid": 790.7638779060572,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.763877906057246,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -760,7 +1036,11 @@
    "note": "60GeO2-15Ga2O3-10BaO-15Na2O, 0.7 mol% Tm2O3",
    "err_model": -22.538215428368403,
    "err_model_paper_omega": null,
-   "err_lookup": 66.66666666666674
+   "err_lookup": 66.66666666666674,
+   "hybrid": 1866.368047779022,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 66.36804777902194,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -780,7 +1060,11 @@
    "note": "",
    "err_model": -1.236122093942754,
    "err_model_paper_omega": null,
-   "err_lookup": -2.0
+   "err_lookup": -2.0,
+   "hybrid": 790.7638779060572,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -1.236122093942754,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -800,7 +1084,11 @@
    "note": "2.6e20 cm^-3",
    "err_model": -0.14668901576345422,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 9.559073096732196e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.14668901576345422,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -832,7 +1120,11 @@
    "note": "36Bi2O3-29GeO2-25Ga2O3-10Na2O (bismuth germanate)",
    "err_model": 0.14592165439650664,
    "err_model_paper_omega": null,
-   "err_lookup": 0.09865695813172555
+   "err_lookup": 0.09865695813172555,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -852,7 +1144,11 @@
    "note": "bismuth germanate",
    "err_model": 0.25940135749381066,
    "err_model_paper_omega": 0.28775820150783554,
-   "err_lookup": 0.37209335148942657
+   "err_lookup": 0.37209335148942657,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -872,7 +1168,11 @@
    "note": "bismuth germanate",
    "err_model": -87.5382154283684,
    "err_model_paper_omega": -88.16986496090976,
-   "err_lookup": -20.0
+   "err_lookup": -20.0,
+   "hybrid": 1845.018450184502,
+   "hybrid_paper_omega": 1845.018450184502,
+   "err_hybrid": -19.981549815498056,
+   "err_hybrid_paper_omega": -19.981549815498056
   },
   {
    "ion": "Tm3+",
@@ -892,7 +1192,11 @@
    "note": "bismuth germanate",
    "err_model": -0.043789340824344804,
    "err_model_paper_omega": -0.036996465144022765,
-   "err_lookup": -0.36000354876816176
+   "err_lookup": -0.36000354876816176,
+   "hybrid": 6.3376036547348736e-21,
+   "hybrid_paper_omega": 6.437535325676208e-21,
+   "err_hybrid": -0.04379294245978438,
+   "err_hybrid_paper_omega": -0.03699839274006703
   },
   {
    "ion": "Tm3+",
@@ -912,7 +1216,11 @@
    "note": "bismuth germanate",
    "err_model": 0.763877906057246,
    "err_model_paper_omega": 0.763877906057246,
-   "err_lookup": 1.0
+   "err_lookup": 1.0,
+   "hybrid": 790.7638779060572,
+   "hybrid_paper_omega": 790.7638779060572,
+   "err_hybrid": 0.763877906057246,
+   "err_hybrid_paper_omega": 0.763877906057246
   },
   {
    "ion": "Tm3+",
@@ -944,7 +1252,11 @@
    "note": "10.3 wt% Al2O3 silica",
    "err_model": 0.07146864683001368,
    "err_model_paper_omega": null,
-   "err_lookup": -0.06212722540107938
+   "err_lookup": -0.06212722540107938,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -964,7 +1276,11 @@
    "note": "",
    "err_model": -0.08505425297415398,
    "err_model_paper_omega": -0.02303766169403849,
-   "err_lookup": -0.4427068140287994
+   "err_lookup": -0.4427068140287994,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -996,7 +1312,11 @@
    "note": "Kigre borophosphate",
    "err_model": 0.08693749396027238,
    "err_model_paper_omega": null,
-   "err_lookup": 0.040099531161149754
+   "err_lookup": 0.040099531161149754,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1016,7 +1336,11 @@
    "note": "",
    "err_model": -0.11207391297244791,
    "err_model_paper_omega": 0.004041661261845504,
-   "err_lookup": -0.5166868663906166
+   "err_lookup": -0.5166868663906166,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1036,7 +1360,11 @@
    "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
    "err_model": -3.99584837545126,
    "err_model_paper_omega": null,
-   "err_lookup": 27.950000000000045
+   "err_lookup": 27.950000000000045,
+   "hybrid": 1805.0541516245487,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -3.99584837545126,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1056,7 +1384,11 @@
    "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
    "err_model": 0.11697675449350026,
    "err_model_paper_omega": null,
-   "err_lookup": 0.11976947433290051
+   "err_lookup": 0.11976947433290051,
+   "hybrid": 4.740948569232149e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.11697675449350026,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1076,7 +1408,11 @@
    "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
    "err_model": -45.51905444126055,
    "err_model_paper_omega": null,
-   "err_lookup": 0.650000000000091
+   "err_lookup": 0.650000000000091,
+   "hybrid": 1790.8309455587394,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -45.51905444126055,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1096,7 +1432,11 @@
    "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
    "err_model": 0.18656168235467416,
    "err_model_paper_omega": null,
-   "err_lookup": 0.18269756898792983
+   "err_lookup": 0.18269756898792983,
+   "hybrid": 4.814177261112095e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.18656168235467416,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Tm3+",
@@ -1116,7 +1456,11 @@
    "note": "derived here from the paper's stated linear fit at 295 K (Sec. III.C), not a quoted number",
    "err_model": 0.19222757476291427,
    "err_model_paper_omega": null,
-   "err_lookup": -0.00597817538727382
+   "err_lookup": -0.00597817538727382,
+   "hybrid": 6.337405648765333e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.192210404238032,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1144,7 +1488,11 @@
    "note": "70TeO2-10ZnO-10BaF2-0.5Ho2O3, n = 2.007",
    "err_model": -0.18167700270299705,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1164,7 +1512,11 @@
    "note": "",
    "err_model": -0.14680378112891387,
    "err_model_paper_omega": -0.3065008917966004,
-   "err_lookup": 0.14096411729221603
+   "err_lookup": 0.14096411729221603,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1184,7 +1536,11 @@
    "note": "5I6 total radiative lifetime",
    "err_model": -0.10523669705416515,
    "err_model_paper_omega": null,
-   "err_lookup": 0.24065231343906207
+   "err_lookup": 0.24065231343906207,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1204,7 +1560,11 @@
    "note": "",
    "err_model": 0.023776370738854337,
    "err_model_paper_omega": null,
-   "err_lookup": -0.1565873633580343
+   "err_lookup": -0.1565873633580343,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1224,7 +1584,11 @@
    "note": "5I6 total radiative lifetime",
    "err_model": 0.022234843942242833,
    "err_model_paper_omega": null,
-   "err_lookup": -0.240652313439062
+   "err_lookup": -0.240652313439062,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1244,7 +1608,11 @@
    "note": "",
    "err_model": -0.6822612085770743,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1949.317738791423,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.6822612085770743,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -1264,7 +1632,11 @@
    "note": "'around 2 um' in text",
    "err_model": 2.402883460152225,
    "err_model_paper_omega": null,
-   "err_lookup": 0.0
+   "err_lookup": 0.0,
+   "hybrid": 2002.4028834601522,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 2.402883460152225,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1296,7 +1668,11 @@
    "note": "60TeO2-30WO3-3ZnO-6La2O3-1Er2O3",
    "err_model": -0.06099306785021682,
    "err_model_paper_omega": null,
-   "err_lookup": -0.1739287374012265
+   "err_lookup": -0.1739287374012265,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1316,7 +1692,11 @@
    "note": "TWYE-1 (Yb co-doped)",
    "err_model": -3.1980380134887127,
    "err_model_paper_omega": null,
-   "err_lookup": -0.33333333333325754
+   "err_lookup": -0.33333333333325754,
+   "hybrid": 1532.8019619865113,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -3.1980380134887127,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1336,7 +1716,11 @@
    "note": "TWYE-1 (Yb co-doped)",
    "err_model": -0.007316359089054743,
    "err_model_paper_omega": null,
-   "err_lookup": -0.15046707457327585
+   "err_lookup": -0.15046707457327585,
+   "hybrid": 1.0422922442614091e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.007316359089054743,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1356,7 +1740,11 @@
    "note": "TWYE-1 (Yb co-doped)",
    "err_model": -27.252763604180245,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 36.747236395819755,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -27.252763604180245,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1376,7 +1764,11 @@
    "note": "",
    "err_model": 0.09076682316117513,
    "err_model_paper_omega": 0.2821365681862744,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 978.0907668231612,
+   "hybrid_paper_omega": 978.2821365681863,
+   "err_hybrid": 0.09076682316117513,
+   "err_hybrid_paper_omega": 0.2821365681862744
   },
   {
    "ion": "Er3+",
@@ -1396,7 +1788,11 @@
    "note": "",
    "err_model": -0.006772807410348894,
    "err_model_paper_omega": 0.006737895207962577,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 3.396614722166455e-21,
+   "hybrid_paper_omega": 3.503942657625306e-21,
+   "err_hybrid": -0.006772807410348894,
+   "err_hybrid_paper_omega": 0.006737895207962577
   },
   {
    "ion": "Er3+",
@@ -1428,7 +1824,11 @@
    "note": "ZBLAN, 1 mol% ErF3",
    "err_model": -0.0861698216416319,
    "err_model_paper_omega": null,
-   "err_lookup": -0.12646611192220578
+   "err_lookup": -0.12646611192220578,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1448,7 +1848,11 @@
    "note": "",
    "err_model": 0.14762093997980913,
    "err_model_paper_omega": 0.014408533574192379,
-   "err_lookup": 0.14152701443510873
+   "err_lookup": 0.14152701443510873,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1468,7 +1872,11 @@
    "note": "4I11/2 total radiative lifetime",
    "err_model": 0.1828069377168275,
    "err_model_paper_omega": null,
-   "err_lookup": 0.14837827118864888
+   "err_lookup": 0.14837827118864888,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1488,7 +1896,11 @@
    "note": "",
    "err_model": -5.9480122324159765,
    "err_model_paper_omega": -6.882640586797152,
-   "err_lookup": 1.0
+   "err_lookup": 1.0,
+   "hybrid": 1529.051987767584,
+   "hybrid_paper_omega": 1528.1173594132028,
+   "err_hybrid": -5.9480122324159765,
+   "err_hybrid_paper_omega": -6.882640586797152
   },
   {
    "ion": "Er3+",
@@ -1508,7 +1920,11 @@
    "note": "Table 3 alignment uncertain (extraction note)",
    "err_model": -0.0848012982719139,
    "err_model_paper_omega": null,
-   "err_lookup": 0.0960867922737387
+   "err_lookup": 0.0960867922737387,
+   "hybrid": 5.9722134663399125e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.0848012982719139,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1528,7 +1944,11 @@
    "note": "Table 3 alignment uncertain (extraction note)",
    "err_model": 0.010216983778773715,
    "err_model_paper_omega": null,
-   "err_lookup": 0.06983034897880164
+   "err_lookup": 0.06983034897880164,
+   "hybrid": 5.927827368100846e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.010216983778773715,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1548,7 +1968,11 @@
    "note": "",
    "err_model": 22.74822501365361,
    "err_model_paper_omega": 21.257641921397408,
-   "err_lookup": 2.0
+   "err_lookup": 2.0,
+   "hybrid": 2710.027100271003,
+   "hybrid_paper_omega": 2710.027100271003,
+   "err_hybrid": 2.027100271002837,
+   "err_hybrid_paper_omega": 2.027100271002837
   },
   {
    "ion": "Er3+",
@@ -1568,7 +1992,11 @@
    "note": "",
    "err_model": -0.2443582221768076,
    "err_model_paper_omega": -0.15376350900793812,
-   "err_lookup": -0.040197794300911756
+   "err_lookup": -0.040197794300911756,
+   "hybrid": 5.713922154406472e-21,
+   "hybrid_paper_omega": 7.039344481599955e-21,
+   "err_hybrid": -0.24436661369438092,
+   "err_hybrid_paper_omega": -0.15376871440087475
   },
   {
    "ion": "Er3+",
@@ -1600,7 +2028,11 @@
    "note": "ZBYA fluorozirconate",
    "err_model": -0.031075959872730607,
    "err_model_paper_omega": null,
-   "err_lookup": -0.07137225015330444
+   "err_lookup": -0.07137225015330444,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1620,7 +2052,11 @@
    "note": "ZBYA",
    "err_model": 0.1227224326831423,
    "err_model_paper_omega": 0.01424025114354138,
-   "err_lookup": 0.11662850713844194
+   "err_lookup": 0.11662850713844194,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1640,7 +2076,11 @@
    "note": "ZBYA",
    "err_model": -0.1909809089881159,
    "err_model_paper_omega": -0.12082845407081548,
-   "err_lookup": 0.013179518887779988
+   "err_lookup": 0.013179518887779988,
+   "hybrid": 5.713922154406472e-21,
+   "hybrid_paper_omega": 6.715705006884494e-21,
+   "err_hybrid": -0.19098930050568924,
+   "err_hybrid_paper_omega": -0.12083200870519983
   },
   {
    "ion": "Er3+",
@@ -1672,7 +2112,11 @@
    "note": "53ZrF4-20BaF2-4LaF3-3AlF3-20NaF",
    "err_model": -0.03851178815415129,
    "err_model_paper_omega": null,
-   "err_lookup": 0.020111102603029934
+   "err_lookup": 0.020111102603029934,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1692,7 +2136,11 @@
    "note": "",
    "err_model": 0.037952276789347705,
    "err_model_paper_omega": 0.01435104044770084,
-   "err_lookup": -0.09721940954212793
+   "err_lookup": -0.09721940954212793,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1712,7 +2160,11 @@
    "note": "",
    "err_model": 0.034428666528178754,
    "err_model_paper_omega": 0.015336051810361979,
-   "err_lookup": -0.14837827118864877
+   "err_lookup": -0.14837827118864877,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1732,7 +2184,11 @@
    "note": "",
    "err_model": 20.74822501365361,
    "err_model_paper_omega": 19.257641921397408,
-   "err_lookup": -2.0
+   "err_lookup": -2.0,
+   "hybrid": 2707.092582566324,
+   "hybrid_paper_omega": 2708.5590465872156,
+   "err_hybrid": -2.9074174336760734,
+   "err_hybrid_paper_omega": -1.4409534127844381
   },
   {
    "ion": "Er3+",
@@ -1752,7 +2208,11 @@
    "note": "",
    "err_model": -0.22078089444523727,
    "err_model_paper_omega": -0.2026420905459255,
-   "err_lookup": -0.0031113288627737865
+   "err_lookup": -0.0031113288627737865,
+   "hybrid": 5.71353951211318e-21,
+   "hybrid_paper_omega": 5.9575510344206094e-21,
+   "err_hybrid": -0.2208183701884122,
+   "err_hybrid_paper_omega": -0.20265583393928804
   },
   {
    "ion": "Er3+",
@@ -1784,7 +2244,11 @@
    "note": "AlF3-YF3 fluoroaluminate AYF3",
    "err_model": 0.11910436871529896,
    "err_model_paper_omega": null,
-   "err_lookup": 0.17772725947248016
+   "err_lookup": 0.17772725947248016,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1804,7 +2268,11 @@
    "note": "AYF3",
    "err_model": -0.025764425699947153,
    "err_model_paper_omega": -0.0029425951290279356,
-   "err_lookup": -0.1609361120314228
+   "err_lookup": -0.1609361120314228,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1824,7 +2292,11 @@
    "note": "AYF3",
    "err_model": -0.1875399613065582,
    "err_model_paper_omega": -0.2097970862341893,
-   "err_lookup": 0.030129604275905327
+   "err_lookup": 0.030129604275905327,
+   "hybrid": 5.71353951211318e-21,
+   "hybrid_paper_omega": 5.4270706651300826e-21,
+   "err_hybrid": -0.18757743704973312,
+   "err_hybrid_paper_omega": -0.20991719564600936
   },
   {
    "ion": "Er3+",
@@ -1844,7 +2316,11 @@
    "note": "antimony-phosphate",
    "err_model": -0.16915890457788213,
    "err_model_paper_omega": null,
-   "err_lookup": -0.06983034897879906
+   "err_lookup": -0.06983034897879906,
+   "hybrid": 4.605494074841292e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.16923268480374418,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1864,7 +2340,11 @@
    "note": "antimony-phosphate",
    "err_model": -0.18548922337665608,
    "err_model_paper_omega": null,
-   "err_lookup": 0.05438028229954022
+   "err_lookup": 0.05438028229954022,
+   "hybrid": 5.0484001075785156e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.18558719336370458,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1884,7 +2364,11 @@
    "note": "",
    "err_model": -4.137254901960887,
    "err_model_paper_omega": null,
-   "err_lookup": 0.0
+   "err_lookup": 0.0,
+   "hybrid": 1536.0983102918588,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.09831029185875195,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1904,7 +2388,11 @@
    "note": "15Na2O-20Al2O3-63P2O5, 2 mol% Er2O3",
    "err_model": -7.4802691954726015,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1533.7423312883436,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -3.257668711656379,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Er3+",
@@ -1924,7 +2412,11 @@
    "note": "",
    "err_model": -4.137254901960887,
    "err_model_paper_omega": null,
-   "err_lookup": 0.0
+   "err_lookup": 0.0,
+   "hybrid": 1536.0983102918588,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.09831029185875195,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -1944,7 +2436,11 @@
    "note": "20BaO-71P2O5-9SiO2 (BPS9)",
    "err_model": 0.9906304899473071,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 975.9906304899473,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.9906304899473071,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -1964,7 +2460,11 @@
    "note": "BPS9",
    "err_model": 0.03318493379280135,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.1765528271172712e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.03318493379280135,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -1984,7 +2484,11 @@
    "note": "BPS9",
    "err_model": -0.06951066873040662,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.2440624650232631e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.06951066873040662,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -2004,7 +2508,11 @@
    "note": "BPS9, 1 mol% Yb2O3",
    "err_model": 0.05289748346905437,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -2024,7 +2532,11 @@
    "note": "BPS16",
    "err_model": 0.07938535604093012,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.1765528271172712e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.07938535604093012,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -2044,7 +2556,11 @@
    "note": "BPS16",
    "err_model": -0.019101165252806286,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.2440624650232631e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.019101165252806286,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -2064,7 +2580,11 @@
    "note": "BPS26.7",
    "err_model": 0.1411925060191323,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.1765528271172712e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.1411925060191323,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Yb3+",
@@ -2084,7 +2604,11 @@
    "note": "BPS26.7",
    "err_model": 0.0417637435706107,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 1.2440624650232631e-20,
+   "hybrid_paper_omega": null,
+   "err_hybrid": 0.0417637435706107,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -2104,7 +2628,11 @@
    "note": "'centred at about 2 um'",
    "err_model": -7.174172977281842,
    "err_model_paper_omega": null,
-   "err_lookup": 0.0
+   "err_lookup": 0.0,
+   "hybrid": 1992.8258270227182,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -7.174172977281842,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -2124,7 +2652,11 @@
    "note": "",
    "err_model": -0.027806988761116928,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 4.596095999160555e-21,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -0.027806988761116928,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -2144,7 +2676,11 @@
    "note": "",
    "err_model": -59.67546862100971,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": 111.32453137899029,
+   "hybrid_paper_omega": null,
+   "err_hybrid": -59.67546862100971,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Ho3+",
@@ -2164,7 +2700,11 @@
    "note": "from A_rad = 103.38 s^-1",
    "err_model": 0.13460413022286027,
    "err_model_paper_omega": null,
-   "err_lookup": 0.015623246065818164
+   "err_lookup": 0.015623246065818164,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2196,7 +2736,11 @@
    "note": "85TeO2-15ZnO wt%, n = 2.0",
    "err_model": 0.06655977814437565,
    "err_model_paper_omega": null,
-   "err_lookup": 0.09180850996735208
+   "err_lookup": 0.09180850996735208,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2216,7 +2760,11 @@
    "note": "",
    "err_model": -0.06411050613329952,
    "err_model_paper_omega": 0.007471890760564165,
-   "err_lookup": -0.04079407102912506
+   "err_lookup": -0.04079407102912506,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2236,7 +2784,11 @@
    "note": "",
    "err_model": -4.746668077004415,
    "err_model_paper_omega": -4.5228523063901775,
-   "err_lookup": -0.5
+   "err_lookup": -0.5,
+   "hybrid": 1062.0220900594732,
+   "hybrid_paper_omega": 1062.0220900594732,
+   "err_hybrid": -0.47790994052684255,
+   "err_hybrid_paper_omega": -0.47790994052684255
   },
   {
    "ion": "Nd3+",
@@ -2256,7 +2808,11 @@
    "note": "",
    "err_model": -0.033672779123789284,
    "err_model_paper_omega": -0.16116928014277565,
-   "err_lookup": 0.12631964232468687
+   "err_lookup": 0.12631964232468687,
+   "hybrid": 4.5116868149116e-20,
+   "hybrid_paper_omega": 3.5092388705392287e-20,
+   "err_hybrid": 0.15740929678584353,
+   "err_hybrid_paper_omega": 0.048283283159076186
   },
   {
    "ion": "Nd3+",
@@ -2276,7 +2832,11 @@
    "note": "",
    "err_model": 7.669018003110022,
    "err_model_paper_omega": 9.285964041093347,
-   "err_lookup": -5.300000000000001
+   "err_lookup": -5.300000000000001,
+   "hybrid": 23.83324248970689,
+   "hybrid_paper_omega": 23.85347270782404,
+   "err_hybrid": -5.46675751029311,
+   "err_hybrid_paper_omega": -5.446527292175961
   },
   {
    "ion": "Nd3+",
@@ -2308,7 +2868,11 @@
    "note": "TZO 0.5 wt% Nd2O3",
    "err_model": -0.025248731822976375,
    "err_model_paper_omega": null,
-   "err_lookup": -0.09180850996735207
+   "err_lookup": -0.09180850996735207,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2328,7 +2892,11 @@
    "note": "paper's '198 ms' read as us",
    "err_model": -0.023316435104174544,
    "err_model_paper_omega": null,
-   "err_lookup": 0.04079407102912499
+   "err_lookup": 0.04079407102912499,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2348,7 +2916,11 @@
    "note": "",
    "err_model": -0.15999242144847473,
    "err_model_paper_omega": -0.21089636309053703,
-   "err_lookup": -0.12631964232468468
+   "err_lookup": -0.12631964232468468,
+   "hybrid": 3.698769852211661e-20,
+   "hybrid_paper_omega": 3.473451166092133e-20,
+   "err_hybrid": -0.05519198125716892,
+   "err_hybrid_paper_omega": -0.08248809297298809
   },
   {
    "ion": "Nd3+",
@@ -2368,7 +2940,11 @@
    "note": "",
    "err_model": 12.969018003110023,
    "err_model_paper_omega": 15.048843364334061,
-   "err_lookup": 5.300000000000001
+   "err_lookup": 5.300000000000001,
+   "hybrid": 29.462500534148376,
+   "hybrid_paper_omega": 29.28096887032075,
+   "err_hybrid": 5.462500534148376,
+   "err_hybrid_paper_omega": 5.2809688703207485
   },
   {
    "ion": "Nd3+",
@@ -2388,7 +2964,11 @@
    "note": "",
    "err_model": -4.246668077004415,
    "err_model_paper_omega": -4.0228523063901775,
-   "err_lookup": 0.5
+   "err_lookup": 0.5,
+   "hybrid": 1062.473438164046,
+   "hybrid_paper_omega": 1062.473438164046,
+   "err_hybrid": 0.4734381640460015,
+   "err_hybrid_paper_omega": 0.4734381640460015
   },
   {
    "ion": "Nd3+",
@@ -2420,7 +3000,11 @@
    "note": "40P2O5-20Al2O3-35Na2O-5K2O",
    "err_model": 0.21566802147412098,
    "err_model_paper_omega": null,
-   "err_lookup": 0.09691631829313951
+   "err_lookup": 0.09691631829313951,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   },
   {
    "ion": "Nd3+",
@@ -2440,7 +3024,11 @@
    "note": "dilute-limit fit tau_0",
    "err_model": -0.08082951761230334,
    "err_model_paper_omega": null,
-   "err_lookup": null
+   "err_lookup": null,
+   "hybrid": null,
+   "hybrid_paper_omega": null,
+   "err_hybrid": null,
+   "err_hybrid_paper_omega": null
   }
  ]
 }
