@@ -363,3 +363,17 @@ Leave-one-ion-out results (χ² of the held-out ion, handbook → fitted on the 
 
 Final site sets, including 9 % Al₂O₃ as another never-fitted composition, will replace these
 interim results.
+- **Full line shapes for all four silica-family ions** (curve residuals: mean shape z, mean
+  |peak-shift| z; Ho was never fitted):
+
+  | sites / crystal field | Er | Yb | Tm | Ho |
+  |---|---|---|---|---|
+  | random polyhedra, handbook | 2.95 / 0.41 | 4.77 / 0.27 | 3.54 / 2.22 | 3.02 / 0.67 |
+  | MD, handbook | 3.10 / 0.35 | 3.54 / 0.27 | 6.09 / 4.22 | 4.32 / 1.87 |
+  | MD, fitted on all three | 3.17 / 0.61 | 3.63 / 0.27 | 3.58 / 1.67 | 3.16 / 2.00 |
+  | MD, fitted on Er+Yb | 2.95 / 0.47 | 3.35 / 0.27 | 3.82 / 1.67 | 4.07 / 1.42 |
+
+    - Yb shapes improve with MD sites, and Tm peak positions improve with the learned field.
+    - Ho shifts get worse and the Er shapes don't move.
+    - Net: the learned field fixes Stark-level patterns and peak positions it was aimed at, but
+      not whole line shapes across ions.
