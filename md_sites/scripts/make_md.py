@@ -46,8 +46,10 @@ w(f"2. **Distinct Er sites: {S['n_distinct_er']} (main set)" + (f" + {F['n_disti
   ', below the target of ≥ 60.** Each replica holds 8 Er, and 2 cores allowed only 2 rounds of 2 concurrent replicas. '
   '`er_sites` contains 10 frames per Er. These snapshots are thermally correlated (300 K vibrations of the same site), '
   'not independent sites.\n')
+if not F:
+    w('   I had planned two extra fast-quench (20 K/ps) replicas to add sites. I dropped them because the container restart (item 4) cost about 25 min.\n')
 w('3. Coulomb uses DSF instead of Ewald/PPPM (see above).\n')
-w('4. During replicas 3-4 the cloud container was restarted (at about 01:05 UTC), killing both runs part-way through the quench. '
+w('4. During replicas 3-4 the cloud container was restarted (between about 01:04 and 01:12 UTC), killing both runs part-way through the quench. '
   'I restarted them from their restart files written at the end of the 3500 K hold (`hold.restart`, step 70000), '
   'so the full 320 ps quench and the 300 K stage ran uninterrupted after the restart. '
   'Because the restart rebuilt the thermostat chain, the run is not bit-identical to an uninterrupted one, but the protocol is the same.\n')
@@ -72,7 +74,10 @@ w('## Er first shell (main replicas)\n')
 w(f"- r_min (first minimum of the pooled Er-O g(r), 0.1 Å smoothing) = **{S['r_min_ErO']} Å**. "
   f"Er-O first peak {S['ErO_first_peak']} Å.")
 w(f"- CN within r_min: **{S['CN_mean']} ± {S['CN_std']}**, histogram {S['CN_hist']}. "
-  f"CN within 2.5 / 2.6 / 2.8 Å: {S['CN_within_2.5A_mean']} / {S['CN_within_2.6A_mean']} / {S['CN_within_2.8A_mean']}.")
+  f"CN within 2.5 / 2.6 / 2.8 / 3.2 Å: {S['CN_within_2.5A_mean']} / {S['CN_within_2.6A_mean']} / {S['CN_within_2.8A_mean']} / {S['CN_within_3.2A_mean']}. "
+  "The Er-O g(r) has no deep first minimum: after the 2.2 Å peak it falls to a low, flat, noisy tail from 2.6 to 3.3 Å. "
+  "r_min therefore carries an uncertainty of a few tenths of an Å. With 2 replicas it came out at 3.21 Å, with 4 at 2.85 Å. "
+  "The O in that tail are long, weak contacts and add little to the crystal field.")
 w(f"- Er-O over all first-shell ligands: **{S['R_mean']} ± {S['R_std']} Å**. The shortest Er-O per site averages {S['R_shortest_mean']} Å.")
 w(f"- First-shell O types: {S['first_shell_O_types']}, giving an NBO fraction of **{S['nbo_fraction_first_shell']}**. "
   'Most of the NBOs in the glass sit on Er; Er2O3 is their only source.')

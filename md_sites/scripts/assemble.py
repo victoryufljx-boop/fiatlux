@@ -33,13 +33,19 @@ for r in reps:
     try:
         t0 = int(open(os.path.join(r, 't_start')).read()); t1 = int(open(os.path.join(r, 't_end')).read())
         timing[r] = round((t1 - t0) / 60, 1)
+        rf = os.path.join(r, 'resumes.txt')
+        if os.path.exists(rf):
+            tr = int(open(rf).read().split()[-1])
+            timing[r] = f'killed by container restart during quench; resumed from hold.restart (step 70000), resumed run {round((t1 - tr) / 60, 1)} min'
     except Exception:
         pass
 # final-stage temperatures from logs
 Tfin = {}
 for r in reps:
     rows = []
-    for line in open(os.path.join(r, 'log.lammps')):
+    import glob
+    lr = sorted(glob.glob(os.path.join(r, 'log.resume.*')))
+    for line in open(lr[-1] if lr else os.path.join(r, 'log.lammps')):
         p = line.split()
         if len(p) == 5 and p[0].isdigit():
             rows.append([float(x) for x in p])
@@ -51,7 +57,7 @@ summ = ana['summary']
 summ['final_stage_mean_T_K'] = Tfin
 sites = ana['sites']
 import numpy as _np
-for rc in (2.5, 2.6, 2.8):
+for rc in (2.5, 2.6, 2.8, 3.2):
     summ[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in sites])), 3)
 FSITES, FSUMM = [], None
 if FAST:
@@ -59,7 +65,7 @@ if FAST:
     FSITES = fa['sites']; FSUMM = fa['summary']
     FSUMM['note'] = 'replicas ' + ', '.join(FAST) + ': shortened protocol 6000 K 20 ps, 3500 K 20 ps, 3500->300 K at 20 K/ps (160 ps), 300 K 30 ps'
     FSUMM['final_stage_mean_T_K'] = {r: Tfin[r] for r in FAST}
-    for rc in (2.5, 2.6, 2.8):
+    for rc in (2.5, 2.6, 2.8, 3.2):
         FSUMM[f'CN_within_{rc}A_mean'] = round(float(_np.mean([sum(t['r'] < rc for t in s['ligand_tags']) for s in FSITES])), 3)
     summ['final_stage_mean_T_K'] = {r: Tfin[r] for r in reps if r not in FAST}
 SEEDS = {'rep1': 11, 'rep2': 22, 'rep3': 33, 'rep4': 44, 'rep5': 55, 'rep6': 66}
