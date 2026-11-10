@@ -2,26 +2,26 @@
  "summary": {
   "overlap / paper Omega": {
    "n": 11,
-   "median_abs_dex": 0.2374346916619428,
-   "rms_dex": 0.3469940540835414,
+   "median_abs_dex": 0.24664834006164713,
+   "rms_dex": 0.35474335014697794,
    "within_2x": 0.7272727272727273
   },
   "overlap / model defaults": {
    "n": 11,
-   "median_abs_dex": 0.04927112238445946,
-   "rms_dex": 0.20772514138412557,
+   "median_abs_dex": 0.09939611401422485,
+   "rms_dex": 0.2208845050237421,
    "within_2x": 0.8181818181818182
   },
   "decay fit / paper Omega": {
    "n": 2,
-   "median_abs_dex": 0.6518196902262283,
-   "rms_dex": 0.6518231592599297,
+   "median_abs_dex": 0.652164708265337,
+   "rms_dex": 0.6521693917598445,
    "within_2x": 0.0
   },
   "decay fit / model defaults": {
    "n": 2,
-   "median_abs_dex": 0.6382675534146782,
-   "rms_dex": 0.6383875911655081,
+   "median_abs_dex": 0.6386125721236495,
+   "rms_dex": 0.6387393249969014,
    "within_2x": 0.0
   }
  },
@@ -33,9 +33,9 @@
    "kind": "overlap",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), Table 4",
    "paper Omega": {
-    "model_cm6_s": 7.825874763771292e-39,
-    "ratio": 1.727566173017945,
-    "log10_ratio": 0.2374346916619428,
+    "model_cm6_s": 7.825903242829566e-39,
+    "ratio": 1.7275724597857762,
+    "log10_ratio": 0.2374362720955336,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -44,9 +44,9 @@
     ]
    },
    "model defaults": {
-    "model_cm6_s": 4.469346418432859e-39,
-    "ratio": 0.9866106883957745,
-    "log10_ratio": -0.005854183941624168,
+    "model_cm6_s": 4.469358905195578e-39,
+    "ratio": 0.9866134448555359,
+    "log10_ratio": -0.005852970581982137,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -62,9 +62,9 @@
    "kind": "overlap",
    "src": "Huang, Liu, Hu & Chen, Sci. Rep. 4, 5053 (2014), Table 4",
    "paper Omega": {
-    "model_cm6_s": 7.040762871043224e-39,
-    "ratio": 1.7646022233191037,
-    "log10_ratio": 0.2466468220824901,
+    "model_cm6_s": 7.040787480496973e-39,
+    "ratio": 1.7646083911019983,
+    "log10_ratio": 0.24664834006164713,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -73,9 +73,9 @@
     ]
    },
    "model defaults": {
-    "model_cm6_s": 4.469346418432859e-39,
-    "ratio": 1.1201369469756537,
-    "log10_ratio": 0.04927112238445946,
+    "model_cm6_s": 4.469358905195578e-39,
+    "ratio": 1.1201400764901197,
+    "log10_ratio": 0.049272335744101496,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -91,9 +91,9 @@
    "kind": "overlap",
    "src": "Han et al., Sci. Rep. 6, 31207 (2016), Table 4 (BGN, bismuth germanate)",
    "paper Omega": {
-    "model_cm6_s": 6.504682551778006e-39,
-    "ratio": 1.8374809468299451,
-    "log10_ratio": 0.2642228445020729,
+    "model_cm6_s": 6.505699920400756e-39,
+    "ratio": 1.8377683390962585,
+    "log10_ratio": 0.26429076526931655,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -102,9 +102,9 @@
     ]
    },
    "model defaults": {
-    "model_cm6_s": 3.4233989628296034e-39,
-    "ratio": 0.9670618539066675,
-    "log10_ratio": -0.014545747270410813,
+    "model_cm6_s": 3.4237776921460313e-39,
+    "ratio": 0.9671688395892744,
+    "log10_ratio": -0.014497704095620536,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -149,22 +149,22 @@
    "kind": "overlap",
    "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
    "paper Omega": {
-    "model_cm6_s": 1.3080566645716653e-38,
-    "ratio": 1.0299658776154845,
-    "log10_ratio": 0.012822836929659185,
+    "model_cm6_s": 1.3127209891769224e-38,
+    "ratio": 1.033638574155057,
+    "log10_ratio": 0.014368708303958817,
     "phonon_fractions": [
-     0.997,
+     0.993,
      0.003,
      0.0,
      0.0
     ]
    },
    "model defaults": {
-    "model_cm6_s": 1.4129610977355536e-38,
-    "ratio": 1.112567793492562,
-    "log10_ratio": 0.04632648387111467,
+    "model_cm6_s": 1.4175295359798733e-38,
+    "ratio": 1.1161649889605303,
+    "log10_ratio": 0.047728395765558235,
     "phonon_fractions": [
-     0.997,
+     0.994,
      0.003,
      0.0,
      0.0
@@ -178,9 +178,9 @@
    "kind": "overlap",
    "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
    "paper Omega": {
-    "model_cm6_s": 5.384078191007011e-39,
-    "ratio": 0.9445751212293002,
-    "log10_ratio": -0.024763497310155858,
+    "model_cm6_s": 5.384396366483609e-39,
+    "ratio": 0.9446309414883525,
+    "log10_ratio": -0.024737833163750368,
     "phonon_fractions": [
      0.683,
      0.317,
@@ -189,9 +189,9 @@
     ]
    },
    "model defaults": {
-    "model_cm6_s": 5.4172145945301904e-39,
-    "ratio": 0.9503885253561738,
-    "log10_ratio": -0.022098815844130752,
+    "model_cm6_s": 5.417469478449903e-39,
+    "ratio": 0.9504332418333163,
+    "log10_ratio": -0.022078382450940542,
     "phonon_fractions": [
      0.672,
      0.328,
@@ -207,22 +207,22 @@
    "kind": "overlap",
    "src": "Gebavi et al., J. Lumin. 132, 270 (2012) (75TeO2-20ZnO-5Na2O), Tables 6 and 8 (m^6/s x 1e12)",
    "paper Omega": {
-    "model_cm6_s": 1.6900914681093062e-40,
-    "ratio": 1.126727645406204,
-    "log10_ratio": 0.05181895030366338,
+    "model_cm6_s": 2.666494291851034e-40,
+    "ratio": 1.7776628612340226,
+    "log10_ratio": 0.24984939927251432,
     "phonon_fractions": [
-     1.0,
+     0.634,
      0.0,
      0.0,
      0.0
     ]
    },
    "model defaults": {
-    "model_cm6_s": 1.6733023236919775e-40,
-    "ratio": 1.1155348824613183,
-    "log10_ratio": 0.04748315509821306,
+    "model_cm6_s": 2.687845745833326e-40,
+    "ratio": 1.7918971638888839,
+    "log10_ratio": 0.25331308209110937,
     "phonon_fractions": [
-     1.0,
+     0.623,
      0.0,
      0.0,
      0.0
@@ -352,9 +352,9 @@
    "kind": "overlap",
    "src": "Sontakke, Biswas, Mandal & Annapurna (CGCRI), Nd Ba-Al-metaphosphate, Table 3 (CORE 228425814)",
    "paper Omega": {
-    "model_cm6_s": 4.433685368215789e-39,
-    "ratio": 1.2667672480616539,
-    "log10_ratio": 0.10269682627394087,
+    "model_cm6_s": 4.433685400718707e-39,
+    "ratio": 1.266767257348202,
+    "log10_ratio": 0.1026968294577117,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -363,9 +363,9 @@
     ]
    },
    "model defaults": {
-    "model_cm6_s": 4.400116296488856e-39,
-    "ratio": 1.2571760847111018,
-    "log10_ratio": 0.09939611083043724,
+    "model_cm6_s": 4.400116328745853e-39,
+    "ratio": 1.2571760939273866,
+    "log10_ratio": 0.09939611401422485,
     "phonon_fractions": [
      1.0,
      0.0,
@@ -381,22 +381,22 @@
    "kind": "decay fit",
    "src": "Sontakke, Biswas, Mandal & Annapurna (CGCRI), Nd Ba-Al-metaphosphate, Table 3 (CORE 228425814)",
    "paper Omega": {
-    "model_cm6_s": 2.4791851893750584e-41,
-    "ratio": 4.507609435227379,
-    "log10_ratio": 0.6539462792742938,
+    "model_cm6_s": 2.4831274153887455e-41,
+    "ratio": 4.514777118888628,
+    "log10_ratio": 0.6546363153525111,
     "phonon_fractions": [
-     1.0,
+     0.998,
      0.0,
      0.0,
      0.0
     ]
    },
    "model defaults": {
-    "model_cm6_s": 2.460421608625766e-41,
-    "ratio": 4.473493833865029,
-    "log10_ratio": 0.6506468430607348,
+    "model_cm6_s": 2.464334005714388e-41,
+    "ratio": 4.480607283117069,
+    "log10_ratio": 0.6513368804786775,
     "phonon_fractions": [
-     1.0,
+     0.998,
      0.0,
      0.0,
      0.0

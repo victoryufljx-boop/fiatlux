@@ -793,3 +793,32 @@ each glass's measured Ω. Compared: slope of the peak cross section (%/K).
   - T¹ fits best, but that was chosen after seeing the data.
 - **Not adopted.** The default stays a constant width (`GAINMAT_GAMMA_T_EXP` switches the law). The
   physically right fix is a two-part width: a static part plus a dynamic part ∝ T².
+
+### 5.4 Device-level energy-transfer rates predicted from spectra (`scripts/validate_transfer_rates.py`)
+
+**Method.** The macroscopic rate-equation coefficients (cm³/s) of Er:ZBLAN measured by Golding,
+Jackson, King & Pollnau, PRB 62, 856 (2000), Table I (2–14e20 cm⁻³), compared with fully
+predictive values:
+- C_DA and C_DD from the model's own spectra; phonon absorption is now included as well as
+  emission, as the standard Miyakawa–Dexter form requires;
+- k = k_hop + k_dir, where k_hop = π(2π/3)^{5/2} √(C_DA C_DD) N (Burshtein migration-assisted) and
+  k_dir = (4/3) π^{3/2} √(C_DA / τ_D) (direct Förster, as a rate), with τ_D the model's own lifetime;
+- the cross-relaxation uses Golding's lumped thermalised ⁴S₃/₂ + ²H₁₁/₂ pair: channel a through the
+  ²H₁₁/₂ Boltzmann share, plus phonon-absorbing channel b.
+
+| process | model / measured at 0.4 / 2 / 8 / 14e20 cm⁻³ |
+|---|---|
+| upconversion ⁴I₁₃/₂+⁴I₁₃/₂ (the key Er device process) | — / 0.60 / 0.93 / 0.66 |
+| upconversion ⁴I₁₁/₂+⁴I₁₁/₂ | — / 0.75 / 0.33 / 0.26 |
+| ⁴S₃/₂/²H₁₁/₂ cross-relaxation | 0.46 / 0.52 / 0.19 / 0.17 |
+
+**Results.**
+- All 10 values are between 0.17× and 0.93×; median error 0.31 dex (a factor of 2), with nothing
+  fitted.
+- The direct term matters: hopping alone gives 0.01–0.07× for the cross-relaxation, whose measured
+  coefficient is concentration-independent at low N.
+- The remaining shortfall is systematic (always low, worse at high N). That points to processes
+  not modelled: dipole–quadrupole terms, clustering, or diffusion-limited transfer. No factor was
+  tuned.
+- Also updated: `validate_transfer.py` after adding phonon absorption. 9/11 published overlap values
+  remain within 2× (median 0.10 dex, rms 0.22).

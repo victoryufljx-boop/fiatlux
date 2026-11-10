@@ -25,7 +25,7 @@ KB_CM = 0.6950348
 
 
 def c_da(ion, family, donor, acceptor, S0=0.31, hw=None, m_max=3, T=295.0, n_sites=60, overrides=None,
-         ion_acceptor=None, spec=None, spec_acceptor=None):
+         ion_acceptor=None, spec=None, spec_acceptor=None, absorb_phonons=True):
     """donor = (upper, lower) emitting transition of the donor; acceptor = (upper, lower) transition
     whose ABSORPTION (lower -> upper) the acceptor makes.  Returns dict(total, per_m, fractions)."""
     if spec is None:
@@ -40,16 +40,23 @@ def c_da(ion, family, donor, acceptor, S0=0.31, hw=None, m_max=3, T=295.0, n_sit
     nuA = spec_acceptor["nu"]; sa = spec_acceptor["sigma_abs"][acceptor]
     nbar = 1.0 / (math.exp(hw / (KB_CM * T)) - 1.0)
     pref = 3 * C_CGS / (8 * math.pi ** 4 * n ** 2)
+    up_terms = []
     per_m = []
     for m in range(m_max + 1):
         w = math.exp(-(2 * nbar + 1) * S0) * S0 ** m * (nbar + 1) ** m / math.factorial(m)
         # the donor's surplus energy goes into m emitted phonons: acceptor absorption at nu_A = nu - m hw
         sa_m = np.interp(nu - m * hw, nuA, sa, left=0.0, right=0.0)
+        if m > 0 and absorb_phonons:   # deficit made up by m absorbed phonons (thermally populated, nbar^m)
+            wa = math.exp(-(2 * nbar + 1) * S0) * S0 ** m * nbar ** m / math.factorial(m)
+            sa_up = np.interp(nu + m * hw, nuA, sa, left=0.0, right=0.0)
+            integ_up = float(np.trapezoid(se * sa_up / nu ** 2, nu)) if hasattr(np, "trapezoid") else float(np.trapz(se * sa_up / nu ** 2, nu))
+            up_terms.append(pref * wa * abs(integ_up))
         # integral over lambda (cm): d lambda = d nu / nu^2 (nu in cm^-1, lambda = 1/nu cm)
         integ = float(np.trapezoid(se * sa_m / nu ** 2, nu)) if hasattr(np, "trapezoid") else float(np.trapz(se * sa_m / nu ** 2, nu))
         per_m.append(pref * w * abs(integ))
-    tot = float(sum(per_m))
-    return dict(total=tot, per_m=per_m, fractions=[p / tot if tot else 0.0 for p in per_m], n=n, hw=hw, S0=S0)
+    tot = float(sum(per_m) + sum(up_terms))
+    return dict(total=tot, per_m=per_m, per_m_absorbed=up_terms,
+                fractions=[p / tot if tot else 0.0 for p in per_m], n=n, hw=hw, S0=S0)
 
 
 # Standard single-ion-species processes: (label, donor emission (u, l), acceptor absorption (u, l)).
