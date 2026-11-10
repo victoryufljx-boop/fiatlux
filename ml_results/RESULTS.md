@@ -922,3 +922,13 @@ geometric-mean Ω of the same ion and family from other papers (still leave-one-
 - Measured lifetimes stay the weakest quantity (0.27–0.32 dex vs 0.17 for lookup): they carry each
   sample's concentration and OH quenching.  §5.8 covers the cross-relaxation part when N is known;
   OH/defect quenching is not modelled.
+
+### 5.10 Wider inhomogeneous width in multi-component glasses: tested, not adopted
+
+Measured Er ⁴I₁₃/₂ emission FWHMs in tellurite/germanate/phosphate/chalcogenide (44–88 nm) are wider
+than the model's (21–52 nm).  Raising the per-site nephelauxetic scatter from 0.27% (set on Er in
+Al-silica at 4 K) to 0.8% fixes the Er numbers it was chosen on (FWHM median error 28 → 16 nm,
+σ_em 0.076 → 0.056 dex) but not the held-out ions (Tm/Ho/Nd/Pr/Dy/Yb in non-silicate glasses):
+FWHM unchanged (33.5 nm, n = 10), σ_em worse (0.187 → 0.209 dex), absorption peak worse (2.5 →
+2.9 nm).  Kept at 0.27%.  Part of the FWHM gap is definitional: papers quote the width of the whole
+multi-peak band (Yb: 83 nm vs the model's 9 nm zero-line peak).
