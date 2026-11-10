@@ -822,3 +822,69 @@ predictive values:
   tuned.
 - Also updated: `validate_transfer.py` after adding phonon absorption. 9/11 published overlap values
   remain within 2× (median 0.10 dex, rms 0.22).
+
+### 5.5 Data from open-access papers, collected by extraction agents (`gainmat/refs/data/`, `refs/oa_agent_data.py`)
+
+Five background agents read open-access full texts (arXiv, MDPI, Sci. Rep., RSC Adv., university
+repositories) and wrote one JSON record per measured value, each with citation, URL read and notes.
+Committed to the repo as numbers + citations only.  `oa_agent_data.py` validates every record (glass
+family, quantity, multiplet labels against the ion model, value range), drops papers already in the
+hand-collected set and abstract-only entries.
+
+| file | records | content |
+|---|---|---|
+| `oa_records.jsonl` | 355 (351 used) | peaks, widths, cross sections, Ω, τrad, τ, n for Er/Yb/Nd/Tm/Ho/Pr/Dy in all ten families, incl. 69 fibre-host records (Melkumov Yb, Simpson thesis Tm, Le Gouët Ho …) |
+| `et_records.jsonl` | 31 | published Förster–Dexter microparameters (overlap and decay-fit) |
+| `et_macro_records.jsonl` | 46 | lifetime-vs-concentration series and cross-relaxation coefficients (Taher Tm tellurite, Pugliese Er phosphate …) |
+| `stark_records.jsonl` | 23 | measured Stark levels / zero-line energies in glass (Faure Tm, Melkumov Yb, Peretti/Staudt Er) |
+
+Access limits: Optica pages (bot check), PMC captchas and a shared web-search budget capped the
+yield; Optica-journal papers are under-represented.
+
+### 5.6 Energy-transfer microparameters on 44 published values (`scripts/validate_transfer.py`)
+
+Hand-collected 13 + agent 31 values, all predicted from the model's own spectra (model defaults):
+- overlap integrals of measured spectra, n = 36: median error 0.21 dex, rms 0.36, 69% within 2×
+  (unflagged subset similar);
+- microparameters fitted to measured decays, n = 8: median 0.56 dex, 38% within 2×; real glasses
+  quench faster than the dipole–dipole floor (clustering, multipolar terms).
+`predict()` now quotes both numbers with the transfer parameters.
+
+### 5.7 Stark structure vs measured levels in glass (`scripts/validate_stark_agent.py`)
+
+Pure prediction (anchors off) vs the agents' glass records: zero-line energies E0 of the lowest
+excited level, n = 8: median |error| 65 cm⁻¹ (Er ⁴I₁₃/₂ in Al/Ge-silica +15/+19 cm⁻¹; Tm ³H₄ in
+Al/P/Ge-silica −73/−42/−128 cm⁻¹; Yb ²F₅/₂ +62/+92 cm⁻¹; Tm ³F₄ germanate +69 cm⁻¹).  Total
+splittings, n = 7: median model/measured 0.91, 71% within 25% (Yb ²F₇/₂ Al-silica 0.69 against a
+1210 cm⁻¹ Gaussian-decomposition value; Er chalcogenide 0.5 against a three-band deconvolution).
+The Tm ³H₄ level sits 40–130 cm⁻¹ too low in silicates — the same direction as the Tm band-position
+bias already flagged in `predict()`.
+
+### 5.8 New capability: lifetime vs concentration (`gainmat/forward/quenching.py`, `scripts/validate_quenching.py`)
+
+Levels with a cross-relaxation channel (Tm ³H₄, Nd ⁴F₃/₂, Pr ¹D₂, Ho ⁵S₂) quench with dopant
+concentration N.  Prediction with nothing fitted: decay I(t) = exp(−t/τ0 − γ√t − Wt), static
+Inokuti–Hirayama γ = (4/3)π^{3/2} N √C_CR plus Burshtein hopping W = π(2π/3)^{5/2} √(C_CR C_mig) N²,
+with C_CR and C_mig from the model's spectra (§5.6) and τ0 the model's own lifetime; reported τ is
+∫I dt.
+
+Test: Tm ³H₄ in 75TeO₂–20ZnO–5Na₂O (Taher, PhD thesis, Swansea 2011; six glasses 0.82–9.06e20 cm⁻³,
+τ falling 317 → 12 µs).
+
+| N (1e20 cm⁻³) | 0.82 | 1.65 | 2.28 | 4.87 | 6.84 | 9.06 |
+|---|---|---|---|---|---|---|
+| measured τ (µs) | 317 | 220 | 130 | 34 | 19.9 | 12 |
+| model, fully predictive | 146 | 100 | 75 | 27 | 15 | 9 |
+| model, τ0 = most dilute measured | 211 | 130 | 91 | 29 | 15.7 | 9.2 |
+
+- Median error 0.18 dex fully predictive, 0.13 dex given τ0.  At ≥ 4.9e20 cm⁻³ the predicted quench
+  rate is 1.16–1.30× the measured one — the cross-relaxation physics is right to ~25%.
+- At low N the model quenches ~2× too fast (part of this is using the slightly quenched 0.82e20
+  sample as τ0); the fully predictive τ0 (199 µs vs ~330 µs) is the larger error.
+- Outside the model, shown for honesty: Er ⁴I₁₃/₂ in phosphate (Pugliese 2015, 7.0 → 2.1 ms over
+  0.02–13.7e20 cm⁻³) and Tm ³F₄ in the same tellurite (2.5 → 0.07 ms) quench by migration to OH⁻ and
+  defects; the model, which has no impurity concentration, predicts them flat.
+- `predict(ion, family, N_cm3=...)` now returns this self-quenched lifetime.
+
+Also: the ion models are now cached on disk (`ions.get_ion`): building the 4f⁹ (Dy) model peaked at
+2.8 GB and killed the benchmark twice; the cached model peaks at 0.45 GB.
